@@ -1,11 +1,8 @@
 <head>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<script src="//rawgit.com/bpampuch/pdfmake/master/build/pdfmake.min.js"></script>
+<script src='//rawgit.com/bpampuch/pdfmake/master/build/vfs_fonts.js'></script>
 <script>
-    // Default export is a4 paper, portrait, using milimeters for units
-    var sheet = new jsPDF()
-
-    sheet.text('Hello world!', 10, 10)
-    //sheet.save('Sheet.pdf')
+var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
 </script>
 </head>
 <body>
