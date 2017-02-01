@@ -2,7 +2,8 @@
 <script src="//rawgit.com/bpampuch/pdfmake/master/build/pdfmake.min.js"></script>
 <script src='//rawgit.com/bpampuch/pdfmake/master/build/vfs_fonts.js'></script>
 <script>
-var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    var docDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    pdfMake.createPdf(docDefinition).download();
 </script>
 </head>
 <body>
