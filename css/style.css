@@ -23,10 +23,12 @@ body {
 }
 .attrBg {
     content: url('../img/AttributeBlock.svg');
+    position: relative;
     z-index: 1;
 }
 .attrTxt {
     z-index: 2;
+    position: relative;
     font-size: 1.4rem;
     text-align: center;
 }
