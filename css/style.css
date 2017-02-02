@@ -16,6 +16,8 @@ body {
 
 .attr {
     position: absolute;
+    top: 20%;
+    left: 4%;
     width: 11.23%;
     height: 13.58%;
 }
