@@ -4,8 +4,8 @@ body {
 
 .page {
 	position: relative;
-	width: 595px;
-	height: 842px;
+	width: 100vw;
+	height: 141.42vw;
 	background-color: white;
 }
 
