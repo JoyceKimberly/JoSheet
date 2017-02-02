@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JoSheet</title>
+    <script type="text/javascript" src="js/AttributeBlock.js"></script>
+    <script>
+        window.onload = function() {
+            AttributeBlock.drawAttribute_Block('mainCanvas');
+        };
+    </script>
 </head>
-<body>
+<body style="margin: 0px;">
+    <canvas id="mainCanvas" width="53" height="62"></canvas>
 </body>
+</html>
