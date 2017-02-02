@@ -14,23 +14,25 @@ body {
     background-color: white;
 }
 
+.attr .attrTxt {
+    width: 11.23%;
+    height: 13.58%;
+}
 .attr {
     position: relative;
     top: 20%;
     left: 4%;
-    width: 11.23%;
-    height: 13.58%;
-    font-size: 1.4rem;
-    text-align: center;
 }
 .attrBg {
     content: url('../img/AttributeBlock.svg');
+    z-index: 1;
     position: absolute;
     top: 0;
-    z-index: 1;
 }
 .attrTxt {
     z-index: 2;
     position: absolute;
     top: 0;
+    font-size: 1.4rem;
+    text-align: center;
 }
