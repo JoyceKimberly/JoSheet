@@ -19,12 +19,10 @@ body {
     width: 11.23%;
     height: 13.58%;
 }
-
 .attrBg {
     content: url('../img/AttributeBlock.svg');
     z-index: 1;
 }
-
 .attrTxt {
     z-index: 2;
     font-size: 1.4rem;
