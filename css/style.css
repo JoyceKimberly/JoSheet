@@ -15,24 +15,26 @@ body {
 }
 
 .attr {
+    width: 11.23vw;
+    height: 13.58vw;
     position: relative;
     top: 20vw;
     left: 4vw;
 }
 .attrBg {
+    width: 11.23vw;
+    height: 13.58vw;
     content: url('../img/AttributeBlock.svg');
     z-index: 1;
     position: absolute;
     top: 0;
 }
 .attrTxt {
+    width: 11.23vw;
+    height: 13.58vw;
     z-index: 2;
     position: absolute;
     top: 0;
     font-size: 1.4rem;
     text-align: center;
-}
-.attr .attrBg .attrTxt {
-    width: 11.23vw;
-    height: 13.58vw;
 }
