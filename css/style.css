@@ -20,6 +20,8 @@ body {
     left: 4%;
     width: 11.23%;
     height: 13.58%;
+    font-size: 1.4rem;
+    text-align: center;
 }
 .attrBg {
     content: url('../img/AttributeBlock.svg');
@@ -31,6 +33,4 @@ body {
     z-index: 2;
     position: absolute;
     top: 0;
-    font-size: 1.4rem;
-    text-align: center;
 }
