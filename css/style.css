@@ -1,0 +1,17 @@
+body {
+	background-color: #ececec;
+}
+
+.page {
+	width: 595px;
+	height: 842px;
+	background-color: white;
+}
+
+.attribute {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('../img/AttributeBlock.svg');
+	width: 53px;
+	height: 62px;
+}
