@@ -15,7 +15,7 @@ body {
 }
 
 .attr {
-    position: absolute;
+    position: relative;
     top: 20%;
     left: 4%;
     width: 11.23%;
@@ -23,13 +23,13 @@ body {
 }
 .attrBg {
     content: url('../img/AttributeBlock.svg');
-    position: relative;
+    position: absolute;
     top: 0;
     z-index: 1;
 }
 .attrTxt {
     z-index: 2;
-    position: relative;
+    position: absolute;
     top: 0;
     font-size: 1.4rem;
     text-align: center;
