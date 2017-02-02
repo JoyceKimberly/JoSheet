@@ -34,7 +34,7 @@ body {
     height: 13.58vw;
     z-index: 2;
     position: absolute;
-    top: 0;
+    top: 0.6vw;
     font-size: 1.4rem;
     text-align: center;
 }
