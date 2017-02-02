@@ -18,7 +18,9 @@ body {
 
 .attrBg {
 	content: url('../img/AttributeBlock.svg');
+    z-index: 1;
 }
 
 .attrTxt {
+    z-index: 2;
 }
