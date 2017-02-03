@@ -33,6 +33,7 @@ body {
     top: 0;
 }
 .attrTxt {
+    width: 100%;
     z-index: 2;
     position: absolute;
     top: 0.6%;
