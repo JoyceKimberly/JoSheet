@@ -32,11 +32,7 @@ $(".attrTxt").css({
 });
 
 
-interact('.draggable').draggable({
-    restrict: {
-        restriction: "#page",
-    }
-});
+interact('.draggable').draggable();
 
 });
 })(jQuery);
