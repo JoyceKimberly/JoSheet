@@ -8,8 +8,10 @@ body {
 }
 
 .container {
-    width: 100vw;
-    height: 141.42vw;
+    //width: 100vw;
+    //height: 141.42vw;
+    width: 595px;
+    height: 842px;
 }
 
 .page {
