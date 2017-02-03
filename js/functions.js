@@ -37,7 +37,7 @@ $(".attrBlock.cha").css({
 });
 
 
-interact('.draggable').draggable();
+interact('.draggable').draggable(true);
 
 });
 })(jQuery);
