@@ -36,6 +36,7 @@ $(".attrTxt").css({
     "top": ((6*width)/pxWidth),
     "font-size": ((10*width)/pxWidth),
 });
+$(".attrTxt").text(vw);
 
 
 interact('.draggable').draggable();
