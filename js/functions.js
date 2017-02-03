@@ -4,10 +4,12 @@ var ratio = Math.sqrt(2);
 var vw = document.documentElement.clientWidth;
 var pxWidth = 595;
 var width = /*pxWidth*/ vw-20;
+var edge = 0.25*72
 
-$("#page").css({
+$(".container").css({
     width: width,
     height: width*ratio,
+    padding: edge,
 });
 
 $(".attrBlock").css({
