@@ -8,17 +8,17 @@ var edge = (18*width)/pxWidth;
 
 $(".container").css({
     "width": width,
-    "height": (width*ratio),
+    "height": width*ratio,
     "padding": edge,
 });
 $(".page").css({
-    "width": (width-(edge*2)),
-    "height": ((width*ratio)-(edge*2)),
+    "width": width-(edge*2),
+    "height": (width*ratio)-(edge*2),
 });
 
 $(".attrBlock").css({
-    "width": ((54*width)/pxWidth),
-    "height": ((64*width)/pxWidth),
+    "width": (54*width)/pxWidth,
+    "height": (64*width)/pxWidth,
     "left": ((22*width)/pxWidth)-edge,
 });
 $(".attrBg").css({
@@ -33,8 +33,8 @@ $(".attrBlock.cha").css({
     "top": ((484*width)/pxWidth)-edge,
 });
 $(".attrTxt").css({
-    "top": ((6*width)/pxWidth),
-    "font-size": ((10*width)/pxWidth),
+    "top": (6*width)/pxWidth,
+    "font-size": (10*width)/pxWidth,
 });
 $(".attrTxt").text(vw);
 
