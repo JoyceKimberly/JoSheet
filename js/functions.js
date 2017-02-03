@@ -32,6 +32,11 @@ $(".attrTxt").css({
 });
 
 
-} );
+interact(".attrBlock").draggable({
+    restrict: {
+        restriction: "#page",
+    }
+});
 
+} );
 })(jQuery);
