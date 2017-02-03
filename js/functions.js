@@ -12,7 +12,7 @@ $(".container").css({
 });
 $(".page").css({
     width: width-(edge*2),
-    height: (width*ratio)-(edge*2)
+    height: (width*ratio)-(edge*2),
 });
 
 $(".attrBlock").css({
@@ -33,7 +33,7 @@ $(".attrBlock.cha").css({
 });
 $(".attrTxt").css({
     top: (6*width)/pxWidth,
-    fontSize: (10*width)/pxWidth,
+    "font-size": (10*width)/pxWidth,
 });
 
 
