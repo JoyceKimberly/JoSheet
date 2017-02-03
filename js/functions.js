@@ -2,8 +2,7 @@
 
 var ratio = Math.sqrt(2);
 var vw = document.documentElement.clientWidth;
-var pxWidth = 595;
-var width = /*pxWidth*/ vw-20;
+var width = /* 595 */ vw-20;
 var edge = 0.25*72
 
 $(".container").css({
