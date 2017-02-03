@@ -1,10 +1,9 @@
 (function($) { $(document).ready(function() {
 
 var ratio = Math.sqrt(2);
-var vw = document.body.clientWidth;
-var newVw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 var pxWidth = 595;
-var width = newVw-20;
+var width = vw-20;
 var edge = (18*width)/pxWidth;
 
 $(".container").css({
