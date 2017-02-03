@@ -4,12 +4,11 @@ var ratio = Math.sqrt(2);
 var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 var pxWidth = 595;
 var width = vw-20;
-var edge = (18*width)/pxWidth;
+var edge = (20*width)/pxWidth;
 
 $(".container").css({
     "width": width,
     "height": width*ratio,
-    /*"padding": edge,*/
 });
 $(".page").css({
     "width": $(".container").width()-(edge*2),
@@ -29,14 +28,12 @@ $(".attrBg").css({
 });
 $(".attrTxt").css({
     "width": $(".attrBlock").width(),
+    "top": (6*width)/pxWidth,
+    "font-size": (10*width)/pxWidth,
 });
 
 $(".attrBlock.cha").css({
     "top": ((484*width)/pxWidth)-edge,
-});
-$(".attrTxt").css({
-    "top": (6*width)/pxWidth,
-    "font-size": (10*width)/pxWidth,
 });
 
 
