@@ -12,8 +12,8 @@ $(".container").css({
     "padding": edge,
 });
 $(".page").css({
-    "width": (width-(edge*2)),
-    "height": ((width*ratio)-(edge*2)),
+    /*"width": (width-(edge*2)),
+    "height": ((width*ratio)-(edge*2)),*/
 });
 
 $(".attrBlock").css({
