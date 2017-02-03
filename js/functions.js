@@ -4,7 +4,7 @@ var ratio = Math.sqrt(2);
 var vw = document.body.clientWidth;
 var pxWidth = 595;
 var width = vw-20;
-var edge = ((18*width)/pxWidth),
+var edge = (18*width)/pxWidth,
 
 $(".container").css({
     "width": width,
