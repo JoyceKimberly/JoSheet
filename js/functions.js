@@ -3,7 +3,7 @@
 var ratio = Math.sqrt(2);
 var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 var pxWidth = 595;
-var width = vw-20;
+var width = /*vw-20*/ 595;
 var edge = (18*width)/pxWidth;
 
 $(".container").css({
@@ -36,7 +36,7 @@ $(".attrTxt").css({
     "top": (6*width)/pxWidth,
     "font-size": (10*width)/pxWidth,
 });
-$(".attrTxt").text(vw);
+$(".attrTxt").text(width);
 
 
 interact('.draggable').draggable();
