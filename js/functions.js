@@ -4,7 +4,7 @@ var ratio = Math.sqrt(2);
 var vw = document.body.clientWidth;
 var pxWidth = 595;
 var width = vw-20;
-var edge = 0.25*72
+var edge = ((18*width)/pxWidth),
 
 $(".container").css({
     "width": width,
@@ -12,9 +12,8 @@ $(".container").css({
     "padding": edge,
 });
 $(".page").css({
-    /*"width": (width-(edge*2)),
-    "height": ((width*ratio)-(edge*2)),*/
-    "width": 557,
+    "width": (width-(edge*2)),
+    "height": ((width*ratio)-(edge*2)),
 });
 
 $(".attrBlock").css({
