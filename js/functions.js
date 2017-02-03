@@ -9,7 +9,7 @@ var edge = (18*width)/pxWidth;
 $(".container").css({
     "width": width,
     "height": width*ratio,
-    "padding": edge,
+    /*"padding": edge,*/
 });
 $(".page").css({
     "width": $(".container").width()-(edge*2),
