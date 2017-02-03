@@ -14,6 +14,8 @@ $(".container").css({
 $(".page").css({
     "width": $(".container").width()-(edge*2),
     "height": $(".container").height()-(edge*2),
+    "top": edge,
+    "left": edge,
 });
 
 $(".attrBlock").css({
@@ -36,7 +38,6 @@ $(".attrTxt").css({
     "top": (6*width)/pxWidth,
     "font-size": (10*width)/pxWidth,
 });
-$(".attrTxt").text(width);
 
 
 interact('.draggable').draggable();
