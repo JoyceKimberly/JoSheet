@@ -1,6 +1,10 @@
+html {
+    overflow-y: scroll;
+}
 body {
     background-color: #ececec;
-    margin: 10px;
+    margin: 0;
+    padding: 10px;
 }
 
 #page {
@@ -11,10 +15,6 @@ body {
 .attrBlock {
     z-index: 2;
     position: relative;
-    left: 22px;
-}
-.attrBlock.cha {
-    top: 484px;
 }
 .attrBg {
     z-index: 1;
@@ -27,7 +27,5 @@ body {
 .attrTxt {
     z-index: 2;
     position: absolute;
-    top: 6px;
-    font-size: 10px;
     text-align: center;
 }
