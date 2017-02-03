@@ -1,4 +1,4 @@
-(function($) { $(document).ready( function() {
+(function($) { $(document).ready(function() {
 
 var ratio = Math.sqrt(2);
 var vw = document.documentElement.clientWidth;
@@ -13,7 +13,7 @@ $("#page").css({
 $(".attrBlock").css({
     width: (54*width)/pxWidth,
     height: (64*width)/pxWidth,
-    left: (22*width)/pxWidth,
+    /*left: (22*width)/pxWidth,*/
 });
 $(".attrBg").css({
     width: $(".attrBlock").width(),
@@ -24,7 +24,7 @@ $(".attrTxt").css({
 });
 
 $(".attrBlock.cha").css({
-    top: (484*width)/pxWidth,
+    /*top: (484*width)/pxWidth,*/
 });
 $(".attrTxt").css({
     top: (6*width)/pxWidth,
@@ -38,5 +38,5 @@ interact(".attrBlock").draggable({
     }
 });
 
-} );
+});
 })(jQuery);
