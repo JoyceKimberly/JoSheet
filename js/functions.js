@@ -1,7 +1,7 @@
 (function($) { $(document).ready(function() {
 
 var ratio = Math.sqrt(2);
-var vw = document.documentElement.clientWidth;
+var vw = document.body.clientWidth;
 var width = /* 595 */ vw-20;
 var edge = 0.25*72
 
