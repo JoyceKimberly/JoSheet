@@ -11,6 +11,10 @@ $(".container").css({
     height: width*ratio,
     padding: edge,
 });
+$(".page").css({
+    width: width-(edge*2),
+    height: (width*ratio)-(edge*2)
+});
 
 $(".attrBlock").css({
     width: (54*width)/pxWidth,
