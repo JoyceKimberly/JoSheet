@@ -14,7 +14,7 @@ $(".container").css({
 $(".page").css({
     /*"width": (width-(edge*2)),
     "height": ((width*ratio)-(edge*2)),*/
-    "width": 250,
+    "width": 595-20-edge,
 });
 
 $(".attrBlock").css({
