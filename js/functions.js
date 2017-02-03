@@ -19,7 +19,7 @@ $(".page").css({
 $(".attrBlock").css({
     "width": ((54*width)/pxWidth),
     "height": ((64*width)/pxWidth),
-    "left": ((22*width)/pxWidth),
+    "left": ((22*width)/pxWidth)-edge,
 });
 $(".attrBg").css({
     "width": $(".attrBlock").width(),
@@ -30,7 +30,7 @@ $(".attrTxt").css({
 });
 
 $(".attrBlock.cha").css({
-    "top": ((484*width)/pxWidth),
+    "top": ((484*width)/pxWidth)-edge,
 });
 $(".attrTxt").css({
     "top": ((6*width)/pxWidth),
