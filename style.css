@@ -44,6 +44,7 @@ body > * {
 .attrBox {
     width: 21.3mm;
     height: 159.802mm;
+    padding: 20px;
     background-color: #DCDDDE;
     z-index: 1;
     position: absolute;
