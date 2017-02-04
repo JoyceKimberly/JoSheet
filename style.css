@@ -4,40 +4,100 @@ html {
 body {
     background-color: #ececec;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
-div {
-    border: 1px solid red; /* debug */
-}
+div { border: 1px solid red; } /* debug */
 
 .draggable {
     -webkit-transform: translate(0px, 0px);
             transform: translate(0px, 0px);
 }
 
+#intro {
+    width: 210mm;
+}
+
 .container {
+    width: 210mm;
+    height: 297mm;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    position: relative;
 }
 .page {
+    width: 197.3mm;
+    height: 274.775mm;
     position: relative;
+    top: 6.35mm;
+    left: 6.35mm;
+}
+
+.attrBox {
+    width: 21.3mm;
+    height: 159.802mm;
+    background-color: #DCDDDE;
+    z-index: 1;
+    position: absolute;
+    top: 44.196mm;
+    left: 9.525mm;
 }
 
 .attrBlock {
+    width: 18.786mm;
+    height: 22.024mm;
     z-index: 2;
-    position: relative;
+    position: absolute;
+    left: 10.782mm;
 }
+.attrBlock.str { top: 49.85mm; }
+.attrBlock.dex { top: 75.189mm; }
+.attrBlock.con { top: 100.358mm; }
+.attrBlock.int { top: 125.7mm; }
+.attrBlock.wis { top: 150.955mm; }
+.attrBlock.cha { top: 176.128mm; }
 .attrBg {
+    width: 100%;
+    height: 100%;
     z-index: 1;
     position: absolute;
     top: 0;
 }
-.attrBlock.cha .attrBg {
-    content: url('img/AttributeBlock6.svg');
-}
+.attrBlock.str .attrBg { content: url('img/AttributeBlock6.svg'); }
+.attrBlock.dex .attrBg { content: url('img/AttributeBlock6.svg'); }
+.attrBlock.con .attrBg { content: url('img/AttributeBlock6.svg'); }
+.attrBlock.int .attrBg { content: url('img/AttributeBlock6.svg'); }
+.attrBlock.wis .attrBg { content: url('img/AttributeBlock6.svg'); }
+.attrBlock.cha .attrBg { content: url('img/AttributeBlock6.svg'); }
 .attrTxt {
+    font-size: 6.5pt;
+    width: 100%;
     z-index: 2;
     position: absolute;
+    top: 1.5mm;
     text-align: center;
+}
+
+@media print {
+    @page {
+        size: 210mm 297mm;
+        margin: 6.35mm;
+    }
+    body {
+        padding: 0;
+    }
+    div { border: 1px solid blue; } /* debug */
+
+    #intro {
+        display: none
+    }
+
+    .container {
+        box-shadow: none;
+		width: initial;
+		height: initial;
+		margin: 0;
+    }
+    .page {
+        top: 0;
+        left: 0;
+    }
 }

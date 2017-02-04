@@ -1,46 +1,5 @@
 (function($) { $(document).ready(function() {
 
-	var pMargin = 10;
-	var ratio = Math.sqrt(2);
-	var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-	var pxWidth = 595;
-	var vWidth = vw-(pMargin*2);
-	var edge = ((0.25*72)*vWidth)/pxWidth;
-
-	$(".container").css({
-	    "width": vWidth,
-	    "height": vWidth*ratio,
-		"margin": pMargin,
-	});
-	$(".page").css({
-	    "width": $(".container").width()-(edge*2),
-	    "height": $(".container").height()-(edge*2),
-	    "top": edge,
-	    "left": edge,
-	});
-
-	$(".attrBlock").css({
-	    "width": (54*vWidth)/pxWidth,
-	    "height": (64*vWidth)/pxWidth,
-	    "left": ((22*vWidth)/pxWidth)-edge,
-	});
-	$(".attrBg").css({
-	    "width": $(".attrBlock").width(),
-	    "height": $(".attrBlock").height(),
-	});
-	$(".attrTxt").css({
-	    "width": $(".attrBlock").width(),
-	    "top": (6*vWidth)/pxWidth,
-	    "font-size": (10*vWidth)/pxWidth,
-	});
-
-	$(".attrBlock.cha").css({
-	    "top": ((484*vWidth)/pxWidth)-edge,
-	});
-
-    // ----------------------------------------------------------------------------------
-    // -- Drag and drop --
-	// ----------------------------------------------------------------------------------
 	interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
