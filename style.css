@@ -15,6 +15,9 @@ body > * {
     -webkit-transform: translate(0px, 0px);
             transform: translate(0px, 0px);
 }
+.resizable {
+    box-sizing: border-box;
+} 
 
 #intro {
     width: 210mm;
