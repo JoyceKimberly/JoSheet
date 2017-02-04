@@ -19,6 +19,7 @@
     interact(".resizable")
         .resizable({
             edges: { top: true, right: true, bottom: true, left: true },
+            invert: 'reposition',
         })
         .on(['resizemove', 'resizeend'], resizeMoveListener);
     
