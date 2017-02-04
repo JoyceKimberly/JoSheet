@@ -16,6 +16,9 @@
         },*/
         onmove: dragMoveListener,
     });
+    interact(".resizable").resizable({
+        edges: { top: true, right: true, bottom: true, left: true }
+    });
     
 
 }); // ----------------------------------------------------------------------------------
