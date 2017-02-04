@@ -24,6 +24,7 @@ body > * {
 #intro {
     width: 210mm;
     font-family: 'bookinsanity';
+    font-size: 7pt;
 }
 
 .container {
