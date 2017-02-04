@@ -1,3 +1,5 @@
+@import url("fonts/fonts.css");
+
 html {
     overflow-y: scroll;
 }
@@ -17,10 +19,11 @@ body > * {
 }
 .resizable {
     box-sizing: border-box;
-} 
+}
 
 #intro {
     width: 210mm;
+    font-family: 'bookinsanity';
 }
 
 .container {
@@ -84,7 +87,10 @@ body > * {
 .attrBlock.wis .attrBg { content: url('img/AttributeBlock6.svg'); }
 .attrBlock.cha .attrBg { content: url('img/AttributeBlock6.svg'); }
 .attrTxt {
+    font-family: 'scaly_sans';
+    font-weight: bold;
     font-size: 6.5pt;
+    text-transform: uppercase;
     width: 100%;
     z-index: 2;
     position: absolute;
