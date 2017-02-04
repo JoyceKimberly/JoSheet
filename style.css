@@ -59,14 +59,14 @@ div { border: 1px solid red; } /* debug */
     height: 22.024mm;
     z-index: 2;
     position: absolute;
-    left: 1.257mm;
+    left: 10.782mm;
 }
-.attrBlock.str { top: 5.654mm; }
-.attrBlock.dex { top: 30.993mm; }
-.attrBlock.con { top: 56.162mm; }
-.attrBlock.int { top: 81.504mm; }
-.attrBlock.wis { top: 106.759mm; }
-.attrBlock.cha { top: 131.932mm; }
+.attrBlock.str { top: 49.85mm; }
+.attrBlock.dex { top: 75.189mm; }
+.attrBlock.con { top: 100.358mm; }
+.attrBlock.int { top: 125.7mm; }
+.attrBlock.wis { top: 150.955mm; }
+.attrBlock.cha { top: 176.128mm; }
 .attrBg {
     width: 100%;
     height: 100%;
