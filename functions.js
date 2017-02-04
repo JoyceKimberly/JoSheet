@@ -6,9 +6,9 @@
     interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
-			elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
+            elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
-		onmove: dragMoveListener,
+        onmove: dragMoveListener,
     });
 
 
