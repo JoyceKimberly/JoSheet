@@ -1,16 +1,16 @@
 (function($) { $(document).ready(function() {
 
-	var vWidth = $(".container").outerWidth(true);
+    var vWidth = $(".container").outerWidth(true);
 
-	$("head").append('<meta name="viewport" content="width=' + vWidth + '">');
+    $("head").append('<meta name="viewport" content="width=' + vWidth + '">');
 
-	interact(".draggable").draggable({
+    interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
 			elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
 		onmove: dragMoveListener,
-	});
+    });
 
 
 }); // ----------------------------------------------------------------------------------
