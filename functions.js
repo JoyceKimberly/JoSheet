@@ -1,5 +1,6 @@
 (function($) { $(document).ready(function() {
 
+	var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 	var scale = 1;
 
 	$("head").append('<meta name="viewport" content="width=device-width, initial-scale=' + scale + '">');
