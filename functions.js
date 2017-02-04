@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() {
 
-	var vWidth = $(".container").outerWidth(true) + 10;
+	var vWidth = $(".container").outerWidth(true);
 
 	$("head").append('<meta name="viewport" content="width=' + vWidth + '">');
 
