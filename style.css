@@ -10,8 +10,12 @@ div {
     border: 1px solid red; /* debug */
 }
 
+.draggable {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+}
+
 .container {
-    margin: 10px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     position: relative;
@@ -30,7 +34,7 @@ div {
     top: 0;
 }
 .attrBlock.cha .attrBg {
-    content: url('../img/AttributeBlock6.svg');
+    content: url('img/AttributeBlock6.svg');
 }
 .attrTxt {
     z-index: 2;
