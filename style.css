@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 body > * {
-    margin: 10px;
+    margin: 15px;
 }
 div { border: 1px solid red; } /* debug */
 
