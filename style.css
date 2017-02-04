@@ -40,6 +40,16 @@ div { border: 1px solid red; } /* debug */
     top: 44.196mm;
     left: 9.525mm;
 }
+.attrBox .top {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+.attrBox .bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
 
 .attrBlock {
     width: 18.786mm;

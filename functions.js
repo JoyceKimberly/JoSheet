@@ -1,5 +1,9 @@
 (function($) { $(document).ready(function() {
 
+	var scale = 1;
+
+	$("head").append('<meta name="viewport" content="width=device-width, initial-scale=' + scale + '">');
+
 	interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
