@@ -16,12 +16,13 @@
         },*/
         onmove: dragMoveListener,
     });
-    interact(".resizable")
-        .resizable({
-            edges: { top: true, right: true, bottom: true, left: true },
-            invert: 'reposition',
-        })
-        .on(['resizemove', 'resizeend'], resizeMoveListener);
+    interact(".resizable").resizable({
+        edges: { top: true, right: true, bottom: true, left: true },
+        invert: 'reposition',
+        onstart: resizeMoveListener, 
+        onmove: resizeMoveListener,
+        onend: resizeMoveListener,
+    });
     
 
 }); // ----------------------------------------------------------------------------------
