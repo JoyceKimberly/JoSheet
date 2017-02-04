@@ -1,7 +1,6 @@
 (function($) { $(document).ready(function() {
 
-    var vWidth = $(".container").outerWidth(true);
-    $("head").append('<meta name="viewport" content="width=' + vWidth + '">');
+    $("head").append('<meta name="viewport" content="width=' + $(".container").outerWidth(true) + '">');
 
     interact(".draggable").draggable({
         restrict: {
