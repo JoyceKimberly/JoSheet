@@ -5,15 +5,7 @@
 
     interact(".draggable").draggable({
         restrict: {
-            restriction: '.page',
-            elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
-        },
-        onmove: dragMoveListener,
-    });
-
-    interact(".attrBlock").draggable({
-        restrict: {
-            restriction: '.attrBox',
+            restriction: 'parent',
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
         onmove: dragMoveListener,
