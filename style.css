@@ -9,7 +9,7 @@ body {
 body > * {
     margin: 15px;
 }
-div { border: 1px solid red; } /* debug */
+/*div { border: 1px solid red; } /* debug */
 
 .draggable {
     -webkit-transform: translate(0px, 0px);
