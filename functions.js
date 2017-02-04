@@ -8,6 +8,13 @@
             restriction: 'parent',
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
+        snap: {
+            targets: [
+                interact.createSnapGrid({ x: 30, y: 30 })
+            ],
+            range: Infinity,
+            relativePoints: [ { x: 0, y: 0 } ],
+        },
         onmove: dragMoveListener,
     });
     
