@@ -12,7 +12,7 @@
                 interact.createSnapGrid( { x: 15, y: 15 } )
             ],
             range: Infinity,
-            relativePoints: [ { x: (target.clientWidth/2), y: 0 } ],
+            relativePoints: [ { x: 0, y: 0 } ],
         },
         onmove: dragMoveListener,
     });
