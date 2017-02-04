@@ -34,8 +34,7 @@ function dragMoveListener (event) {
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
     // translate the element
-    target.style.webkitTransform =
-    target.style.transform =
+    target.style.webkitTransform = target.style.transform =
         'translate(' + x + 'px, ' + y + 'px)';
 
     // update the position attributes
