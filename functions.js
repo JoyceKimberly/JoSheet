@@ -9,7 +9,7 @@
         },
         snap: {
             targets: [
-                interact.createSnapGrid( { x: 10, y: 10 } )
+                interact.createSnapGrid( { x: 5, y: 5 } )
             ],
             range: Infinity,
             relativePoints: [ { x: 0.5, y: 0.5 } ],
