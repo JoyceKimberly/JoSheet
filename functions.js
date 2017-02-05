@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() {
 
-    $("head").append('<meta name="viewport" content="width=' + $(".container").outerWidth(true) + '">');
+    $("head").append('<meta name="viewport" content="width=' + $(".container").outerWidth(true) + ', initial-scale=1">');
 
     interact(".draggable").draggable({
         restrict: {
@@ -20,11 +20,11 @@
         edges: { top: true, right: true, bottom: true, left: true },
         invert: 'reposition',
         max: Infinity,
-        onstart: resizeMoveListener, 
+        onstart: resizeMoveListener,
         onmove: resizeMoveListener,
         onend: resizeMoveListener,
     });
-    
+
 
 }); // ----------------------------------------------------------------------------------
 
@@ -42,7 +42,7 @@ function dragMoveListener (event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
-              
+
 function resizeMoveListener (event) {
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0),
@@ -61,7 +61,7 @@ function resizeMoveListener (event) {
 
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
-}     
+}
 
 
 })(jQuery);

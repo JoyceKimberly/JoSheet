@@ -7,6 +7,8 @@ body {
     background-color: #ececec;
     margin: 0;
     padding: 0;
+    transform-origin: 0 0;
+    /*transform: scale(1.1);*/
 }
 body > * {
     margin: 15px;
@@ -22,14 +24,14 @@ body > * {
 }
 
 #intro {
-    width: 210mm;
+    width: 595px;
     font-family: 'bookinsanity';
-    font-size: 10pt;
+    font-size: 12px;
 }
 
 .container {
-    width: 210mm;
-    height: 297mm;
+    width: 595px;
+    height: 842px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
