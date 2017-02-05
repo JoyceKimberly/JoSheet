@@ -26,7 +26,7 @@ body > * {
     font-size: 12px;
 }
 
-.container {
+.outerPage {
     page-break-before: always;
     width: 595px;
     height: 842px;
@@ -119,7 +119,7 @@ body > * {
         display: none
     }
 
-    .container {
+    .outerPage {
         box-shadow: none;
         width: 559px;
 		height: initial;

@@ -4,14 +4,25 @@
     <meta charset="utf-8">
     <title>JoSheet</title>
     <meta name="viewport" content="width=625">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
     <script type="text/javascript" src="functions.js"></script>
 </head>
 <body>
-    <div id="intro">Intro explaining how this all works, etc.</div>
-    <div class="container">
+    <div id="intro">
+        <div>Intro explaining how this all works, etc.</div>
+        <div class="btn-group" role="group" aria-label="Zoom">
+            <button id="zoomIn" type="button" class="btn btn-secondary"><i class="fa fa-search-plus"></i></button>
+            <button id="zoomOut" type="button" class="btn btn-secondary"><i class="fa fa-search-minus"></i></button>
+        </div>
+    </div>
+    <div class="outerPage">
         <div class="page">
             <div class="attrBox draggable resizable">
                 <div class="top"></div>

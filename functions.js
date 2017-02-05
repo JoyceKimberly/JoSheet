@@ -2,23 +2,32 @@
 
     var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
     var cWidth = 595;
+    var zoomScale = ((vw-30)/cWidth);
+
+    $(".outerPage").css("transform", "scale(" + zoomScale + ")");
+
+    $("#zoomIn").click(function() {
+        zoomScale = zoomScale+0.10;
+        $(".outerPage").css("transform", "scale(" + zoomScale + ")");
+    });
+
+    $("#zoomOut").click(function() {
+        zoomScale = zoomScale-0.10;
+        $(".outerPage").css("transform", "scale(" + zoomScale + ")");
+    });
 
     $("<style>\
-    @media screen {\
-		.container {\
-			transform: scale(" + ((vw-30)/cWidth) + ");\
-		}\
-	}\
     @media print {\
-		.container {\
-			transform: scale(" + (vw/cWidth) + ");\
+		.outerPage[style] {\
+			transform: scale(1.24) !important;\
 		}\
 	}\
     </style>").appendTo("head");
 
     interact(".draggable").draggable({
         restrict: {
-            restriction: 'parent',
+            restriction: '.page',
+            endOnly: true,
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
         snap: {
