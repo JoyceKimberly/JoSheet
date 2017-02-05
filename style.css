@@ -62,6 +62,14 @@ div {
     left: 18px;
 }
 
+.basicBar {
+    width: 559px;
+    height: 95px;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+}
+
 .attrBox {
     width: 60px;
     height: 437px;
