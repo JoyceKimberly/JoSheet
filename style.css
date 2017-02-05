@@ -50,16 +50,22 @@ div > img {
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     transform-origin: 0 0;
-    position: static;
+    position: relative;
 }
-.outerPage.grid {
-    background-color: white;
-    background-image: linear-gradient(#ececec 2px, transparent 2px),
-        linear-gradient(90deg, #ececec 2px, transparent 2px),
-        linear-gradient(#ececec 1px, transparent 1px),
-        linear-gradient(90deg, #ececec 1px, transparent 1px);
+.grid {
+    display: none;
+    z-index: 999;
+    width: 595px;
+    height: 842px;
+    background-color: transparent;
+    background-image: linear-gradient(rgba(190, 190, 190, 0.5) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.5) 2px, transparent 2px),
+        linear-gradient(rgba(190, 190, 190, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.5) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    top: 0;
+    left: 0;
 }
 .page {
     width: 559px;
