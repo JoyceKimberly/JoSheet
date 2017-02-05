@@ -43,17 +43,6 @@
             /*endOnly: true,*/
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
-        snap: {
-            targets: [
-                interact.createSnapGrid({
-                    x: 5,
-                    y: 5,
-                    offset: { x: 0, y: 4 },
-                })
-            ],
-            range: Infinity,
-            relativePoints: [ { x: 0, y: 0 } ],
-        },
         onmove: dragMoveListener,
     });
     interact(".resizable").draggable({
@@ -61,17 +50,6 @@
             restriction: '.page',
             /*endOnly: true,*/
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
-        },
-        snap: {
-            targets: [
-                interact.createSnapGrid({
-                    x: 5,
-                    y: 5,
-                    offset: { x: 0, y: 4 },
-                })
-            ],
-            range: Infinity,
-            relativePoints: [ { x: 0, y: 0 } ],
         },
         onmove: dragMoveListener,
     })

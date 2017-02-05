@@ -41,7 +41,7 @@ body > * {
         linear-gradient(#ececec 1px, transparent 1px),
         linear-gradient(90deg, #ececec 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
-    background-position: -7px -6px, -7px -7px, -6px -5px, -6px -6px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 .page {
     width: 559px;
