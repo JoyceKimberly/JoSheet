@@ -1,5 +1,21 @@
 (function($) { $(document).ready(function() {
 
+    var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+    var cWidth = 595;
+
+    $("<style>\
+    @media screen {\
+		.container {\
+			transform: scale(" + ((vw-36)/cWidth) + ");\
+		}\
+	}\
+    @media print {\
+		.container {\
+			transform: scale(" + (vw/cWidth) + ");\
+		}\
+	}\
+    </style>").appendTo("head");
+
     interact(".draggable").draggable({
         restrict: {
             restriction: 'parent',
