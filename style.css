@@ -7,13 +7,11 @@ body {
     background-color: #ececec;
     margin: 0;
     padding: 0;
-    transform-origin: 0 0;
-    /*transform: scale(1.1);*/
 }
 body > * {
     margin: 15px;
 }
-/*div { border: 1px solid red; } /* debug */
+div { border: 1px solid red; } /* debug */
 
 .draggable {
     -webkit-transform: translate(0px, 0px);
@@ -24,7 +22,6 @@ body > * {
 }
 
 #intro {
-    width: 595px;
     font-family: 'bookinsanity';
     font-size: 12px;
 }
@@ -34,49 +31,53 @@ body > * {
     height: 842px;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    transform-origin: 0 0;
+    transform: scale(1.0);
 }
 .page {
-    width: 197.3mm;
-    height: 274.775mm;
+    width: 559px;
+    height: 779px;
     position: relative;
-    top: 6.35mm;
-    left: 6.35mm;
+    top: 18px;
+    left: 18px;
 }
 
 .attrBox {
-    width: 21.3mm;
-    height: 159.802mm;
+    width: 58px;
+    height: 437px;
     padding: 20px;
     background-color: #DCDDDE;
     z-index: 1;
     position: absolute;
-    top: 44.196mm;
-    left: 9.525mm;
+    top: 122px;
+    left: 12px;
 }
 .attrBox .top {
     width: 100%;
     position: absolute;
     top: 0;
+    left: 0;
 }
 .attrBox .bottom {
     width: 100%;
     position: absolute;
     bottom: 0;
+    left: 0;
 }
 
 .attrBlock {
-    width: 18.786mm;
-    height: 22.024mm;
+    width: 54px;
+    height: 63px;
     z-index: 2;
     position: absolute;
-    left: 10.782mm;
+    left: 14px;
 }
-.attrBlock.str { top: 49.85mm; }
-.attrBlock.dex { top: 75.189mm; }
-.attrBlock.con { top: 100.358mm; }
-.attrBlock.int { top: 125.7mm; }
-.attrBlock.wis { top: 150.955mm; }
-.attrBlock.cha { top: 176.128mm; }
+.attrBlock.str { top: 136px; }
+.attrBlock.dex { top: 205px; }
+.attrBlock.con { top: 274px; }
+.attrBlock.int { top: 343px; }
+.attrBlock.wis { top: 411px; }
+.attrBlock.cha { top: 480px; }
 .attrBg {
     width: 100%;
     height: 100%;
@@ -93,13 +94,13 @@ body > * {
 .attrTxt {
     font-family: 'scaly_sans';
     font-weight: bold;
-    font-size: 6.2pt;
-    letter-spacing: 0.3pt;
+    font-size: 8px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
     width: 100%;
     z-index: 2;
     position: absolute;
-    top: 1.5mm;
+    top: 6px;
     text-align: center;
 }
 

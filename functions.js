@@ -1,7 +1,5 @@
 (function($) { $(document).ready(function() {
 
-    $("head").append('<meta name="viewport" content="width=' + $(".container").outerWidth(true) + ', initial-scale=1">');
-
     interact(".draggable").draggable({
         restrict: {
             restriction: 'parent',
