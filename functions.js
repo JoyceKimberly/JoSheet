@@ -6,7 +6,7 @@
     $("<style>\
     @media screen {\
 		.container {\
-			transform: scale(" + ((vw-36)/cWidth) + ");\
+			transform: scale(" + ((vw-30)/cWidth) + ");\
 		}\
 	}\
     @media print {\
