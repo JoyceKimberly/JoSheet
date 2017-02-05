@@ -6,7 +6,7 @@
     var cWidth = 595;
     var zoomScale = ((vw-30)/cWidth);
 
-    $(".outerPage").css("transform", "scale(" + zoomScale + ")");
+    /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;
@@ -20,7 +20,7 @@
         zoomScale = zoomScale-0.10;
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
-
+/*
     $("<style>\
     @media print {\
 		.outerPage[style] {\
@@ -28,6 +28,14 @@
 		}\
 	}\
     </style>").appendTo("head");
+*/
+
+    $(".outerPage").mousedown(function() {
+        $(".outerPage").addClass("grid");
+    });
+    $(".outerPage").mouseup(function() {
+        $(".outerPage").removeClass("grid");
+    });
 
     interact(".draggable").draggable({
         restrict: {
@@ -37,20 +45,60 @@
         },
         snap: {
             targets: [
-                interact.createSnapGrid( { x: 5, y: 5 } )
+                interact.createSnapGrid({
+                    x: 5,
+                    y: 5,
+                    offset: { x: 0, y: 4 },
+                })
             ],
             range: Infinity,
-            relativePoints: [ { x: 0.5, y: 0.5 } ],
+            relativePoints: [ { x: 0, y: 0 } ],
         },
         onmove: dragMoveListener,
     });
-    interact(".resizable").resizable({
+    interact(".resizable").draggable({
+        restrict: {
+            restriction: '.page',
+            /*endOnly: true,*/
+            elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
+        },
+        snap: {
+            targets: [
+                interact.createSnapGrid({
+                    x: 5,
+                    y: 5,
+                    offset: { x: 0, y: 4 },
+                })
+            ],
+            range: Infinity,
+            relativePoints: [ { x: 0, y: 0 } ],
+        },
+        onmove: dragMoveListener,
+    })
+    .resizable({
+        preserveAspectRatio: false,
         edges: { top: true, right: true, bottom: true, left: true },
         invert: 'reposition',
         max: Infinity,
-        onstart: resizeMoveListener,
-        onmove: resizeMoveListener,
-        onend: resizeMoveListener,
+    })
+    .on('resizemove', function (event) {
+        var target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0),
+            y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+        // update the element's style
+        target.style.width  = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
+
+        // translate when resizing from top or left edges
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
+
+        target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px,' + y + 'px)';
+
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
     });
 
 
@@ -67,26 +115,6 @@ function dragMoveListener (event) {
         'translate(' + x + 'px, ' + y + 'px)';
 
     // update the position attributes
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-}
-
-function resizeMoveListener (event) {
-    var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0),
-        y = (parseFloat(target.getAttribute('data-y')) || 0);
-
-    // update the element's style
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
-
-    // translate when resizing from top or left edges
-    x += event.deltaRect.left;
-    y += event.deltaRect.top;
-
-    target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px,' + y + 'px)';
-
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 }
