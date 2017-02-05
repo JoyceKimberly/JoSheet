@@ -1,27 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>JoSheet</title>
     <meta name="viewport" content="width=625">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
     <link rel="stylesheet" href="style.css"/>
     <script type="text/javascript" src="functions.js"></script>
 </head>
 <body>
     <div id="intro">
-        <div>Intro explaining how this all works, etc.</div>
+        <div>Intro explaining how this all works, etc.<br></div>
         <div class="btn-toolbar" role="toolbar" aria-label="Edit">
             <div class="btn-group btn-group-sm" role="group" aria-label="Zoom">
-                <button id="zoomIn" type="button" class="btn btn-secondary"><i class="fa fa-search-plus"></i></button>
-                <button id="zoomAct" type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-                <button id="zoomOut" type="button" class="btn btn-secondary"><i class="fa fa-search-minus"></i></button>
+                <button id="zoomIn" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Zoom in">
+                    <i class="fa fa-search-plus"></i>
+                </button>
+                <button id="zoomAct" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Reset zoom">
+                    <i class="fa fa-search"></i>
+                </button>
+                <button id="zoomOut" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Zoom out">
+                    <i class="fa fa-search-minus"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -33,37 +39,37 @@
             </div>
             <div class="attrBlock str draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Strength</div>
+                <div class="attrTxt lbl">Strength</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>
             <div class="attrBlock dex draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Dexterity</div>
+                <div class="attrTxt lbl">Dexterity</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>
             <div class="attrBlock con draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Constitution</div>
+                <div class="attrTxt lbl">Constitution</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>
             <div class="attrBlock int draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Intelligence</div>
+                <div class="attrTxt lbl">Intelligence</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>
             <div class="attrBlock wis draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Wisdom</div>
+                <div class="attrTxt lbl">Wisdom</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>
             <div class="attrBlock cha draggable">
                 <div class="attrBg"></div>
-                <div class="attrTxt">Charisma</div>
+                <div class="attrTxt lbl">Charisma</div>
                 <div class="attrTxt"></div>
                 <div class="attrTxt"></div>
             </div>

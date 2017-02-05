@@ -1,10 +1,12 @@
 (function($) { $(document).ready(function() {
 
+    /*$('[data-toggle="tooltip"]').tooltip();*/
+
     var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
     var cWidth = 595;
     var zoomScale = ((vw-30)/cWidth);
 
-    /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
+    $(".outerPage").css("transform", "scale(" + zoomScale + ")");
 
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;

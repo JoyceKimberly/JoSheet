@@ -23,7 +23,7 @@ body > * {
 
 #intro {
     font-family: 'bookinsanity';
-    font-size: 12px;
+    font-size: 1.0rem;
 }
 
 .outerPage {
@@ -93,15 +93,17 @@ body > * {
 .attrBlock.cha .attrBg { content: url('img/AttrBlock6.svg'); }
 .attrTxt {
     font-family: 'scaly_sans';
-    font-weight: bold;
-    font-size: 6px;
-    letter-spacing: 0.4px;
     text-transform: uppercase;
     width: 100%;
     z-index: 2;
     position: absolute;
     top: 4.5px;
     text-align: center;
+}
+.attrTxt.lbl {
+    font-weight: bold;
+    font-size: 6px;
+    letter-spacing: 0.4px;
 }
 
 @media print {
