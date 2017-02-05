@@ -80,7 +80,7 @@ div > img {
     height: 95px;
 }
 
-.attrBox {
+.attrBox, .boxBg {
     z-index: 1;
 }
 
@@ -197,7 +197,7 @@ div > img {
     height: 436px;
 }
 
-.boxBg {
+#boxBg1, #boxBg2 {
     width: 172px;
     height: 236px;
 }
