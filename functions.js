@@ -4,13 +4,16 @@
     var cWidth = 595;
     var zoomScale = ((vw-30)/cWidth);
 
-    $(".outerPage").css("transform", "scale(" + zoomScale + ")");
+    /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
-
+    $("#zoomAct").click(function() {
+        zoomScale = 1.00;
+        $(".outerPage").css("transform", "scale(1)");
+    });
     $("#zoomOut").click(function() {
         zoomScale = zoomScale-0.10;
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
@@ -27,7 +30,7 @@
     interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
-            endOnly: true,
+            /*endOnly: true,*/
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
         snap: {
