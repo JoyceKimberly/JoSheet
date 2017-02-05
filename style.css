@@ -95,10 +95,10 @@ body > * {
     top: 0;
 }
 .attrBlock.str .attrBg { content: url('img/AttrBlock1.svg'); }
-.attrBlock.dex .attrBg { content: url('img/AttrBlock6.svg'); }
-.attrBlock.con .attrBg { content: url('img/AttrBlock6.svg'); }
-.attrBlock.int .attrBg { content: url('img/AttrBlock6.svg'); }
-.attrBlock.wis .attrBg { content: url('img/AttrBlock6.svg'); }
+.attrBlock.dex .attrBg { content: url('img/AttrBlock2.svg'); }
+.attrBlock.con .attrBg { content: url('img/AttrBlock3.svg'); }
+.attrBlock.int .attrBg { content: url('img/AttrBlock4.svg'); }
+.attrBlock.wis .attrBg { content: url('img/AttrBlock5.svg'); }
 .attrBlock.cha .attrBg { content: url('img/AttrBlock6.svg'); }
 .attrTxt {
     font-family: 'scaly_sans';
