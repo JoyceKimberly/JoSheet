@@ -30,10 +30,10 @@
     </style>").appendTo("head");
 */
 
-    $(".outerPage").mousedown(function() {
+    $(".outerPage").on('touchstart mousedown', function() {
         $(".outerPage").addClass("grid");
     });
-    $(".outerPage").mouseup(function() {
+    $(".outerPage").on('touchend mouseup', function() {
         $(".outerPage").removeClass("grid");
     });
 
