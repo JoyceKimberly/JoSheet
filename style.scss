@@ -17,9 +17,10 @@ body {
     background-color: #ececec;
     margin: 0;
     padding: 0;
-}
-body > * {
-    margin: 15px;
+
+    #intro, .outerPage {
+        margin: 15px;
+    }
 }
 .outerPage div {
     /*border: 1px solid red; /* debug */
