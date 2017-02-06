@@ -9,6 +9,8 @@
     
     /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
+    $("moveMode").click(function() {});
+    $("inputMode").click(function() {});
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
