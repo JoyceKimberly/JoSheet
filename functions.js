@@ -3,7 +3,7 @@
     /*$('[data-toggle="tooltip"]').tooltip();*/
 
     var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-    var cWidth = 595;
+    var cWidth = 745;
     var zoomScale = ((vw-30)/cWidth);
 
     /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
