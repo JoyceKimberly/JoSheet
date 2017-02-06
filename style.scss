@@ -82,15 +82,15 @@ div > img {
     left: 0;
 }
 .page {
-    width: 745px;
-    height: 1038px;
+    width: $fullWidth - ($printMargin * 2);
+    height: $fullHeight - ($printMargin * 3.5);
     position: relative;
     top: $printMargin;
     left: $printMargin;
 }
 
 .basicBar {
-    width: 745px;
+    width: $fullWidth - ($printMargin * 2);
     height: 126px;
 }
 
