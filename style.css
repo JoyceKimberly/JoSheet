@@ -57,15 +57,13 @@ div > img {
     position: relative;
 }
 .grid {
-    display: none;
-    z-index: 999;
     width: 793px;
     height: 1122px;
-    background-color: transparent;
-    background-image: linear-gradient(rgba(190, 190, 190, 0.5) 2px, transparent 2px),
-        linear-gradient(90deg, rgba(190, 190, 190, 0.5) 2px, transparent 2px),
-        linear-gradient(rgba(190, 190, 190, 0.5) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(190, 190, 190, 0.5) 1px, transparent 1px);
+    background-color: white;
+    background-image: linear-gradient(rgba(190, 190, 190, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.2) 2px, transparent 2px),
+        linear-gradient(rgba(190, 190, 190, 0.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
     top: 0;
@@ -111,8 +109,9 @@ div > img {
 }
 .inspBlock .lbl1 {
     width: 114px;
+    font-size: 7px;
     z-index: 2;
-    top: 13px;
+    top: 14px;
     right: 0;
 }
 
@@ -127,8 +126,9 @@ div > img {
 }
 .profBlock .lbl1 {
     width: 114px;
+    font-size: 7px;
     z-index: 2;
-    top: 17px;
+    top: 18px;
     right: 0;
 }
 
@@ -144,7 +144,7 @@ div > img {
 
 #attrBox {
     top: 160px;
-    left: 14px;
+    left: 15px;
 }
 
 #strBlock {
@@ -193,7 +193,7 @@ div > img {
 /* -- Size -- */
 #attrBox {
     width: 80px;
-    height: 581px;
+    height: 588px;
 }
 
 #boxBg1, #boxBg2 {

@@ -31,10 +31,10 @@
 */
 
     $(".outerPage").on('touchstart mousedown', function() {
-        $(".grid").css({"display": "block"});
+        $(".outerPage").addClass("grid");
     });
     $(".outerPage").on('touchend mouseup', function() {
-        $(".grid").css({"display": "none"});
+        $(".outerPage").removeClass("grid");
     });
 
     interact(".draggable").draggable({
