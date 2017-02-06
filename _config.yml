@@ -2,3 +2,4 @@ name: JoSheet
 author: JoyceKimberly
 theme: jekyll-theme-minimal
 markdown: rdiscount
+permalink: pretty
