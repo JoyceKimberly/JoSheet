@@ -6,6 +6,10 @@
 @import "reset";
 @import url("fonts/fonts.css");
 
+$fullWidth: 793px;
+$fullHeight: 1122px;
+$printMargin: 24px;
+
 html {
     overflow-y: scroll;
 }
@@ -57,16 +61,16 @@ div > img {
 }
 .outerPage {
     page-break-before: always;
-    width: 793px;
-    height: 1122px;
+    width: $fullWidth;
+    height: $fullHeight;
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     transform-origin: 0 0;
     position: relative;
 }
 .grid {
-    width: 793px;
-    height: 1122px;
+    width: $fullWidth;
+    height: $fullHeight;
     background-color: white;
     background-image: linear-gradient(rgba(190, 190, 190, 0.2) 2px, transparent 2px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 2px, transparent 2px),
@@ -81,8 +85,8 @@ div > img {
     width: 745px;
     height: 1038px;
     position: relative;
-    top: 24px;
-    left: 24px;
+    top: $printMargin;
+    left: $printMargin;
 }
 
 .basicBar {
@@ -215,8 +219,8 @@ div > img {
 
 @media print {
     @page {
-        size: 793px 1122px;
-        margin: 24px;
+        size: #{$fullWidth} #{$fullHeight};
+        margin: $printMargin;
     }
     body {
         margin: 0;
