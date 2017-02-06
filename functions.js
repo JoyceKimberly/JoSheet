@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() {
 
-    /*$('[data-toggle="tooltip"]').tooltip();*/
+    $('[data-toggle="tooltip"]').tooltip();
 
     var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
     var cWidth = 745;

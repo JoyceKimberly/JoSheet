@@ -16,22 +16,28 @@
 </head>
 <body>
     <div id="intro">
-        <div>Move all... the... things!<br></div>
-<!--
+        <div class="desc">Move all... the... things!</div>
         <div class="btn-toolbar" role="toolbar" aria-label="Edit">
-            <div class="btn-group btn-group-sm" role="group" aria-label="Zoom">
-                <button id="zoomIn" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Zoom in">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Buttons">
+                <button id="inputMode" type="button" class="btn btn-secondary" title="Input">
+                    <i class="fa fa-i-cursor"></i>
+                </button>
+                <button id="moveMode" type="button" class="btn btn-secondary active" title="Move">
+                    <i class="fa fa-arrows"></i>
+                </button>
+            <!--
+                <button id="zoomIn" type="button" class="btn btn-secondary" title="Zoom in">
                     <i class="fa fa-search-plus"></i>
                 </button>
-                <button id="zoomAct" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Reset zoom">
+                <button id="zoomAct" type="button" class="btn btn-secondary" title="Reset zoom">
                     <i class="fa fa-search"></i>
                 </button>
-                <button id="zoomOut" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Zoom out">
+                <button id="zoomOut" type="button" class="btn btn-secondary" title="Zoom out">
                     <i class="fa fa-search-minus"></i>
                 </button>
+            -->
             </div>
         </div>
--->
     </div>
     <div id="page1" class="outerPage">
         <div class="page">
@@ -85,10 +91,10 @@
                 <img src="img/ProfBlock.svg" />
                 <div class="lbl1">Proficiency Bonus</div>
             </div>
-            <div id="boxBg1" class="boxBg z1 draggable">
+            <div id="boxBg1" class="boxBg z1 resizable">
                 <img src="img/BoxBg.svg" />
             </div>
-            <div id="boxBg2" class="boxBg z1 draggable">
+            <div id="boxBg2" class="boxBg z1 resizable">
                 <img src="img/BoxBg.svg" />
             </div>
         </div>
