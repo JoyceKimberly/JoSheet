@@ -242,9 +242,7 @@ div > img {
     }
 }
 
-@media print {
-    @page {
-        size: #{$fullWidth} #{$fullHeight};
-        margin: $printMargin;
-    }
+@page {
+    size: #{$fullWidth} #{$fullHeight};
+    margin: $printMargin;
 }
