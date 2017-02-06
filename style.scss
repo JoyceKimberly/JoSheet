@@ -57,7 +57,7 @@ div > img {
     margin-bottom: 0.8rem;
 }
 .outerPage {
-    /*page-break-before: always;*/
+    page-break-after: always;
     width: $fullWidth;
     height: $fullHeight;
     background-color: white;
@@ -228,8 +228,9 @@ div > img {
     }
     /*div { border: 1px solid blue; } /* debug */
 
-    #intro {
-        display: none
+    #intro,
+    .modal {
+        display: none !important;
     }
 
     .outerPage {
