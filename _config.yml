@@ -3,3 +3,6 @@ author: JoyceKimberly
 theme: jekyll-theme-minimal
 markdown: rdiscount
 permalink: pretty
+
+sass:
+    style: compressed
