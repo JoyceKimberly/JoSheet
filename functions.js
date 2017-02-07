@@ -28,6 +28,10 @@
         zoomScale = zoomScale-0.10;
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
+
+    $("#basicBar").click(function() {
+        $("#inputModal").modal("show");
+    });
 /*
     $("<style>\
     @media print {\
