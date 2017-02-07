@@ -10,10 +10,10 @@
     /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
     $("#moveMode").click(function() {
-
+        moveEnabled = true;
     });
     $("#inputMode").click(function() {
-
+        moveEnabled = false;
     });
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;
