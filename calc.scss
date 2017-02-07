@@ -163,8 +163,8 @@ div > img {
 }
 
 #deathBlock {
-    top: 427 + $printMargin;
-    left: 291 + $printMargin;
+    top: 427 - $printMargin;
+    left: 291 - $printMargin;
 }
 
 /* -- Size -- */
