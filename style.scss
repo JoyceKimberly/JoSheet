@@ -51,10 +51,14 @@ div > img {
 #intro, #intro > * {
     position: static;
 }
-#intro .desc {
-    font-family: 'bookinsanity';
-    font-size: 0.8rem;
-    margin-bottom: 0.8rem;
+#intro {
+    margin-top: 54px;
+
+    .desc {
+        font-family: 'bookinsanity';
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
 }
 .outerPage {
     page-break-after: always;
@@ -224,6 +228,7 @@ div > img {
     }
     /*div { border: 1px solid blue; } /* debug */
 
+    .navbar, 
     #intro,
     .modal {
         display: none !important;
