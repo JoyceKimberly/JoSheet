@@ -30,7 +30,9 @@
     });
 
     $("#basicBar").on('touchstart mousedown', function() {
-        $("#inputModal").modal("show");
+        if ( moveEnabled === false ) {        
+            $("#inputModal").modal("show");
+        };
     });
 /*
     $("<style>\
