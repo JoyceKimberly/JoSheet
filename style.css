@@ -53,7 +53,10 @@ div {
 }
 
 .block1 {
-    
+    width: 101px;
+    height: 64px;
+    border-image-source: url("img/Block1.svg");
+    border-image-slice: fill;
 }
 
 /* ----------------------------------------------------------------------------------- */

@@ -34,13 +34,9 @@ div > img {
 }
 
 .outerPage {
-    position: relative;
-}
-.grid {
     width: $fullWidth;
     height: $fullHeight;
-    top: 0;
-    left: 0;
+    position: relative;
 }
 .page {
     width: $fullWidth - ($printMargin * 2);
