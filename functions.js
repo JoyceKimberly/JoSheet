@@ -31,10 +31,10 @@
 /*
     $("<style>\
     @media print {\
-		.outerPage[style] {\
-			transform: scale(1.5) !important;\
-		}\
-	}\
+        .outerPage[style] {\
+            transform: scale(1.5) !important;\
+        }\
+    }\
     </style>").appendTo("head");
 */
 
@@ -45,11 +45,13 @@
         $(".outerPage").removeClass("grid");
     });
 
-    $(".editable").on('touchend mouseup', function() {
-	    $(this).children(".hover").show();
+    $(".editable").on('touchstart mousedown', function() {
+        $(this).children(".hover").show();
     });
     $(".editable").on('touchend mouseup', function() {
-	    
+        $(this).children(".hover").hide();
+    });
+    
     interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
