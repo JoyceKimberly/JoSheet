@@ -103,7 +103,7 @@ div > img {
 /* ----------------------------------------------------------------------------------- */
 
 #basicBar {
-    top: 21px;
+    top: 20px;
     left: 0px;
 }
 
@@ -119,7 +119,7 @@ div > img {
     height: 82px;
 }
 #strBlock {
-    top: 181px;
+    top: 180px;
     left: 20px;
 }
 #dexBlock {
@@ -144,17 +144,17 @@ div > img {
 }
 
 #savesBlock {
-    width: 149px;
-    height: 131px;
-    top: 280 - $printMargin;
-    left: 123 - $printMargin;
+    width: 150px;
+    height: 130px;
+    top: 255px;
+    left: 100px;
 }
 
 #skillsBlock {
-    width: 149px;
-    height: 344px;
-    top: 422 - $printMargin;
-    left: 123 - $printMargin;
+    width: 150px;
+    height: 345px;
+    top: 400px;
+    left: 100px;
 }
 
 #inspBlock {
