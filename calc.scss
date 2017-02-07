@@ -144,6 +144,11 @@ div > img {
     left: 20px;
 }
 
+#savesBlock {
+    top: 280 - $printMargin;
+    left: 123 - $printMargin;
+}
+
 #inspBlock {
     top: 161px;
     left: 100px;
@@ -171,6 +176,11 @@ div > img {
 #attrBox {
     width: 80px;
     height: 588px;
+}
+
+#savesBlock {
+    width: 149px;
+    height: 131px;
 }
 
 #boxBg1, #boxBg2 {

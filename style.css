@@ -52,12 +52,22 @@ div {
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
+.boxBg {
+    border-image-source: url("img/BoxBg.svg");
+    border-image-slice: 30 101 fill;
+    border-image-width: 30px 101px;
+}
+
 .block1 {
-    width: 101px;
-    height: 64px;
     border-image-source: url("img/Block1.svg");
     border-image-slice: 12 fill;
     border-image-width: 16px;
+}
+
+.block2 {
+    border-image-source: url("img/Block2.svg");
+    border-image-slice: 60 18 fill;
+    border-image-width: 60px 18px;
 }
 
 /* ----------------------------------------------------------------------------------- */
