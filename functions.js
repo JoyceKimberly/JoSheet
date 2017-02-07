@@ -100,11 +100,11 @@
         },
     })
     .on('resizemove', function (event) {
+        var target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0),
+            y = (parseFloat(target.getAttribute('data-y')) || 0);
+        
         if ( moveEnabled === true ) {
-            var target = event.target,
-                x = (parseFloat(target.getAttribute('data-x')) || 0),
-                y = (parseFloat(target.getAttribute('data-y')) || 0);
-
             target.style.width  = event.rect.width + 'px';
             target.style.height = event.rect.height + 'px';
 
@@ -123,11 +123,11 @@
 }); // ----------------------------------------------------------------------------------
 
 function dragMoveListener (event) {
-    if ( moveEnabled === true ) {
-        var target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
+    if ( moveEnabled === true ) {    
         target.style.webkitTransform = target.style.transform =
             'translate(' + x + 'px, ' + y + 'px)';
 
