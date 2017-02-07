@@ -39,14 +39,16 @@
 */
 
     $(".outerPage").on('touchstart mousedown', function() {
-        $(".outerPage").addClass("grid");
+        if ( moveEnabled === true ) {
+            $(".outerPage").addClass("grid");
+        };
     });
     $(".outerPage").on('touchend mouseup', function() {
         $(".outerPage").removeClass("grid");
     });
 
     $(".editable").on('touchstart mousedown', function() {
-        if (moveEnabled) {
+        if ( moveEnabled === false ) {
             $(this).children(".hover").show();
         };
     });
