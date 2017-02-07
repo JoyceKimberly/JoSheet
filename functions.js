@@ -38,6 +38,8 @@
             $('#basicBarModal').modal('show');
         };
     });
+    $('#basicBarSave').click(function() {
+    });
 /*
     $("<style>\
     @media print {\
