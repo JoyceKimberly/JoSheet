@@ -33,9 +33,9 @@
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
 
-    $("#basicBar").on('touchstart mousedown', function() {
+    $('#basicBar').on('touchstart mousedown', function() {
         if ( moveEnabled === false ) {        
-            $("#inputModal").modal("show");
+            $('#basicBarModal').modal('show');
         };
     });
 /*
