@@ -69,9 +69,6 @@ div > img {
 }
 
 #inspBlock {
-    width: 145px;
-    height: 37px;
-
     img {
         z-index: 1;
         position: absolute;
@@ -87,9 +84,6 @@ div > img {
 }
 
 #profBlock {
-    width: 146px;
-    height: 45px;
-
     img {
         z-index: 1;
         position: absolute;
@@ -164,10 +158,14 @@ div > img {
 }
 
 #inspBlock {
+    width: 146px;
+    height: 37px;
     top: 160px;
     left: 100px;
 }
 #profBlock {
+    width: 146px;
+    height: 45px;
     top: 205px;
     left: 100px;
 }
@@ -188,8 +186,8 @@ div > img {
 #deathBlock {
     width: 100px;
     height: 65px;
-    top: 400;
-    left: 265;
+    top: 400px;
+    left: 265px;
 }
 
 /* ----------------------------------------------------------------------------------- */
