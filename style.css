@@ -22,7 +22,7 @@ body {
     box-sizing: border-box;
 }
 
-.hover {
+#hover {
     border: 2px solid rgba(0, 153, 204, 100);
     background-color: rgba(51, 181, 229, 100);
 }
@@ -87,6 +87,7 @@ body {
 
     nav,
     #intro,
+    #hover,
     .modal {
         display: none !important;
     }
