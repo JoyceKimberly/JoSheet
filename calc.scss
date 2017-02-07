@@ -162,6 +162,11 @@ div > img {
     left: 496px;
 }
 
+#deathBlock {
+    top: 427 + $printMargin;
+    left: 291 + $printMargin;
+}
+
 /* -- Size -- */
 #attrBox {
     width: 80px;
@@ -171,6 +176,11 @@ div > img {
 #boxBg1, #boxBg2 {
     width: 229px;
     height: 314px;
+}
+
+#deathBlock {
+    width: 101px;
+    height: 64px;
 }
 
 /* ----------------------------------------------------------------------------------- */
