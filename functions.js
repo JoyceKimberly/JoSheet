@@ -45,7 +45,9 @@
         $(".outerPage").removeClass("grid");
     });
 
-    $(".editable").hover();
+    $(".editable").hover(function() {
+	    $(this)
+    });
     
     interact(".draggable").draggable({
         restrict: {
