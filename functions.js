@@ -46,7 +46,9 @@
     });
 
     $(".editable").on('touchstart mousedown', function() {
-        $(this).children(".hover").show();
+        if (moveEnabled) {
+            $(this).children(".hover").show();
+        };
     });
     $(".editable").on('touchend mouseup', function() {
         $(this).children(".hover").hide();
