@@ -7,9 +7,7 @@ html {
 body {
     background-color: #ececec;
 }
-div {
-    /*border: 1px solid red; /* debug */
-}
+/*div { border: 1px solid red; } /* debug */
 
 .lbl1 {
     font-family: 'scaly_sans';
@@ -44,7 +42,8 @@ div {
 }
 .grid {
     background-color: white;
-    background-image: linear-gradient(rgba(190, 190, 190, 0.2) 2px, transparent 2px),
+    background-image: 
+        linear-gradient(rgba(190, 190, 190, 0.2) 2px, transparent 2px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 2px, transparent 2px),
         linear-gradient(rgba(190, 190, 190, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
