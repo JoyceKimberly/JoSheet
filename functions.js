@@ -56,7 +56,7 @@
                 interact.createSnapGrid( { x: 5, y: 5 } )
             ],
             range: Infinity,
-            relativePoints: [ { x: 0.5, y: 0 } ],
+            relativePoints: [ { x: 0, y: 0 } ],
         },
         onmove: dragMoveListener,
     });
@@ -71,7 +71,7 @@
                 interact.createSnapGrid( { x: 5, y: 5 } )
             ],
             range: Infinity,
-            relativePoints: [ { x: 0.5, y: 0 } ],
+            relativePoints: [ { x: 0, y: 0 } ],
         },
         onmove: dragMoveListener,
     })
@@ -85,7 +85,7 @@
                 interact.createSnapGrid( { x: 5, y: 5 } )
             ],
             range: Infinity,
-            relativePoints: [ { x: 0.5, y: 0 } ],
+            relativePoints: [ { x: 0, y: 0 } ],
         },
     })
     .on('resizemove', function (event) {
