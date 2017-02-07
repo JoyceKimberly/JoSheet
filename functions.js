@@ -119,9 +119,6 @@
         };
     });
 
-
-}); // ----------------------------------------------------------------------------------
-
 function dragMoveListener (event) {
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
@@ -136,5 +133,6 @@ function dragMoveListener (event) {
     };
 };
 
+}); // ----------------------------------------------------------------------------------    
 
 })(jQuery);
