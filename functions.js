@@ -56,7 +56,16 @@
     $(".outerPage").on('touchend mouseup', function() {
         $(".outerPage").removeClass("grid");
     });
-    
+
+    $('.editable').on('touchstart mousedown', function() {
+        if ( moveEnabled === false ) {
+            $(this).children('.hover').show();
+        };
+    });
+    $('.editable').on('touchend mouseup', function() {
+        $(this).children('.hover').hide();
+    });
+        
     interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
