@@ -10,11 +10,15 @@
     $("#intro").css("margin-top", ($("#navbar").outerHeight()+15));
     /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
-    $("#moveMode").click(function() {
+    $('#moveMode').click(function() {
         moveEnabled = true;
+        $(this).addClass('active');
+        $('#inputMode').removeClass('active');
     });
-    $("#inputMode").click(function() {
+    $('#inputMode').click(function() {
         moveEnabled = false;
+        $(this).addClass('active');
+        $('#moveMode').removeClass('active');
     });
     $("#zoomIn").click(function() {
         zoomScale = zoomScale+0.10;
@@ -51,15 +55,6 @@
     });
     $(".outerPage").on('touchend mouseup', function() {
         $(".outerPage").removeClass("grid");
-    });
-
-    $(".editable").on('touchstart mousedown', function() {
-        if ( moveEnabled === false ) {
-            $(this).children(".hover").show();
-        };
-    });
-    $(".editable").on('touchend mouseup', function() {
-        $(this).children(".hover").hide();
     });
     
     interact(".draggable").draggable({
