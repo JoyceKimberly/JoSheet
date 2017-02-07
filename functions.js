@@ -51,6 +51,13 @@
             /*endOnly: true,*/
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
+        snap: {
+            targets: [
+                interact.createSnapGrid( { x: 5, y: 5 } )
+            ],
+            range: Infinity,
+            relativePoints: [ { x: 0.5, y: 0.5 } ],
+        },
         onmove: dragMoveListener,
     });
     interact(".resizable").draggable({
@@ -59,6 +66,13 @@
             /*endOnly: true,*/
             elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
         },
+        snap: {
+            targets: [
+                interact.createSnapGrid( { x: 5, y: 5 } )
+            ],
+            range: Infinity,
+            relativePoints: [ { x: 0.5, y: 0.5 } ],
+        },
         onmove: dragMoveListener,
     })
     .resizable({
@@ -66,6 +80,13 @@
         edges: { top: true, right: true, bottom: true, left: true },
         invert: 'reposition',
         max: Infinity,
+        snap: {
+            targets: [
+                interact.createSnapGrid( { x: 5, y: 5 } )
+            ],
+            range: Infinity,
+            relativePoints: [ { x: 0.5, y: 0.5 } ],
+        },
     })
     .on('resizemove', function (event) {
         var target = event.target,
