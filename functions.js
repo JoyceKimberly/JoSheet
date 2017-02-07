@@ -57,7 +57,6 @@
     });
     
     interact(".draggable").draggable({
-        enabled: function() { return moveEnabled; },
         restrict: {
             restriction: '.page',
             /*endOnly: true,*/
@@ -101,37 +100,41 @@
         },
     })
     .on('resizemove', function (event) {
-        var target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0),
-            y = (parseFloat(target.getAttribute('data-y')) || 0);
+        if ( moveEnabled === true ) {
+            var target = event.target,
+                x = (parseFloat(target.getAttribute('data-x')) || 0),
+                y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-        target.style.width  = event.rect.width + 'px';
-        target.style.height = event.rect.height + 'px';
+            target.style.width  = event.rect.width + 'px';
+            target.style.height = event.rect.height + 'px';
 
-        x += event.deltaRect.left;
-        y += event.deltaRect.top;
+            x += event.deltaRect.left;
+            y += event.deltaRect.top;
 
-        target.style.webkitTransform = target.style.transform =
-            'translate(' + x + 'px,' + y + 'px)';
+            target.style.webkitTransform = target.style.transform =
+                'translate(' + x + 'px,' + y + 'px)';
 
-        target.setAttribute('data-x', x);
-        target.setAttribute('data-y', y);
+            target.setAttribute('data-x', x);
+            target.setAttribute('data-y', y);
+        };
     });
 
 
 }); // ----------------------------------------------------------------------------------
 
 function dragMoveListener (event) {
-    var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    if ( moveEnabled === false ) {
+        var target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-    target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px, ' + y + 'px)';
+        target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
 
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-}
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
+    };
+};
 
 
 })(jQuery);
