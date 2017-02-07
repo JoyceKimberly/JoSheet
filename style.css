@@ -34,7 +34,7 @@ body {
     background-color: rgba(51, 181, 229, 0.2);
 }
 .editable:hover .hover {
-    display: block;
+    /*display: block;*/
 }
 
 .navbar h1 {
