@@ -46,7 +46,7 @@ div > img {
     left: $printMargin;
 }
 
-.basicBar {
+#basicBar {
     width: $fullWidth - ($printMargin * 2);
     height: 126px;
 }
@@ -68,7 +68,7 @@ div > img {
     }
 }
 
-.inspBlock {
+#inspBlock {
     width: 145px;
     height: 37px;
 
@@ -86,7 +86,7 @@ div > img {
     }
 }
 
-.profBlock {
+#profBlock {
     width: 146px;
     height: 45px;
 
