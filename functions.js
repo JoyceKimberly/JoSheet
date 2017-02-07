@@ -29,7 +29,7 @@
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
 
-    $("#basicBar").click(function() {
+    $("#basicBar").on('touchstart mousedown', function() {
         $("#inputModal").modal("show");
     });
 /*
