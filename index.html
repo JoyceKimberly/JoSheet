@@ -16,7 +16,33 @@
 </head>
 <body>
     <nav class="navbar fixed-top navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <h1 class="navbar-brand mb-0">JoSheet</h1>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="btn-toolbar" role="toolbar" aria-label="Edit">
+                <div class="btn-group btn-group-sm" role="group" aria-label="Buttons">
+                    <button id="inputMode" type="button" class="btn btn-secondary" title="Input" data-toggle="modal" data-target="#inputModal">
+                        <i class="fa fa-i-cursor fa-fw"></i>
+                    </button>
+                    <button id="moveMode" type="button" class="btn btn-secondary active" title="Move">
+                        <i class="fa fa-arrows fa-fw"></i>
+                    </button>
+                <!--
+                    <button id="zoomIn" type="button" class="btn btn-secondary" title="Zoom in">
+                        <i class="fa fa-search-plus fa-fw"></i>
+                    </button>
+                    <button id="zoomAct" type="button" class="btn btn-secondary" title="Reset zoom">
+                        <i class="fa fa-search fa-fw"></i>
+                    </button>
+                    <button id="zoomOut" type="button" class="btn btn-secondary" title="Zoom out">
+                        <i class="fa fa-search-minus fa-fw"></i>
+                    </button>
+                -->
+                </div>
+            </div>
+        </div>
     </nav>
     <div id="intro">
         <div class="desc">Move all... the... things!</div>

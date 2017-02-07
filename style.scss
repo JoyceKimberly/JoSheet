@@ -52,7 +52,7 @@ div > img {
     position: static;
 }
 #intro {
-    margin-top: 54px;
+    margin-top: 54px !important;
 
     .desc {
         font-family: 'bookinsanity';
@@ -228,7 +228,7 @@ div > img {
     }
     /*div { border: 1px solid blue; } /* debug */
 
-    .navbar, 
+    .navbar,
     #intro,
     .modal {
         display: none !important;
