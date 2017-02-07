@@ -23,7 +23,8 @@ body {
 }
 
 .hover:hover {
-    border: 2px solid #33b5e5;
+    border: 2px solid #0099CC;
+    background-color: #33b5e5;
 }
 
 .navbar h1 {
