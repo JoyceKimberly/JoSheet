@@ -108,17 +108,22 @@ div > img {
 /* -- Defaults -- */
 /* ----------------------------------------------------------------------------------- */
 
-/* -- Positioning -- */
 #basicBar {
     top: 21px;
     left: 0px;
 }
 
 #attrBox {
+    width: 80px;
+    height: 588px;
     top: 160px;
     left: 15px;
 }
 
+.attrBlock {
+    width: 70px;
+    height: 82px;
+}
 #strBlock {
     top: 181px;
     left: 20px;
@@ -145,6 +150,8 @@ div > img {
 }
 
 #savesBlock {
+    width: 149px;
+    height: 131px;
     top: 280 - $printMargin;
     left: 123 - $printMargin;
 }
@@ -158,6 +165,10 @@ div > img {
     left: 99px;
 }
 
+.boxBg {
+    width: 229px;
+    height: 314px;
+}
 #boxBg1 {
     top: 161px;
     left: 256px;
@@ -168,29 +179,10 @@ div > img {
 }
 
 #deathBlock {
-    top: 427 - $printMargin;
-    left: 291 - $printMargin;
-}
-
-/* -- Size -- */
-#attrBox {
-    width: 80px;
-    height: 588px;
-}
-
-#savesBlock {
-    width: 149px;
-    height: 131px;
-}
-
-#boxBg1, #boxBg2 {
-    width: 229px;
-    height: 314px;
-}
-
-#deathBlock {
     width: 101px;
     height: 64px;
+    top: 427 - $printMargin;
+    left: 291 - $printMargin;
 }
 
 /* ----------------------------------------------------------------------------------- */
