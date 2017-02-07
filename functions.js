@@ -7,6 +7,7 @@
 
     $('[data-toggle="tooltip"]').tooltip();
 
+    $("#intro").css("margin-top", $("#navbar").outerHeight());
     /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
 
     $("#moveMode").click(function() {
