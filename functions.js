@@ -46,7 +46,7 @@
     });
 
     $(".editable").hover(function() {
-	    $(this)
+	    $(this).children(".hover").show();
     });
     
     interact(".draggable").draggable({
