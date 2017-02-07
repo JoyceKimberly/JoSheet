@@ -33,7 +33,7 @@
         $(".outerPage").css("transform", "scale(" + zoomScale + ")");
     });
 
-    $('#basicBar').on('touchstart mousedown', function() {
+    $('.editable').on('touchstart mousedown', function() {
         if ( moveEnabled === false ) {        
             $('#basicBarModal').modal('show');
         };
