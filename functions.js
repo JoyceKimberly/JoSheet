@@ -57,6 +57,7 @@
     });
     
     interact(".draggable").draggable({
+        enabled: function() { return moveEnabled; },
         restrict: {
             restriction: '.page',
             /*endOnly: true,*/
