@@ -164,32 +164,32 @@ div > img {
 }
 
 #inspBlock {
-    top: 161px;
+    top: 160px;
     left: 100px;
 }
 #profBlock {
     top: 205px;
-    left: 99px;
+    left: 100px;
 }
 
 .boxBg {
-    width: 229px;
-    height: 314px;
+    width: 230px;
+    height: 315px;
 }
 #boxBg1 {
-    top: 161px;
-    left: 256px;
+    top: 160px;
+    left: 255px;
 }
 #boxBg2 {
-    top: 161px;
-    left: 496px;
+    top: 160px;
+    left: 495px;
 }
 
 #deathBlock {
-    width: 101px;
-    height: 64px;
-    top: 427 - $printMargin;
-    left: 291 - $printMargin;
+    width: 100px;
+    height: 65px;
+    top: 400;
+    left: 265;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -206,8 +206,8 @@ div > img {
     .outerPage {
         width: $fullWidth - ($printMargin * 2);
         /*transform: scale(1.5) !important;*/
-		height: initial;
-		margin: 0;
+        height: initial;
+        margin: 0;
     }
     .page {
         top: 0;
