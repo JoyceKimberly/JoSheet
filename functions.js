@@ -45,10 +45,11 @@
         $(".outerPage").removeClass("grid");
     });
 
-    $(".editable").hover(function() {
+    $(".editable").on('touchend mouseup', function() {
 	    $(this).children(".hover").show();
     });
-    
+    $(".editable").on('touchend mouseup', function() {
+	    
     interact(".draggable").draggable({
         restrict: {
             restriction: '.page',
