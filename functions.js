@@ -35,7 +35,7 @@
 
     $('.editable').on('touchstart mousedown', function() {
         if ( moveEnabled === false ) {        
-            $('#basicBarModal').modal('show');
+            $('#soonModal').modal('show');
         };
     });
     $('#basicBarSave').click(function() {
