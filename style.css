@@ -7,6 +7,9 @@ html {
 body {
     background-color: #ececec;
 }
+div {
+    /*border: 1px solid red; /* debug */
+}
 
 .lbl1 {
     font-family: 'scaly_sans';
@@ -47,6 +50,10 @@ body {
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
     background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.block1 {
+    
 }
 
 /* ----------------------------------------------------------------------------------- */
