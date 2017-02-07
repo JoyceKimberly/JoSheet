@@ -24,6 +24,8 @@ body {
 
 #hover {
     display: none;
+    position: absolute;
+    z-index: 999;
     border: 2px solid rgba(0, 153, 204, 100);
     background-color: rgba(51, 181, 229, 100);
 }
