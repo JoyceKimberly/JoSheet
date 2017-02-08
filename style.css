@@ -61,8 +61,10 @@ body {
         linear-gradient(rgba(190, 190, 190, 0.4) 1px, transparent 1px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.6) 1px, transparent 1px),
         linear-gradient(rgba(190, 190, 190, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
+        linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px),
+        linear-gradient(rgba(190, 190, 190, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
     /*background-position: -1px -1px;*/
     background-position: 23px 23px;
 }
