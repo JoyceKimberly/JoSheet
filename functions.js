@@ -1,150 +1,154 @@
-(function($) { $(document).ready(function() {
+(function($) { $(document).ready(function() { // ----------------------------------------
 
-    var moveEnabled = true;
-    var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-    var cWidth = 745;
-    var zoomScale = ((vw-30)/cWidth);
+var moveEnabled = true;
+var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth, document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+var cWidth = 745;
+var zoomScale = ((vw-30)/cWidth);
 
-    $('[data-toggle="tooltip"]').tooltip();
+$('[data-toggle="tooltip"]').tooltip();
 
-    $("#intro").css("margin-top", ($("#navbar").outerHeight()+15));
-    /*$(".outerPage").css("transform", "scale(" + zoomScale + ")");*/
+function setBodyTag() {
+    var body = $('body');
+    if ( moveEnabled === true ) {
+        body.removeClass('inputMode');
+        body.addClass('moveMode');
+    } else {
+        body.removeClass('moveMode');
+        body.addClass('inputMode');
+    };
+};
+setBodyTag();
 
-    $('#moveMode').click(function() {
-        moveEnabled = true;
-        $(this).addClass('active');
-        $('#inputMode').removeClass('active');
-    });
-    $('#inputMode').click(function() {
-        moveEnabled = false;
-        $(this).addClass('active');
-        $('#moveMode').removeClass('active');
-    });
-    $("#zoomIn").click(function() {
-        zoomScale = zoomScale+0.10;
-        $(".outerPage").css("transform", "scale(" + zoomScale + ")");
-    });
-    $("#zoomAct").click(function() {
-        zoomScale = 1.00;
-        $(".outerPage").css("transform", "scale(1)");
-    });
-    $("#zoomOut").click(function() {
-        zoomScale = zoomScale-0.10;
-        $(".outerPage").css("transform", "scale(" + zoomScale + ")");
-    });
-
-    $('.editable').on('touchstart mousedown', function() {
-        if ( moveEnabled === false ) {        
-            $('#soonModal').modal('show');
-        };
-    });
-    $('#basicBarSave').click(function() {
-    });
+$('.outerPage').on('touchstart mousedown', function() {
+    if ( moveEnabled === true ) {
+        $('.outerPage').addClass("grid");
+    };
+});
+$('.outerPage').on('touchend mouseup', function() {
+    $('.outerPage').removeClass("grid");
+});
 /*
-    $("<style>\
-    @media print {\
-        .outerPage[style] {\
-            transform: scale(1.5) !important;\
-        }\
-    }\
-    </style>").appendTo("head");
+$('.editable').on('touchstart mousedown', function() {
+    if ( moveEnabled === false ) {
+        $(this).children('.hover').show();
+    };
+});
+$('.editable').on('touchend mouseup', function() {
+    $('.hover').hide();
+});
 */
 
-    $(".outerPage").on('touchstart mousedown', function() {
-        if ( moveEnabled === true ) {
-            $(".outerPage").addClass("grid");
-        };
-    });
-    $(".outerPage").on('touchend mouseup', function() {
-        $(".outerPage").removeClass("grid");
-    });
-
-    $('.editable').on('touchstart mousedown', function() {
-        if ( moveEnabled === false ) {
-            $(this).children('.hover').show();
-        };
-    });
-    $('.editable').on('touchend mouseup', function() {
-        $(this).children('.hover').hide();
-    });
-        
-    interact(".draggable").draggable({
-        restrict: {
-            restriction: '.page',
-            /*endOnly: true,*/
-            elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
-        },
-        snap: {
-            targets: [
-                interact.createSnapGrid( { x: 5, y: 5 } )
-            ],
-            range: Infinity,
-            relativePoints: [ { x: 0, y: 0 } ],
-        },
-        onmove: dragMoveListener,
-    });
-    interact(".resizable").draggable({
-        restrict: {
-            restriction: '.page',
-            /*endOnly: true,*/
-            elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
-        },
-        snap: {
-            targets: [
-                interact.createSnapGrid( { x: 5, y: 5 } )
-            ],
-            range: Infinity,
-            relativePoints: [ { x: 0, y: 0 } ],
-        },
-        onmove: dragMoveListener,
-    })
-    .resizable({
-        preserveAspectRatio: false,
-        edges: { top: true, right: true, bottom: true, left: true },
-        invert: 'reposition',
-        max: Infinity,
-        snap: {
-            targets: [
-                interact.createSnapGrid( { x: 5, y: 5 } )
-            ],
-            range: Infinity,
-            relativePoints: [ { x: 0, y: 0 } ],
-        },
-    })
-    .on('resizemove', function (event) {
+function moveListener(event) {
+    console.log(event); // debug
+    if ( moveEnabled === true ) {
         var target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0),
-            y = (parseFloat(target.getAttribute('data-y')) || 0);
-        
-        if ( moveEnabled === true ) {
+            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+        if ( event.type === "resizemove" ) {
+            target = event.target,
+                x = (parseFloat(target.getAttribute('data-x')) || 0),
+                y = (parseFloat(target.getAttribute('data-y')) || 0);
+
             target.style.width  = event.rect.width + 'px';
             target.style.height = event.rect.height + 'px';
 
             x += event.deltaRect.left;
             y += event.deltaRect.top;
-
-            target.style.webkitTransform = target.style.transform =
-                'translate(' + x + 'px,' + y + 'px)';
-
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
         };
-    });
 
-    function dragMoveListener (event) {
-        var target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+        target.style.webkitTransform = target.style.transform =
+            'translate(' + x + 'px, ' + y + 'px)';
 
-        if ( moveEnabled === true ) {    
-            target.style.webkitTransform = target.style.transform =
-                'translate(' + x + 'px, ' + y + 'px)';
-
-            target.setAttribute('data-x', x);
-            target.setAttribute('data-y', y);
-        };
+        target.setAttribute('data-x', x);
+        target.setAttribute('data-y', y);
     };
+};
 
-}); // ----------------------------------------------------------------------------------    
+var restrictObj = {
+    restriction: '.page',
+    endOnly: true,
+    elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
+};
 
-})(jQuery);
+var snapObj = {
+    targets: [
+        interact.createSnapGrid( { x: 5, y: 5 } )
+    ],
+    range: Infinity,
+    relativePoints: [ { x: 0, y: 0 } ],
+};
+
+interact(".draggable").draggable({
+    restrict: restrictObj,
+    snap: snapObj,
+    onmove: moveListener,
+});
+interact(".resizable").draggable({
+    restrict: restrictObj,
+    snap: snapObj,
+    onmove: moveListener,
+
+}).resizable({
+    preserveAspectRatio: false,
+    edges: { top: true, right: true, bottom: true, left: true },
+    invert: 'reposition',
+    max: Infinity,
+    snap: snapObj,
+
+}).on('resizemove', moveListener);
+
+// --------------------------------------------------------------------------------------
+// -- Specifics --
+// --------------------------------------------------------------------------------------
+$('#intro').css("margin-top", ($('#navbar').outerHeight()+15));
+/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
+
+$('#moveMode').click(function() {
+    moveEnabled = true;
+    setBodyTag();
+    $(this).addClass('active');
+    $('#inputMode').removeClass('active');
+});
+$('#inputMode').click(function() {
+    moveEnabled = false;
+    setBodyTag();
+    $(this).addClass('active');
+    $('#moveMode').removeClass('active');
+});
+$('#zoomIn').click(function() {
+    zoomScale = zoomScale+0.10;
+    $('.outerPage').css("transform", "scale(" + zoomScale + ")");
+});
+$('#zoomAct').click(function() {
+    zoomScale = 1.00;
+    $('.outerPage').css("transform", "scale(1)");
+});
+$('#zoomOut').click(function() {
+    zoomScale = zoomScale-0.10;
+    $('.outerPage').css("transform", "scale(" + zoomScale + ")");
+});
+
+$('.editable').on('touchstart mousedown', function() {
+    if ( moveEnabled === false ) {
+        $('#soonModal').modal('show');
+    };
+});
+$('#basicBarSave').click(function() {
+    var dit = $(this);
+    dit.removeClass('btn-primary');
+    dit.addClass('btn-success');
+});
+/*
+$("<style>\
+@media print {\
+    .outerPage[style] {\
+        transform: scale(1.5) !important;\
+    }\
+}\
+</style>").appendTo("head");
+*/
+
+}); // ----------------------------------------------------------------------------------
+
+})(jQuery); // --------------------------------------------------------------------------
