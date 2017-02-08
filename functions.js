@@ -39,30 +39,28 @@ $('.editable').on('touchend mouseup', function() {
 */
 
 function moveListener(event) {
-    console.log(event); // debug
-    if ( moveEnabled === true ) {
-        var target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-            y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    //console.log(event); // debug
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-        if ( event.type === "resizemove" ) {
-            target = event.target,
-                x = (parseFloat(target.getAttribute('data-x')) || 0),
-                y = (parseFloat(target.getAttribute('data-y')) || 0);
+    if ( event.type === "resizemove" ) {
+        target = event.target,
+            x = (parseFloat(target.getAttribute('data-x')) || 0),
+            y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-            target.style.width  = event.rect.width + 'px';
-            target.style.height = event.rect.height + 'px';
+        target.style.width  = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
 
-            x += event.deltaRect.left;
-            y += event.deltaRect.top;
-        };
-
-        target.style.webkitTransform = target.style.transform =
-            'translate(' + x + 'px, ' + y + 'px)';
-
-        target.setAttribute('data-x', x);
-        target.setAttribute('data-y', y);
+        x += event.deltaRect.left;
+        y += event.deltaRect.top;
     };
+
+    target.style.webkitTransform = target.style.transform =
+        'translate(' + x + 'px, ' + y + 'px)';
+
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
 };
 
 var restrictObj = {
@@ -72,31 +70,35 @@ var restrictObj = {
 };
 
 var snapObj = {
-    targets: [
-        interact.createSnapGrid( { x: 5, y: 5 } )
-    ],
-    range: Infinity,
+    targets: [ interact.createSnapGrid({ x: 10, y: 10 }) ],
     relativePoints: [ { x: 0, y: 0 } ],
 };
 
-interact(".draggable").draggable({
-    restrict: restrictObj,
-    snap: snapObj,
-    onmove: moveListener,
-});
-interact(".resizable").draggable({
-    restrict: restrictObj,
-    snap: snapObj,
-    onmove: moveListener,
+interact('.moveMode .draggable')
+    .origin('.page')
+    .draggable({
+        restrict: restrictObj,
+        snap: snapObj,
+        onmove: moveListener,
+    });
+interact('.moveMode .resizable')
+    .origin('.page')
+    .draggable({
+        restrict: restrictObj,
+        snap: snapObj,
+        onmove: moveListener,
 
-}).resizable({
-    preserveAspectRatio: false,
-    edges: { top: true, right: true, bottom: true, left: true },
-    invert: 'reposition',
-    max: Infinity,
-    snap: snapObj,
+    })
+    .resizable({
+        preserveAspectRatio: false,
+        restrict: restrictObj,
+        edges: { top: true, right: true, bottom: true, left: true },
+        invert: 'reposition',
+        max: Infinity,
+        snap: snapObj,
 
-}).on('resizemove', moveListener);
+    })
+    .on('resizemove', moveListener);
 
 // --------------------------------------------------------------------------------------
 // -- Specifics --
@@ -104,17 +106,17 @@ interact(".resizable").draggable({
 $('#intro').css("margin-top", ($('#navbar').outerHeight()+15));
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
-$('#moveMode').click(function() {
+$('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
     $(this).addClass('active');
-    $('#inputMode').removeClass('active');
+    $('#inputBtn').removeClass('active');
 });
-$('#inputMode').click(function() {
+$('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
     $(this).addClass('active');
-    $('#moveMode').removeClass('active');
+    $('#moveBtn').removeClass('active');
 });
 $('#zoomIn').click(function() {
     zoomScale = zoomScale+0.10;

@@ -63,7 +63,8 @@ body {
         linear-gradient(rgba(190, 190, 190, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;
-    background-position: -1px -1px;
+    /*background-position: -1px -1px;*/
+    background-position: 23px 23px;
 }
 
 .boxBg {
