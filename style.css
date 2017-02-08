@@ -59,7 +59,7 @@ body {
     background-color: white;
     background-image:
         linear-gradient(rgba(190, 190, 190, 0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(190, 190, 190, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(190, 190, 190, 0.6) 1px, transparent 1px),
         linear-gradient(rgba(190, 190, 190, 0.2) 1px, transparent 1px),
         linear-gradient(90deg, rgba(190, 190, 190, 0.2) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px;

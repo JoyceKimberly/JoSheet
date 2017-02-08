@@ -70,7 +70,7 @@ var restrictObj = {
 };
 
 var snapObj = {
-    targets: [ interact.createSnapGrid({ x: 10, y: 10 }) ],
+    targets: [ interact.createSnapGrid({ x: 5, y: 5 }) ],
     relativePoints: [ { x: 0, y: 0 } ],
 };
 
