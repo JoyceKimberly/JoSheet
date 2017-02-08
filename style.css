@@ -22,7 +22,7 @@ body {
     box-sizing: border-box;
 }
 
-.editable .hover {
+.hover {
     display: none;
     width: 100%;
     height: 100%;
@@ -33,6 +33,8 @@ body {
     border: 1px solid rgba(0, 153, 204, 0.2);
     background-color: rgba(51, 181, 229, 0.2);
 }
+.moveMode .draggable:hover .hover,
+.moveMode .resizable:hover .hover,
 .inputMode .editable:hover .hover {
     display: block;
 }
