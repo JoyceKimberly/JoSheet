@@ -17,7 +17,6 @@ $('head').append('<script src="https://github.com/morepurplemorebetter/MPMBs-Cha
 $('head').append('<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>');
 */
 
-$.getScript("https://joycekimberly.github.io/JoSheet/test.js");
 //console.log(tDoc); // debug
 
 }); // ----------------------------------------------------------------------------------
