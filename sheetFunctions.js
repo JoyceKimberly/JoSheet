@@ -16,10 +16,8 @@ $('head').append('<script src="https://github.com/morepurplemorebetter/MPMBs-Cha
 $('head').append('<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>');
 $('head').append('<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>');
 */
-$.getScript('test.js', function () {
-	console.log('Script Loaded');
-});
 
+$.getScript("test.js");
 //console.log(tDoc); // debug
 
 }); // ----------------------------------------------------------------------------------
