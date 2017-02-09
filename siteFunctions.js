@@ -117,6 +117,7 @@ $('#inputBtn').click(function() {
     setBodyTag();
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
+    console.log(tDoc); // debug
 });
 $('#zoomIn').click(function() {
     zoomScale = zoomScale+0.10;
