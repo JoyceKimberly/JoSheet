@@ -165,7 +165,7 @@ $('#zoomOut').click(function() {
     $('.outerPage').css("transform", "scale(" + zoomScale + ")");
 });
 $('#resetBtn').click(function() {
-    document.cookie = "objects=" + JSON.stringify(objects) + "; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     var obj = $('.draggable, .resizable');
     obj.removeAttr("data-x");
     obj.removeAttr("data-y");
