@@ -45,6 +45,7 @@ if ( isAuthenticated() ) {
 
 loadCookies();
 setObjects();
+setFields();
 
 $('[data-toggle="tooltip"]').tooltip();
 
