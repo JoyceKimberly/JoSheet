@@ -200,6 +200,7 @@ $('#basicBarSave').click(function() {
     dit.addClass('btn-success');
 });
 $('#basicBarModal').on('hidden.bs.modal', function() {
+    fillFields();
     var btn = $('#basicBarSave');
     btn.removeClass('btn-success');
     btn.addClass('btn-primary');    
