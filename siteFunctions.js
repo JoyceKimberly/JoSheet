@@ -196,9 +196,9 @@ $('#basicBarSave').click(function() {
     dit.addClass('btn-success');
 });
 $('#basicBarModal').on('hidden.bs.modal', function() {
-    var dit = $(this);
-    dit.removeClass('btn-success');
-    dit.addClass('btn-primary');    
+    var btn = $('#basicBarSave');
+    btn.removeClass('btn-success');
+    btn.addClass('btn-primary');    
 })
 /*
 $("<style>\
