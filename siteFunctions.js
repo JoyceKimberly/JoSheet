@@ -183,9 +183,9 @@ $('#saveLink').click(function() {
     saveFile();
 });
 
-$('.editable').on('touchstart mousedown', function() {
+$('#basicBar').on('touchstart mousedown', function() {
     if ( moveEnabled === false ) {
-        $('#soonModal').modal('show');
+        $('#basicBarModal').modal('show');
     };
 });
 $('#basicBarSave').click(function() {
