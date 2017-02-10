@@ -154,7 +154,7 @@ $('#moveBtn').click(function() {
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
-    
+    fillFields();
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
 });
@@ -258,7 +258,7 @@ function setObjects() {
     };
 };
 
-function setFields() {
+function fillFields() {
     //$('#characterNameInput').val(character.name);
 };
 
