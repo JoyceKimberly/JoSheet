@@ -1,6 +1,11 @@
 var cWidth = 745;
 var moveEnabled = true;
 var characterName = "JoSheet";
+var character = {
+    name : "JoSheet",
+    player : "",
+    
+};
 var characterFiles = [];
 var objects = {
     "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
