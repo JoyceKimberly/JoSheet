@@ -222,6 +222,9 @@ function setObjects() {
     for (var i = 0; i < Object.keys(objects).length; i++) {
         var naam = Object.keys(objects)[i];
         var obj = $("#" + naam);
+        obj.removeAttr("data-x");
+        obj.removeAttr("data-y");
+        obj.removeAttr("style");
 
         var x = objects[naam].x;
         var y = objects[naam].y;
@@ -252,11 +255,24 @@ function listCharacters() {
             $('.loadCharacter').remove();
 
             for (i = 0; i < characterFiles.length; i++) {
-                $('#authLink').before('<a id="load' + i + '" class="loadCharacter dropdown-item"><i class="fa fa-user fa-fw" aria-hidden="true"></i>' + characterFiles[i].name.slice(0, -4) + '</a>');
+                $('#authLink').before('\
+                <div class="loadCharacter dropdown-item">\
+                    <a id="load' + i + '">\
+                        <i class="fa fa-user fa-fw" aria-hidden="true"></i>\
+                        ' + characterFiles[i].name.slice(0, -4) + '\
+                    </a>\
+                    <button type="button" id="delete' + i + '" class="deleteCharacter close" aria-label="Delete">\
+                        <span aria-hidden="true">&times;</span>\
+                    </button>\
+                </div>\
+                ');
             };
 
-            $('.loadCharacter').click(function() {
+            $('.loadCharacter a').click(function() {
                 loadFile(Number($(this).attr('id').substring(4)));
+            });
+            $('.deleteCharacter').click(function() {
+                deleteFile(Number($(this).attr('id').substring(6)));
             });
         })
         .catch(function(error) {
@@ -299,6 +315,18 @@ function loadFile(i) {
                 setObjects();
             }
             reader.readAsText(blob);
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
+};
+
+function deleteFile(i) {
+    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    dbx.filesDelete({path: characterFiles[i].path_lower})
+        .then(function(response) {
+            console.log(response);
+            listCharacters();
         })
         .catch(function(error) {
             console.error(error);
