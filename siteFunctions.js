@@ -1,6 +1,7 @@
 var cWidth = 745;
 var moveEnabled = true;
 var characterName = "JoSheet";
+var characterFiles = [];
 var objects = {
     "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
     "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
@@ -246,12 +247,17 @@ function listCharacters() {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesListFolder({path: ''})
         .then(function(response) {
-            console.log(response.entries); // debug
+            characterFiles = response.entries;
             $('#saveLink').show();
             $('.loadCharacter').remove();
-            for (i = 0; i < response.entries.length; i++) {
-                $('#authLink').before('<a id="load' + i + '" class="loadCharacter dropdown-item"><i class="fa fa-user fa-fw" aria-hidden="true"></i>' + response.entries[i].name.slice(0, -4) + '</a>');
+
+            for (i = 0; i < characterFiles.length; i++) {
+                $('#authLink').before('<a id="load' + i + '" class="loadCharacter dropdown-item"><i class="fa fa-user fa-fw" aria-hidden="true"></i>' + characterFiles[i].name.slice(0, -4) + '</a>');
             };
+
+            $('.loadCharacter').click(function() {
+                loadFile(Number($(this).attr('id').substring(4)));
+            });
         })
         .catch(function(error) {
             console.log(error);
@@ -282,8 +288,21 @@ function saveFile() {
         });
 };
 
-function loadFile() {
-    JSON.parse();
+function loadFile(i) {
+    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    dbx.filesDownload({path: characterFiles[i].path_lower})
+        .then(function(response) {
+            var blob = response.fileBlob;
+            var reader = new FileReader();
+            reader.onload = function() {
+                objects = JSON.parse(reader.result);
+                setObjects();
+            }
+            reader.readAsText(blob);
+        })
+        .catch(function(error) {
+            console.error(error);
+        });
 };
 
 })(jQuery); // --------------------------------------------------------------------------
