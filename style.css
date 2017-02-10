@@ -105,6 +105,12 @@ body, button, input, optgroup, select, textarea {
     border-image-width: 60px 18px;
 }
 
+@media all and (display-mode: standalone) {
+    nav {
+        padding-top: 25px;
+    }
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Printing -- */
 /* ----------------------------------------------------------------------------------- */
