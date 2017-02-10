@@ -190,7 +190,7 @@ $('#basicBar').click(function() {
     };
 });
 $('#basicBarSave').click(function() {
-    if ( $('#characterNameInput').val() ) {
+    if ( $('#characterNameInput').val() !== "" ) {
         character.name = $('#characterNameInput').val();
     } else {
         character.name = "JoSheet";        
