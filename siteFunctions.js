@@ -259,7 +259,7 @@ function setObjects() {
 };
 
 function setFields() {
-    $('#characterNameInput').val(character.name);
+    //$('#characterNameInput').val(character.name);
 };
 
 function listCharacters() {
