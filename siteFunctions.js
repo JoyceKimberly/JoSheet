@@ -261,7 +261,8 @@ function listCharacters() {
 
 function setAuthLink() {
     var dbx = new Dropbox({ clientId: CLIENT_ID });
-    var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
     $('#authLink').show();
 };
