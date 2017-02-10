@@ -196,7 +196,6 @@ $("<style>\
 
 function saveCookies() {
     document.cookie = "objects=" + JSON.stringify(objects) + "; path=/";
-    console.log(document.cookie);
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
