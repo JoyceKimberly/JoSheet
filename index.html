@@ -14,9 +14,18 @@
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
     <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="ztucdd8z8fjuh08"></script>
     <link rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="authFunctions.js"></script>
     <script type="text/javascript" src="sheetFunctions.js"></script>
     <script type="text/javascript" src="siteFunctions.js"></script>
-    <script type="text/javascript" src="saveFunctions.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
 </head>
 <body>
     <nav id="navbar" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
@@ -25,8 +34,8 @@
         </button>
         <h1 class="navbar-brand mb-0">JoSheet</h1>
         <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="btn-toolbar" role="toolbar" aria-label="Edit">
-                <div class="btn-group btn-group-sm" role="group" aria-label="Mode">
+            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Edit">
+                <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Mode">
                     <button id="inputBtn" type="button" class="btn btn-secondary" title="Input">
                         <i class="fa fa-i-cursor fa-fw"></i>
                     </button>
@@ -47,6 +56,18 @@
                     </button>
                 </div>
                 -->
+                <div class="btn-group btn-group-sm" role="group" aria-label="Manage">
+                    <button id="printBtn" type="button" class="btn btn-secondary" title="Print">
+                        <i class="fa fa-print fa-fw" aria-hidden="true"></i>Print
+                    </button>
+                    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Save
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <a href="" id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>New</a>
+                        <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw" aria-hidden="true"></i>Connect</a>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
