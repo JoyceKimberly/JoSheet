@@ -257,6 +257,10 @@ function setObjects() {
     };
 };
 
+function setFields() {
+    $('#characterNameInput').val(character.name);
+};
+
 function listCharacters() {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesListFolder({path: ''})
