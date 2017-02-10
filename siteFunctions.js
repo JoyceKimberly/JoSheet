@@ -184,7 +184,7 @@ $('#saveLink').click(function() {
     saveFile();
 });
 
-$('#basicBar').on('touchstart mousedown', function() {
+$('#basicBar').click(function() {
     if ( moveEnabled === false ) {
         $('#basicBarModal').modal('show');
     };
