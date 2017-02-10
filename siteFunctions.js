@@ -45,7 +45,6 @@ if ( isAuthenticated() ) {
 
 loadCookies();
 setObjects();
-setFields();
 
 $('[data-toggle="tooltip"]').tooltip();
 
@@ -155,6 +154,7 @@ $('#moveBtn').click(function() {
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
+    setFields();
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
 });
