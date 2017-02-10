@@ -29,6 +29,11 @@ var zoomScale = ((vw-30)/cWidth);
 if ( isAuthenticated() ) {
     $('#authLink').hide();
     listCharacters();
+    var alertBox = $('#alertBox');
+    alertBox.removeClass('alert-danger');
+    alertBox.addClass('alert-success');
+    $('#alertContent').html("Success! You have connected to Dropbox.");
+    alertBox.show();
 } else {
 	setAuthLink();
 };
@@ -276,7 +281,11 @@ function listCharacters() {
             });
         })
         .catch(function(error) {
-            console.log(error);
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-success');
+            alertBox.addClass('alert-danger');
+            $('#alertContent').html(error);
+            alertBox.show();
             setAuthLink();
         });
 };
@@ -296,11 +305,19 @@ function saveFile() {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
-            console.log("Success! Files saved to your Dropbox.");
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-danger');
+            alertBox.addClass('alert-success');
+            $('#alertContent').html("Character saved to your Dropbox.");
+            alertBox.show();
             listCharacters();
         })
         .catch(function(error) {
-            console.error(error);
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-success');
+            alertBox.addClass('alert-danger');
+            $('#alertContent').html(error);
+            alertBox.show();
         });
 };
 
@@ -317,7 +334,11 @@ function loadFile(i) {
             reader.readAsText(blob);
         })
         .catch(function(error) {
-            console.error(error);
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-success');
+            alertBox.addClass('alert-danger');
+            $('#alertContent').html(error);
+            alertBox.show();
         });
 };
 
@@ -325,11 +346,19 @@ function deleteFile(i) {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesDelete({path: characterFiles[i].path_lower})
         .then(function(response) {
-            console.log(response);
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-danger');
+            alertBox.addClass('alert-success');
+            $('#alertContent').html("Character deleted from your Dropbox.");
+            alertBox.show();
             listCharacters();
         })
         .catch(function(error) {
-            console.error(error);
+            var alertBox = $('#alertBox');
+            alertBox.removeClass('alert-success');
+            alertBox.addClass('alert-danger');
+            $('#alertContent').html(error);
+            alertBox.show();
         });
 };
 

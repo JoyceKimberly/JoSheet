@@ -32,7 +32,7 @@
         </button>
         <h1 class="navbar-brand mb-0">JoSheet</h1>
         <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Edit">
+            <div class="btn-toolbar" role="toolbar" aria-label="Edit">
                 <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Mode">
                     <button id="inputBtn" type="button" class="btn btn-secondary" title="Input">
                         <i class="fa fa-i-cursor fa-fw"></i>
@@ -75,11 +75,11 @@
         </div>
     </nav>
     <div id="intro">
-        <div id="alertBox" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div id="alertBox" class="alert alert-success alert-dismissible fade show" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
-            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <div id="alertContent"></div>
         </div>
         <div class="desc">Move all... the... things!</div>
     </div>

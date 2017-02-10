@@ -31,7 +31,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 #intro {
-    width: $fullWidth;
+    max-width: $fullWidth;
 }
 #intro, #intro > * {
     position: static;
