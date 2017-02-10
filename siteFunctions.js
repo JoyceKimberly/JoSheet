@@ -195,6 +195,11 @@ $('#basicBarSave').click(function() {
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
+$('#basicBarModal').on('hidden.bs.modal', function() {
+    var dit = $(this);
+    dit.removeClass('btn-success');
+    dit.addClass('btn-primary');    
+})
 /*
 $("<style>\
 @media print {\
