@@ -11,6 +11,9 @@ body, button, input, optgroup, select, textarea {
     font-family: 'scaly_sans';
 }
 /*div { border: 1px solid red; } /* debug */
+iframe {
+    border: none;
+}
 
 .lbl1 {
     font-family: 'scaly_sans';

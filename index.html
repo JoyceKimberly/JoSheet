@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
     <script src="https://cdn.jsdelivr.net/interact.js/1.2.6/interact.min.js"></script>
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="ztucdd8z8fjuh08"></script>
     <link rel="stylesheet" href="style.css"/>
-    <script type="text/javascript" src="authFunctions.js"></script>
     <script type="text/javascript" src="sheetFunctions.js"></script>
     <script type="text/javascript" src="siteFunctions.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
@@ -56,6 +54,11 @@
                     </button>
                 </div>
                 -->
+                <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Reset">
+                    <button id="resetBtn" type="button" class="btn btn-secondary" title="Reset">
+                        <i class="fa fa-times-circle-o fa-fw" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div class="btn-group btn-group-sm" role="group" aria-label="Manage">
                     <button id="printBtn" type="button" class="btn btn-secondary" title="Print">
                         <i class="fa fa-print fa-fw" aria-hidden="true"></i>Print
@@ -64,7 +67,7 @@
                         <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Save
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                        <a href="" id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>New</a>
+                        <a id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>New</a>
                         <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw" aria-hidden="true"></i>Connect</a>
                     </div>
                 </div>

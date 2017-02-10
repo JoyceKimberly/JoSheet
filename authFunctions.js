@@ -1,5 +1,39 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
+if ( isAuthenticated() ) {
+    $('#authLink').hide();
+    listCharacters();
+} else {
+	setAuthLink();
+};
+
+}); // ----------------------------------------------------------------------------------
+
+function listCharacters() {
+    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    dbx.filesListFolder({path: ''})
+        .then(function(response) {
+            console.log(response.entries); // debug
+            for (i = 0; i < response.entries.length; i++) {
+                $('#authLink').before('<a id="load' + i + '" class="dropdown-item"><i class="fa fa-user fa-fw" aria-hidden="true"></i>' + response.entries[i].name + '</a>');
+            }
+        })
+        .catch(function(error) {
+            console.log(error);
+            setAuthLink();
+        });
+
+};
+
+function setAuthLink() {
+    var dbx = new Dropbox({ clientId: CLIENT_ID });
+    var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    document.getElementById('authLink').href = authUrl;
+    $('#authLink').show();
+};
+
+})(jQuery); // --------------------------------------------------------------------------
+
 var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
@@ -11,29 +45,6 @@ function getAccessTokenFromUrl() {
 function isAuthenticated() {
     return !!getAccessTokenFromUrl();
 }
-
-if ( isAuthenticated() ) {
-    $('#authLink').hide();
-
-	var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
-	dbx.filesListFolder({path: ''})
-		.then(function(response) {
-		    console.log(response.entries);
-		})
-		.catch(function(error) {
-		    console.log(error);
-		});
-} else {
-    $('#authLink').show();
-
-	var dbx = new Dropbox({ clientId: CLIENT_ID });
-	var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-	document.getElementById('authLink').href = authUrl;
-};
-
-}); // ----------------------------------------------------------------------------------
-
-})(jQuery); // --------------------------------------------------------------------------
 
 (function(window) {
 	window.utils = {
