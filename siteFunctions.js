@@ -171,11 +171,15 @@ $('#zoomOut').click(function() {
     $('.outerPage').css("transform", "scale(" + zoomScale + ")");
 });
 $('#resetBtn').click(function() {
-    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    var obj = $('.draggable, .resizable');
-    obj.removeAttr("data-x");
-    obj.removeAttr("data-y");
-    obj.removeAttr("style");
+    if ( moveEnabled === true ) {
+        document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        var obj = $('.draggable, .resizable');
+        obj.removeAttr("data-x");
+        obj.removeAttr("data-y");
+        obj.removeAttr("style");
+    } else {
+        
+    };
 });
 $('#printBtn').click(function() {
     window.print();
