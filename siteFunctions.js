@@ -189,6 +189,7 @@ $('#basicBar').on('touchstart mousedown', function() {
     };
 });
 $('#basicBarSave').click(function() {
+    character.name = $('#characterNameInput').val();
     var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
