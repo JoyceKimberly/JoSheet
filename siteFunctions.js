@@ -154,7 +154,7 @@ $('#moveBtn').click(function() {
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
-    setFields();
+    
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
 });
@@ -190,7 +190,7 @@ $('#basicBar').on('touchstart mousedown', function() {
     };
 });
 $('#basicBarSave').click(function() {
-    character.name = $('#characterNameInput').val();
+    //character.name = $('#characterNameInput').val();
     var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
