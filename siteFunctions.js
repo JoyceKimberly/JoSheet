@@ -248,6 +248,7 @@ function listCharacters() {
     dbx.filesListFolder({path: ''})
         .then(function(response) {
             console.log(response.entries); // debug
+            $('#saveLink').show();
             $('.loadCharacter').remove();
             for (i = 0; i < response.entries.length; i++) {
                 $('#authLink').before('<a id="load' + i + '" class="loadCharacter dropdown-item"><i class="fa fa-user fa-fw" aria-hidden="true"></i>' + response.entries[i].name.slice(0, -4) + '</a>');
@@ -264,6 +265,7 @@ function setAuthLink() {
     //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
     var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
+    $('#saveLink').hide();
     $('#authLink').show();
 };
 
