@@ -1,6 +1,5 @@
 var cWidth = 745;
 var moveEnabled = true;
-var characterName = "JoSheet";
 var objects = {};
 var character = {};
 var characterFiles = [];
