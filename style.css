@@ -108,7 +108,7 @@ body, button, input, optgroup, select, textarea {
 @media screen and (orientation:portrait) {
     .navbar,
     #intro {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }
 
