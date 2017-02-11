@@ -27,10 +27,10 @@ div .bg img {
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 
-nav {
+#navbar {
     #alertBox,
     .alert {
-        width: $fullWidth - 30 !important;
+        width: #{($fullWidth - 30)} !important;
     }
 }
 
