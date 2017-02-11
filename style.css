@@ -105,6 +105,7 @@ body, button, optgroup, select {
 /* ----------------------------------------------------------------------------------- */
 @media print {
     body {
+        background-color: white !important;
         margin: 0;
         padding: 0;
     }
