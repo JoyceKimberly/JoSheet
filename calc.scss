@@ -102,14 +102,16 @@ div .bg img {
     }
 }
 
-@media screen and (orientation:portrait) {
+@media screen and (orientation: portrait) {
     .navbar {
         button, input, optgroup, select, textarea {
-            font-size: 1.4rem;
+            font-size: 2rem;
         }
     }
-    #intro .desc {
-        font-size: 1.4rem;
+    #intro {
+        .desc {
+            font-size: 2rem;
+        }
     }
 }
 
