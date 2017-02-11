@@ -34,9 +34,6 @@ div .bg img {
 .alert {
     max-width: $fullWidth;
 }
-#intro, #intro > * {
-    position: static;
-}
 
 .outerPage {
     width: $fullWidth;
@@ -113,8 +110,8 @@ div .bg img {
         }
        .alert {
             font-size: $portaitFontSize !important;
-            margin-top: $portaitFontSize - 0.1 !important;
-            margin-bottom: $portaitFontSize - 0.1 !important;
+            /*margin-top: $portaitFontSize - 0.1 !important;
+            margin-bottom: $portaitFontSize - 0.1 !important;*/
         }
     }
 }
