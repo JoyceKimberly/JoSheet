@@ -156,11 +156,13 @@ $('#zoomOut').click(function() {
 });
 
 $('#hideBtn').click(function() {
-    $('.display').hide();
-};
+    $('#hideBtn, .display').hide();
+    $('#showBtn').show();
+});
 $('#showBtn').click(function() {
-    $('.display').show();
-};
+    $('#showBtn').hide();
+    $('#hideBtn, .display').show();
+});
 
 $('#resetBtn').click(function() {
     if ( moveEnabled === true ) {
