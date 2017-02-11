@@ -115,6 +115,8 @@ div .bg img {
     #intro {
         .desc {
             font-size: $portaitFontSize !important;
+            margin-top: $portaitFontSize-0.1 !important;
+            margin-bottom: $portaitFontSize-0.1 !important;
         }
     }
 }
