@@ -56,6 +56,9 @@ body, button, input, optgroup, select, textarea {
     display: block;
 }
 
+.alert {
+    margin-left: 15px;
+}
 #alertBox {
     display: none;
 }
