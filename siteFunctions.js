@@ -156,10 +156,6 @@ $('#resetBtn').click(function() {
     if ( moveEnabled === true ) {
         resetObjects();
         document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        var obj = $('.draggable, .resizable');
-        obj.removeAttr("data-x");
-        obj.removeAttr("data-y");
-        obj.removeAttr("style");
     } else {
         resetCharacter();
         document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
@@ -279,6 +275,10 @@ function resetObjects() {
         "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
         "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
     };
+    var obj = $('.draggable, .resizable');
+    obj.removeAttr("data-x");
+    obj.removeAttr("data-y");
+    obj.removeAttr("style");
 };
 
 function setCharacter() {
