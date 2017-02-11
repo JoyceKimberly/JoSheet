@@ -335,11 +335,7 @@ function listCharacters() {
             });
         })
         .catch(function(error) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
-            alertBox.addClass('alert-danger');
-            alertBox.find('.content').html(error);
-            alertBox.show();
+            setAlert('danger', error);
             setAuthLink();
         });
 };
@@ -359,19 +355,11 @@ function saveFile() {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
-            alertBox.addClass('alert-success');
-            alertBox.find('.content').html("Character saved to your Dropbox.");
-            alertBox.show();
+            setAlert('success', 'Character saved to your Dropbox.');
             listCharacters();
         })
         .catch(function(error) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success');
-            alertBox.addClass('alert-danger');
-            alertBox.find('.content').html(error);
-            alertBox.show();
+            setAlert('danger', error);
         });
 };
 
@@ -389,11 +377,7 @@ function loadFile(i) {
             reader.readAsText(blob);
         })
         .catch(function(error) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success');
-            alertBox.addClass('alert-danger');
-            alertBox.find('.content').html(error);
-            alertBox.show();
+            setAlert('danger', error);
         });
 };
 
@@ -401,11 +385,7 @@ function deleteFile(i) {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesDelete({path: characterFiles[i].path_lower})
         .then(function(response) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-danger');
-            alertBox.addClass('alert-success');
-            alertBox.find('.content').html("Character deleted from your Dropbox.");
-            alertBox.show();
+            setAlert('success', 'Character deleted from your Dropbox.');
             listCharacters();
         })
         .catch(function(error) {
