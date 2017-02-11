@@ -123,6 +123,9 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
+window.addEventListener("resize", function() {
+	$('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
+}, false);
 
 $('#moveBtn').click(function() {
     moveEnabled = true;
