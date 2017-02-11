@@ -27,8 +27,10 @@ div .bg img {
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 
-.alert {
-    max-width: $fullWidth - 30;
+#navbar {
+    .container {
+        width: $fullWidth - 30;
+    }
 }
 
 .outerPage {
