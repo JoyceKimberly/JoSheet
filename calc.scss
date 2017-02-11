@@ -13,10 +13,6 @@ $portaitFontSize: 1.4rem;
 body {
     margin: 0;
     padding: 0;
-
-    #intro, .outerPage {
-        margin: 15px;
-    }
 }
 .outerPage div {
     position: absolute;
@@ -32,7 +28,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 .alert {
-    max-width: $fullWidth;
+    max-width: $fullWidth - 30;
 }
 
 .outerPage {
@@ -110,8 +106,6 @@ div .bg img {
         }
        .alert {
             font-size: $portaitFontSize !important;
-            /*margin-top: $portaitFontSize - 0.1 !important;
-            margin-bottom: $portaitFontSize - 0.1 !important;*/
         }
     }
 }
