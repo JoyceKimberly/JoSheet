@@ -121,7 +121,7 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 // -- Specifics --
 // --------------------------------------------------------------------------------------
-$('#intro').css("margin-top", ($('#navbar').outerHeight()+15));
+$('#page1').css("margin-top", ($('#navbar').outerHeight()+15));
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
 $('#moveBtn').click(function() {
