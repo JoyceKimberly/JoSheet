@@ -14,7 +14,7 @@ if ( isAuthenticated() ) {
     $('#authLink').hide();
     listCharacters();
     var alertBox = $('#alertBox');
-    alertBox.removeClass('alert-danger');
+    alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
     alertBox.addClass('alert-success');
     alertBox.find('.content').html("Success! You have connected to Dropbox.");
     alertBox.show();
@@ -340,7 +340,7 @@ function listCharacters() {
         })
         .catch(function(error) {
             var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success');
+            alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
             alertBox.addClass('alert-danger');
             alertBox.find('.content').html(error);
             alertBox.show();
@@ -364,7 +364,7 @@ function saveFile() {
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
             var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-danger');
+            alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
             alertBox.addClass('alert-success');
             alertBox.find('.content').html("Character saved to your Dropbox.");
             alertBox.show();
@@ -413,12 +413,16 @@ function deleteFile(i) {
             listCharacters();
         })
         .catch(function(error) {
-            var alertBox = $('#alertBox');
-            alertBox.removeClass('alert-success');
-            alertBox.addClass('alert-danger');
-            alertBox.find('.content').html(error);
-            alertBox.show();
+            setAlert('danger', error);
         });
+};
+
+function setAlert(type, msg) {
+    var alertBox = $('#alertBox');
+    alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
+    alertBox.addClass('alert-'+type);
+    alertBox.find('.content').html(msg);
+    alertBox.show();
 };
 
 })(jQuery); // --------------------------------------------------------------------------
