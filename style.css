@@ -56,7 +56,7 @@ body, button, input, optgroup, select, textarea {
     display: block;
 }
 
-#navbar + .container:first-child {
+#navbar + .container div:first-child {
     margin-top: 15px;
 }
 #alertBox {
