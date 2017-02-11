@@ -65,8 +65,8 @@ body, button, input, optgroup, select, textarea {
     clear: both;
     /*font-family: 'bookinsanity';*/
     font-size: 0.9rem;
-    margin-top: 0.8rem;
-    margin-bottom: 0.8rem;
+    /*margin-top: 0.8rem;
+    margin-bottom: 0.8rem;*/
 }
 
 .outerPage {
