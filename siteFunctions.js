@@ -183,6 +183,7 @@ $('#basicBarSave').click(function() {
     } else {
         character.name = "JoSheet";        
     };
+    saveCookies();
     var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
@@ -386,6 +387,7 @@ function loadFile(i) {
             reader.onload = function() {
                 objects = JSON.parse(reader.result);
                 setObjects();
+                saveCookies();
             }
             reader.readAsText(blob);
         })
