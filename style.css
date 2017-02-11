@@ -53,6 +53,7 @@ body, button, input, optgroup, select, textarea {
     display: block;
 }
 
+#showBtn, 
 #alertBox {
     display: none;
 }
