@@ -29,7 +29,7 @@ div .bg img {
 
 #navbar {
     .container {
-        width: $fullWidth - 30;
+        width: $fullWidth - 30 !important;
     }
 }
 
