@@ -8,6 +8,7 @@
 $fullWidth: 793px;
 $fullHeight: 1122px;
 $printMargin: 24px;
+$portaitFontSize: 1.4rem;
 
 body {
     margin: 0;
@@ -105,12 +106,12 @@ div .bg img {
 @media screen and (orientation: portrait) {
     .navbar {
         button, input, optgroup, select, textarea {
-            font-size: 2rem !important;
+            font-size: $portaitFontSize !important;
         }
     }
     #intro {
         .desc {
-            font-size: 2rem !important;
+            font-size: $portaitFontSize !important;
         }
     }
 }
