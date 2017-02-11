@@ -56,9 +56,6 @@ div { border: 1px solid red; } /* debug */
     display: block;
 }
 
-.alert {
-    margin-left: 15px;
-}
 #navbar + .container {
     margin-top: 15px;
 }
