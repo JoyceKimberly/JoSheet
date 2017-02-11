@@ -56,10 +56,10 @@ body, button, input, optgroup, select, textarea {
     display: block;
 }
 
-.container {
+.navbar + .container {
     border-top: 1px solid #000000;
 }
-.container .alert:first-child {
+.navbar + .container .alert:first-child {
     margin-top: 15px;
 }
 #alertBox {
