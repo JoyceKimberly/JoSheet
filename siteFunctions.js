@@ -13,8 +13,12 @@ var character = {
     background : "",
     subBackground : "",
     attributes : {
-        strength : 8,
-        dexterity : 8,
+        str : 8,
+        dex : 8,
+        con : 8,
+        int : 8,
+        wis : 8,
+        cha : 8,
     },
 };
 var characterFiles = [];
