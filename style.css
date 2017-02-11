@@ -4,9 +4,6 @@
 html {
     overflow-y: scroll;
 }
-body {
-    background-color: #ececec;
-}
 body, button, input, optgroup, select, textarea {
     font-family: 'scaly_sans';
 }
