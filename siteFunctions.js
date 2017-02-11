@@ -9,9 +9,13 @@ var character = {
     level : 1,
     class : "",
     subClass : "",
-    exp : "",
+    exp : 0,
     background : "",
     subBackground : "",
+    attributes : {
+        strength : 8,
+        dexterity : 8,
+    },
 };
 var characterFiles = [];
 var objects = {
