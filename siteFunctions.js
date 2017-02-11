@@ -24,6 +24,7 @@ if ( isAuthenticated() ) {
 };
 
 resetObjects();
+resetCharacter();
 loadCookies();
 setObjects();
 
@@ -206,10 +207,14 @@ $("<style>\
 
 function saveCookies() {
     document.cookie = "objects=" + JSON.stringify(objects) + "; path=/";
+    document.cookie = "character=" + JSON.stringify(character) + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
         objects = JSON.parse(getCookie("objects"));
+    };
+    if ( getCookie("character") ) {
+        character = JSON.parse(getCookie("character"));
     };
 };
 function getCookie(cname) {
