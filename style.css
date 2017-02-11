@@ -60,14 +60,6 @@ body, button, input, optgroup, select, textarea {
     display: none;
 }
 
-#intro {
-    width: 100%;
-    /*font-family: 'bookinsanity';*/
-    font-size: 0.9rem;
-    /*margin-top: 0.8rem;
-    margin-bottom: 0.8rem;*/
-}
-
 .outerPage {
     page-break-after: always;
     background-color: white;
@@ -117,7 +109,6 @@ body, button, input, optgroup, select, textarea {
     /*div { border: 1px solid blue; } /* debug */
 
     nav,
-    #intro,
     #hover,
     .modal {
         display: none !important;
