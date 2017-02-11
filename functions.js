@@ -22,6 +22,7 @@ resetObjects();
 resetCharacter();
 loadCookies();
 setObjects();
+setCharacter();
 
 $('[data-toggle="tooltip"]').tooltip();
 
@@ -269,6 +270,7 @@ function resetObjects() {
 
 function setCharacter() {
     $('#characterNameInput').val(character.name);
+    display();
 };
 
 function resetCharacter() {
