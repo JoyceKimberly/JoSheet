@@ -38,6 +38,7 @@ function setBodyTag() {
     } else {
         body.removeClass('moveMode');
         body.addClass('inputMode');
+        $('#desc .content').html("Input your character");
     };
 };
 setBodyTag();
