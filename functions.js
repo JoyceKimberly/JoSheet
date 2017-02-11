@@ -160,6 +160,7 @@ $('#resetBtn').click(function() {
     } else {
         resetCharacter();
         document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        display();
     };
 });
 $('#printBtn').click(function() {
@@ -182,7 +183,6 @@ $('#basicBarSave').click(function() {
     };
     setCharacter();
     saveCookies();
-    display();
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
