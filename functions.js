@@ -180,9 +180,6 @@ $('#basicBarSave').click(function() {
     } else {
         character.name = "JoSheet";        
     };
-    btnSave($(this));
-});
-function btnSave(dit) {
     setCharacter();
     saveCookies();
     display();
