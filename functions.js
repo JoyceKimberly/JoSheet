@@ -30,11 +30,11 @@ function setBodyTag() {
     if ( moveEnabled === true ) {
         body.removeClass('inputMode');
         body.addClass('moveMode');
-        $('#desc .content').html("Move all... the... things!");
+        setAlert('info', 'Move all... the... things!');
     } else {
         body.removeClass('moveMode');
         body.addClass('inputMode');
-        $('#desc .content').html("Input your character");
+        setAlert('info', 'Input your character');
     };
     $('#desc').show();
 };
