@@ -112,6 +112,7 @@ body, button, optgroup, select {
     /*div { border: 1px solid blue; } /* debug */
 
     nav,
+    #alerts, 
     #hover,
     .modal {
         display: none !important;
