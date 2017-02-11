@@ -4,7 +4,14 @@ var characterName = "JoSheet";
 var character = {
     name : "JoSheet",
     player : "",
-    
+    race : "",
+    subRace : "",
+    level : 1,
+    class : "",
+    subClass : "",
+    exp : "",
+    background : "",
+    subBackground : "",
 };
 var characterFiles = [];
 var objects = {
