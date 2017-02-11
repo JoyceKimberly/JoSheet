@@ -28,7 +28,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 #navbar + .container {
-    width: ($fullWidth - 30) !important;
+    width: $fullWidth !important;
 }
 
 .outerPage {
