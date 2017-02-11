@@ -3,7 +3,7 @@
 //console.log(tDoc); // debug
 
 function display() {
-    $('#characterNameDisplay').val(character.name);
+    $('#characterNameDisplay').html(character.name);
 };
 
 }); // ----------------------------------------------------------------------------------
