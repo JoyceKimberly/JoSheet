@@ -22,23 +22,7 @@ var character = {
     },
 };
 var characterFiles = [];
-var objects = {
-    "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
-    "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
-    "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-    "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
-    "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-    "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-    "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
-    "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
-    "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-};
+var objects = {};
 
 (function($) { $(document).ready(function() { // ----------------------------------------
 
@@ -58,6 +42,7 @@ if ( isAuthenticated() ) {
     setAuthLink();
 };
 
+resetObjects();
 loadCookies();
 setObjects();
 
@@ -187,6 +172,7 @@ $('#zoomOut').click(function() {
 });
 $('#resetBtn').click(function() {
     if ( moveEnabled === true ) {
+        resetObjects();
         document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
         var obj = $('.draggable, .resizable');
         obj.removeAttr("data-x");
@@ -285,6 +271,26 @@ function setObjects() {
             obj.height(objects[naam].height);
         };
     };
+};
+
+function resetObjects() {
+objects = {
+    "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
+    "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
+    "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+    "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+    "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
+    "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+    "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+    "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
+    "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
+    "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+};
 };
 
 function fillFields() {
