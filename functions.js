@@ -270,7 +270,7 @@ function resetObjects() {
 
 function setCharacter() {
     $('#characterNameInput').val(character.name);
-    display();
+    //display();
 };
 
 function resetCharacter() {
