@@ -263,45 +263,46 @@ function setObjects() {
 
 function resetObjects() {
     objects = {
-    "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
-    "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
-    "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-    "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-    "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
-    "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-    "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-    "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
-    "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
-    "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+        "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
+        "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
+        "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+        "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
+        "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+        "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+        "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
+        "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
+        "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
     };
 };
 
 function setCharacter() {
     $('#characterNameInput').val(character.name);
+    //$('#characterNameDisplay').val(character.name);
 };
 
 function resetCharacter() {
     character = {
         name : "JoSheet",
-    player : "",
-    race : "",
-    subRace : "",
-    level : 1,
-    class : "",
-    subClass : "",
-    exp : 0,
-    background : "",
-    subBackground : "",
-    attributes : {
-        str : 8,
-        dex : 8,
-        con : 8,
-        int : 8,
+        player : "",
+        race : "",
+        subRace : "",
+        level : 1,
+        class : "",
+        subClass : "",
+        exp : 0,
+        background : "",
+        subBackground : "",
+        attributes : {
+            str : 8,
+            dex : 8,
+            con : 8,
+            int : 8,
             wis : 8,
             cha : 8,
         },
