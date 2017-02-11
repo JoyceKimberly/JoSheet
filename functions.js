@@ -123,7 +123,10 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 $('#page1').css("margin-top", ($('#navbar').outerHeight()));
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
-
+$('.alert').on('closed.bs.alert', function () {
+    $('#page1').css("margin-top", ($('#navbar').outerHeight()));
+});
+    
 $('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
