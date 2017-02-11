@@ -123,12 +123,12 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 $('#page1').css("margin-top", ($('#navbar').outerHeight()));
 $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 $('.alert').on('closed.bs.alert', function () {
     $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
     $('#page1').css("margin-top", ($('#navbar').outerHeight()));
 });
-    
+/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
+
 $('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
