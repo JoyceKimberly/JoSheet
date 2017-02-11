@@ -141,6 +141,7 @@ $('#inputBtn').click(function() {
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
 });
+
 $('#zoomIn').click(function() {
     zoomScale = zoomScale+0.10;
     $('.outerPage').css("transform", "scale(" + zoomScale + ")");
@@ -153,6 +154,14 @@ $('#zoomOut').click(function() {
     zoomScale = zoomScale-0.10;
     $('.outerPage').css("transform", "scale(" + zoomScale + ")");
 });
+
+$('#hideBtn').click(function() {
+    $('.display').hide();
+};
+$('#showBtn').click(function() {
+    $('.display').show();
+};
+
 $('#resetBtn').click(function() {
     if ( moveEnabled === true ) {
         resetObjects();
@@ -163,6 +172,7 @@ $('#resetBtn').click(function() {
         display();
     };
 });
+
 $('#printBtn').click(function() {
     window.print();
 });
