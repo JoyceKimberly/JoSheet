@@ -9,6 +9,10 @@ body, button, input, optgroup, select, textarea {
 }
 /*div { border: 1px solid red; } /* debug */
 
+.display {
+    font-family: 'bookinsanity';
+}
+
 .lbl1 {
     font-family: 'scaly_sans';
     text-transform: uppercase;
