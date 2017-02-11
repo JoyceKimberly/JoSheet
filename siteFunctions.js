@@ -1,28 +1,9 @@
 var cWidth = 745;
 var moveEnabled = true;
 var characterName = "JoSheet";
-var character = {
-    name : "JoSheet",
-    player : "",
-    race : "",
-    subRace : "",
-    level : 1,
-    class : "",
-    subClass : "",
-    exp : 0,
-    background : "",
-    subBackground : "",
-    attributes : {
-        str : 8,
-        dex : 8,
-        con : 8,
-        int : 8,
-        wis : 8,
-        cha : 8,
-    },
-};
-var characterFiles = [];
 var objects = {};
+var character = {};
+var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
 
@@ -179,7 +160,8 @@ $('#resetBtn').click(function() {
         obj.removeAttr("data-y");
         obj.removeAttr("style");
     } else {
-        
+        resetCharacter();
+        document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     };
 });
 $('#printBtn').click(function() {
@@ -290,6 +272,29 @@ objects = {
     "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
     "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
     "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+};
+};
+
+function resetCharacter() {
+character = {
+    name : "JoSheet",
+    player : "",
+    race : "",
+    subRace : "",
+    level : 1,
+    class : "",
+    subClass : "",
+    exp : 0,
+    background : "",
+    subBackground : "",
+    attributes : {
+        str : 8,
+        dex : 8,
+        con : 8,
+        int : 8,
+        wis : 8,
+        cha : 8,
+    },
 };
 };
 
