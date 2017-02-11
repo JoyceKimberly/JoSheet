@@ -30,12 +30,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 .navbar + .container {
-    border-top: 1px solid $bgColor;
-    width: $fullWidth !important;
-
-    .alert:first-child {
-        margin-top: 15px;
-    }
+    width: $fullWidth;
 }
 
 .outerPage {
