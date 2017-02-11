@@ -136,7 +136,7 @@ $('#moveBtn').click(function() {
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
-    fillFields();
+    setCharacter();
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
 });
@@ -183,13 +183,13 @@ $('#basicBarSave').click(function() {
     } else {
         character.name = "JoSheet";        
     };
+    setCharacter();
     saveCookies();
     var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
 $('#basicBarModal').on('hidden.bs.modal', function() {
-    fillFields();
     var btn = $('#basicBarSave');
     btn.removeClass('btn-success');
     btn.addClass('btn-primary');    
@@ -262,7 +262,7 @@ function setObjects() {
 };
 
 function resetObjects() {
-objects = {
+    objects = {
     "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
     "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
     "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
@@ -278,12 +278,16 @@ objects = {
     "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
     "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
     "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+    };
 };
+
+function setCharacter() {
+    $('#characterNameInput').val(character.name);
 };
 
 function resetCharacter() {
-character = {
-    name : "JoSheet",
+    character = {
+        name : "JoSheet",
     player : "",
     race : "",
     subRace : "",
@@ -298,14 +302,10 @@ character = {
         dex : 8,
         con : 8,
         int : 8,
-        wis : 8,
-        cha : 8,
-    },
-};
-};
-
-function fillFields() {
-    $('#characterNameInput').val(character.name);
+            wis : 8,
+            cha : 8,
+        },
+    };
 };
 
 function listCharacters() {
