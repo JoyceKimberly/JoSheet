@@ -16,7 +16,7 @@ if ( isAuthenticated() ) {
     var alertBox = $('#alertBox');
     alertBox.removeClass('alert-danger');
     alertBox.addClass('alert-success');
-    $('#alertContent').html("Success! You have connected to Dropbox.");
+    $('#alertBox .content').html("Success! You have connected to Dropbox.");
     alertBox.show();
 } else {
     setAuthLink();
@@ -34,6 +34,7 @@ function setBodyTag() {
     if ( moveEnabled === true ) {
         body.removeClass('inputMode');
         body.addClass('moveMode');
+        $('#desc .content').html("Move all... the... things!");
     } else {
         body.removeClass('moveMode');
         body.addClass('inputMode');
@@ -340,7 +341,7 @@ function listCharacters() {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-success');
             alertBox.addClass('alert-danger');
-            $('#alertContent').html(error);
+            $('#alertBox .content').html(error);
             alertBox.show();
             setAuthLink();
         });
@@ -364,7 +365,7 @@ function saveFile() {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-danger');
             alertBox.addClass('alert-success');
-            $('#alertContent').html("Character saved to your Dropbox.");
+            $('#alertBox .content').html("Character saved to your Dropbox.");
             alertBox.show();
             listCharacters();
         })
@@ -372,7 +373,7 @@ function saveFile() {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-success');
             alertBox.addClass('alert-danger');
-            $('#alertContent').html(error);
+            $('#alertBox .content').html(error);
             alertBox.show();
         });
 };
@@ -394,7 +395,7 @@ function loadFile(i) {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-success');
             alertBox.addClass('alert-danger');
-            $('#alertContent').html(error);
+            $('#alertBox .content').html(error);
             alertBox.show();
         });
 };
@@ -406,7 +407,7 @@ function deleteFile(i) {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-danger');
             alertBox.addClass('alert-success');
-            $('#alertContent').html("Character deleted from your Dropbox.");
+            $('#alertBox .content').html("Character deleted from your Dropbox.");
             alertBox.show();
             listCharacters();
         })
@@ -414,7 +415,7 @@ function deleteFile(i) {
             var alertBox = $('#alertBox');
             alertBox.removeClass('alert-success');
             alertBox.addClass('alert-danger');
-            $('#alertContent').html(error);
+            $('#alertBox .content').html(error);
             alertBox.show();
         });
 };
