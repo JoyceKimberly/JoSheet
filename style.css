@@ -10,7 +10,7 @@ body {
 body, button, input, optgroup, select, textarea {
     font-family: 'scaly_sans';
 }
-div { border: 1px solid red; } /* debug */
+/*div { border: 1px solid red; } /* debug */
 
 .lbl1 {
     font-family: 'scaly_sans';
