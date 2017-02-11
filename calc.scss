@@ -106,7 +106,7 @@ div .bg img {
 @media screen and (orientation: portrait) {
     .navbar {
         h1 {
-            font-size: $portaitFontSize+0.4 !important;
+            font-size: $portaitFontSize + 0.4 !important;
         }
         button, input, optgroup, select, textarea {
             font-size: $portaitFontSize !important;
@@ -115,8 +115,8 @@ div .bg img {
     #intro {
         .desc {
             font-size: $portaitFontSize !important;
-            margin-top: $portaitFontSize-0.1 !important;
-            margin-bottom: $portaitFontSize-0.1 !important;
+            margin-top: $portaitFontSize - 0.1 !important;
+            margin-bottom: $portaitFontSize - 0.1 !important;
         }
     }
 }
