@@ -36,6 +36,7 @@ function setBodyTag() {
         body.addClass('inputMode');
         $('#desc .content').html("Input your character");
     };
+    $('#desc').show();
 };
 setBodyTag();
 
