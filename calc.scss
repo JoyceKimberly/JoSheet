@@ -28,6 +28,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 nav {
+    #alertBox,
     .alert {
         width: $fullWidth - 30 !important;
     }
