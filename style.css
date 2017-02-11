@@ -56,9 +56,6 @@ body, button, input, optgroup, select, textarea {
     display: block;
 }
 
-#navbar + .container {
-    padding-top: 15px;
-}
 #alertBox {
     display: none;
 }
