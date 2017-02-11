@@ -105,17 +105,9 @@ body, button, input, optgroup, select, textarea {
     border-image-width: 60px 18px;
 }
 
-@media screen and (orientation:portrait) {
-    .navbar,
-    #intro .desc {
-        font-size: 1.2rem;
-    }
-}
-
 /* ----------------------------------------------------------------------------------- */
 /* -- Printing -- */
 /* ----------------------------------------------------------------------------------- */
-
 @media print {
     body {
         margin: 0;
