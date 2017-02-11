@@ -27,13 +27,8 @@ div .bg img {
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 
-body {
-#navbar {
-    #alertBox,
-    .alert {
-        width: ($fullWidth - 30) !important;
-    }
-}
+#navbar + .container {
+    width: ($fullWidth - 30) !important;
 }
 
 .outerPage {
