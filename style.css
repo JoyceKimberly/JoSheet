@@ -61,6 +61,7 @@ body, button, input, optgroup, select, textarea {
 }
 
 #intro {
+    display: block;
     /*font-family: 'bookinsanity';*/
     font-size: 0.9rem;
     margin-top: 0.8rem;
