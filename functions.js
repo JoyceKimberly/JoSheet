@@ -32,11 +32,9 @@ function setBodyTag() {
     if ( moveEnabled === true ) {
         body.removeClass('inputMode');
         body.addClass('moveMode');
-        $('.alert-info').remove();
     } else {
         body.removeClass('moveMode');
         body.addClass('inputMode');
-        $('.alert-info').remove();
     };
 };
 setBodyTag();
