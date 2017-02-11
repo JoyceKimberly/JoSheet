@@ -184,8 +184,8 @@ $('#basicBarSave').click(function() {
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
-$('#basicBarModal').on('hidden.bs.modal', function() {
-    var btn = $('#basicBarSave');
+$('.modal').on('hidden.bs.modal', function() {
+    var btn = $('.modal .btnSave');
     btn.removeClass('btn-success');
     btn.addClass('btn-primary');    
 })
