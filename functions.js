@@ -38,7 +38,6 @@ function setBodyTag() {
         body.addClass('inputMode');
         $('.alert-info').remove();
     };
-    $('#desc').show();
 };
 setBodyTag();
 
