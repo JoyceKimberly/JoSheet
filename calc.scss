@@ -113,8 +113,7 @@ div .bg img {
         }
     }
     #intro {
-       .alert,
-        .desc {
+       .alert {
             font-size: $portaitFontSize !important;
             margin-top: $portaitFontSize - 0.1 !important;
             margin-bottom: $portaitFontSize - 0.1 !important;
