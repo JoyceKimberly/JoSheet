@@ -216,12 +216,12 @@ function loadCookies() {
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
+    for ( var i = 0; i < ca.length; i++ ) {
         var c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while ( c.charAt(0) == ' ' ) {
             c = c.substring(1);
         };
-        if (c.indexOf(name) == 0) {
+        if ( c.indexOf(name) == 0 ) {
             return c.substring(name.length, c.length);
         };
     };
@@ -229,7 +229,7 @@ function getCookie(cname) {
 };
 
 function setObjects() {
-    for (var i = 0; i < Object.keys(objects).length; i++) {
+    for ( var i = 0; i < Object.keys(objects).length; i++ ) {
         var naam = Object.keys(objects)[i];
         var obj = $("#" + naam);
         obj.removeAttr("data-x");
@@ -282,7 +282,6 @@ function resetObjects() {
 
 function setCharacter() {
     $('#characterNameInput').val(character.name);
-    //$('#characterNameDisplay').val(character.name);
 };
 
 function resetCharacter() {
@@ -316,7 +315,7 @@ function listCharacters() {
             $('#saveLink').show();
             $('.loadCharacter').remove();
 
-            for (i = 0; i < characterFiles.length; i++) {
+            for ( var i = 0; i < characterFiles.length; i++ ) {
                 $('#authLink').before('\
                 <div class="loadCharacter dropdown-item">\
                     <a id="load' + i + '">\
