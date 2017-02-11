@@ -13,11 +13,7 @@ var zoomScale = ((vw-30)/cWidth);
 if ( isAuthenticated() ) {
     $('#authLink').hide();
     listCharacters();
-    var alertBox = $('#alertBox');
-    alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
-    alertBox.addClass('alert-success');
-    alertBox.find('.content').html("Success! You have connected to Dropbox.");
-    alertBox.show();
+    setAlert('success', 'Success! You have connected to Dropbox.');
 } else {
     setAuthLink();
 };
