@@ -59,6 +59,9 @@ body, button, input, optgroup, select, textarea {
 .alert {
     margin-left: 15px;
 }
+.alert:first-of-type {
+    margin-top: 15px;
+}
 #alertBox {
     display: none;
 }
