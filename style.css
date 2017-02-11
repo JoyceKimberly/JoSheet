@@ -63,7 +63,7 @@ body, button, optgroup, select {
 }
 
 .outerPage {
-    page-break-after: always;
+    /*page-break-after: always;*/
     background-color: white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     transform-origin: 0 0;
