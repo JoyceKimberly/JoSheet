@@ -122,12 +122,7 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 // -- Specifics --
 // --------------------------------------------------------------------------------------
-//$('#page1').css("margin-top", ($('#navbar').outerHeight()));
 $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-$('.alert').on('closed.bs.alert', function () {
-    $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-    //$('#page1').css("margin-top", ($('#navbar').outerHeight()));
-});
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
 $('#moveBtn').click(function() {
@@ -387,16 +382,11 @@ function deleteFile(i) {
 
 function setAlert(type, msg) {
     $('#alerts').prepend('\
-                <div class="alert alert-' + type + ' alert-dismissible fade show" role="alert">\
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
-                    <div class="content">' + msg + '</div>\
-                </div>\
+        <div class="alert alert-' + type + ' alert-dismissible fade show" role="alert">\
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+            <div class="content">' + msg + '</div>\
+        </div>\
     ');
-    var alertBox = $('#alertBox');
-    alertBox.removeClass('alert-success alert-info alert-warning alert-danger');
-    alertBox.addClass('alert-'+type);
-    alertBox.find('.content').html(msg);
-    alertBox.show();
 };
 
 })(jQuery); // --------------------------------------------------------------------------
