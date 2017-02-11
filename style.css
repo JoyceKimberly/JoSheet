@@ -60,8 +60,8 @@ body, button, input, optgroup, select, textarea {
     display: none;
 }
 
-#intro #desc {
-    font-family: 'bookinsanity';
+#intro {
+    /*font-family: 'bookinsanity';*/
     font-size: 0.9rem;
     margin-top: 0.8rem;
     margin-bottom: 0.8rem;
