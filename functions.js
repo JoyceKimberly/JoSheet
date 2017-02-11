@@ -180,10 +180,12 @@ $('#basicBarSave').click(function() {
     } else {
         character.name = "JoSheet";        
     };
+    btnSave($(this));
+});
+function btnSave(dit) {
     setCharacter();
     saveCookies();
     display();
-    var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
@@ -191,7 +193,7 @@ $('.modal').on('hidden.bs.modal', function() {
     var btn = $('.modal .btnSave');
     btn.removeClass('btn-success');
     btn.addClass('btn-primary');    
-})
+});
 /*
 $("<style>\
 @media print {\
