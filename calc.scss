@@ -28,6 +28,7 @@ div .bg img {
 .z3 { z-index: 3; }
 
 #navbar {
+    .clearfix, 
     .container {
         width: $fullWidth - 30 !important;
     }
