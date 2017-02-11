@@ -59,7 +59,7 @@ body, button, input, optgroup, select, textarea {
 .alert {
     margin-left: 15px;
 }
-.alert:first-of-type {
+.btn-toolbar + .alert {
     margin-top: 15px;
 }
 #alertBox {
