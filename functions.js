@@ -201,6 +201,7 @@ $('#basicBarModalSave').click(function() {
     file.character.level = $('#levelInput').val();
     file.character.race = $('#raceInput').val();
     file.character.class = $('#classInput').val();
+    file.character.background = $('#backgroundInput').val();
 
     setCharacter();
     saveCookies();
@@ -285,6 +286,7 @@ function setCharacter() {
     $('#levelInput').val(file.character.level);
     $('#raceInput').val(file.character.race);
     $('#classInput').val(file.character.class);
+    $('#backgroundInput').val(file.character.background);
     display();
 };
 
