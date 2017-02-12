@@ -187,6 +187,7 @@ $('#saveLink').click(function() {
 $('#basicBar').click(function() {
     if ( moveEnabled === false ) {
         createOption("input", "characterNameInput", "Character Name");
+        createOption("input", "playerNameInput", "Player Name");
         $('#inputModal').modal('show');
     };
 
