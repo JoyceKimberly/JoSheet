@@ -7,7 +7,7 @@ html {
 body, button, optgroup, select {
     font-family: 'scaly_sans';
 }
-/*div { border: 1px solid red; } /* debug */
+div { border: 1px solid red; } /* debug */
 
 .display, input, textarea {
     font-family: 'bookinsanity';
@@ -20,6 +20,11 @@ body, button, optgroup, select {
     font-size: 8px;
     letter-spacing: 0.5px;
     text-align: center;
+}
+
+.display {
+    text-align: center;
+    vertical-align: middle;
 }
 
 .resizable {
@@ -60,7 +65,7 @@ body, button, optgroup, select {
     display: block;
 }
 
-#showBtn, 
+#showBtn,
 #alertBox {
     display: none;
 }
@@ -115,7 +120,7 @@ body, button, optgroup, select {
     /*div { border: 1px solid blue; } /* debug */
 
     nav,
-    #alerts, 
+    #alerts,
     #hover,
     .modal {
         display: none !important;
