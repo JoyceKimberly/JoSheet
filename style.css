@@ -7,10 +7,14 @@ html {
 body, button, optgroup, select {
     font-family: 'scaly_sans';
 }
-div { border: 1px solid red; } /* debug */
+.display { border: 1px solid red; } /* debug */
 
 .display, input, textarea {
     font-family: 'bookinsanity';
+}
+
+.outerPage div {
+    color: black !important;
 }
 
 .lbl1 {
@@ -39,8 +43,14 @@ div { border: 1px solid red; } /* debug */
     top: 0;
     left: 0;
     z-index: 999;
-    border: 1px solid rgba(0, 153, 204, 0.2);
-    background-color: rgba(51, 181, 229, 0.2);
+}
+.moveMode .hover {
+    border: 1px solid rgba(4, 141, 204, 0.2);
+    background-color: rgba(56, 166, 229, 0.2);
+}
+.inputMode .hover {
+    border: 1px solid rgba(77, 15, 167, 0.2);
+    background-color: rgba(105, 20, 229, 0.2);
 }
 .moveMode .draggable:hover .hover,
 .moveMode .resizable:hover .hover,
