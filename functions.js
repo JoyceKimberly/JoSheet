@@ -2,6 +2,10 @@ var cWidth = 745;
 var moveEnabled = true;
 var objects = {};
 var character = {};
+var file = {
+    objects : {},
+    character : {},
+};
 var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
