@@ -121,10 +121,10 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 // -- Menu --
 // --------------------------------------------------------------------------------------
-$('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 window.addEventListener("resize", function() {
     $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 }, false);
+$('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 /*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
 $('#moveBtn').click(function() {
