@@ -196,6 +196,7 @@ $('#basicBarSave').click(function() {
         character.name = "JoSheet";
     };
     character.player = $('#playerNameInput').val();
+    character.level = $('#levelInput').val();
     
     setCharacter();
     saveCookies();
@@ -220,19 +221,6 @@ $("<style>\
 */
 
 }); // ----------------------------------------------------------------------------------
-
-function saveCookies() {
-    document.cookie = "objects=" + JSON.stringify(objects) + "; path=/";
-    document.cookie = "character=" + JSON.stringify(character) + "; path=/";
-};
-function loadCookies() {
-    if ( getCookie("objects") ) {
-        objects = JSON.parse(getCookie("objects"));
-    };
-    if ( getCookie("character") ) {
-        character = JSON.parse(getCookie("character"));
-    };
-};
 
 function setObjects() {
     for ( var i = 0; i < Object.keys(objects).length; i++ ) {
@@ -289,12 +277,14 @@ function resetObjects() {
 function setCharacter() {
     $('#characterNameInput').val(character.name);
     $('#playerNameInput').val(character.player);
+    $('#levelInput').val(character.level);
     display();
 };
 
 function display() {
     $('#characterNameDisplay').html(character.name);
-    $('#playerNameInput').html(character.player);
+    //$('#playerNameDisplay').html(character.player);
+    //$('#levelDisplay').html(character.level);
 };
 
 function resetCharacter() {
@@ -415,6 +405,19 @@ function setAlert(type, msg) {
             <div class="content">' + msg + '</div>\
         </div>\
     ');
+};
+
+function saveCookies() {
+    document.cookie = "objects=" + JSON.stringify(objects) + "; path=/";
+    document.cookie = "character=" + JSON.stringify(character) + "; path=/";
+};
+function loadCookies() {
+    if ( getCookie("objects") ) {
+        objects = JSON.parse(getCookie("objects"));
+    };
+    if ( getCookie("character") ) {
+        character = JSON.parse(getCookie("character"));
+    };
 };
 
 })(jQuery); // --------------------------------------------------------------------------
