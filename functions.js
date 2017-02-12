@@ -189,21 +189,22 @@ $('#basicBar').click(function() {
         createOption("input", "characterNameInput", "Character Name");
         $('#inputModal').modal('show');
     };
-});
-$('#basicBarSave').click(function() {
-    if ( $('#characterNameInput').val() !== "" ) {
-        character.name = $('#characterNameInput').val();
-    } else {
-        character.name = "JoSheet";
-    };
-    character.player = $('#playerNameInput').val();
-    character.level = $('#levelInput').val();
+
+    $('#inputModalSave').click(function() {
+        if ( $('#characterNameInput').val() !== "" ) {
+            character.name = $('#characterNameInput').val();
+        } else {
+            character.name = "JoSheet";
+        };
+        character.player = $('#playerNameInput').val();
+        character.level = $('#levelInput').val();
     
-    setCharacter();
-    saveCookies();
-    var dit = $(this);
-    dit.removeClass('btn-primary');
-    dit.addClass('btn-success');
+        setCharacter();
+        saveCookies();
+        var dit = $(this);
+        dit.removeClass('btn-primary');
+        dit.addClass('btn-success');
+    });
 });
 $('.modal').on('hidden.bs.modal', function() {
     var btn = $('.modal .btnSave');
