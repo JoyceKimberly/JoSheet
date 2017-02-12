@@ -194,6 +194,7 @@ $('#basicBarSave').click(function() {
     };
     setCharacter();
     saveCookies();
+    var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
 });
