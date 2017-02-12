@@ -109,7 +109,7 @@ body, button, optgroup, select {
         margin: 0;
         padding: 0;
     }
-    div { border: 1px solid blue; } /* debug */
+    /*div { border: 1px solid blue; } /* debug */
 
     nav,
     #alerts, 
