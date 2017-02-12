@@ -371,7 +371,9 @@ function loadFile(i) {
             reader.onload = function() {
                 objects = JSON.parse(reader.result);
                 setObjects();
+                setCharacter();
                 saveCookies();
+                setAlert('success', 'Character loaded.');
             }
             reader.readAsText(blob);
         })
