@@ -26,6 +26,12 @@ for ( var key in ClassSubList ) {
 };
 $('#subclassInput').closest('.form-group').hide();
 
+for ( var key in BackgroundList ) {
+    if ( BackgroundList.hasOwnProperty(key) ) {
+        $('#nackgroundInput').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
+    };
+};
+
 
 }); // ----------------------------------------------------------------------------------
 
