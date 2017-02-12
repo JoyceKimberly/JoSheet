@@ -311,17 +311,6 @@ function resetCharacter() {
     };
 };
 
-function createOption(type, id, label) {
-    $('#inputModal .modal-body').append('\
-        <div class="form-group row">\
-            <label for="' + id + '" class="col-4 col-form-label">' + label + '</label>\
-            <div class="col">\
-                <input class="form-control" type="text" id="' + id + '">\
-            </div>\
-        </div>\
-    ');
-};
-
 function listCharacters() {
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesListFolder({path: ''})
