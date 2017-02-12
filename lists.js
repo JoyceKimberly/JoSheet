@@ -12,6 +12,7 @@ for ( var key in RaceSubList ) {
         $('#subraceInput').append('<option value="' + key + '">' + RaceSubList[key].name + '</option>');
     };
 };
+$('#subraceInput').closest('.form-group').hide();
 
 for ( var key in ClassList ) {
     if ( ClassList.hasOwnProperty(key) ) {
@@ -23,6 +24,8 @@ for ( var key in ClassSubList ) {
         $('#subclassInput').append('<option value="' + key + '">' + ClassSubList[key].subname + '</option>');
     };
 };
+$('#subclassInput').closest('.form-group').hide();
+
 
 }); // ----------------------------------------------------------------------------------
 
