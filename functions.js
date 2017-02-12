@@ -186,27 +186,25 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 $('#basicBar').click(function() {
     if ( moveEnabled === false ) {
-        createOption("input", "characterNameInput", "Character Name");
-        createOption("input", "playerNameInput", "Player Name");
         $('#inputModal').modal('show');
     };
-
-    $('#inputModalSave').click(function() {
-        if ( $('#characterNameInput').val() !== "" ) {
-            character.name = $('#characterNameInput').val();
-        } else {
-            character.name = "JoSheet";
-        };
-        character.player = $('#playerNameInput').val();
-        character.level = $('#levelInput').val();
-    
-        setCharacter();
-        saveCookies();
-        var dit = $(this);
-        dit.removeClass('btn-primary');
-        dit.addClass('btn-success');
-    });
 });
+$('#basicBarSave').click(function() {
+    if ( $('#characterNameInput').val() !== "" ) {
+        character.name = $('#characterNameInput').val();
+    } else {
+        character.name = "JoSheet";
+    };
+    character.player = $('#playerNameInput').val();
+    character.level = $('#levelInput').val();
+    
+    setCharacter();
+    saveCookies();
+    var dit = $(this);
+    dit.removeClass('btn-primary');
+    dit.addClass('btn-success');
+});
+
 $('.modal').on('hidden.bs.modal', function() {
     var btn = $('.modal .btnSave');
     btn.removeClass('btn-success');
