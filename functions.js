@@ -119,7 +119,7 @@ interact('.moveMode .resizable')
     .on('resizemove', moveListener);
 
 // --------------------------------------------------------------------------------------
-// -- Specifics --
+// -- Menu --
 // --------------------------------------------------------------------------------------
 $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 window.addEventListener("resize", function() {
@@ -179,6 +179,34 @@ $('#printBtn').click(function() {
 });
 $('#saveLink').click(function() {
     saveFile();
+});
+
+// --------------------------------------------------------------------------------------
+// -- Display --
+// --------------------------------------------------------------------------------------
+$('#basicBar').click(function() {
+    if ( moveEnabled === false ) {
+        $('#basicBarModal').modal('show');
+    };
+});
+$('#basicBarSave').click(function() {
+    if ( $('#characterNameInput').val() !== "" ) {
+        character.name = $('#characterNameInput').val();
+    } else {
+        character.name = "JoSheet";
+    };
+    character.player = $('#playerNameInput').val();
+    
+    setCharacter();
+    saveCookies();
+    var dit = $(this);
+    dit.removeClass('btn-primary');
+    dit.addClass('btn-success');
+});
+$('.modal').on('hidden.bs.modal', function() {
+    var btn = $('.modal .btnSave');
+    btn.removeClass('btn-success');
+    btn.addClass('btn-primary');
 });
 
 /*
@@ -260,11 +288,13 @@ function resetObjects() {
 
 function setCharacter() {
     $('#characterNameInput').val(character.name);
+    $('#playerNameInput').val(character.player);
     display();
 };
 
 function display() {
     $('#characterNameDisplay').html(character.name);
+    $('#playerNameInput').html(character.player);
 };
 
 function resetCharacter() {
