@@ -103,6 +103,14 @@ div .bg img {
     }
 }
 
+@media screen and (min-width: ($fullWidth + 1)) {
+    .navbar,
+    .navbar + .container {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
 @media screen and (orientation: portrait) {
     .navbar {
         h1 {
