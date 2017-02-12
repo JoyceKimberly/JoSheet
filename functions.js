@@ -186,6 +186,7 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 $('#basicBar').click(function() {
     if ( moveEnabled === false ) {
+        createOption("input", "characterNameInput", "Character Name");
         $('#basicBarModal').modal('show');
     };
 });
