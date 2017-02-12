@@ -7,6 +7,11 @@ for ( var key in RaceList ) {
         $('#raceInput').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
     };
 };
+for ( var key in RaceSubList ) {
+    if ( RaceSubList.hasOwnProperty(key) ) {
+        $('#subraceInput').append('<option value="' + key + '">' + RaceSubList[key].name + '</option>');
+    };
+};
 
 }); // ----------------------------------------------------------------------------------
 
