@@ -43,6 +43,9 @@ body, button, optgroup, select {
     display: block;
 }
 
+.navbar .btn-toolbar {
+    width: 100%;
+}
 .navbar h1 {
     font-family: 'mr_eaves';
     font-variant: small-caps;
