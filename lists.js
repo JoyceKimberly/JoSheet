@@ -13,6 +13,17 @@ for ( var key in RaceSubList ) {
     };
 };
 
+for ( var key in ClassList ) {
+    if ( ClassList.hasOwnProperty(key) ) {
+        $('#classInput').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
+    };
+};
+for ( var key in ClassSubList ) {
+    if ( ClassSubList.hasOwnProperty(key) ) {
+        $('#subclassInput').append('<option value="' + key + '">' + ClassSubList[key].name + '</option>');
+    };
+};
+
 }); // ----------------------------------------------------------------------------------
 
 })(jQuery); // --------------------------------------------------------------------------
