@@ -2,32 +2,6 @@
 
 //console.log(tDoc); // debug
 
-$('#basicBar').click(function() {
-    if ( moveEnabled === false ) {
-        $('#basicBarModal').modal('show');
-    };
-});
-$('#basicBarSave').click(function() {
-    if ( $('#characterNameInput').val() !== "" ) {
-        character.name = $('#characterNameInput').val();
-    } else {
-        character.name = "JoSheet";
-    };
-    setCharacter();
-    saveCookies();
-    var dit = $(this);
-    dit.removeClass('btn-primary');
-    dit.addClass('btn-success');
-});
-$('.modal').on('hidden.bs.modal', function() {
-    var btn = $('.modal .btnSave');
-    btn.removeClass('btn-success');
-    btn.addClass('btn-primary');
-});
-    
-function display() {
-    $('#characterNameDisplay').html(character.name);
-};
 
 }); // ----------------------------------------------------------------------------------
 
