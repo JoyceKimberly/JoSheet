@@ -347,15 +347,6 @@ function listCharacters() {
         });
 };
 
-function setAuthLink() {
-    var dbx = new Dropbox({ clientId: CLIENT_ID });
-    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
-    document.getElementById('authLink').href = authUrl;
-    $('#saveLink').hide();
-    $('#authLink').show();
-};
-
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(objects));
     var filename = characterName + ".txt";
@@ -398,6 +389,15 @@ function deleteFile(i) {
         .catch(function(error) {
             setAlert('danger', error);
         });
+};
+
+function setAuthLink() {
+    var dbx = new Dropbox({ clientId: CLIENT_ID });
+    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
+    document.getElementById('authLink').href = authUrl;
+    $('#saveLink').hide();
+    $('#authLink').show();
 };
 
 function setAlert(type, msg) {
