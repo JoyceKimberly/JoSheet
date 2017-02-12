@@ -186,7 +186,7 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 $('#basicBar').click(function() {
     if ( moveEnabled === false ) {
-        $('#inputModal').modal('show');
+        $('#basicBarModal').modal('show');
     };
 });
 $('#basicBarSave').click(function() {
