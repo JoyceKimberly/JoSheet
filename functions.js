@@ -197,6 +197,7 @@ $('#basicBarModalSave').click(function() {
     };
     character.player = $('#playerNameInput').val();
     character.level = $('#levelInput').val();
+    character.race = $('#raceInput').val();
 
     setCharacter();
     saveCookies();
@@ -279,6 +280,7 @@ function setCharacter() {
     $('#characterNameInput').val(character.name);
     $('#playerNameInput').val(character.player);
     $('#levelInput').val(character.level);
+    $('#raceInput').val(character.race);
     display();
 };
 
