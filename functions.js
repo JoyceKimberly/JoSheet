@@ -195,13 +195,13 @@ $('#basicBar').click(function() {
 });
 $('#basicBarModalSave').click(function() {
     if ( $('#characterNameInput').val() !== "" ) {
-        character.name = $('#characterNameInput').val();
+        file.character.name = $('#characterNameInput').val();
     } else {
-        character.name = "JoSheet";
+        file.character.name = "JoSheet";
     };
-    character.player = $('#playerNameInput').val();
-    character.level = $('#levelInput').val();
-    character.race = $('#raceInput').val();
+    file.character.player = $('#playerNameInput').val();
+    file.character.level = $('#levelInput').val();
+    file.character.race = $('#raceInput').val();
 
     setCharacter();
     saveCookies();
@@ -229,35 +229,35 @@ $("<style>\
 }); // ----------------------------------------------------------------------------------
 
 function setObjects() {
-    for ( var i = 0; i < Object.keys(objects).length; i++ ) {
-        var naam = Object.keys(objects)[i];
+    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
+        var naam = Object.keys(file.objects)[i];
         var obj = $("#" + naam);
         obj.removeAttr("data-x");
         obj.removeAttr("data-y");
         obj.removeAttr("style");
 
-        var x = objects[naam].x;
-        var y = objects[naam].y;
+        var x = file.objects[naam].x;
+        var y = file.objects[naam].y;
 
-        if ( objects[naam].x ) {
+        if ( file.objects[naam].x ) {
             obj.css("transform", "translate(" + x + "px, " + y + "px)");
             obj.attr("data-x", x);
         };
-        if ( objects[naam].y ) {
+        if ( file.objects[naam].y ) {
             obj.css("transform", "translate(" + x + "px, " + y + "px)");
             obj.attr("data-y", y);
         };
-        if ( objects[naam].width ) {
-            obj.width(objects[naam].width);
+        if ( file.objects[naam].width ) {
+            obj.width(file.objects[naam].width);
         };
-        if ( objects[naam].height ) {
-            obj.height(objects[naam].height);
+        if ( file.objects[naam].height ) {
+            obj.height(file.objects[naam].height);
         };
     };
 };
 
 function resetObjects() {
-    objects = {
+    file.objects = {
         "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
         "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
         "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
@@ -281,21 +281,21 @@ function resetObjects() {
 };
 
 function setCharacter() {
-    $('#characterNameInput').val(character.name);
-    $('#playerNameInput').val(character.player);
-    $('#levelInput').val(character.level);
-    $('#raceInput').val(character.race);
+    $('#characterNameInput').val(file.character.name);
+    $('#playerNameInput').val(file.character.player);
+    $('#levelInput').val(file.character.level);
+    $('#raceInput').val(file.character.race);
     display();
 };
 
 function display() {
-    $('#characterNameDisplay').html(character.name);
-    //$('#playerNameDisplay').html(character.player);
-    //$('#levelDisplay').html(character.level);
+    $('#characterNameDisplay').html(file.character.name);
+    //$('#playerNameDisplay').html(file.character.player);
+    //$('#levelDisplay').html(file.character.level);
 };
 
 function resetCharacter() {
-    character = {
+    file.character = {
         name : "JoSheet",
         player : "",
         level : 1,
@@ -353,8 +353,8 @@ function listCharacters() {
 };
 
 function saveFile() {
-    var url = "data:text/plain," + encodeURIComponent(JSON.stringify(objects));
-    var filename = character.name + ".txt";
+    var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
+    var filename = file.character.name + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
@@ -373,7 +373,7 @@ function loadFile(i) {
             var blob = response.fileBlob;
             var reader = new FileReader();
             reader.onload = function() {
-                objects = JSON.parse(reader.result);
+                file = JSON.parse(reader.result);
                 setObjects();
                 setCharacter();
                 saveCookies();
@@ -417,15 +417,15 @@ function setAlert(type, msg) {
 };
 
 function saveCookies() {
-    document.cookie = "objects=" + JSON.stringify(objects) + "; path=/";
-    document.cookie = "character=" + JSON.stringify(character) + "; path=/";
+    document.cookie = "objects=" + JSON.stringify(file.objects) + "; path=/";
+    document.cookie = "character=" + JSON.stringify(file.character) + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
-        objects = JSON.parse(getCookie("objects"));
+        file.objects = JSON.parse(getCookie("objects"));
     };
     if ( getCookie("character") ) {
-        character = JSON.parse(getCookie("character"));
+        file.character = JSON.parse(getCookie("character"));
     };
 };
 
