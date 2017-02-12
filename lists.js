@@ -1,7 +1,12 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-//console.log(tDoc); // debug
+//console.log(RaceList); // debug
 
+for ( var key in RaceList ) {
+    if ( RaceList.hasOwnProperty(key) ) {
+        $('#raceInput').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
+    };
+};
 
 }); // ----------------------------------------------------------------------------------
 

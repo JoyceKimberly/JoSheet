@@ -189,7 +189,7 @@ $('#basicBar').click(function() {
         $('#basicBarModal').modal('show');
     };
 });
-$('#basicBarSave').click(function() {
+$('#basicBarModalSave').click(function() {
     if ( $('#characterNameInput').val() !== "" ) {
         character.name = $('#characterNameInput').val();
     } else {
@@ -197,7 +197,7 @@ $('#basicBarSave').click(function() {
     };
     character.player = $('#playerNameInput').val();
     character.level = $('#levelInput').val();
-    
+
     setCharacter();
     saveCookies();
     var dit = $(this);
@@ -348,7 +348,7 @@ function listCharacters() {
 
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(objects));
-    var filename = characterName + ".txt";
+    var filename = character.name + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
