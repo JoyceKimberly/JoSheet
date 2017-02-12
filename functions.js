@@ -349,7 +349,7 @@ function listCharacters() {
 };
 
 function saveFile() {
-    var url = "data:text/plain," + encodeURIComponent(JSON.stringify(objects));
+    var url = "data:text/plain," + encodeURIComponent("objects:" + JSON.stringify(objects) + "");
     var filename = character.name + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
