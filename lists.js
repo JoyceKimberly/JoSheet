@@ -9,7 +9,7 @@
 
 var tDoc = {
     info : {
-        SheetType : "",
+        SheetType : "Jo's",
     },
     bookmarkRoot : {
         children : [{
