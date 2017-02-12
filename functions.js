@@ -122,10 +122,10 @@ interact('.moveMode .resizable')
 // -- Specifics --
 // --------------------------------------------------------------------------------------
 $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 window.addEventListener("resize", function() {
-	$('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
+    $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
 }, false);
+/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
 $('#moveBtn').click(function() {
     moveEnabled = true;
@@ -190,7 +190,7 @@ $('#basicBarSave').click(function() {
     if ( $('#characterNameInput').val() !== "" ) {
         character.name = $('#characterNameInput').val();
     } else {
-        character.name = "JoSheet";        
+        character.name = "JoSheet";
     };
     setCharacter();
     saveCookies();
@@ -201,7 +201,7 @@ $('#basicBarSave').click(function() {
 $('.modal').on('hidden.bs.modal', function() {
     var btn = $('.modal .btnSave');
     btn.removeClass('btn-success');
-    btn.addClass('btn-primary');    
+    btn.addClass('btn-primary');
 });
 /*
 $("<style>\
@@ -442,42 +442,42 @@ function getCookie(cname) {
 };
 
 (function(window) {
-	window.utils = {
-		parseQueryString: function(str) {
-			var ret = Object.create(null);
+    window.utils = {
+        parseQueryString: function(str) {
+            var ret = Object.create(null);
 
-			if (typeof str !== 'string') {
-				return ret;
-			}
+            if (typeof str !== 'string') {
+                return ret;
+            }
 
-			str = str.trim().replace(/^(\?|#|&)/, '');
+            str = str.trim().replace(/^(\?|#|&)/, '');
 
-			if (!str) {
-				return ret;
-			}
+            if (!str) {
+                return ret;
+            }
 
-			str.split('&').forEach(function (param) {
-				var parts = param.replace(/\+/g, ' ').split('=');
-				// Firefox (pre 40) decodes `%3D` to `=`
-				// https://github.com/sindresorhus/query-string/pull/37
-				var key = parts.shift();
-				var val = parts.length > 0 ? parts.join('=') : undefined;
+            str.split('&').forEach(function (param) {
+                var parts = param.replace(/\+/g, ' ').split('=');
+                // Firefox (pre 40) decodes `%3D` to `=`
+                // https://github.com/sindresorhus/query-string/pull/37
+                var key = parts.shift();
+                var val = parts.length > 0 ? parts.join('=') : undefined;
 
-				key = decodeURIComponent(key);
+                key = decodeURIComponent(key);
 
-				// missing `=` should be `null`:
-				// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-				val = val === undefined ? null : decodeURIComponent(val);
+                // missing `=` should be `null`:
+                // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+                val = val === undefined ? null : decodeURIComponent(val);
 
-				if (ret[key] === undefined) {
-				    ret[key] = val;
-				} else if (Array.isArray(ret[key])) {
-				    ret[key].push(val);
-				} else {
-				    ret[key] = [ret[key], val];
-				}
-			});
-			return ret;
-		}
-	};
+                if (ret[key] === undefined) {
+                    ret[key] = val;
+                } else if (Array.isArray(ret[key])) {
+                    ret[key].push(val);
+                } else {
+                    ret[key] = [ret[key], val];
+                }
+            });
+            return ret;
+        }
+    };
 })(window);
