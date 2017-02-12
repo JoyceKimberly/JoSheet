@@ -20,7 +20,7 @@ for ( var key in ClassList ) {
 };
 for ( var key in ClassSubList ) {
     if ( ClassSubList.hasOwnProperty(key) ) {
-        $('#subclassInput').append('<option value="' + key + '">' + ClassSubList[key].name + '</option>');
+        $('#subclassInput').append('<option value="' + key + '">' + ClassSubList[key].subname + '</option>');
     };
 };
 
