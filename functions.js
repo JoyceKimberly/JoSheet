@@ -1,7 +1,5 @@
 var cWidth = 745;
 var moveEnabled = true;
-var objects = {};
-var character = {};
 var file = {
     objects : {},
     character : {},
@@ -202,6 +200,7 @@ $('#basicBarModalSave').click(function() {
     file.character.player = $('#playerNameInput').val();
     file.character.level = $('#levelInput').val();
     file.character.race = $('#raceInput').val();
+    file.character.class = $('#classInput').val();
 
     setCharacter();
     saveCookies();
@@ -285,6 +284,7 @@ function setCharacter() {
     $('#playerNameInput').val(file.character.player);
     $('#levelInput').val(file.character.level);
     $('#raceInput').val(file.character.race);
+    $('#classInput').val(file.character.class);
     display();
 };
 
