@@ -293,9 +293,9 @@ function resetCharacter() {
     character = {
         name : "JoSheet",
         player : "",
+        level : 1,
         race : "",
         subRace : "",
-        level : 1,
         class : "",
         subClass : "",
         exp : 0,
