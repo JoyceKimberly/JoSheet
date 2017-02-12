@@ -151,16 +151,28 @@
         <div class="page">
         </div>
     </div>
-    <div class="modal" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal" id="basicBarModal" tabindex="-1" role="dialog" aria-labelledby="basicBarModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="inputModalLabel">Soon&trade;...</h5>
+                    <h5 class="modal-title" id="basicBarModalLabel">Soon&trade;...</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group row">
+                        <label for="characterNameInput" class="col-4 col-form-label">Character Name</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="characterNameInput">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="playerNameInput" class="col-4 col-form-label">Player Name</label>
+                        <div class="col">
+                            <input class="form-control" type="text" id="playerNameInput">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="levelInput" class="col-4 col-form-label">Level</label>
                         <div class="col">
@@ -222,7 +234,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="inputModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
+                    <button id="basicBarModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
