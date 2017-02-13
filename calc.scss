@@ -33,8 +33,6 @@ div .bg img {
 .navbar,
 .outerPage {
     width: $fullWidth;
-    /*margin-left: auto;
-    margin-right: auto;*/
 }
 .navbar + .container {
     width: ($fullWidth * 0.75);
@@ -108,10 +106,8 @@ div .bg img {
 }
 
 @media screen and (min-width: ($fullWidth + 1)) {
-    .navbar/*,
-    .navbar + .container*/ {
+    .navbar {
         padding-right: 0;
-        padding-left: 0;
     }
 }
 
