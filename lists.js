@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-//console.log(RaceList); // debug
+//console.log(file); // debug
 
 for ( var key in RaceList ) {
     if ( RaceList.hasOwnProperty(key) ) {
@@ -35,37 +35,33 @@ for ( var key in BackgroundList ) {
 
 }); // ----------------------------------------------------------------------------------
 window.displayCharacterName = function() {
-    if ( file.char.name !== "" ) {
-        $('#characterNameInput').val(file.char.name);
-        $('#characterNameDisplay').html(file.char.name);
-    };
+    $('#characterNameInput').val(file.character.name);
+    $('#characterNameDisplay').html(file.character.name);
 };
 window.displayPlayerName = function() {
-    if ( file.char.player !== "" ) {
-        $('#playerNameInput').val(file.char.player);
-        $('#playerNameDisplay').html(file.char.player);
-    };
+    $('#playerNameInput').val(file.character.player);
+    $('#playerNameDisplay').html(file.character.player);
 };
 window.displayLevel = function() {
-    $('#levelInput').val(file.char.level);
-    $('#levelDisplay').html(file.char.level);
+    $('#levelInput').val(file.character.level);
+    $('#levelDisplay').html(file.character.level);
 };
 window.displayRace = function() {
-    if ( file.char.race !== "" ) {
-        $('#raceInput').val(file.char.race);
-        $('#raceDisplay').html(RaceList[file.char.race].name);
+    if ( file.character.race !== "" ) {
+        $('#raceInput').val(file.character.race);
+        $('#raceDisplay').html(RaceList[file.character.race].name);
     };
 };
 window.displayClass = function() {
-    if ( file.char.class !== "" ) {
-        $('#classInput').val(file.char.class);
-        $('#classDisplay').html(ClassList[file.char.class].name);
+    if ( file.character.class !== "" ) {
+        $('#classInput').val(file.character.class);
+        $('#classDisplay').html(ClassList[file.character.class].name);
     };
 };
 window.displayBackground = function() {
-    if ( file.char.background !== "" ) {
-        $('#backgroundInput').val(file.char.background);
-        $('#backgroundDisplay').html(BackgroundList[file.char.background].name);
+    if ( file.character.background !== "" ) {
+        $('#backgroundInput').val(file.character.background);
+        $('#backgroundDisplay').html(BackgroundList[file.character.background].name);
     };
 };
 

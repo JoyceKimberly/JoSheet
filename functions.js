@@ -1,12 +1,17 @@
 var cWidth = 745;
 var moveEnabled = true;
-var file = {
+window.file = {
     objects : {},
-    char : {},
+    character : {},
 };
 var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
+resetObjects();
+resetCharacter();
+loadCookies();
+setObjects();
+setCharacter();
 
 var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -16,7 +21,6 @@ window.addEventListener("resize", function() {
     $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
 }, false);
 $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
-/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
 
 if ( isAuthenticated() ) {
     $('#authLink').hide();
@@ -26,11 +30,6 @@ if ( isAuthenticated() ) {
     setAuthLink();
 };
 
-resetObjects();
-resetCharacter();
-loadCookies();
-setObjects();
-setCharacter();
 setAlert('info', 'Move all... the... things!');
 
 $('[data-toggle="tooltip"]').tooltip();
@@ -57,7 +56,6 @@ $('.outerPage').on('touchend mouseup', function() {
 });
 
 function moveListener(event) {
-    //console.log(event); // debug
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -193,15 +191,15 @@ $('#basicBar').click(function() {
 });
 $('#basicBarModalSave').click(function() {
     if ( $('#characterNameInput').val() !== "" ) {
-        file.char.name = $('#characterNameInput').val();
+        file.character.name = $('#characterNameInput').val();
     } else {
-        file.char.name = "JoSheet";
+        file.character.name = "JoSheet";
     };
-    file.char.player = $('#playerNameInput').val();
-    file.char.level = $('#levelInput').val();
-    file.char.race = $('#raceInput').val();
-    file.char.class = $('#classInput').val();
-    file.char.background = $('#backgroundInput').val();
+    file.character.player = $('#playerNameInput').val();
+    file.character.level = $('#levelInput').val();
+    file.character.race = $('#raceInput').val();
+    file.character.class = $('#classInput').val();
+    file.character.background = $('#backgroundInput').val();
 
     displayCharacterName();
     displayPlayerName();
@@ -221,16 +219,6 @@ $('.modal').on('hidden.bs.modal', function() {
     btn.removeClass('btn-success');
     btn.addClass('btn-primary');
 });
-
-/*
-$("<style>\
-@media print {\
-    .outerPage[style] {\
-        transform: scale(1.5) !important;\
-    }\
-}\
-</style>").appendTo("head");
-*/
 
 }); // ----------------------------------------------------------------------------------
 
@@ -296,7 +284,7 @@ function setCharacter() {
 };
 
 function resetCharacter() {
-    file.char = {
+    file.character = {
         name : "JoSheet",
         player : "",
         level : 1,
@@ -355,7 +343,7 @@ function listCharacters() {
 
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-    var filename = file.char.name + " (lvl " + file.char.level + " " + file.char.class + ")" + ".txt";
+    var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
@@ -422,14 +410,14 @@ function setAlert(type, msg) {
 
 function saveCookies() {
     document.cookie = "objects=" + JSON.stringify(file.objects) + "; path=/";
-    document.cookie = "character=" + JSON.stringify(file.char) + "; path=/";
+    document.cookie = "character=" + JSON.stringify(file.character) + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
         file.objects = JSON.parse(getCookie("objects"));
     };
     if ( getCookie("character") ) {
-        file.char = JSON.parse(getCookie("character"));
+        file.character = JSON.parse(getCookie("character"));
     };
 };
 
