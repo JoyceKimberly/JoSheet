@@ -10,7 +10,7 @@ body, button, optgroup, select, input, textarea {
 /*.display { border: 1px solid red; } /* debug */
 
 .display {
-    font-family: 'bookinsanity';
+    /*font-family: 'bookinsanity';*/
 }
 
 .outerPage div {
