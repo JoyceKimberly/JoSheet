@@ -89,6 +89,9 @@ body, button, optgroup, select, input, textarea {
     right: 0;
     left: initial;
 }
+.dropdown-menu a {
+    margin-right: 25px;
+}
 
 .alert {
     /*width: 75%;*/
