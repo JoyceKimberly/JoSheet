@@ -1,8 +1,9 @@
 var cWidth = 745;
 var moveEnabled = true;
 window.file = {
-    objects : {},
+    objects   : {},
     character : {},
+    notes     : {},
 };
 var characterFiles = [];
 
