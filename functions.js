@@ -55,7 +55,7 @@ $('.outerPage').on('touchend mouseup', function() {
     $('.outerPage').removeClass("grid");
 });
 
-window.moveListener = function(event) {
+function moveListener(event) {
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
