@@ -33,6 +33,9 @@ body, button, optgroup, select, input, textarea {
 .center {
     text-align: center;
 }
+.right {
+    text-align: right;
+}
 
 .resizable {
     box-sizing: border-box;
@@ -139,6 +142,23 @@ body, button, optgroup, select, input, textarea {
 }
 
 #levelDisplay {
-    top: 63px;
-    left: 262px;
+    width: 22px;
+    top: 40px;
+    left: 320px;
+}
+#classDisplay {
+    top: 40px;
+    left: 344px;
+}
+#playerNameDisplay {
+    top: 40px;
+    left: 620px;
+}
+#backgroundDisplay {
+    top: 76px;
+    left: 320px;
+}
+#raceDisplay {
+    top: 76px;
+    left: 444px;
 }
