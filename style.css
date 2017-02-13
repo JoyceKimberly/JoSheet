@@ -4,12 +4,12 @@
 html {
     overflow-y: scroll;
 }
-body, button, optgroup, select {
+body, button, optgroup, select, input, textarea {
     font-family: 'scaly_sans';
 }
 /*.display { border: 1px solid red; } /* debug */
 
-.display, input, textarea {
+.display {
     font-family: 'bookinsanity';
 }
 
