@@ -38,7 +38,7 @@ body, button, optgroup, select, input, textarea {
 
 .boxShadow {
     /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+    /*box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.6);*/
 }
 
 .hover {
@@ -89,12 +89,14 @@ body, button, optgroup, select, input, textarea {
     right: 0;
     left: initial;
 }
-.dropdown-menu a {
-    margin-right: 25px;
+.dropdown-item {
+    position: relative;
+    padding-right: 35px;
 }
-
-.alert {
-    /*width: 75%;*/
+.dropdown-item .close {
+    position: absolute;
+    top: 2px;
+    right: 10px;
 }
 
 .outerPage {
