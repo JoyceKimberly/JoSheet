@@ -31,13 +31,13 @@ div .bg img {
 .display { z-index: 6; }
 
 .navbar,
-.navbar + .container,
 .outerPage {
     width: $fullWidth;
     margin-left: auto;
     margin-right: auto;
 }
 .navbar + .container {
+    width: ($fullWidth * 0.75);
     padding-top: 15px;
 }
 

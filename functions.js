@@ -12,6 +12,12 @@ var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(wi
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
 var zoomScale = ((vw-30)/cWidth);
 
+window.addEventListener("resize", function() {
+    $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
+}, false);
+$('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
+/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
+
 if ( isAuthenticated() ) {
     $('#authLink').hide();
     listCharacters();
@@ -123,12 +129,6 @@ interact('.moveMode .resizable')
 // --------------------------------------------------------------------------------------
 // -- Menu --
 // --------------------------------------------------------------------------------------
-window.addEventListener("resize", function() {
-    $('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-}, false);
-$('#navbar + .container').css("margin-top", ($('#navbar').outerHeight()));
-/*$('.outerPage').css("transform", "scale(" + zoomScale + ")");*/
-
 $('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
@@ -356,7 +356,7 @@ function listCharacters() {
 
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-    var filename = file.character.name + ".txt";
+    var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
@@ -411,11 +411,14 @@ function setAuthLink() {
 
 function setAlert(type, msg) {
     $('#alerts').append('\
-        <div class="alert alert-' + type + ' alert-dismissible fade show" role="alert">\
+        <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
             <div class="content">' + msg + '</div>\
         </div>\
     ');
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 5000);
 };
 
 function saveCookies() {
