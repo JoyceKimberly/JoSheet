@@ -291,6 +291,17 @@ function resetCharacter() {
             wis : 8,
             cha : 8,
         },
+        skills : {},
+        languages : {},
+        gender : "",
+        alignment : "",
+        age : "",
+        faith : "",
+        height : "",
+        weight : "",
+        hair : "",
+        skin : "",
+        eyes : "",
     };
 };
 
