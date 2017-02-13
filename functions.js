@@ -78,7 +78,7 @@ function moveListener(event) {
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
-    objects[target.id] = {
+    file.objects[target.id] = {
         width: target.style.width,
         height: target.style.height,
         x: x,
