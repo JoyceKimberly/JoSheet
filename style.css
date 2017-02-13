@@ -86,7 +86,8 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
-#showBtn {
+#hideBtn,
+.display {
     display: none;
 }
 
