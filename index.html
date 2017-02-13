@@ -263,5 +263,41 @@
             </div>
         </div>
     </div>
+    <style>
+    @media print {
+        body,
+        .outerPage {
+            background-color: white !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        /*div { border: 1px solid blue; } /* debug */
+
+        #navbar,
+        #alerts,
+        #hover,
+        .modal {
+            display: none !important;
+        }
+
+        .outerPage {
+            width: 745px;
+            height: initial;
+            border: none;
+            box-shadow: none !important;
+            margin: 0;
+        }
+        .page {
+            height: initial;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    @page {
+        size: 793px 1122px;
+        margin: 24px;
+    }
+    </style>
 </body>
 </html>

@@ -135,26 +135,3 @@ body, button, optgroup, select, input, textarea {
     border-image-slice: 60 18 fill;
     border-image-width: 60px 18px;
 }
-
-/* ----------------------------------------------------------------------------------- */
-/* -- Printing -- */
-/* ----------------------------------------------------------------------------------- */
-@media print {
-    body {
-        background-color: white !important;
-        margin: 0;
-        padding: 0;
-    }
-    /*div { border: 1px solid blue; } /* debug */
-
-    nav,
-    #alerts,
-    #hover,
-    .modal {
-        display: none !important;
-    }
-
-    .outerPage {
-        box-shadow: none;
-    }
-}

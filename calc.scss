@@ -230,21 +230,8 @@ div .bg img {
 /* -- Printing -- */
 /* ----------------------------------------------------------------------------------- */
 @media print {
-    body {
-        margin: 0;
-        padding: 0;
-    }
-
     .outerPage {
         width: $fullWidth - ($printMargin * 2);
-        height: initial;
-        border: none;
-        margin: 0;
-    }
-    .page {
-        height: initial;
-        top: 0;
-        left: 0;
     }
 }
 
