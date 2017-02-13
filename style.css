@@ -123,6 +123,11 @@ body, button, optgroup, select, input, textarea {
     background-position: 23px 23px;
 }
 
+#raceDisplay,
+#raceInput {
+    text-transform: capitalize;
+}
+
 .boxBg .bg {
     border-image-source: url("img/BoxBg.svg");
     border-image-slice: 30 101 fill;

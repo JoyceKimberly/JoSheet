@@ -34,6 +34,30 @@ for ( var key in BackgroundList ) {
 
 
 }); // ----------------------------------------------------------------------------------
+window.displayCharacterName = function() {
+    $('#characterNameInput').val(file.char.name);
+    $('#characterNameDisplay').html(file.char.name);
+};
+window.displayPlayerName = function() {
+    $('#playerNameInput').val(file.char.player);
+    $('#playerNameDisplay').html(file.char.player);
+};
+window.displayLevel = function() {
+    $('#levelInput').val(file.char.level);
+    $('#levelDisplay').html(file.char.level);
+};
+window.displayRace = function() {
+    $('#raceInput').val(file.char.race);
+    $('#raceDisplay').html(RaceList[file.char.race].name);
+};
+window.displayClass = function() {
+    $('#classInput').val(file.char.class);
+    $('#classDisplay').html(ClassList[file.char.class].name);
+};
+window.displayBackground = function() {
+    $('#backgroundInput').val(file.char.background);
+    $('#backgroundDisplay').html(BackgroundList[file.char.background].name);
+};
 
 })(jQuery); // --------------------------------------------------------------------------
 

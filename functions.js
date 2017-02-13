@@ -2,7 +2,7 @@ var cWidth = 745;
 var moveEnabled = true;
 var file = {
     objects : {},
-    character : {},
+    char : {},
 };
 var characterFiles = [];
 
@@ -172,7 +172,7 @@ $('#resetBtn').click(function() {
     } else {
         resetCharacter();
         document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        display();
+        setCharacter();
     };
 });
 
@@ -184,7 +184,7 @@ $('#saveLink').click(function() {
 });
 
 // --------------------------------------------------------------------------------------
-// -- Display --
+// -- Display Setup --
 // --------------------------------------------------------------------------------------
 $('#basicBar').click(function() {
     if ( moveEnabled === false ) {
@@ -193,17 +193,23 @@ $('#basicBar').click(function() {
 });
 $('#basicBarModalSave').click(function() {
     if ( $('#characterNameInput').val() !== "" ) {
-        file.character.name = $('#characterNameInput').val();
+        file.char.name = $('#characterNameInput').val();
     } else {
-        file.character.name = "JoSheet";
+        file.char.name = "JoSheet";
     };
-    file.character.player = $('#playerNameInput').val();
-    file.character.level = $('#levelInput').val();
-    file.character.race = $('#raceInput').val();
-    file.character.class = $('#classInput').val();
-    file.character.background = $('#backgroundInput').val();
+    file.char.player = $('#playerNameInput').val();
+    file.char.level = $('#levelInput').val();
+    file.char.race = $('#raceInput').val();
+    file.char.class = $('#classInput').val();
+    file.char.background = $('#backgroundInput').val();
 
-    setCharacter();
+    displayCharacterName();
+    displayPlayerName();
+    displayLevel();
+    displayRace();
+    displayClass();
+    displayBackground();
+
     saveCookies();
     var dit = $(this);
     dit.removeClass('btn-primary');
@@ -281,26 +287,16 @@ function resetObjects() {
 };
 
 function setCharacter() {
-    $('#characterNameInput').val(file.character.name);
-    $('#playerNameInput').val(file.character.player);
-    $('#levelInput').val(file.character.level);
-    $('#raceInput').val(file.character.race);
-    $('#classInput').val(file.character.class);
-    $('#backgroundInput').val(file.character.background);
-    display();
-};
-
-function display() {
-    $('#characterNameDisplay').html(file.character.name);
-    $('#playerNameDisplay').html(file.character.player);
-    $('#levelDisplay').html(file.character.level);
-    $('#raceDisplay').html(file.character.race);
-    $('#classDisplay').html(file.character.class);
-    $('#backgroundDisplay').html(file.character.background);
+    displayCharacterName();
+    displayPlayerName();
+    displayLevel();
+    displayRace();
+    displayClass();
+    displayBackground();
 };
 
 function resetCharacter() {
-    file.character = {
+    file.char = {
         name : "JoSheet",
         player : "",
         level : 1,
@@ -359,7 +355,7 @@ function listCharacters() {
 
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-    var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
+    var filename = file.char.name + " (lvl " + file.char.level + " " + file.char.class + ")" + ".txt";
     var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
@@ -426,14 +422,14 @@ function setAlert(type, msg) {
 
 function saveCookies() {
     document.cookie = "objects=" + JSON.stringify(file.objects) + "; path=/";
-    document.cookie = "character=" + JSON.stringify(file.character) + "; path=/";
+    document.cookie = "character=" + JSON.stringify(file.char) + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
         file.objects = JSON.parse(getCookie("objects"));
     };
     if ( getCookie("character") ) {
-        file.character = JSON.parse(getCookie("character"));
+        file.char = JSON.parse(getCookie("character"));
     };
 };
 
