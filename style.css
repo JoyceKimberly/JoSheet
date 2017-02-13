@@ -76,8 +76,7 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
-#showBtn,
-#alertBox {
+#showBtn {
     display: none;
 }
 
