@@ -421,6 +421,7 @@ function setAlert(type, msg) {
 function saveCookies() {
     document.cookie = "objects=" + JSON.stringify(file.objects) + "; path=/";
     document.cookie = "character=" + JSON.stringify(file.character) + "; path=/";
+    document.cookie = "notes=" + JSON.stringify(file.notes) + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
@@ -428,6 +429,9 @@ function loadCookies() {
     };
     if ( getCookie("character") ) {
         file.character = JSON.parse(getCookie("character"));
+    };
+    if ( getCookie("notes") ) {
+        file.notes = JSON.parse(getCookie("notes"));
     };
 };
 
