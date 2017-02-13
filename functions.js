@@ -293,6 +293,11 @@ function resetCharacter() {
         },
         skills : {},
         languages : {},
+        armor : "",
+        shield : "",
+        weapons : {},
+        ammo : {},
+        equipment : {},
         gender : "",
         alignment : "",
         age : "",
@@ -302,6 +307,8 @@ function resetCharacter() {
         hair : "",
         skin : "",
         eyes : "",
+    };
+    file.notes = {
     };
 };
 
