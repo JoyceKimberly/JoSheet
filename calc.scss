@@ -37,6 +37,9 @@ div .bg img {
     margin-left: auto;
     margin-right: auto;
 }
+.navbar + .container {
+    padding-top: 15px;
+}
 
 .outerPage {
     width: $fullWidth;
