@@ -309,6 +309,10 @@ function resetCharacter() {
         eyes : "",
     };
     file.notes = {
+        appearance : "",
+        history : "",
+        allies : "",
+        enemies : "",
     };
 };
 
