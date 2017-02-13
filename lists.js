@@ -32,7 +32,6 @@ for ( var key in BackgroundList ) {
     };
 };
 
-
 }); // ----------------------------------------------------------------------------------
 window.displayCharacterName = function() {
     $('#characterNameInput').val(file.character.name);
@@ -79,6 +78,7 @@ var tDoc = {
     getField : function(event) { return event; },
 };
 var app = {};
+function desc(event) { return event; };
 
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>

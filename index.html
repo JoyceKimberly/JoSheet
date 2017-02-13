@@ -18,6 +18,7 @@
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
@@ -35,19 +36,6 @@
                 <button id="inputBtn" type="button" class="btn btn-secondary" title="Input"><i class="fa fa-i-cursor fa-fw"></i></button>
                 <button id="moveBtn" type="button" class="btn btn-secondary active" title="Move"><i class="fa fa-arrows fa-fw"></i></button>
             </div>
-                <!--
-                <div class="btn-group btn-group-sm" role="group" aria-label="Zoom">
-                    <button id="zoomIn" type="button" class="btn btn-secondary" title="Zoom in">
-                        <i class="fa fa-search-plus fa-fw"></i>
-                    </button>
-                    <button id="zoomAct" type="button" class="btn btn-secondary" title="Reset zoom">
-                        <i class="fa fa-search fa-fw"></i>
-                    </button>
-                    <button id="zoomOut" type="button" class="btn btn-secondary" title="Zoom out">
-                        <i class="fa fa-search-minus fa-fw"></i>
-                    </button>
-                </div>
-                -->
             <button id="hideBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i></button>
             <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw" aria-hidden="true"></i></button>
             <button id="resetBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Reset"><i class="fa fa-times fa-fw" aria-hidden="true"></i></button>
@@ -65,7 +53,7 @@
     <div id="page1" class="outerPage">
         <div class="page">
             <div id="basicBar" class="z2 draggable editable">
-                <div class="bg"><img src="img/BasicBar.svg" /></div>
+                <div class="bg"><img src="img/BasicBar.svg"></div>
                 <div id="characterNameDisplay" class="display center"></div>
                 <div id="playerNameDisplay" class="display"></div>
                 <div id="levelDisplay" class="display right"></div>
@@ -75,49 +63,37 @@
                 <div class="hover"></div>
             </div>
             <div id="attrBox" class="z1 resizable">
-                <div class="bg"><img src="img/AttrBox.svg" /></div>
+                <div class="bg"><img src="img/AttrBox.svg"></div>
                 <div class="hover"></div>
             </div>
             <div id="strBlock" class="attrBlock str z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock1.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock1.svg"></div>
                 <div class="attrTxt lbl1">Strength</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="dexBlock" class="attrBlock dex z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock2.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock2.svg"></div>
                 <div class="attrTxt lbl1">Dexterity</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="conBlock" class="attrBlock con z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock3.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock3.svg"></div>
                 <div class="attrTxt lbl1">Constitution</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="intBlock" class="attrBlock int z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock4.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock4.svg"></div>
                 <div class="attrTxt lbl1">Intelligence</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="wisBlock" class="attrBlock wis z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock5.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock5.svg"></div>
                 <div class="attrTxt lbl1">Wisdom</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="chaBlock" class="attrBlock cha z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock6.svg" /></div>
+                <div class="bg"><img src="img/AttrBlock6.svg"></div>
                 <div class="attrTxt lbl1">Charisma</div>
-                <div class="attrTxt"></div>
-                <div class="attrTxt"></div>
                 <div class="hover"></div>
             </div>
             <div id="savesBlock" class="block2 z2 draggable editable">
@@ -129,12 +105,12 @@
                 <div class="hover"></div>
             </div>
             <div id="inspBlock" class="z2 draggable">
-                <div class="bg"><img src="img/InspBlock.svg" /></div>
+                <div class="bg"><img src="img/InspBlock.svg"></div>
                 <div class="lbl1">Inspiration</div>
                 <div class="hover"></div>
             </div>
             <div id="profBlock" class="z2 draggable">
-                <div class="bg"><img src="img/ProfBlock.svg" /></div>
+                <div class="bg"><img src="img/ProfBlock.svg"></div>
                 <div class="lbl1">Proficiency Bonus</div>
                 <div class="hover"></div>
             </div>
