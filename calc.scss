@@ -225,6 +225,10 @@ div .bg img {
     top: 53px;
     left: 39px;
 }
+#levelDisplay {
+    top: 86 - $printMargin;
+    left: 351 - $printMargin;
+}
 
 /* ----------------------------------------------------------------------------------- */
 /* -- Printing -- */

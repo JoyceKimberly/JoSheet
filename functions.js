@@ -292,8 +292,11 @@ function setCharacter() {
 
 function display() {
     $('#characterNameDisplay').html(file.character.name);
-    //$('#playerNameDisplay').html(file.character.player);
-    //$('#levelDisplay').html(file.character.level);
+    $('#playerNameDisplay').html(file.character.player);
+    $('#levelDisplay').html(file.character.level);
+    $('#raceDisplay').html(file.character.race);
+    $('#classDisplay').html(file.character.class);
+    $('#backgroundDisplay').html(file.character.background);
 };
 
 function resetCharacter() {
