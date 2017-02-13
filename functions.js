@@ -141,19 +141,6 @@ $('#inputBtn').click(function() {
     $('#moveBtn').removeClass('active');
 });
 
-$('#zoomIn').click(function() {
-    zoomScale = zoomScale+0.10;
-    $('.outerPage').css("transform", "scale(" + zoomScale + ")");
-});
-$('#zoomAct').click(function() {
-    zoomScale = 1.00;
-    $('.outerPage').css("transform", "scale(1)");
-});
-$('#zoomOut').click(function() {
-    zoomScale = zoomScale-0.10;
-    $('.outerPage').css("transform", "scale(" + zoomScale + ")");
-});
-
 $('#hideBtn').click(function() {
     $('#hideBtn, .display').hide();
     $('#showBtn').show();
