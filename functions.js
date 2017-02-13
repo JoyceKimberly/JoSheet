@@ -89,7 +89,6 @@ function moveListener(event) {
 
 var restrictObj = {
     restriction: '.page',
-    //endOnly: true,
     elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
 };
 
