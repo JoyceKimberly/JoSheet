@@ -137,3 +137,8 @@ body, button, optgroup, select, input, textarea {
     border-image-slice: 60 18 fill;
     border-image-width: 60px 18px;
 }
+
+#levelDisplay {
+    top: 63px;
+    left: 262px;
+}
