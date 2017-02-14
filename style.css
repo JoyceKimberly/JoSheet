@@ -136,6 +136,11 @@ body, button, optgroup, select, input, textarea {
     border-image-slice: 30 38 fill;
     border-image-width: 30px 38px;
 }
+#persBlock .bg {
+    border-image-source: url("img/PersBlock.svg");
+    border-image-slice: 17 16 17 48 fill;
+    border-image-width: 17px 16px 17px 48px;
+}
 
 .boxBg .bg {
     border-image-source: url("img/BoxBg.svg");
@@ -155,8 +160,23 @@ body, button, optgroup, select, input, textarea {
 }
 .block3 .bg {
     border-image-source: url("img/Block3.svg");
-    border-image-slice: 15 16 33 fill;
-    border-image-width: 15px 16px 33px;
+    border-image-slice: 15 16 34 fill;
+    border-image-width: 15px 16px 34px;
+}
+.block4 .bg {
+    border-image-source: url("img/Block4.svg");
+    border-image-slice: 32 16 fill;
+    border-image-width: 32px 16px;
+}
+.block5 .bg {
+    border-image-source: url("img/Block5.svg");
+    border-image-slice: 33 16 16 fill;
+    border-image-width: 33px 16px 16px;
+}
+.block6 .bg {
+    border-image-source: url("img/Block6.svg");
+    border-image-slice: 14 19 34 fill;
+    border-image-width: 14px 19px 34px;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -231,10 +251,16 @@ body, button, optgroup, select, input, textarea {
     top: 205px;
     left: 100px;
 }
+#persBlock {
+    width: 235px;
+    height: 35px;
+    top: 750px;
+    left: 15px;
+}
 
 .boxBg {
     width: 230px;
-    height: 315px;
+    height: 320px;
 }
 #boxBg1 {
     top: 160px;
@@ -252,10 +278,28 @@ body, button, optgroup, select, input, textarea {
     left: 375px;
 }
 
-#persTrait {
+#persTraits {
     width: 211px;
     height: 80px;
     top: 175px;
+    left: 510px;
+}
+#ideals {
+    width: 211px;
+    height: 65px;
+    top: 263px;
+    left: 510px;
+}
+#bonds {
+    width: 211px;
+    height: 65px;
+    top: 335px;
+    left: 510px;
+}
+#flaws {
+    width: 211px;
+    height: 65px;
+    top: 405px;
     left: 510px;
 }
 
