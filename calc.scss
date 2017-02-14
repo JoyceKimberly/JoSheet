@@ -35,7 +35,7 @@ div .bg img {
     width: $fullWidth;
 }
 .navbar + .container {
-    width: ($fullWidth * 0.75);
+    width: $fullWidth;
     padding-top: 15px;
     right: auto;
 }
