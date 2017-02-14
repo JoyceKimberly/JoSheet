@@ -421,7 +421,7 @@ function setAlert(type, msg) {
         </div>\
     ');
     setTimeout(function() {
-        $(".alert").alert('close');
+        $('.alert-' + type).alert('close');
     }, 5000);
 };
 

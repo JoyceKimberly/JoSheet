@@ -168,3 +168,105 @@ body, button, optgroup, select, input, textarea {
     top: 76px;
     left: 444px;
 }
+
+/* ----------------------------------------------------------------------------------- */
+/* -- Defaults -- */
+/* ----------------------------------------------------------------------------------- */
+#basicBar {
+    width: 744px;
+    height: 127px;
+    top: 20px;
+    left: 0px;
+}
+
+#attrBox {
+    width: 80px;
+    height: 588px;
+    top: 160px;
+    left: 15px;
+}
+
+.attrBlock {
+    width: 70px;
+    height: 82px;
+}
+#strBlock {
+    top: 180px;
+    left: 20px;
+}
+#dexBlock {
+    top: 273px;
+    left: 20px;
+}
+#conBlock {
+    top: 365px;
+    left: 20px;
+}
+#intBlock {
+    top: 457px;
+    left: 20px;
+}
+#wisBlock {
+    top: 548px;
+    left: 20px;
+}
+#chaBlock {
+    top: 640px;
+    left: 20px;
+}
+
+#savesBlock {
+    width: 150px;
+    height: 130px;
+    top: 255px;
+    left: 100px;
+}
+
+#skillsBlock {
+    width: 150px;
+    height: 345px;
+    top: 400px;
+    left: 100px;
+}
+
+#inspBlock {
+    width: 146px;
+    height: 37px;
+    top: 160px;
+    left: 100px;
+}
+#profBlock {
+    width: 146px;
+    height: 45px;
+    top: 205px;
+    left: 100px;
+}
+
+.boxBg {
+    width: 230px;
+    height: 315px;
+}
+#boxBg1 {
+    top: 160px;
+    left: 255px;
+}
+#boxBg2 {
+    top: 160px;
+    left: 495px;
+}
+
+#deathBlock {
+    width: 100px;
+    height: 65px;
+    top: 400px;
+    left: 265px;
+}
+
+/* -- Displays -- */
+#characterNameDisplay {
+    width: 267px;
+    height: 38px;
+    line-height: 38px;
+    top: 53px;
+    left: 39px;
+}
