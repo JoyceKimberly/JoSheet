@@ -136,7 +136,8 @@ body, button, optgroup, select, input, textarea {
     border-image-slice: 30 38 fill;
     border-image-width: 30px 38px;
 }
-#persBlock .bg {
+
+.labelBlock3 .bg {
     border-image-source: url("img/PersBlock.svg");
     border-image-slice: 17 16 17 48 fill;
     border-image-width: 17px 16px 17px 48px;
