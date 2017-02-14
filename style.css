@@ -120,7 +120,6 @@ body, button, optgroup, select, input, textarea {
         linear-gradient(rgba(175, 175, 175, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(175, 175, 175, 0.1) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
-    /*background-position: -1px -1px;*/
     background-position: 23px 23px;
 }
 
@@ -129,6 +128,9 @@ body, button, optgroup, select, input, textarea {
     text-transform: capitalize;
 }
 
+/* ----------------------------------------------------------------------------------- */
+/* -- Borders -- */
+/* ----------------------------------------------------------------------------------- */
 .boxBg .bg {
     border-image-source: url("img/BoxBg.svg");
     border-image-slice: 30 101 fill;
@@ -137,7 +139,7 @@ body, button, optgroup, select, input, textarea {
 
 .block1 .bg {
     border-image-source: url("img/Block1.svg");
-    border-image-slice: 12 fill;
+    border-image-slice: 16 fill;
     border-image-width: 16px;
 }
 
@@ -147,30 +149,8 @@ body, button, optgroup, select, input, textarea {
     border-image-width: 60px 18px;
 }
 
-#levelDisplay {
-    width: 22px;
-    top: 40px;
-    left: 320px;
-}
-#classDisplay {
-    top: 40px;
-    left: 344px;
-}
-#playerNameDisplay {
-    top: 40px;
-    left: 620px;
-}
-#backgroundDisplay {
-    top: 76px;
-    left: 320px;
-}
-#raceDisplay {
-    top: 76px;
-    left: 444px;
-}
-
 /* ----------------------------------------------------------------------------------- */
-/* -- Defaults -- */
+/* -- Objects -- */
 /* ----------------------------------------------------------------------------------- */
 #basicBar {
     width: 744px;
@@ -262,11 +242,34 @@ body, button, optgroup, select, input, textarea {
     left: 265px;
 }
 
+/* ----------------------------------------------------------------------------------- */
 /* -- Displays -- */
+/* ----------------------------------------------------------------------------------- */
 #characterNameDisplay {
     width: 267px;
     height: 38px;
     line-height: 38px;
     top: 53px;
     left: 39px;
+}
+#levelDisplay {
+    width: 22px;
+    top: 40px;
+    left: 320px;
+}
+#classDisplay {
+    top: 40px;
+    left: 344px;
+}
+#playerNameDisplay {
+    top: 40px;
+    left: 620px;
+}
+#backgroundDisplay {
+    top: 76px;
+    left: 320px;
+}
+#raceDisplay {
+    top: 76px;
+    left: 444px;
 }
