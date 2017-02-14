@@ -155,8 +155,8 @@ body, button, optgroup, select, input, textarea {
 }
 .block3 .bg {
     border-image-source: url("img/Block3.svg");
-    border-image-slice: 60 18 fill;
-    border-image-width: 60px 18px;
+    border-image-slice: 15 16 33 fill;
+    border-image-width: 15px 16px 33px;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -221,7 +221,7 @@ body, button, optgroup, select, input, textarea {
 
 #inspBlock {
     width: 146px;
-    height: 37px;
+    height: 36px;
     top: 160px;
     left: 100px;
 }
@@ -242,14 +242,21 @@ body, button, optgroup, select, input, textarea {
 }
 #boxBg2 {
     top: 160px;
-    left: 495px;
+    left: 500px;
 }
 
 #deathBlock {
     width: 100px;
     height: 65px;
     top: 400px;
-    left: 265px;
+    left: 375px;
+}
+
+#persTrait {
+    width: 211px;
+    height: 80px;
+    top: 175px;
+    left: 510px;
 }
 
 /* ----------------------------------------------------------------------------------- */
