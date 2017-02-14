@@ -131,6 +131,12 @@ body, button, optgroup, select, input, textarea {
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
+#attrBox .bg {
+    border-image-source: url("img/AttrBox.svg");
+    border-image-slice: 30 101 fill;
+    border-image-width: 30px 101px;
+}
+
 .boxBg .bg {
     border-image-source: url("img/BoxBg.svg");
     border-image-slice: 30 101 fill;
