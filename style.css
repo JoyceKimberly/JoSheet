@@ -263,6 +263,9 @@ body, button, optgroup, select, input, textarea {
     top: 255px;
     left: 100px;
 }
+#savesBlock .lbl1 {
+    bottom: 5px;
+}
 
 #skillsBlock {
     width: 150px;
