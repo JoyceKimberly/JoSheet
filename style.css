@@ -129,9 +129,9 @@ body, button, optgroup, select, input, textarea {
 .display.mod {
     border-bottom: 1px solid black;
     font-size: 13px;
-    line-height: 10px;
+    line-height: 12px;
     display: inline;
-    padding-left: 2px;
+    padding-left: 3px;
 }
 
 /* ----------------------------------------------------------------------------------- */
