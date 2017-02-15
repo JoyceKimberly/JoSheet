@@ -467,17 +467,28 @@ var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
 function getAccessTokenFromUrl() {
-    var token = utils.parseQueryString(window.location.hash).access_token;
-    var d = new Date();
-    d.setTime(d.getTime() + (14*24*60*60*1000));
-    document.cookie = "token=" + token + "; expires=" + d.toUTCString() + "; path=/";
-    return token;
-}
+    return utils.parseQueryString(window.location.hash).access_token;
+};
+
+function getAccessToken() {
+    if ( !!getAccessTokenFromUrl() ) {
+        var d = new Date();
+        d.setTime(d.getTime() + (7*24*60*60*1000));
+        document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
+        return getAccessTokenFromUrl();
+        
+    } else if ( getCookie("token") ) {
+        return getCookie("token");
+    } else {
+        return "";
+    };
+};
+
 // If the user was just redirected from authenticating, the urls hash will
 // contain the access token.
 function isAuthenticated() {
     return !!getAccessTokenFromUrl();
-}
+};
 
 // --------------------------------------------------------------------------------------
 // -- Helpers --
