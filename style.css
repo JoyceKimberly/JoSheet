@@ -128,7 +128,7 @@ body, button, optgroup, select, input, textarea {
 }
 
 .mod {
-    display: inline;
+    display: inline-block;
 }
 .display.mod {
     border-bottom: 1px solid black;
