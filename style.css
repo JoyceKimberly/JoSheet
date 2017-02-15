@@ -279,7 +279,7 @@ body, button, optgroup, select, input, textarea {
 }
 
 #langBlock {
-    width: 230px;
+    width: 235px;
     height: 185px;
     top: 800px;
     left: 15px;
@@ -308,7 +308,7 @@ body, button, optgroup, select, input, textarea {
 
 #attackBlock {
     width: 240px;
-    height: 255px;
+    height: 250px;
     top: 490px;
     left: 255px;
 }
