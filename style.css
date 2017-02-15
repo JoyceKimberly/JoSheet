@@ -273,7 +273,7 @@ body, button, optgroup, select, input, textarea {
     left: 100px;
 }
 #savesBlock > div {
-    position: relative;
+    position: static;
 }
 #savesBlock .lbl1 {
     bottom: 4px;
