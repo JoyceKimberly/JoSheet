@@ -66,15 +66,16 @@ function moveListener(event) {
         y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
     if ( event.type === "resizemove" ) {
-        target = event.target,
-            x = (parseFloat(target.getAttribute('data-x')) || 0),
+        if ( $('#' + target.getAttribute('id')).hasClass('x') === true ) {
+            x = (parseFloat(target.getAttribute('data-x')) || 0);
+            target.style.width = event.rect.width + 'px';
+            x += event.deltaRect.left;
+        };
+        if ( $('#' + target.getAttribute('id')).hasClass('y') === true ) {
             y = (parseFloat(target.getAttribute('data-y')) || 0);
-
-        target.style.width  = event.rect.width + 'px';
-        target.style.height = event.rect.height + 'px';
-
-        x += event.deltaRect.left;
-        y += event.deltaRect.top;
+            target.style.height = event.rect.height + 'px';
+            y += event.deltaRect.top;
+        };
     };
 
     target.style.webkitTransform = target.style.transform =

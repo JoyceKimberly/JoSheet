@@ -131,24 +131,36 @@ body, button, optgroup, select, input, textarea {
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
-#attrBox .bg {
-    border-image-source: url("img/AttrBox.svg");
-    border-image-slice: 30 38 fill;
-    border-image-width: 30px 38px;
+.labelBlock1 .bg {
+    border-image-source: url("img/InspBlock.svg");
+    border-image-slice: 17 16 17 41 fill;
+    border-image-width: 17px 16px 17px 41px;
 }
-
-.labelBlock1 .bg {}
-.labelBlock2 .bg {}
+.labelBlock2 .bg {
+    border-image-source: url("img/ProfBlock.svg");
+    border-image-slice: 18 16 18 45 fill;
+    border-image-width: 18px 16px 18px 45px;
+}
 .labelBlock3 .bg {
-    border-image-source: url("img/PersBlock.svg");
+    border-image-source: url("img/PercBlock.svg");
     border-image-slice: 17 16 17 48 fill;
     border-image-width: 17px 16px 17px 48px;
 }
 
-.boxBg .bg {
+.boxBg1 .bg {
+    border-image-source: url("img/AttrBox.svg");
+    border-image-slice: 30 38 fill;
+    border-image-width: 30px 38px;
+}
+.boxBg2 .bg {
     border-image-source: url("img/BoxBg.svg");
     border-image-slice: 30 101 fill;
     border-image-width: 30px 101px;
+}
+.inputBg .bg {
+    border-image-source: url("img/InputBg.svg");
+    border-image-slice: 3 fill;
+    border-image-width: 3px;
 }
 
 .block1 .bg {
@@ -261,7 +273,8 @@ body, button, optgroup, select, input, textarea {
     left: 15px;
 }
 
-.boxBg {
+#boxBg1,
+#boxBg2 {
     width: 230px;
     height: 320px;
 }
@@ -279,6 +292,13 @@ body, button, optgroup, select, input, textarea {
     height: 65px;
     top: 400px;
     left: 375px;
+}
+
+#inputBg1 {
+    width: 82px;
+    height: 20px;
+    top: 500px;
+    left: 265px;
 }
 
 #persTraits {
