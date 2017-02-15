@@ -23,7 +23,7 @@ window.addEventListener("resize", function() {
 }, false);
 $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
-if ( getAccessToken() ) {
+if ( !!getAccessToken() ) {
     $('#authLink').hide();
     listCharacters();
     setAlert('success', 'Success! You have connected to Dropbox.');
@@ -450,13 +450,13 @@ function saveCookies() {
     document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 function loadCookies() {
-    if ( getCookie("objects") ) {
+    if ( !!getCookie("objects") ) {
         file.objects = JSON.parse(getCookie("objects"));
     };
-    if ( getCookie("character") ) {
+    if ( !!getCookie("character") ) {
         file.character = JSON.parse(getCookie("character"));
     };
-    if ( getCookie("notes") ) {
+    if ( !!getCookie("notes") ) {
         file.notes = JSON.parse(getCookie("notes"));
     };
 };
@@ -477,7 +477,7 @@ function getAccessToken() {
         document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
         return getAccessTokenFromUrl();
         
-    } else if ( getCookie("token") ) {
+    } else if ( !!getCookie("token") ) {
         return getCookie("token");
     } else {
         return "";
