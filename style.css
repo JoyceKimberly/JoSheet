@@ -32,11 +32,14 @@ body, button, optgroup, select, input, textarea {
     font-size: 13px;
     vertical-align: middle;
 }
-.center {
+.display.center {
     text-align: center;
 }
-.right {
+.display.right {
     text-align: right;
+}
+.display.notes {
+    font-size: 12px;
 }
 
 .checkBall {
