@@ -25,7 +25,7 @@ body, button, optgroup, select, input, textarea {
 
 .display {
     /*font-family: 'bookinsanity';*/
-    border-top: 1px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
     font-size: 13px;
     vertical-align: middle;
 }
@@ -130,7 +130,6 @@ body, button, optgroup, select, input, textarea {
     display: inline-block;
 }
 .display.mod {
-    border-bottom: 1px solid black;
     line-height: 11px;
     font-size: 11px;
     padding-top: 6px;
