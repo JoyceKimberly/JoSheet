@@ -26,12 +26,6 @@ body, button, optgroup, select, input, textarea {
     bottom: 2.5px;
 }
 
-.content {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-}
-
 .display {
     /*font-family: 'bookinsanity';*/
     border: 1px solid rgba(0, 0, 0, 0);
