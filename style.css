@@ -129,7 +129,7 @@ body, button, optgroup, select, input, textarea {
 .display.mod {
     border-bottom: 1px solid black;
     font-size: 13px;
-    line-height: 12px;
+    line-height: 13px;
     display: inline;
     padding-left: 3px;
 }
