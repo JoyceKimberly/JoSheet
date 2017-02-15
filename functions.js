@@ -24,6 +24,9 @@ window.addEventListener("resize", function() {
 $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
 if ( isAuthenticated() ) {
+    var d = new Date();
+    d.setTime(d.getTime() + (14*24*60*60*1000));
+    document.cookie = "token=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
     $('#authLink').hide();
     listCharacters();
     setAlert('success', 'Success! You have connected to Dropbox.');
