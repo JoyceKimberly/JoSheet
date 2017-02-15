@@ -36,7 +36,7 @@ body, button, optgroup, select, input, textarea {
     text-align: right;
 }
 
-.checkBall {
+.checkBall img {
     width: 10px;
     height: 10px;
 }
