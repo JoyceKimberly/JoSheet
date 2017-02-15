@@ -180,7 +180,35 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
 // --------------------------------------------------------------------------------------
+$('.display').blur(function() {
+    var dit = $(this);
 
+    if ( dit.attr('id') === "characterNameDisplay" ) {
+        if ( dit.text() !== "" ) {
+            file.character.name = dit.text();
+        } else {
+            file.character.name = "JoSheet";
+        };
+    };
+    if ( dit.attr('id') === "levelDisplay" ) {
+        file.character.level = dit.text();
+    };
+    if ( dit.attr('id') === "playerNameDisplay" ) {
+        file.character.player = dit.text();
+    };
+    if ( dit.attr('id') === "raceDisplay" ) {
+        file.character.race = dit.text();
+    };
+    if ( dit.attr('id') === "classDisplay" ) {
+        file.character.class = dit.text();
+    };
+    if ( dit.attr('id') === "backgroundDisplay" ) {
+        file.character.background = dit.text();
+    };
+
+    saveCookies();
+    setCharacter();
+});
 
 }); // ----------------------------------------------------------------------------------
 
@@ -237,12 +265,27 @@ function resetObjects() {
 };
 
 function setCharacter() {
-    displayCharacterName();
-    displayPlayerName();
-    displayLevel();
-    displayRace();
-    displayClass();
-    displayBackground();
+    $('#characterNameDisplay').text(file.character.name);
+    $('#playerNameDisplay').text(file.character.player);
+    $('#levelDisplay').text(file.character.level);
+
+    if ( typeof ClassList[file.character.race] !== "undefined" ) {
+        $('#raceDisplay').text(RaceList[file.character.race].name);
+    } else {
+        $('#raceDisplay').text(file.character.race);
+    };
+
+    if ( typeof ClassList[file.character.class] !== "undefined" ) {
+        $('#classDisplay').text(ClassList[file.character.class].name);
+    } else {
+        $('#classDisplay').text(file.character.class);
+    };
+
+    if ( typeof ClassList[file.character.background] !== "undefined" ) {
+        $('#backgroundDisplay').text(BackgroundList[file.character.background].name);
+    } else {
+        $('#backgroundDisplay').text(file.character.background);
+    };
 };
 
 function resetCharacter() {
