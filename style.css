@@ -139,7 +139,6 @@ body, button, optgroup, select, input, textarea {
 
 .savesSkill {
     display: block;
-    position: relative;
 }
 .mod {
     display: inline;
