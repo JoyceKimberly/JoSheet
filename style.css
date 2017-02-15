@@ -134,11 +134,11 @@ body, button, optgroup, select, input, textarea {
 }
 .display.mod {
     border-bottom: 1px solid black;
-    font-size: 13px;
+    font-size: 12px;
     padding-left: 3px;
 }
 .lbl.mod {
-    font-size: 11px;
+    font-size: 10px;
     padding-left: 20px;
 }
 
