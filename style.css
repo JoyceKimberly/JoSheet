@@ -36,6 +36,9 @@ body, button, optgroup, select, input, textarea {
     text-align: right;
 }
 
+.checkBall {
+    margin-left: 10px;
+}
 .checkBall img {
     width: 10px;
     height: 10px;
