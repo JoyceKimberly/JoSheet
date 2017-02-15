@@ -299,6 +299,13 @@ body, button, optgroup, select, input, textarea {
     left: 500px;
 }
 
+#acBlock {
+    width: 60px;
+    height: 70px;
+    top: 170px;
+    left: 270px;
+}
+
 #deathBlock {
     width: 100px;
     height: 65px;
