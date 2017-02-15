@@ -134,6 +134,7 @@ body, button, optgroup, select, input, textarea {
     border-bottom: 1px solid black;
     font-size: 13px;
     line-height: 13px;
+    padding-top: 6px;
     padding-left: 3px;
 }
 .lbl.mod {
