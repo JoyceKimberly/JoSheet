@@ -340,7 +340,7 @@ function resetCharacter() {
 };
 
 function listCharacters() {
-    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesListFolder({path: ''})
         .then(function(response) {
             characterFiles = response.entries;
@@ -377,7 +377,7 @@ function listCharacters() {
 function saveFile() {
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
     var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
-    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
         .then(function(response) {
             setAlert('success', 'Character saved to your Dropbox.');
@@ -389,7 +389,7 @@ function saveFile() {
 };
 
 function loadFile(i) {
-    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesDownload({path: characterFiles[i].path_lower})
         .then(function(response) {
             var blob = response.fileBlob;
@@ -409,7 +409,7 @@ function loadFile(i) {
 };
 
 function deleteFile(i) {
-    var dbx = new Dropbox({ accessToken: getAccessTokenFromUrl() });
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesDelete({path: characterFiles[i].path_lower})
         .then(function(response) {
             setAlert('success', 'Character deleted from your Dropbox.');
