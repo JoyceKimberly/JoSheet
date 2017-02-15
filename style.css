@@ -129,16 +129,17 @@ body, button, optgroup, select, input, textarea {
 
 .mod {
     line-height: 13px;
-    padding-top: 6px;
     display: inline-block;
 }
 .display.mod {
     border-bottom: 1px solid black;
     font-size: 12px;
+    padding-top: 6px;
     padding-left: 3px;
 }
 .lbl.mod {
     font-size: 10px;
+    padding-top: 7px;
     padding-left: 20px;
 }
 
