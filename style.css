@@ -7,7 +7,7 @@ html {
 body, button, optgroup, select, input, textarea {
     font-family: 'scaly_sans';
 }
-.display { border: 1px solid red; } /* debug */
+/*.display { border: 1px solid red; } /* debug */
 
 .display {
     /*font-family: 'bookinsanity';*/
@@ -27,6 +27,8 @@ body, button, optgroup, select, input, textarea {
 }
 
 .display {
+    min-width: 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
     font-size: 16px;
     vertical-align: middle;
 }
@@ -59,13 +61,12 @@ body, button, optgroup, select, input, textarea {
     border: 1px solid rgba(4, 141, 204, 0.2);
     background-color: rgba(56, 166, 229, 0.2);
 }
-.inputMode .hover {
+.inputMode .editable:hover .display {
     border: 1px solid rgba(77, 15, 167, 0.2);
     background-color: rgba(105, 20, 229, 0.2);
 }
 .moveMode .draggable:hover .hover,
-.moveMode .resizable:hover .hover,
-.inputMode .editable:hover .hover {
+.moveMode .resizable:hover .hover {
     display: block;
 }
 
@@ -359,8 +360,8 @@ body, button, optgroup, select, input, textarea {
     width: 267px;
     height: 38px;
     line-height: 38px;
-    top: 53px;
-    left: 39px;
+    top: 55px;
+    left: 40px;
 }
 #levelDisplay {
     width: 22px;

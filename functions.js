@@ -137,6 +137,7 @@ $('#moveBtn').click(function() {
     setBodyTag();
     $(this).addClass('active');
     $('#inputBtn').removeClass('active');
+    $('.display').attr("contentEditable", false);
 });
 $('#inputBtn').click(function() {
     moveEnabled = false;
@@ -145,6 +146,7 @@ $('#inputBtn').click(function() {
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
     $('#showBtn').trigger('click');
+    $('.display').attr("contentEditable", true);
 });
 
 $('#hideBtn').click(function() {
@@ -178,41 +180,7 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
 // --------------------------------------------------------------------------------------
-$('#basicBar').click(function() {
-    if ( moveEnabled === false ) {
-        $('#basicBarModal').modal('show');
-    };
-});
-$('#basicBarModalSave').click(function() {
-    if ( $('#characterNameInput').val() !== "" ) {
-        file.character.name = $('#characterNameInput').val();
-    } else {
-        file.character.name = "JoSheet";
-    };
-    file.character.player = $('#playerNameInput').val();
-    file.character.level = $('#levelInput').val();
-    file.character.race = $('#raceInput').val();
-    file.character.class = $('#classInput').val();
-    file.character.background = $('#backgroundInput').val();
 
-    displayCharacterName();
-    displayPlayerName();
-    displayLevel();
-    displayRace();
-    displayClass();
-    displayBackground();
-
-    saveCookies();
-    var dit = $(this);
-    dit.removeClass('btn-primary');
-    dit.addClass('btn-success');
-});
-
-$('.modal').on('hidden.bs.modal', function() {
-    var btn = $('.modal .btnSave');
-    btn.removeClass('btn-success');
-    btn.addClass('btn-primary');
-});
 
 }); // ----------------------------------------------------------------------------------
 
