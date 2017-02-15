@@ -442,9 +442,12 @@ function setAlert(type, msg) {
 };
 
 function saveCookies() {
-    document.cookie = "objects=" + JSON.stringify(file.objects) + "; path=/";
-    document.cookie = "character=" + JSON.stringify(file.character) + "; path=/";
-    document.cookie = "notes=" + JSON.stringify(file.notes) + "; path=/";
+    var d = new Date();
+    d.setTime(d.getTime() + (14*24*60*60*1000));
+    
+    document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
+    document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
+    document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 function loadCookies() {
     if ( getCookie("objects") ) {
