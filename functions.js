@@ -23,7 +23,7 @@ window.addEventListener("resize", function() {
 }, false);
 $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
-if ( isAuthenticated() ) {
+if ( getAccessToken() ) {
     $('#authLink').hide();
     listCharacters();
     setAlert('success', 'Success! You have connected to Dropbox.');
