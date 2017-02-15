@@ -137,8 +137,11 @@ body, button, optgroup, select, input, textarea {
     text-transform: capitalize;
 }
 
+.savesSkill {
+    display: block;
+}
 .mod {
-    display: inline-block;
+    display: inline;
 }
 .display.mod {
     line-height: 11px;
