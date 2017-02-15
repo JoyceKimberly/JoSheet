@@ -46,7 +46,7 @@ window.displayLevel = function() {
     $('#levelDisplay').text(file.character.level);
 };
 window.displayRace = function() {
-    if ( typeof RaceList[file.character.race].name !== "undefined" ) {
+    if ( RaceList[file.character.race].name != null ) {
         $('#raceInput').val(file.character.race);
         $('#raceDisplay').text(RaceList[file.character.race].name);
     } else {
