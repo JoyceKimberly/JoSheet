@@ -126,7 +126,7 @@ body, button, optgroup, select, input, textarea {
     text-transform: capitalize;
 }
 
-#skillsBlock .label {
+.label.mod {
     border-bottom: 1px solid black;
 }
 
