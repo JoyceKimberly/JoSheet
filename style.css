@@ -22,6 +22,9 @@ body, button, optgroup, select, input, textarea {
     width: 100%;
     text-align: center;
 }
+.lbl1.lower {
+    bottom: 4px;
+}
 
 .display {
     /*font-family: 'bookinsanity';*/
@@ -271,9 +274,6 @@ body, button, optgroup, select, input, textarea {
     height: 130px;
     top: 255px;
     left: 100px;
-}
-#savesBlock .lbl1 {
-    bottom: 4px;
 }
 
 #skillsBlock {
