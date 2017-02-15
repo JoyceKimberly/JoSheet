@@ -24,9 +24,6 @@ window.addEventListener("resize", function() {
 $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
 if ( isAuthenticated() ) {
-    var d = new Date();
-    d.setTime(d.getTime() + (14*24*60*60*1000));
-    document.cookie = "token=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
     $('#authLink').hide();
     listCharacters();
     setAlert('success', 'Success! You have connected to Dropbox.');
@@ -470,7 +467,11 @@ var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
 function getAccessTokenFromUrl() {
-    return utils.parseQueryString(window.location.hash).access_token;
+    var token = utils.parseQueryString(window.location.hash).access_token;
+    var d = new Date();
+    d.setTime(d.getTime() + (14*24*60*60*1000));
+    document.cookie = "token=" + token + "; expires=" + d.toUTCString() + "; path=/";
+    return token;
 }
 // If the user was just redirected from authenticating, the urls hash will
 // contain the access token.
