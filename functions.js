@@ -140,6 +140,7 @@ $('#inputBtn').click(function() {
     setCharacter();
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
+    $('#showBtn').trigger('click');
 });
 
 $('#hideBtn').click(function() {
