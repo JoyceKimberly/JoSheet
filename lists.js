@@ -48,7 +48,10 @@ window.displayLevel = function() {
 window.displayRace = function() {
     if ( file.character.race !== "" ) {
         $('#raceInput').val(file.character.race);
-        $('#raceDisplay').html(RaceList[file.character.race].name);
+        $('#raceDisplay').text(RaceList[file.character.race].name);
+    } else {
+        $('#raceInput').val("");
+        $('#raceDisplay').text("");
     };
 };
 window.displayClass = function() {
