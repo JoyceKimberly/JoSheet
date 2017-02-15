@@ -29,6 +29,10 @@ if ( isAuthenticated() ) {
     setAlert('success', 'Success! You have connected to Dropbox.');
 } else {
     setAuthLink();
+    $('#authLink').click(function (event) {
+        event.preventDefault();
+        window.location = $(this).attr("href");
+    });
 };
 
 setAlert('info', 'Move all... the... things!');
