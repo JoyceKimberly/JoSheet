@@ -126,6 +126,10 @@ body, button, optgroup, select, input, textarea {
     text-transform: capitalize;
 }
 
+#skillsBlock .label {
+    border-bottom: 1px solid black;
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
