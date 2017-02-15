@@ -36,6 +36,11 @@ body, button, optgroup, select, input, textarea {
     text-align: right;
 }
 
+.checkBall {
+    width: 10px;
+    height: 10px;
+}
+
 .resizable {
     box-sizing: border-box;
 }
