@@ -35,35 +35,41 @@ for ( var key in BackgroundList ) {
 }); // ----------------------------------------------------------------------------------
 window.displayCharacterName = function() {
     $('#characterNameInput').val(file.character.name);
-    $('#characterNameDisplay').html(file.character.name);
+    $('#characterNameDisplay').text(file.character.name);
 };
 window.displayPlayerName = function() {
     $('#playerNameInput').val(file.character.player);
-    $('#playerNameDisplay').html(file.character.player);
+    $('#playerNameDisplay').text(file.character.player);
 };
 window.displayLevel = function() {
     $('#levelInput').val(file.character.level);
-    $('#levelDisplay').html(file.character.level);
+    $('#levelDisplay').text(file.character.level);
 };
 window.displayRace = function() {
-    if ( file.character.race !== "" ) {
+    if ( RaceList[file.character.race].name ) {
         $('#raceInput').val(file.character.race);
         $('#raceDisplay').text(RaceList[file.character.race].name);
     } else {
-        $('#raceInput').val("");
-        $('#raceDisplay').text("");
+        $('#raceInput').val(file.character.race);
+        $('#raceDisplay').text(file.character.race);
     };
 };
 window.displayClass = function() {
     if ( file.character.class !== "" ) {
         $('#classInput').val(file.character.class);
-        $('#classDisplay').html(ClassList[file.character.class].name);
+        $('#classDisplay').text(ClassList[file.character.class].name);
+    } else {
+        $('#classInput').val("");
+        $('#classDisplay').text("");
     };
 };
 window.displayBackground = function() {
     if ( file.character.background !== "" ) {
         $('#backgroundInput').val(file.character.background);
-        $('#backgroundDisplay').html(BackgroundList[file.character.background].name);
+        $('#backgroundDisplay').text(BackgroundList[file.character.background].name);
+    } else {
+        $('#backgroundInput').val("");
+        $('#backgroundDisplay').text("");
     };
 };
 
