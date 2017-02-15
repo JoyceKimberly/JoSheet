@@ -133,7 +133,7 @@ body, button, optgroup, select, input, textarea {
 }
 .display.mod {
     border-bottom: 1px solid black;
-    font-size: 12px;
+    font-size: 11px;
     padding-top: 6px;
     padding-left: 3px;
 }
