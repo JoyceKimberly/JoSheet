@@ -51,6 +51,7 @@ body, button, optgroup, select, input, textarea {
 
 .checkBall {
     margin-top: 1px;
+    cursor: pointer;
 }
 .checkBall,
 .checkBall img {
@@ -72,11 +73,17 @@ body, button, optgroup, select, input, textarea {
 .mod {
     display: inline;
 }
-.mod.display {
+.mod.display,
+.mod.underline {
     line-height: 11px;
     font-size: 11px;
-    width: 15px;
-    left: 18px;
+    text-align: center;
+    width: 18px;
+    height: 13px;
+    left: 16px;
+}
+.mod.underline {
+    border-bottom: 1px solid black;
 }
 .mod.lbl {
     font-size: 10px;
