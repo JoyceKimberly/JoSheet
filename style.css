@@ -12,6 +12,9 @@ body, button, optgroup, select, input, textarea {
 .outerPage div {
     color: black !important;
 }
+.outerPage > div {
+    position: absolute;
+}
 
 .lbl1 {
     font-family: 'scaly_sans';
@@ -141,92 +144,22 @@ body, button, optgroup, select, input, textarea {
 }
 
 .savesSkill {
-    display: block;
+    width: 100%;
+    height: 17px;
 }
 .mod {
     display: inline;
 }
-.display.mod {
+.mod.display {
     line-height: 11px;
     font-size: 11px;
     padding-top: 6px;
     padding-left: 3px;
 }
-.lbl.mod {
+.mod.lbl {
     font-size: 10px;
     padding-top: 7px;
     padding-left: 20px;
-}
-
-/* ----------------------------------------------------------------------------------- */
-/* -- Borders -- */
-/* ----------------------------------------------------------------------------------- */
-.labelBlock1 .bg {
-    border-image-source: url("img/InspBlock.svg");
-    border-image-slice: 17 16 17 41 fill;
-    border-image-width: 17px 16px 17px 41px;
-}
-.labelBlock2 .bg {
-    border-image-source: url("img/ProfBlock.svg");
-    border-image-slice: 18 16 18 45 fill;
-    border-image-width: 18px 16px 18px 45px;
-}
-.labelBlock3 .bg {
-    border-image-source: url("img/PercBlock.svg");
-    border-image-slice: 17 16 17 48 fill;
-    border-image-width: 17px 16px 17px 48px;
-}
-
-.boxBg1 .bg {
-    border-image-source: url("img/AttrBox.svg");
-    border-image-slice: 30 38 fill;
-    border-image-width: 30px 38px;
-}
-.boxBg2 .bg {
-    border-image-source: url("img/BoxBg.svg");
-    border-image-slice: 30 101 fill;
-    border-image-width: 30px 101px;
-}
-.inputBg .bg {
-    border-image-source: url("img/InputBg.svg");
-    border-image-slice: 3 fill;
-    border-image-width: 3px;
-}
-
-.block1 .bg {
-    border-image-source: url("img/Block1.svg");
-    border-image-slice: 16 fill;
-    border-image-width: 16px;
-}
-.block2 .bg {
-    border-image-source: url("img/Block2.svg");
-    border-image-slice: 60 18 fill;
-    border-image-width: 60px 18px;
-}
-.block3 .bg {
-    border-image-source: url("img/Block3.svg");
-    border-image-slice: 15 16 34 fill;
-    border-image-width: 15px 16px 34px;
-}
-.block4 .bg {
-    border-image-source: url("img/Block4.svg");
-    border-image-slice: 32 16 fill;
-    border-image-width: 32px 16px;
-}
-.block5 .bg {
-    border-image-source: url("img/Block5.svg");
-    border-image-slice: 33 16 16 fill;
-    border-image-width: 33px 16px 16px;
-}
-.block6 .bg {
-    border-image-source: url("img/Block6.svg");
-    border-image-slice: 14 19 34 fill;
-    border-image-width: 14px 19px 34px;
-}
-.block7 .bg {
-    border-image-source: url("img/Block7.svg");
-    border-image-slice: 8 8 fill;
-    border-image-width: 8px 8px;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -412,4 +345,75 @@ body, button, optgroup, select, input, textarea {
 #raceDisplay {
     top: 76px;
     left: 444px;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* -- Borders -- */
+/* ----------------------------------------------------------------------------------- */
+.labelBlock1 .bg {
+    border-image-source: url("img/InspBlock.svg");
+    border-image-slice: 17 16 17 41 fill;
+    border-image-width: 17px 16px 17px 41px;
+}
+.labelBlock2 .bg {
+    border-image-source: url("img/ProfBlock.svg");
+    border-image-slice: 18 16 18 45 fill;
+    border-image-width: 18px 16px 18px 45px;
+}
+.labelBlock3 .bg {
+    border-image-source: url("img/PercBlock.svg");
+    border-image-slice: 17 16 17 48 fill;
+    border-image-width: 17px 16px 17px 48px;
+}
+
+.boxBg1 .bg {
+    border-image-source: url("img/AttrBox.svg");
+    border-image-slice: 30 38 fill;
+    border-image-width: 30px 38px;
+}
+.boxBg2 .bg {
+    border-image-source: url("img/BoxBg.svg");
+    border-image-slice: 30 101 fill;
+    border-image-width: 30px 101px;
+}
+.inputBg .bg {
+    border-image-source: url("img/InputBg.svg");
+    border-image-slice: 3 fill;
+    border-image-width: 3px;
+}
+
+.block1 .bg {
+    border-image-source: url("img/Block1.svg");
+    border-image-slice: 16 fill;
+    border-image-width: 16px;
+}
+.block2 .bg {
+    border-image-source: url("img/Block2.svg");
+    border-image-slice: 60 18 fill;
+    border-image-width: 60px 18px;
+}
+.block3 .bg {
+    border-image-source: url("img/Block3.svg");
+    border-image-slice: 15 16 34 fill;
+    border-image-width: 15px 16px 34px;
+}
+.block4 .bg {
+    border-image-source: url("img/Block4.svg");
+    border-image-slice: 32 16 fill;
+    border-image-width: 32px 16px;
+}
+.block5 .bg {
+    border-image-source: url("img/Block5.svg");
+    border-image-slice: 33 16 16 fill;
+    border-image-width: 33px 16px 16px;
+}
+.block6 .bg {
+    border-image-source: url("img/Block6.svg");
+    border-image-slice: 14 19 34 fill;
+    border-image-width: 14px 19px 34px;
+}
+.block7 .bg {
+    border-image-source: url("img/Block7.svg");
+    border-image-slice: 8 8 fill;
+    border-image-width: 8px 8px;
 }
