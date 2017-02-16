@@ -180,6 +180,17 @@ $('#saveLink').click(function() {
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
 // --------------------------------------------------------------------------------------
+$('.editable').on("click", ".checkBall.unchecked", function() {
+    var dit = $(this);
+    dit.removeClass('unchecked');
+    dit.addClass('checked');
+});
+$('.editable').on("click", ".checkBall.checked", function() {
+    var dit = $(this);
+    dit.removeClass('checked');
+    dit.addClass('unchecked');
+});
+
 $('.display').blur(function() {
     var dit = $(this);
 
@@ -290,52 +301,52 @@ function setCharacter() {
 
 function resetCharacter() {
     file.character = {
-        name : "JoSheet",
-        player : "",
-        level : 1,
-        race : "",
-        subRace : "",
-        class : "",
-        subClass : "",
-        exp : 0,
-        background : "",
-        subBackground : "",
-        attributes : {
-            str : 8,
-            dex : 8,
-            con : 8,
-            int : 8,
-            wis : 8,
-            cha : 8,
+        name           : "JoSheet",
+        player         : "",
+        level          : 1,
+        race           : "",
+        subRace        : "",
+        class          : "",
+        subClass       : "",
+        exp            : 0,
+        background     : "",
+        subBackground  : "",
+        attributes     : {
+            str        : 8,
+            dex        : 8,
+            con        : 8,
+            int        : 8,
+            wis        : 8,
+            cha        : 8,
         },
-        saves : {},
-        skills : {},
-        health : {},
-        feats : {},
-        languages : {},
-        armor : "",
-        shield : "",
-        weapons : {},
-        ammo : {},
-        equipment : {
+        saves          : {},
+        skills         : {},
+        health         : {},
+        feats          : {},
+        languages      : {},
+        armor          : "",
+        shield         : "",
+        weapons        : {},
+        ammo           : {},
+        equipment      : {
             magicItems : {},
-            currency : {},
+            currency   : {},
         },
-        gender : "",
-        alignment : "",
-        age : "",
-        faith : "",
-        height : "",
-        weight : "",
-        hair : "",
-        skin : "",
-        eyes : "",
+        gender         : "",
+        alignment      : "",
+        age            : "",
+        faith          : "",
+        height         : "",
+        weight         : "",
+        hair           : "",
+        skin           : "",
+        eyes           : "",
     };
     file.notes = {
-        appearance : "",
-        history : "",
-        allies : "",
-        enemies : "",
+        appearance     : "",
+        history        : "",
+        allies         : "",
+        enemies        : "",
     };
 };
 
@@ -444,7 +455,7 @@ function setAlert(type, msg) {
 function saveCookies() {
     var d = new Date();
     d.setTime(d.getTime() + (14*24*60*60*1000));
-    
+
     document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
     document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
     document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
@@ -476,7 +487,7 @@ function getAccessToken() {
         d.setTime(d.getTime() + (7*24*60*60*1000));
         document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
         return getAccessTokenFromUrl();
-        
+
     } else if ( !!getCookie("token") ) {
         return getCookie("token");
     } else {

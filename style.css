@@ -107,6 +107,10 @@ body, button, optgroup, select, input, textarea {
     box-sizing: border-box;
 }
 
+.line {
+    border-bottom: 1px solid #d5d7db;
+}
+
 .hover {
     display: none;
     width: 100%;
