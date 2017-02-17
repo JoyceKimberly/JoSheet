@@ -29,7 +29,7 @@ body, button, optgroup, select, input, textarea {
 .lbl1 {
     font-size: 8px;
     font-weight: bold;
-    letter-spacing: 0.4px;
+    /*letter-spacing: 0.4px;*/
     width: 100%;
     text-align: center;
 }
