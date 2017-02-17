@@ -41,6 +41,7 @@ body, button, optgroup, select, input, textarea {
 }
 .lower {
     width: 100%;
+    text-align: center;
     bottom: 2.5px;
 }
 
