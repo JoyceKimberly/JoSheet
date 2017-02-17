@@ -51,6 +51,7 @@ body, button, optgroup, select, input, textarea {
 }
 #acBlock .lbl1 {
     line-height: 6px;
+    bottom: 6px;
 }
 
 .display {
