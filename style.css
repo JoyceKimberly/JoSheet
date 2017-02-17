@@ -308,6 +308,12 @@ body, button, optgroup, select, input, textarea {
     left: 270px;
 }
 
+#hitDiceBlock {
+    width: 100px;
+    height: 65px;
+    top: 405px;
+    left: 280px;
+}
 #deathBlock {
     width: 100px;
     height: 65px;
