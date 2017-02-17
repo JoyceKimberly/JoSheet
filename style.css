@@ -241,14 +241,14 @@ body, button, optgroup, select, input, textarea {
 #savesBlock {
     width: 150px;
     height: 130px;
-    top: 255px;
+    top: 260px;
     left: 100px;
 }
 
 #skillsBlock {
     width: 150px;
-    height: 340px;
-    top: 400px;
+    height: 335px;
+    top: 405px;
     left: 100px;
 }
 
