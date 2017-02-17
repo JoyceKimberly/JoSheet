@@ -49,6 +49,7 @@ body, button, optgroup, select, input, textarea {
     text-align: center;
     bottom: 3.5px;
 }
+#acBlock .lbl1 {}
 
 .display {
     /*font-family: 'bookinsanity';*/
