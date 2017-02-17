@@ -21,7 +21,8 @@ body, button, optgroup, select, input, textarea {
 }
 
 .lbl1,
-.lbl2 {
+.lbl2,
+.lbl3 {
     font-family: 'scaly_sans';
     text-transform: uppercase;
 }
@@ -39,6 +40,9 @@ body, button, optgroup, select, input, textarea {
 
 .lbl2 {
     font-size: 9px;
+}
+.lbl3 {
+    font-size: 8px;
 }
 
 .display {
