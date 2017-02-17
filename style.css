@@ -25,7 +25,6 @@ body, button, optgroup, select, input, textarea {
 .lbl3 {
     font-family: 'scaly_sans';
     text-transform: uppercase;
-    letter-spacing: -0.1px;
 }
 .lbl1 {
     font-size: 8px;
