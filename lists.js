@@ -31,7 +31,7 @@ $('#subclassInput').closest('.form-group').hide();
 for ( var key in BackgroundList ) {
     if ( BackgroundList.hasOwnProperty(key) ) {
         $('#backgroundInput').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
-))    };
+    };
 };
 
 }); // ----------------------------------------------------------------------------------
