@@ -1,6 +1,8 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
     
-$('#classDisplay').autocomplete();
+$('#classDisplay').autocomplete({
+    source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ],
+});
 
 //console.log(file); // debug
 
