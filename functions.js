@@ -93,7 +93,7 @@ function moveListener(event) {
 };
 
 var restrictObj = {
-    restriction: '.page',
+    restriction: document.getElementsByClassName('page'),
     endOnly: false,
     elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
 };
