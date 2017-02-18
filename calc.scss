@@ -40,8 +40,8 @@ div .bg img {
 .outerPage {
     width: $fullWidth;
     height: $fullHeight;
-    border-bottom: 2px solid $bgColor;
     position: relative;
+    margin-bottom: 2px;
 }
 .page {
     width: $fullWidth - ($printMargin * 2);
