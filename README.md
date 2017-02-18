@@ -1,3 +1,3 @@
 # JoSheet
 
-Adjust your character sheet online.
+Personal project
