@@ -146,6 +146,9 @@ $('#inputBtn').click(function() {
     $('#moveBtn').removeClass('active');
     $('#showBtn').trigger('click');
     $('.display').attr("contentEditable", true);
+    $('#classDisplay').autocomplete({
+        source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ],
+    });
 });
 
 $('#hideBtn').click(function() {
