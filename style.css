@@ -61,7 +61,7 @@ body, button, optgroup, select, input, textarea {
     /*font-family: 'bookinsanity';*/
     border: 1px solid rgba(0, 0, 0, 0);
     font-size: 14px;
-    letter-spacing: 0.3px;
+    letter-spacing: -0.3px;
     vertical-align: middle;
 }
 .display.center {
