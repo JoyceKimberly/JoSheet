@@ -209,6 +209,10 @@ body, button, optgroup, select, input, textarea {
     text-transform: capitalize;
 }
 
+.ui-autocomplete {
+    z-index: 99;
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Objects -- */
 /* ----------------------------------------------------------------------------------- */
@@ -463,4 +467,9 @@ body, button, optgroup, select, input, textarea {
     border-image-source: url("img/Block7.svg");
     border-image-slice: 8 8 fill;
     border-image-width: 8px 8px;
+}
+.block8 .bg {
+    border-image-source: url("img/Block8.svg");
+    border-image-slice: 14 19 34 fill;
+    border-image-width: 14px 19px 34px;
 }

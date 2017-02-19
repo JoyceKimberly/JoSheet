@@ -9,7 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
@@ -57,16 +56,18 @@
                 <div class="bg"><img src="img/PageHeader1.svg"></div>
                 <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display center"></div>
                 <div style="top: 96px; left: 70px;" class="lbl2">Character Name</div>
-                <div style="top: 44px; left: 620px;" id="playerNameDisplay" class="display"></div>
-                <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
-                <div style="top: 44px; left: 322px;" id="levelDisplay" class="display right"></div>
+                <div style="top: 44px; left: 324px;" id="levelDisplay" class="display right"></div>
+                <div style="top: 44px; left: 348px; width: 120px;" id="classDisplay" class="display"></div>
                 <div style="top: 62px; left: 328px;" class="lbl2">Level &amp; Class</div>
-                <div style="top: 78px; left: 328px;" id="raceDisplay" class="display"></div>
+                <div style="top: 78px; left: 328px; width: 140px;" id="backgroundDisplay" class="display"></div>
                 <div style="top: 96px; left: 328px;" class="lbl2">Background</div>
-                <div style="top: 44px; left: 346px;" id="classDisplay" class="display"></div>
-                <div style="top: 78px; left: 470px;" id="backgroundDisplay" class="display"></div>
-                <div style="top: 62px; left: 470px;" class="lbl2">Race</div>
-                <div style="top: 96px; left: 470px;" class="lbl2">Alignment</div>
+                <div style="top: 44px; left: 474px; width: 140px;" id="raceDisplay" class="display"></div>
+                <div style="top: 62px; left: 474px;" class="lbl2">Race</div>
+                <div style="top: 78px; left: 474px; width: 140px;" id="alignDisplay" class="display"></div>
+                <div style="top: 96px; left: 474px;" class="lbl2">Alignment</div>
+                <div style="top: 44px; left: 620px; width: 90px;" id="playerNameDisplay" class="display"></div>
+                <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
+                <div style="top: 78px; left: 620px; width: 90px;" id="expDisplay" class="display"></div>
                 <div style="top: 96px; left: 620px;" class="lbl2">Experience Points</div>
                 <div style="top: 62px; left: 327px; width: 382px; height: 1px;" class="line"></div>
                 <div style="top: 96px; left: 327px; width: 382px; height: 1px;" class="line"></div>
@@ -266,12 +267,12 @@
             </div>
             <div id="inspBlock" class="labelBlock1 z2 resizable">
                 <div class="bg"></div>
-                <div class="lbl1">Inspiration</div>
+                <div class="lbl lbl1">Inspiration</div>
                 <div class="hover"></div>
             </div>
             <div id="profBlock" class="labelBlock2 z2 resizable">
                 <div class="bg"></div>
-                <div class="lbl1">Proficiency Bonus</div>
+                <div class="lbl lbl1">Proficiency Bonus</div>
                 <div class="hover"></div>
             </div>
             <div id="boxBg1" class="boxBg2 z1 resizable">
@@ -319,7 +320,7 @@
             </div>
             <div id="percBlock" class="labelBlock3 z2 resizable">
                 <div class="bg"></div>
-                <div class="lbl1">Passive Perception</div>
+                <div class="lbl lbl3">Passive Perception</div>
                 <div class="hover"></div>
             </div>
             <div id="langBlock" class="block7 z2 resizable editable">
