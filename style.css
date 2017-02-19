@@ -350,6 +350,18 @@ body, button, optgroup, select, input, textarea {
     top: 170px;
     left: 270px;
 }
+#initBlock {
+    top: 175px;
+    left: 340px;
+    width: 65px;
+    height: 60px;
+}
+#speedBlock {
+    top: 175px;
+    left: 415px;
+    width: 65px;
+    height: 60px;
+}
 
 #hitDiceBlock {
     width: 100px;
