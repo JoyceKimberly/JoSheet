@@ -69,42 +69,6 @@ div .bg img {
     }
 }
 
-#inspBlock {
-    img {
-        z-index: 1;
-        position: absolute;
-        top: 0;
-    }
-    .lbl {
-        width: 114px;
-        font-size: 7px;
-        z-index: 2;
-        top: 14px;
-        right: 0;
-    }
-}
-
-.labelBlock2,
-.labelBlock3 {
-    img {
-        z-index: 1;
-        position: absolute;
-        top: 0;
-    }
-    .lbl {
-        width: 100%;
-        font-size: 7px;
-        padding-left: 33px;
-        z-index: 2;
-        top: 18px;
-        right: 0;
-    }
-}
-.labelBlock3 .lbl {
-    padding-left: 46px;
-    top: 13px;
-}
-
 @media screen and (min-width: ($fullWidth + 1)) {
     .navbar {
         padding-right: 0;

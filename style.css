@@ -213,6 +213,35 @@ body, button, optgroup, select, input, textarea {
     z-index: 99;
 }
 
+.labelBlock1,
+.labelBlock2,
+.labelBlock3 {
+    img {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+    }
+    .lbl {
+        width: 100%;
+        text-align: center;
+        font-size: 7px;
+        z-index: 2;
+        right: 0;
+    }
+}
+.labelBlock1 .lbl {
+    width: 114px;
+    top: 14px;
+}
+.labelBlock2 .lbl {
+    padding-left: 33px;
+    top: 18px;
+}
+.labelBlock3 .lbl {
+    padding-left: 46px;
+    top: 13px;
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Objects -- */
 /* ----------------------------------------------------------------------------------- */
