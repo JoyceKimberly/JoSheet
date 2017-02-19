@@ -363,6 +363,19 @@ body, button, optgroup, select, input, textarea {
     height: 60px;
 }
 
+#hpBlock {
+    width: 211px;
+    height: 80px;
+    top: 245px;
+    left: 270px;
+}
+#tempHpBlock {
+    width: 211px;
+    height: 65px;
+    top: 330px;
+    left: 270px;
+}
+
 #hitDiceBlock {
     width: 100px;
     height: 65px;
