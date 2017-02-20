@@ -152,7 +152,7 @@ body, button, optgroup, select, input, textarea {
     border: 1px solid rgba(4, 141, 204, 0.2);
     background-color: rgba(56, 166, 229, 0.2);
 }
-.inputMode .editable:hover .display {
+.inputMode .editable .display:hover {
     border: 1px solid rgba(77, 15, 167, 0.2);
     background-color: rgba(105, 20, 229, 0.2);
 }
