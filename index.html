@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=793">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
@@ -16,6 +15,7 @@
     <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
     <script type="text/javascript" src="lists.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
+    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
     <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
@@ -54,20 +54,32 @@
         <div class="page dropzone">
             <div id="basicBar" class="pageHeader1 z2 draggable editable">
                 <div class="bg"><img src="img/PageHeader1.svg"></div>
-                <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display center"></div>
+                <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display input center"></div>
                 <div style="top: 96px; left: 70px;" class="lbl2">Character Name</div>
-                <div style="top: 44px; left: 324px;" id="levelDisplay" class="display right"></div>
-                <div style="top: 44px; left: 348px; width: 120px;" id="classDisplay" class="display"></div>
+                <div style="top: 44px; left: 324px;" id="levelDisplay" class="display input right"></div>
+                <div style="top: 44px; left: 348px; width: 120px;" id="classDisplay" class="display">
+                    <select class="custom-select" id="classInput">
+                        <option value="" selected></option>
+                    </select>
+                </div>
                 <div style="top: 62px; left: 328px;" class="lbl2">Level &amp; Class</div>
-                <div style="top: 78px; left: 328px; width: 140px;" id="backgroundDisplay" class="display"></div>
+                <div style="top: 78px; left: 328px; width: 140px; height: 23px;" id="backgroundDisplay" class="display">
+                    <select class="custom-select" id="backgroundInput">
+                        <option value="" selected></option>
+                    </select>
+                </div>
                 <div style="top: 96px; left: 328px;" class="lbl2">Background</div>
-                <div style="top: 44px; left: 474px; width: 140px;" id="raceDisplay" class="display"></div>
+                <div style="top: 44px; left: 474px; width: 140px;" id="raceDisplay" class="display">
+                    <select class="custom-select" id="raceInput">
+                        <option value="" selected></option>
+                    </select>
+                </div>
                 <div style="top: 62px; left: 474px;" class="lbl2">Race</div>
-                <div style="top: 78px; left: 474px; width: 140px;" id="alignDisplay" class="display"></div>
+                <div style="top: 78px; left: 474px; width: 140px;" id="alignDisplay" class="display input"></div>
                 <div style="top: 96px; left: 474px;" class="lbl2">Alignment</div>
-                <div style="top: 44px; left: 620px; width: 90px;" id="playerNameDisplay" class="display"></div>
+                <div style="top: 44px; left: 620px; width: 90px;" id="playerNameDisplay" class="display input"></div>
                 <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
-                <div style="top: 78px; left: 620px; width: 90px;" id="expDisplay" class="display"></div>
+                <div style="top: 78px; left: 620px; width: 90px;" id="expDisplay" class="display input"></div>
                 <div style="top: 96px; left: 620px;" class="lbl2">Experience Points</div>
                 <div style="top: 62px; left: 327px; width: 382px; height: 1px;" class="line"></div>
                 <div style="top: 96px; left: 327px; width: 382px; height: 1px;" class="line"></div>
@@ -370,10 +382,12 @@
             </div>
         </div>
     </div>
+<!--
     <div id="page2" class="outerPage dropzone">
         <div class="page dropzone">
         </div>
     </div>
+-->
     <div class="modal" id="basicBarModal" tabindex="-1" role="dialog" aria-labelledby="basicBarModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -451,14 +465,6 @@
                         <label for="subclassInput" class="col-4 col-form-label">Subclass</label>
                         <div class="col">
                             <select class="custom-select" id="subclassInput">
-                                <option value="" selected>Choose...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="backgroundInput" class="col-4 col-form-label">Background</label>
-                        <div class="col">
-                            <select class="custom-select" id="backgroundInput">
                                 <option value="" selected>Choose...</option>
                             </select>
                         </div>

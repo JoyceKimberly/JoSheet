@@ -57,9 +57,11 @@ body, button, optgroup, select, input, textarea {
     bottom: 11px;
 }
 
-.display {
+.display,
+.display .custom-select {
     /*font-family: 'bookinsanity';*/
     border: 1px solid rgba(0, 0, 0, 0);
+    color: black;
     font-size: 14px;
     letter-spacing: -0.3px;
     vertical-align: middle;
@@ -73,7 +75,16 @@ body, button, optgroup, select, input, textarea {
 .display.notes {
     font-size: 11px;
 }
+.display .custom-select {
+    background-color: transparent;
+    background-image: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
 
+.inputMode .display .custom-select,
 .inputMode .checkBall {
     cursor: pointer;
 }
@@ -210,10 +221,6 @@ body, button, optgroup, select, input, textarea {
 #raceDisplay,
 #raceInput {
     text-transform: capitalize;
-}
-
-.ui-autocomplete {
-    z-index: 99;
 }
 
 .labelBlock1 img,

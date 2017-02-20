@@ -93,7 +93,7 @@ function moveListener(event) {
 };
 
 var restrictObj = {
-    //restriction: '.page',
+    restriction: '.page',
     elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
 };
 
@@ -152,7 +152,7 @@ $('#moveBtn').click(function() {
     setBodyTag();
     $(this).addClass('active');
     $('#inputBtn').removeClass('active');
-    $('.display').attr("contentEditable", false);
+    $('.display.input').attr("contentEditable", false);
 });
 $('#inputBtn').click(function() {
     moveEnabled = false;
@@ -161,10 +161,7 @@ $('#inputBtn').click(function() {
     $(this).addClass('active');
     $('#moveBtn').removeClass('active');
     $('#showBtn').trigger('click');
-    $('.display').attr("contentEditable", true);
-    $('#classDisplay').autocomplete({
-        source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ],
-    });
+    $('.display.input').attr("contentEditable", true);
 });
 
 $('#hideBtn').click(function() {
@@ -209,7 +206,7 @@ $('.editable').on("click", ".checkBall.checked", function() {
     dit.addClass('unchecked');
 });
 
-$('.display').blur(function() {
+$('.display.input').blur(function() {
     var dit = $(this);
 
     if ( dit.attr('id') === "characterNameDisplay" ) {
@@ -225,14 +222,21 @@ $('.display').blur(function() {
     if ( dit.attr('id') === "playerNameDisplay" ) {
         file.character.player = dit.text();
     };
-    if ( dit.attr('id') === "raceDisplay" ) {
-        file.character.race = dit.text();
+
+    saveCookies();
+    setCharacter();
+});
+$('.display select').change(function() {
+    var dit = $(this);
+
+    if ( dit.parent('#raceDisplay').length  ) {
+        file.character.race = dit.val();
     };
-    if ( dit.attr('id') === "classDisplay" ) {
-        file.character.class = dit.text();
+    if ( dit.parent('#classDisplay').length ) {
+        file.character.class = dit.val();
     };
-    if ( dit.attr('id') === "backgroundDisplay" ) {
-        file.character.background = dit.text();
+    if ( dit.parent('#backgroundDisplay').length ) {
+        file.character.background = dit.val();
     };
 
     saveCookies();
@@ -297,24 +301,9 @@ function setCharacter() {
     $('#characterNameDisplay').text(file.character.name);
     $('#playerNameDisplay').text(file.character.player);
     $('#levelDisplay').text(file.character.level);
-
-    if ( typeof ClassList[file.character.race] !== "undefined" ) {
-        $('#raceDisplay').text(RaceList[file.character.race].name);
-    } else {
-        $('#raceDisplay').text(file.character.race);
-    };
-
-    if ( typeof ClassList[file.character.class] !== "undefined" ) {
-        $('#classDisplay').text(ClassList[file.character.class].name);
-    } else {
-        $('#classDisplay').text(file.character.class);
-    };
-
-    if ( typeof ClassList[file.character.background] !== "undefined" ) {
-        $('#backgroundDisplay').text(BackgroundList[file.character.background].name);
-    } else {
-        $('#backgroundDisplay').text(file.character.background);
-    };
+    $('#raceDisplay select').val(file.character.race);
+    $('#classDisplay select').val(file.character.class);
+    $('#backgroundDisplay select').val(file.character.background);
 };
 
 function resetCharacter() {

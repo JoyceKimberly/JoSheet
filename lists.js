@@ -7,25 +7,11 @@ for ( var key in RaceList ) {
         $('#raceInput').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
     };
 };
-for ( var key in RaceSubList ) {
-    if ( RaceSubList.hasOwnProperty(key) ) {
-        $('#subraceInput').append('<option value="' + key + '">' + RaceSubList[key].name + '</option>');
-    };
-};
-$('#subraceInput').closest('.form-group').hide();
-
 for ( var key in ClassList ) {
     if ( ClassList.hasOwnProperty(key) ) {
         $('#classInput').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
     };
 };
-for ( var key in ClassSubList ) {
-    if ( ClassSubList.hasOwnProperty(key) ) {
-        $('#subclassInput').append('<option value="' + key + '">' + ClassSubList[key].subname + '</option>');
-    };
-};
-$('#subclassInput').closest('.form-group').hide();
-
 for ( var key in BackgroundList ) {
     if ( BackgroundList.hasOwnProperty(key) ) {
         $('#backgroundInput').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
@@ -63,8 +49,6 @@ function desc(event) { return event; };
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRacesUA.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Icons.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
