@@ -132,16 +132,16 @@ interact('.moveMode .resizable')
 $('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
-    $(this).addClass('active');
-    $('#inputBtn').removeClass('active');
+    $(this).addClass('btn-primary active').removeClass('btn-secondary');
+    $('#inputBtn').removeClass('btn-primary active').addClass('btn-secondary');
     $('.display.input').attr("contentEditable", false);
 });
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
     setCharacter();
-    $(this).addClass('active');
-    $('#moveBtn').removeClass('active');
+    $(this).addClass('btn-primary active').removeClass('btn-secondary');
+    $('#moveBtn').removeClass('btn-primary active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
     $('.display.input').attr("contentEditable", true);
 });
