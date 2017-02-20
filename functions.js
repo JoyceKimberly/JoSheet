@@ -299,7 +299,7 @@ function setCharacter() {
     $('#raceDisplay select').val(file.character.race);
     $('#classDisplay select').val(file.character.class);
     $('#backgroundDisplay select').val(file.character.background);
-    $('#baseStrInput').val(file.character.baseAttr.str);
+    //$('#baseStrInput').val(file.character.baseAttr.str);
 };
 
 function resetCharacter() {
