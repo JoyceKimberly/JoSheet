@@ -203,7 +203,7 @@ $('.display').focusout(function() {
         };
     };
     if ( dit.attr('id') === "levelDisplay" ) {
-        file.character.level = dit.text();
+        file.character.level = parseInt(dit.text());
     };
     if ( dit.attr('id') === "playerNameDisplay" ) {
         file.character.player = dit.text();
