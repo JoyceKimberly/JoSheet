@@ -85,6 +85,10 @@ body, button, optgroup, select, input, textarea {
     padding: 0;
 }
 
+.attrInput {
+    width: 50px;
+}
+
 .inputMode .display .custom-select,
 .inputMode .checkBall {
     cursor: pointer;
