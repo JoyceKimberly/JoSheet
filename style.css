@@ -63,7 +63,6 @@ body, button, optgroup, select, input, textarea {
     border: 1px solid rgba(0, 0, 0, 0);
     color: black;
     font-size: 14px;
-    line-height: 19px;
     letter-spacing: -0.3px;
     vertical-align: middle;
 }
