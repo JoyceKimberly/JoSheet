@@ -300,6 +300,11 @@ function setCharacter() {
     $('#classDisplay select').val(file.character.class);
     $('#backgroundDisplay select').val(file.character.background);
     $('#baseStrInput').val(file.character.baseAttr.str);
+    $('#baseDexInput').val(file.character.baseAttr.dex);
+    $('#baseConInput').val(file.character.baseAttr.con);
+    $('#baseIntInput').val(file.character.baseAttr.int);
+    $('#baseWisInput').val(file.character.baseAttr.wis);
+    $('#baseChaInput').val(file.character.baseAttr.cha);
 };
 
 function resetCharacter() {
