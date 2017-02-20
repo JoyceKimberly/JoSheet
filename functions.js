@@ -210,7 +210,7 @@ $('.display').blur(function() {
     };
 
     if ( dit.attr('id') === "raceDisplay" ) {
-        file.character.player = dit.children('select').text();
+        file.character.player = dit.find('select').val();
     };
     saveCookies();
     setCharacter();
