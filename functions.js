@@ -223,6 +223,21 @@ $('.display').focusout(function() {
     setCharacter();
 });
 
+$('#calcModalSave').click(function() {
+
+
+    setCharacter();
+    saveCookies();
+    var dit = $(this);
+    dit.removeClass('btn-primary');
+    dit.addClass('btn-success');
+});
+$('.modal').on('hidden.bs.modal', function() {
+    var btn = $('.modal .btnSave');
+    btn.removeClass('btn-success');
+    btn.addClass('btn-primary');
+});
+ 
 }); // ----------------------------------------------------------------------------------
 
 function setObjects() {
