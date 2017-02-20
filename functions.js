@@ -224,7 +224,7 @@ $('.display').focusout(function() {
 });
 
 $('#calcModalSave').click(function() {
-    //file.character.baseAttr.str = $('#baseStrInput').val();
+    file.character.baseAttr.str = $('#baseStrInput').val();
 
     setCharacter();
     saveCookies();
