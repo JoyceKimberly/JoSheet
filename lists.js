@@ -21,8 +21,8 @@ for ( var key in BackgroundList ) {
 $('#calcModalSave').click(function() {
 
 
-    setCharacter();
-    saveCookies();
+    //setCharacter();
+    //saveCookies();
     var dit = $(this);
     dit.removeClass('btn-primary');
     dit.addClass('btn-success');
