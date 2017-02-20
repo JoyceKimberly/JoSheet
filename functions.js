@@ -192,7 +192,7 @@ $('.editable').on("click", ".checkBall.checked", function() {
     dit.addClass('unchecked');
 });
 
-$('.display').blur(function() {
+$('.display').focusout(function() {
     var dit = $(this);
 
     if ( dit.attr('id') === "characterNameDisplay" ) {
