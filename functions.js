@@ -93,7 +93,7 @@ function moveListener(event) {
 };
 
 var restrictObj = {
-    restriction: '.page',
+    restriction: 'parent',
     elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
 };
 
@@ -103,14 +103,14 @@ var snapObj = {
 };
 
 interact('.moveMode .draggable')
-    .origin('.page')
+    .origin('parent')
     .draggable({
         restrict: restrictObj,
         snap: snapObj,
         onmove: moveListener,
     });
 interact('.moveMode .resizable')
-    .origin('.page')
+    .origin('parent')
     .draggable({
         restrict: restrictObj,
         snap: snapObj,
@@ -125,24 +125,6 @@ interact('.moveMode .resizable')
         snap: snapObj,
     })
     .on('resizemove', moveListener);
-
-interact('.outerPage.dropzone')
-    .dropzone({
-        accept: '.draggable, .resizable',
-        overlap: 0.1,
-        ondragenter: function(event) {
-            event.target.classList.add('drop-target');
-        },
-        ondragleave: function(event) {
-            event.target.classList.remove('drop-target');
-        },
-    });
-
-interact('.page.dropzone')
-    .dropzone({
-        accept: '.draggable, .resizable',
-        overlap: 1,
-    });
 
 // --------------------------------------------------------------------------------------
 // -- Menu --
@@ -243,6 +225,15 @@ $('.display select').change(function() {
     setCharacter();
 });
 
+// --------------------------------------------------------------------------------------
+// -- Modals Setup --
+// --------------------------------------------------------------------------------------
+$('.attrBlock').click(function() {
+    if ( moveEnabled === false ) {
+        $('#AttrModal').modal('show');
+    };
+});
+
 }); // ----------------------------------------------------------------------------------
 
 function setObjects() {
@@ -304,6 +295,7 @@ function setCharacter() {
     $('#raceDisplay select').val(file.character.race);
     $('#classDisplay select').val(file.character.class);
     $('#backgroundDisplay select').val(file.character.background);
+    $('#strInput').val(file.character.attributes.str);
 };
 
 function resetCharacter() {

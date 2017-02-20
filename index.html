@@ -50,8 +50,8 @@
         </div>
     </nav>
     <div id="alerts" class="container fixed-bottom"></div>
-    <div id="page1" class="outerPage dropzone">
-        <div class="page dropzone">
+    <div id="page1" class="outerPage">
+        <div class="page">
             <div id="basicBar" class="pageHeader1 z2 draggable editable">
                 <div class="bg"><img src="img/PageHeader1.svg"></div>
                 <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display input center"></div>
@@ -383,95 +383,30 @@
         </div>
     </div>
 <!--
-    <div id="page2" class="outerPage dropzone">
-        <div class="page dropzone">
+    <div id="page2" class="outerPage">
+        <div class="page">
         </div>
     </div>
 -->
-    <div class="modal" id="basicBarModal" tabindex="-1" role="dialog" aria-labelledby="basicBarModalLabel" aria-hidden="true">
+    <div class="modal" id="AttrModal" tabindex="-1" role="dialog" aria-labelledby="AttrModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="basicBarModalLabel">Soon&trade;...</h5>
+                    <h5 class="modal-title" id="AttrModalLabel">Soon&trade;...</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="characterNameInput" class="col-4 col-form-label">Character Name</label>
+                        <label for="strInput" class="col-4 col-form-label">Strength</label>
                         <div class="col">
-                            <input class="form-control" type="text" id="characterNameInput">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="playerNameInput" class="col-4 col-form-label">Player Name</label>
-                        <div class="col">
-                            <input class="form-control" type="text" id="playerNameInput">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="levelInput" class="col-4 col-form-label">Level</label>
-                        <div class="col">
-                            <select class="custom-select" id="levelInput">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="raceInput" class="col-4 col-form-label">Race</label>
-                        <div class="col">
-                            <select class="custom-select" id="raceInput">
-                                <option value="" selected>Choose...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="subraceInput" class="col-4 col-form-label">Subrace</label>
-                        <div class="col">
-                            <select class="custom-select" id="subraceInput">
-                                <option value="" selected>Choose...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="classInput" class="col-4 col-form-label">Class</label>
-                        <div class="col">
-                            <select class="custom-select" id="classInput">
-                                <option value="" selected>Choose...</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="subclassInput" class="col-4 col-form-label">Subclass</label>
-                        <div class="col">
-                            <select class="custom-select" id="subclassInput">
-                                <option value="" selected>Choose...</option>
-                            </select>
+                            <input class="form-control" type="number" value="" id="strInput">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="basicBarModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
+                    <button id="AttrModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
