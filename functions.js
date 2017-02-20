@@ -225,6 +225,11 @@ $('.display').focusout(function() {
 
 $('#calcModalSave').click(function() {
     file.character.baseAttr.str = parseInt($('#baseStrInput').val());
+    file.character.baseAttr.dex = parseInt($('#baseDexInput').val());
+    file.character.baseAttr.con = parseInt($('#baseConInput').val());
+    file.character.baseAttr.int = parseInt($('#baseIntInput').val());
+    file.character.baseAttr.wis = parseInt($('#baseWisInput').val());
+    file.character.baseAttr.cha = parseInt($('#baseChaInput').val());
 
     setCharacter();
     saveCookies();
