@@ -130,16 +130,16 @@ interact('.moveMode .resizable')
 $('#moveBtn').click(function() {
     moveEnabled = true;
     setBodyTag();
-    $(this).addClass('btn-primary active').removeClass('btn-secondary');
-    $('#inputBtn').removeClass('btn-primary active').addClass('btn-secondary');
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('.display.input').attr("contentEditable", false);
 });
 $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
     setCharacter();
-    $(this).addClass('btn-primary active').removeClass('btn-secondary');
-    $('#moveBtn').removeClass('btn-primary active').addClass('btn-secondary');
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
     $('.display.input').attr("contentEditable", true);
 });
