@@ -155,6 +155,10 @@ $('#showBtn').click(function() {
     $('#hideBtn, .display').show();
 });
 
+$('#calcBtn').click(function() {
+    $('#calcModal').modal('show');
+});
+
 $('#resetBtn').click(function() {
     if ( moveEnabled === true ) {
         resetObjects();
@@ -223,15 +227,6 @@ $('.display select').change(function() {
 
     saveCookies();
     setCharacter();
-});
-
-// --------------------------------------------------------------------------------------
-// -- Modals Setup --
-// --------------------------------------------------------------------------------------
-$('#calcBtn').click(function() {
-    if ( moveEnabled === false ) {
-        $('#calcModal').modal('show');
-    };
 });
 
 }); // ----------------------------------------------------------------------------------
