@@ -212,26 +212,16 @@ $('.display').focusout(function() {
     if ( dit.attr('id') === "raceDisplay" ) {
         file.character.race = dit.find('select').val();
     };
+    if ( dit.attr('id') === "classDisplay" ) {
+        file.character.class = dit.find('select').val();
+    };
+    if ( dit.attr('id') === "backgroundDisplay" ) {
+        file.character.background = dit.find('select').val();
+    };
     
     saveCookies();
     setCharacter();
 });
-/*$('.display select').change(function() {
-    var dit = $(this);
-
-    if ( dit.parent('#raceDisplay').length  ) {
-        file.character.race = dit.val();
-    };
-    if ( dit.parent('#classDisplay').length ) {
-        file.character.class = dit.val();
-    };
-    if ( dit.parent('#backgroundDisplay').length ) {
-        file.character.background = dit.val();
-    };
-
-    saveCookies();
-    setCharacter();
-});*/
 
 }); // ----------------------------------------------------------------------------------
 
