@@ -42,11 +42,9 @@ $('[data-toggle="tooltip"]').tooltip();
 function setBodyTag() {
     var body = $('body');
     if ( moveEnabled === true ) {
-        body.removeClass('inputMode');
-        body.addClass('moveMode');
+        body.removeClass('inputMode').addClass('moveMode');
     } else {
-        body.removeClass('moveMode');
-        body.addClass('inputMode');
+        body.removeClass('moveMode').addClass('inputMode');
     };
 };
 setBodyTag();
@@ -182,14 +180,10 @@ $('#saveLink').click(function() {
 // -- Display Setup --
 // --------------------------------------------------------------------------------------
 $('.editable').on("click", ".checkBall.unchecked", function() {
-    var dit = $(this);
-    dit.removeClass('unchecked');
-    dit.addClass('checked');
+    $(this).removeClass('unchecked').addClass('checked');
 });
 $('.editable').on("click", ".checkBall.checked", function() {
-    var dit = $(this);
-    dit.removeClass('checked');
-    dit.addClass('unchecked');
+    $(this).removeClass('checked').addClass('unchecked');
 });
 
 $('.display').focusout(function() {
@@ -233,14 +227,10 @@ $('#calcModalSave').click(function() {
 
     setCharacter();
     saveCookies();
-    var dit = $(this);
-    dit.removeClass('btn-primary');
-    dit.addClass('btn-success');
+    $(this).removeClass('btn-primary').addClass('btn-success');
 });
 $('.modal').on('hidden.bs.modal', function() {
-    var btn = $('.modal .btnSave');
-    btn.removeClass('btn-success');
-    btn.addClass('btn-primary');
+    $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
 });
  
 }); // ----------------------------------------------------------------------------------
