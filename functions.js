@@ -209,10 +209,13 @@ $('.display.input').blur(function() {
         file.character.player = dit.text();
     };
 
+    if ( dit.attr('id') === "raceDisplay" ) {
+        file.character.player = dit.children('select').text();
+    };
     saveCookies();
     setCharacter();
 });
-$('.display select').change(function() {
+/*$('.display select').change(function() {
     var dit = $(this);
 
     if ( dit.parent('#raceDisplay').length  ) {
@@ -227,7 +230,7 @@ $('.display select').change(function() {
 
     saveCookies();
     setCharacter();
-});
+});*/
 
 }); // ----------------------------------------------------------------------------------
 
