@@ -1,6 +1,6 @@
 var cWidth = 745;
 var moveEnabled = true;
-window.file = {
+var file = {
     objects   : {},
     character : {},
     notes     : {},
