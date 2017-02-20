@@ -228,9 +228,9 @@ $('.display select').change(function() {
 // --------------------------------------------------------------------------------------
 // -- Modals Setup --
 // --------------------------------------------------------------------------------------
-$('.attrBlock').click(function() {
+$('#calcBtn').click(function() {
     if ( moveEnabled === false ) {
-        $('#AttrModal').modal('show');
+        $('#calcModal').modal('show');
     };
 });
 
