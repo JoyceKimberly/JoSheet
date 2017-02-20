@@ -50,8 +50,8 @@
         </div>
     </nav>
     <div id="alerts" class="container fixed-bottom"></div>
-    <div id="page1" class="outerPage">
-        <div class="page">
+    <div id="page1" class="outerPage dropzone">
+        <div class="page dropzone">
             <div id="basicBar" class="pageHeader1 z2 draggable editable">
                 <div class="bg"><img src="img/PageHeader1.svg"></div>
                 <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display center"></div>
@@ -370,8 +370,8 @@
             </div>
         </div>
     </div>
-    <div id="page2" class="outerPage">
-        <div class="page">
+    <div id="page2" class="outerPage dropzone">
+        <div class="page dropzone">
         </div>
     </div>
     <div class="modal" id="basicBarModal" tabindex="-1" role="dialog" aria-labelledby="basicBarModalLabel" aria-hidden="true">
@@ -486,6 +486,7 @@
     </div>
     <style>
     @media print {
+        /*div { border: 1px solid blue; } /* debug */
         body,
         .outerPage {
             background-color: white !important;
@@ -507,6 +508,7 @@
             margin: 0;
         }
         .page {
+            page-break-before: always;
             height: initial;
             top: 0;
             left: 0;

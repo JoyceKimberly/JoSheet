@@ -115,7 +115,6 @@ interact('.moveMode .resizable')
         restrict: restrictObj,
         snap: snapObj,
         onmove: moveListener,
-
     })
     .resizable({
         preserveAspectRatio: false,
@@ -124,9 +123,26 @@ interact('.moveMode .resizable')
         invert: 'reposition',
         max: Infinity,
         snap: snapObj,
-
     })
     .on('resizemove', moveListener);
+
+interact('.outerPage.dropzone')
+    .dropzone({
+        accept: '.draggable, .resizable',
+        overlap: 0.1,
+        ondragenter: function(event) {
+            event.target.classList.add('drop-target');
+        },
+        ondragleave: function(event) {
+            event.target.classList.remove('drop-target');
+        },
+    });
+
+interact('.page.dropzone')
+    .dropzone({
+        accept: '.draggable, .resizable',
+        overlap: 1,
+    });
 
 // --------------------------------------------------------------------------------------
 // -- Menu --

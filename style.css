@@ -187,9 +187,12 @@ body, button, optgroup, select, input, textarea {
 }
 
 .outerPage {
-    page-break-after: always;
+    /*page-break-after: always;*/
     background-color: white;
     transform-origin: 0 0;
+}
+.outerPage.drop-target {
+    background-color: #f2dede;
 }
 .grid {
     background-color: white;
@@ -202,6 +205,8 @@ body, button, optgroup, select, input, textarea {
         linear-gradient(90deg, rgba(175, 175, 175, 0.1) 1px, transparent 1px);
     background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
     background-position: 23px 23px;
+}
+.page {
 }
 
 #raceDisplay,
