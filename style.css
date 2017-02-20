@@ -87,7 +87,7 @@ body, button, optgroup, select, input, textarea {
 
 .attrInput {
     width: 35px;
-    text-align: right;
+    text-align: center;
 }
 
 .inputMode .display .custom-select,
