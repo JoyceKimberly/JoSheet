@@ -202,7 +202,6 @@ $('.display').focusout(function() {
     if ( dit.attr('id') === "playerNameDisplay" ) {
         file.character.player = dit.text();
     };
-
     if ( dit.attr('id') === "raceDisplay" ) {
         file.character.race = dit.find('select').val();
     };
@@ -212,7 +211,10 @@ $('.display').focusout(function() {
     if ( dit.attr('id') === "backgroundDisplay" ) {
         file.character.background = dit.find('select').val();
     };
-    
+    if ( dit.attr('id') === "expDisplay" ) {
+        file.character.exp = parseInt(dit.text());
+    };
+
     saveCookies();
     setCharacter();
 });
@@ -232,60 +234,8 @@ $('#calcModalSave').click(function() {
 $('.modal').on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
 });
- 
+
 }); // ----------------------------------------------------------------------------------
-
-function setObjects() {
-    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
-        var naam = Object.keys(file.objects)[i];
-        var obj = $("#" + naam);
-        obj.removeAttr("data-x");
-        obj.removeAttr("data-y");
-        obj.removeAttr("style");
-
-        var x = file.objects[naam].x;
-        var y = file.objects[naam].y;
-
-        if ( file.objects[naam].x ) {
-            obj.css("transform", "translate(" + x + "px, " + y + "px)");
-            obj.attr("data-x", x);
-        };
-        if ( file.objects[naam].y ) {
-            obj.css("transform", "translate(" + x + "px, " + y + "px)");
-            obj.attr("data-y", y);
-        };
-        if ( file.objects[naam].width ) {
-            obj.width(file.objects[naam].width);
-        };
-        if ( file.objects[naam].height ) {
-            obj.height(file.objects[naam].height);
-        };
-    };
-};
-
-function resetObjects() {
-    file.objects = {
-        "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
-        "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
-        "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-        "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
-        "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-        "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-        "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
-        "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
-        "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-    };
-    var obj = $('.draggable, .resizable');
-    obj.removeAttr("data-x");
-    obj.removeAttr("data-y");
-    obj.removeAttr("style");
-};
 
 function setCharacter() {
     $('#characterNameDisplay').text(file.character.name);
@@ -294,6 +244,7 @@ function setCharacter() {
     $('#raceDisplay select').val(file.character.race);
     $('#classDisplay select').val(file.character.class);
     $('#backgroundDisplay select').val(file.character.background);
+    $('#expDisplay select').text(file.character.exp);
     $('#baseStrInput').val(file.character.baseAttr.str);
     $('#baseDexInput').val(file.character.baseAttr.dex);
     $('#baseConInput').val(file.character.baseAttr.con);
@@ -351,6 +302,58 @@ function resetCharacter() {
         allies         : "",
         enemies        : "",
     };
+};
+
+function setObjects() {
+    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
+        var naam = Object.keys(file.objects)[i];
+        var obj = $("#" + naam);
+        obj.removeAttr("data-x");
+        obj.removeAttr("data-y");
+        obj.removeAttr("style");
+
+        var x = file.objects[naam].x;
+        var y = file.objects[naam].y;
+
+        if ( file.objects[naam].x ) {
+            obj.css("transform", "translate(" + x + "px, " + y + "px)");
+            obj.attr("data-x", x);
+        };
+        if ( file.objects[naam].y ) {
+            obj.css("transform", "translate(" + x + "px, " + y + "px)");
+            obj.attr("data-y", y);
+        };
+        if ( file.objects[naam].width ) {
+            obj.width(file.objects[naam].width);
+        };
+        if ( file.objects[naam].height ) {
+            obj.height(file.objects[naam].height);
+        };
+    };
+};
+
+function resetObjects() {
+    file.objects = {
+        "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
+        "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
+        "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
+        "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+        "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
+        "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+        "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
+        "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
+        "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
+        "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
+    };
+    var obj = $('.draggable, .resizable');
+    obj.removeAttr("data-x");
+    obj.removeAttr("data-y");
+    obj.removeAttr("style");
 };
 
 function listCharacters() {
@@ -507,6 +510,12 @@ function isAuthenticated() {
 // --------------------------------------------------------------------------------------
 // -- Helpers --
 // --------------------------------------------------------------------------------------
+window.onerror = function() {
+    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+};
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
