@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-console.log(ClassSubList); // debug
+//console.log(ClassSubList); // debug
 
 for ( var key in RaceList ) {
     if ( RaceList.hasOwnProperty(key) ) {
