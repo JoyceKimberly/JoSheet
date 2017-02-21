@@ -463,12 +463,12 @@ body, button, optgroup, select, input, textarea {
 /* ----------------------------------------------------------------------------------- */
 /* -- Displays -- */
 /* ----------------------------------------------------------------------------------- */
-#characterNameDisplay {
+#name.display {
     width: 267px;
     height: 38px;
     line-height: 38px;
 }
-#levelDisplay {
+#level.display {
     width: 22px;
 }
 
