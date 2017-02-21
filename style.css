@@ -207,7 +207,7 @@ body, button, optgroup, select, input, textarea {
     margin-bottom: 15px;
 }
 #blockMenu .block {
-    display: inline-block;
+    display: inline;
     margin-right: 10px;
 }
 
