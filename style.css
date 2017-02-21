@@ -468,9 +468,6 @@ body, button, optgroup, select, input, textarea {
     height: 38px;
     line-height: 38px;
 }
-#level.display {
-    width: 22px;
-}
 
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
