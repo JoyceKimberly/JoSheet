@@ -4,17 +4,17 @@
 
 for ( var key in RaceList ) {
     if ( RaceList.hasOwnProperty(key) ) {
-        $('#raceInput').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
+        $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
     };
 };
 for ( var key in ClassList ) {
     if ( ClassList.hasOwnProperty(key) ) {
-        $('#classInput').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
+        $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
     };
 };
 for ( var key in BackgroundList ) {
     if ( BackgroundList.hasOwnProperty(key) ) {
-        $('#backgroundInput').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
+        $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
 };
 

@@ -141,7 +141,7 @@ $('#inputBtn').click(function() {
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
-    $('.display.input').attr("contentEditable", true);
+    $('div.display').attr("contentEditable", true);
 });
 
 $('#hideBtn').click(function() {
@@ -186,47 +186,17 @@ $('.editable').on("click", ".checkBall.checked", function() {
     $(this).removeClass('checked').addClass('unchecked');
 });
 
-$('.display').focusout(function() {
-    var dit = $(this);
-
-    if ( dit.attr('id') === "characterNameDisplay" ) {
-        if ( dit.text() !== "" ) {
-            file.character.name = dit.text();
-        } else {
-            file.character.name = "JoSheet";
-        };
-    };
-    if ( dit.attr('id') === "levelDisplay" ) {
-        file.character.level = parseInt(dit.text());
-    };
-    if ( dit.attr('id') === "playerNameDisplay" ) {
-        file.character.player = dit.text();
-    };
-    if ( dit.attr('id') === "raceDisplay" ) {
-        file.character.race = dit.find('select').val();
-    };
-    if ( dit.attr('id') === "classDisplay" ) {
-        file.character.class = dit.find('select').val();
-    };
-    if ( dit.attr('id') === "backgroundDisplay" ) {
-        file.character.background = dit.find('select').val();
-    };
-    if ( dit.attr('id') === "expDisplay" ) {
-        file.character.exp = parseInt(dit.text());
-    };
-
-    saveCookies();
-    setCharacter();
-});
-
 $('#calcModalSave').click(function() {
-    file.character.baseAttr.str = parseInt($('#baseStrInput').val());
-    file.character.baseAttr.dex = parseInt($('#baseDexInput').val());
-    file.character.baseAttr.con = parseInt($('#baseConInput').val());
-    file.character.baseAttr.int = parseInt($('#baseIntInput').val());
-    file.character.baseAttr.wis = parseInt($('#baseWisInput').val());
-    file.character.baseAttr.cha = parseInt($('#baseChaInput').val());
+    var character = {};
 
+    character.baseStr = parseInt($('#baseStr').val());
+    character.baseDex = parseInt($('#baseDex').val());
+    character.baseCon = parseInt($('#baseCon').val());
+    character.baseInt = parseInt($('#baseInt').val());
+    character.baseWis = parseInt($('#baseWis').val());
+    character.baseCha = parseInt($('#baseCha').val());
+
+    $.extend(true, file.character, character);
     setCharacter();
     saveCookies();
     $(this).removeClass('btn-primary').addClass('btn-success');
@@ -235,37 +205,73 @@ $('.modal').on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
 });
 
+$('.display').focusout(function() {
+    var dit = $(this);
+    var character = {};
+    var key = dit.attr('id');
+
+    if ( dit.attr('id') === "name" ) {
+        if ( dit.text() !== "" ) {
+            character.name = dit.text();
+        } else {
+            character.name = "JoSheet";
+        };
+    } else if ( dit.is('div') ) {
+        character[key] = dit.text();
+    } else if ( dit.is('select') ) {
+        character[key] = dit.val();
+    };
+console.log(character);
+    $.extend(true, file.character, character);
+    saveCookies();
+    setCharacter();
+});
+
 }); // ----------------------------------------------------------------------------------
 
 function setCharacter() {
-    $('#characterNameDisplay').text(file.character.name);
-    $('#playerNameDisplay').text(file.character.player);
+    for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
+        var key = Object.keys(file.character)[i];
+        var ele = $("#" + key);
+
+        if ( ele.is('div') ) {
+            ele.text(file.character[key]);
+        } else if ( ele.is('select') ) {
+            ele.val(file.character[key]);
+        };
+    };
+    /*$('#characterNameDisplay').text(file.character.name);
     $('#levelDisplay').text(file.character.level);
-    $('#raceDisplay select').val(file.character.race);
-    $('#classDisplay select').val(file.character.class);
-    $('#backgroundDisplay select').val(file.character.background);
-    $('#expDisplay select').text(file.character.exp);
+    $('#expDisplay').text(file.character.exp);
     $('#baseStrInput').val(file.character.baseAttr.str);
     $('#baseDexInput').val(file.character.baseAttr.dex);
     $('#baseConInput').val(file.character.baseAttr.con);
     $('#baseIntInput').val(file.character.baseAttr.int);
     $('#baseWisInput').val(file.character.baseAttr.wis);
     $('#baseChaInput').val(file.character.baseAttr.cha);
+    if ( file.character.player ) {
+        $('#playerNameDisplay').text(file.character.player);
+    };
+    if ( file.character.race ) {
+        $('#raceDisplay select').val(file.character.race);
+    };
+    if ( file.character.class ) {
+        $('#classDisplay select').val(file.character.class);
+    };
+    if ( file.character.background ) {
+        $('#backgroundDisplay select').val(file.character.background);
+    };
+    if ( file.character.alignment ) {
+        $('#alignDisplay').text(file.character.alignment);
+    };*/
 };
 
 function resetCharacter() {
     file.character = {
         name           : "JoSheet",
-        player         : "",
         level          : 1,
-        race           : "",
-        subRace        : "",
-        class          : "",
-        subClass       : "",
         exp            : 0,
-        background     : "",
-        subBackground  : "",
-        baseAttr       : {
+        baseAttr : {
             str        : 8,
             dex        : 8,
             con        : 8,
@@ -273,35 +279,8 @@ function resetCharacter() {
             wis        : 8,
             cha        : 8,
         },
-        saves          : {},
-        skills         : {},
-        health         : {},
-        feats          : {},
-        languages      : {},
-        armor          : "",
-        shield         : "",
-        weapons        : {},
-        ammo           : {},
-        equipment      : {
-            magicItems : {},
-            currency   : {},
-        },
-        gender         : "",
-        alignment      : "",
-        age            : "",
-        faith          : "",
-        height         : "",
-        weight         : "",
-        hair           : "",
-        skin           : "",
-        eyes           : "",
     };
-    file.notes = {
-        appearance     : "",
-        history        : "",
-        allies         : "",
-        enemies        : "",
-    };
+    file.notes = {};
 };
 
 function setObjects() {
@@ -333,23 +312,7 @@ function setObjects() {
 };
 
 function resetObjects() {
-    file.objects = {
-        "basicBar"    : { width: 0, height: 0, x: 0, y: 0 },
-        "attrBox"     : { width: 0, height: 0, x: 0, y: 0 },
-        "strBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "dexBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "conBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "intBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "wisBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "chaBlock"    : { width: 0, height: 0, x: 0, y: 0 },
-        "savesBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-        "skillsBlock" : { width: 0, height: 0, x: 0, y: 0 },
-        "inspBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-        "profBlock"   : { width: 0, height: 0, x: 0, y: 0 },
-        "boxBg1"      : { width: 0, height: 0, x: 0, y: 0 },
-        "boxBg2"      : { width: 0, height: 0, x: 0, y: 0 },
-        "deathBlock"  : { width: 0, height: 0, x: 0, y: 0 },
-    };
+    file.objects = {};
     var obj = $('.draggable, .resizable');
     obj.removeAttr("data-x");
     obj.removeAttr("data-y");
@@ -412,7 +375,7 @@ function loadFile(i) {
             var blob = response.fileBlob;
             var reader = new FileReader();
             reader.onload = function() {
-                file = JSON.parse(reader.result);
+                $.extend(true, file, JSON.parse(reader.result));
                 setObjects();
                 setCharacter();
                 saveCookies();
@@ -468,13 +431,13 @@ function saveCookies() {
 };
 function loadCookies() {
     if ( !!getCookie("objects") ) {
-        file.objects = JSON.parse(getCookie("objects"));
+        $.extend(true, file.objects, JSON.parse(getCookie("objects")));
     };
     if ( !!getCookie("character") ) {
-        file.character = JSON.parse(getCookie("character"));
+        $.extend(true, file.character, JSON.parse(getCookie("character")));
     };
     if ( !!getCookie("notes") ) {
-        file.notes = JSON.parse(getCookie("notes"));
+        $.extend(true, file.notes, JSON.parse(getCookie("notes")));
     };
 };
 
@@ -510,13 +473,13 @@ function isAuthenticated() {
 // --------------------------------------------------------------------------------------
 // -- Helpers --
 // --------------------------------------------------------------------------------------
-window.onerror = function() {
+/*window.onerror = function() {
     document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     //location.reload();
 };
-
+*/
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');

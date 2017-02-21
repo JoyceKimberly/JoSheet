@@ -58,13 +58,16 @@ body, button, optgroup, select, input, textarea {
 }
 
 .display,
-.display .custom-select {
+.display.custom-select {
     /*font-family: 'bookinsanity';*/
     border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 0;
     color: black;
     font-size: 14px;
     letter-spacing: -0.3px;
     vertical-align: middle;
+    min-width: 23px;
+    min-height: 23px;
 }
 .display.center {
     text-align: center;
@@ -75,18 +78,16 @@ body, button, optgroup, select, input, textarea {
 .display.notes {
     font-size: 11px;
 }
-.display .custom-select {
+.display.custom-select {
     background-color: transparent;
     background-image: none;
-    border: none;
     width: 100%;
-    height: 100%;
     margin: 0;
     padding: 0;
 }
 
 .attrInput {
-    width: 35px;
+    max-width: 50px;
     text-align: center;
 }
 

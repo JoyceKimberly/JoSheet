@@ -55,32 +55,32 @@
         <div class="page">
             <div id="basicBar" class="pageHeader1 z2 draggable editable">
                 <div class="bg"><img src="img/PageHeader1.svg"></div>
-                <div style="top: 55px; left: 40px;" id="characterNameDisplay" class="display input center"></div>
+                <div style="top: 55px; left: 40px;" id="name" class="display center"></div>
                 <div style="top: 96px; left: 70px;" class="lbl2">Character Name</div>
-                <div style="top: 44px; left: 324px;" id="levelDisplay" class="display input right"></div>
-                <div style="top: 44px; left: 348px; width: 120px;" id="classDisplay" class="display">
-                    <select class="custom-select" id="classInput">
+                <div style="top: 44px; left: 324px;" id="level" class="display right"></div>
+                <div style="top: 44px; left: 348px; width: 120px;">
+                    <select class="custom-select display" id="class">
                         <option value="" selected></option>
                     </select>
                 </div>
                 <div style="top: 62px; left: 328px;" class="lbl2">Level &amp; Class</div>
-                <div style="top: 78px; left: 328px; width: 140px; height: 23px;" id="backgroundDisplay" class="display">
-                    <select class="custom-select" id="backgroundInput">
+                <div style="top: 78px; left: 328px; width: 140px; height: 23px;">
+                    <select class="custom-select display" id="background">
                         <option value="" selected></option>
                     </select>
                 </div>
                 <div style="top: 96px; left: 328px;" class="lbl2">Background</div>
-                <div style="top: 44px; left: 474px; width: 140px;" id="raceDisplay" class="display">
-                    <select class="custom-select" id="raceInput">
+                <div style="top: 44px; left: 474px; width: 140px;">
+                    <select class="custom-select display" id="race">
                         <option value="" selected></option>
                     </select>
                 </div>
                 <div style="top: 62px; left: 474px;" class="lbl2">Race</div>
-                <div style="top: 78px; left: 474px; width: 140px;" id="alignDisplay" class="display input"></div>
+                <div style="top: 78px; left: 474px; width: 140px;" id="alignment" class="display"></div>
                 <div style="top: 96px; left: 474px;" class="lbl2">Alignment</div>
-                <div style="top: 44px; left: 620px; width: 90px;" id="playerNameDisplay" class="display input"></div>
+                <div style="top: 44px; left: 620px; width: 90px;" id="player" class="display"></div>
                 <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
-                <div style="top: 78px; left: 620px; width: 90px;" id="expDisplay" class="display input"></div>
+                <div style="top: 78px; left: 620px; width: 90px;" id="exp" class="display"></div>
                 <div style="top: 96px; left: 620px;" class="lbl2">Experience Points</div>
                 <div style="top: 62px; left: 327px; width: 382px; height: 1px;" class="line"></div>
                 <div style="top: 96px; left: 327px; width: 382px; height: 1px;" class="line"></div>
@@ -400,39 +400,39 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group row">
-                        <label for="baseStrInput" class="col-3 col-form-label col-form-label-sm">Strength</label>
+                        <label for="baseStr" class="col-3 col-form-label col-form-label-sm">Strength</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseStrInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseStr">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="baseDexInput" class="col-3 col-form-label col-form-label-sm">Dexterity</label>
+                        <label for="baseDex" class="col-3 col-form-label col-form-label-sm">Dexterity</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseDexInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseDex">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="baseConInput" class="col-3 col-form-label col-form-label-sm">Constitution</label>
+                        <label for="baseCon" class="col-3 col-form-label col-form-label-sm">Constitution</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseConInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCon">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="baseIntInput" class="col-3 col-form-label col-form-label-sm">Intelligence</label>
+                        <label for="baseInt" class="col-3 col-form-label col-form-label-sm">Intelligence</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseIntInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseInt">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="baseWisInput" class="col-3 col-form-label col-form-label-sm">Wisdom</label>
+                        <label for="baseWis" class="col-3 col-form-label col-form-label-sm">Wisdom</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseWisInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseWis">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="baseChaInput" class="col-3 col-form-label col-form-label-sm">Charisma</label>
+                        <label for="baseCha" class="col-3 col-form-label col-form-label-sm">Charisma</label>
                         <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseChaInput">
+                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCha">
                         </div>
                     </div>
                     <div class="row">
