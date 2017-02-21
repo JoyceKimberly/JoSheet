@@ -203,8 +203,8 @@ body, button, optgroup, select, input, textarea {
     right: 10px;
 }
 
-#blockMenuContainer {
-    padding-bottom: 15px;
+#blockMenu {
+    margin-bottom: 15px;
 }
 
 .outerPage {
