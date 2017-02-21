@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-//console.log(file); // debug
+console.log(ClassSubList); // debug
 
 for ( var key in RaceList ) {
     if ( RaceList.hasOwnProperty(key) ) {
@@ -22,6 +22,24 @@ for ( var key in BackgroundList ) {
 }); // ----------------------------------------------------------------------------------
 
 })(jQuery); // --------------------------------------------------------------------------
+
+window.onerror = function(msg, url, lineNo, columnNo, error) {
+    var string = msg.toLowerCase();
+    var substring = "script error";
+    if (string.indexOf(substring) > -1){
+        console.error('Script Error: See Browser Console for Detail');
+    } else {
+        var message = [
+            'Message: ' + msg,
+            'URL: ' + url,
+            'Line: ' + lineNo,
+            'Column: ' + columnNo,
+            'Error object: ' + JSON.stringify(error)
+        ].join(' - ');
+        console.error(message);
+    };
+    return true;
+};
 
 var tDoc = {
     info : {
