@@ -514,6 +514,7 @@ window.onerror = function() {
     document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    location.reload();
 };
 
 function getCookie(cname) {
