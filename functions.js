@@ -19,9 +19,9 @@ var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(wi
 var zoomScale = ((vw-30)/cWidth);
 
 window.addEventListener("resize", function() {
-    $('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
+    $('#blockMenu, #page1').css("margin-top", ($('#navbar').outerHeight()));
 }, false);
-$('#navbar + .container, #page1').css("margin-top", ($('#navbar').outerHeight()));
+$('#blockMenu, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
 if ( !!getAccessToken() ) {
     $('#authLink').hide();
