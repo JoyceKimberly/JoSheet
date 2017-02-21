@@ -203,6 +203,10 @@ body, button, optgroup, select, input, textarea {
     right: 10px;
 }
 
+#blockMenuContainer {
+    padding-bottom: 15px;
+}
+
 .outerPage {
     /*page-break-after: always;*/
     background-color: white;
