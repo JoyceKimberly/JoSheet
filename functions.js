@@ -179,7 +179,7 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   // -- Options Setup --
   // ------------------------------------------------------------------------------------
-  $('.hasMenu').hover(function() {
+  $('.hasMenu').ready(function() {
     var dit = $(this);
     var menu = dit.find('.dropdown-menu');
     menu.html('<h6 class="dropdown-header">Move block to</h6>');
