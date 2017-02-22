@@ -167,6 +167,10 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
+.edit {
+    
+}
+
 .navbar .btn-toolbar {
     width: 100%;
 }
