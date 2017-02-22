@@ -275,10 +275,8 @@ body, button, optgroup, select, input, textarea {
 .edit .dropdown-menu {
   position: relative;
 }
-.hasMenu:hover .edit {
-  display: block;
-}
-.hasMenu:hover .edit:hover .dropdown-menu {
+.moveMode .hasMenu:hover .edit,
+.moveMode .hasMenu:hover .edit:hover .dropdown-menu {
   display: block;
 }
 
