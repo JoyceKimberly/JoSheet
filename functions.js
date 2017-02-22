@@ -179,9 +179,11 @@ $('#saveLink').click(function() {
 $('.hasMenu').hover(
   function() {
     var dit = $(this);
+    var menu = $('#editMenu');
   }, 
   function() {
     var dit = $(this);
+    var menu = $('#editMenu');
   }
 );
 
