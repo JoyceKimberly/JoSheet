@@ -176,12 +176,9 @@ $('#saveLink').click(function() {
     saveFile();
 });
 
-/*$('.edit').on('touchstart mousedown', function() {
+$('.hasMenu').on('touchstart mousedown', '.edit', function() {
     $(this).addClass('show');
 });
-$('.edit').focusout(function() {
-    $(this).removeClass('show');
-});*/
 
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
