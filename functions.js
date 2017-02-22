@@ -179,9 +179,6 @@ $('#saveLink').click(function() {
 $('.edit').on('touchstart mousedown', function() {
     $(this).addClass('show');
 });
-$('.hasMenu').on('mouseleave', function() {
-    $(this).find('.edit').hide();
-});
 
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
