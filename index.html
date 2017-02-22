@@ -194,6 +194,16 @@
                 </div>
                 <div class="lbl1 lower">Saving Throws</div>
                 <div class="hover"></div>
+                <div class="edit dropdown">
+                  <button type="button" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
             </div>
             <div id="skillsBlock" class="block2 z2 draggable editable">
                 <div class="bg"></div>
@@ -421,23 +431,13 @@
         </div>
     </div>
 -->
-<div id="editMenu" class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-    <i class="fa fa-cog"></i>
-  </button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-    <div class="modal" id="calcModal" tabindex="-1" role="dialog" aria-labelledby="calcModalLabel" aria-hidden="true">
+    <div class="modal" id="calcModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="calcModalLabel">Soon&trade;...</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">

@@ -167,12 +167,24 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
-#editMenu {
-    /*cursor: pointer;*/
-    display: none;
-    width: 16px;
-    height: 16px;
-    position: absolute;
+.edit {
+    /*display: none;*/
+    z-index: 999;
+    top: -5px;
+    right: -5px;
+}
+.edit,
+.edit button {
+    width: 20px;
+    height: 20px;
+}
+.edit button {
+    background-color: transparent;
+    border: none;
+    padding: 0 0 0 2px;
+}
+.hasMenu:hover .edit {
+    display: block;
 }
 
 .navbar .btn-toolbar {
