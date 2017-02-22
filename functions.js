@@ -179,7 +179,7 @@ $('#saveLink').click(function() {
 $('.hasMenu').on('touchstart mousedown', '.edit', function() {
     $(this).addClass('show');
 });
-$('.hasMenu').on('mouseleave', function() {
+$('.hasMenu').on('touchend mouseleave', function() {
     $(this).find('.edit').removeClass('show');
 });
 
