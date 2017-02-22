@@ -8,231 +8,231 @@ var file = {
 var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
-resetObjects();
-resetCharacter();
-loadCookies();
-setObjects();
-setCharacter();
+  resetObjects();
+  resetCharacter();
+  loadCookies();
+  setObjects();
+  setCharacter();
 
-var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
-  document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-var zoomScale = ((vw-30)/cWidth);
+  var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
+    document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
+  var zoomScale = ((vw-30)/cWidth);
 
-window.addEventListener("resize", function() {
+  window.addEventListener("resize", function() {
+    $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
+  }, false);
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
-}, false);
-$('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
-if ( !!getAccessToken() ) {
-  $('#authLink').hide();
-  listCharacters();
-  setAlert('success', 'Success! You have connected to Dropbox.');
-} else {
-  setAuthLink();
-  $('#authLink').click(function (event) {
-    event.preventDefault();
-    window.location = $(this).attr("href");
-  });
-};
-
-setAlert('info', 'Move all... the... things!');
-
-$('[data-toggle="tooltip"]').tooltip();
-
-function setBodyTag() {
-  var body = $('body');
-  if ( moveEnabled === true ) {
-    body.removeClass('inputMode').addClass('moveMode');
+  if ( !!getAccessToken() ) {
+    $('#authLink').hide();
+    listCharacters();
+    setAlert('success', 'Success! You have connected to Dropbox.');
   } else {
-    body.removeClass('moveMode').addClass('inputMode');
-  };
-};
-setBodyTag();
-
-$('.outerPage').on('touchstart mousedown', function() {
-  if ( moveEnabled === true ) {
-    $('.outerPage').addClass("grid");
-  };
-});
-$('.outerPage').on('touchend mouseup', function() {
-  $('.outerPage').removeClass("grid");
-});
-
-function moveListener(event) {
-  var target = event.target,
-    x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-    y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-
-  if ( event.type === "resizemove" ) {
-    target = event.target,
-      x = (parseFloat(target.getAttribute('data-x')) || 0),
-      y = (parseFloat(target.getAttribute('data-y')) || 0);
-
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
-
-    x += event.deltaRect.left;
-    y += event.deltaRect.top;
+    setAuthLink();
+    $('#authLink').click(function (event) {
+      event.preventDefault();
+      window.location = $(this).attr("href");
+    });
   };
 
-  target.style.webkitTransform = target.style.transform =
-    'translate(' + x + 'px, ' + y + 'px)';
+  setAlert('info', 'Move all... the... things!');
 
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
+  $('[data-toggle="tooltip"]').tooltip();
 
-  file.objects[target.id] = {
-    width: target.style.width,
-    height: target.style.height,
-    x: x,
-    y: y,
-  };
-  saveCookies();
-};
-
-var restrictObj = {
-  restriction: 'parent',
-  elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
-};
-
-var snapObj = {
-  targets: [ interact.createSnapGrid({ x: 5, y: 5 }) ],
-  relativePoints: [ { x: 0, y: 0 } ],
-};
-
-interact('.moveMode .draggable')
-  .origin('parent')
-  .draggable({
-    restrict: restrictObj,
-    snap: snapObj,
-    onmove: moveListener,
-  });
-interact('.moveMode .resizable')
-  .origin('parent')
-  .draggable({
-    restrict: restrictObj,
-    snap: snapObj,
-    onmove: moveListener,
-  })
-  .resizable({
-    preserveAspectRatio: false,
-    restrict: restrictObj,
-    edges: { top: true, right: true, bottom: true, left: true },
-    invert: 'reposition',
-    max: Infinity,
-    snap: snapObj,
-  })
-  .on('resizemove', moveListener);
-
-// --------------------------------------------------------------------------------------
-// -- Menu --
-// --------------------------------------------------------------------------------------
-$('#moveBtn').click(function() {
-  moveEnabled = true;
-  setBodyTag();
-  $(this).addClass('btn-info active').removeClass('btn-secondary');
-  $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
-  $('.display.input').attr("contentEditable", false);
-});
-$('#inputBtn').click(function() {
-  moveEnabled = false;
-  setBodyTag();
-  setCharacter();
-  $(this).addClass('btn-info active').removeClass('btn-secondary');
-  $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
-  $('#showBtn').trigger('click');
-  $('div.display').attr("contentEditable", true);
-});
-
-$('#hideBtn').click(function() {
-  $('#hideBtn, .display').hide();
-  $('#showBtn').show();
-});
-$('#showBtn').click(function() {
-  $('#showBtn').hide();
-  $('#hideBtn, .display').show();
-});
-
-$('#calcBtn').click(function() {
-  $('#calcModal').modal('show');
-});
-
-$('#resetBtn').click(function() {
-  if ( moveEnabled === true ) {
-    resetObjects();
-    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-  } else {
-    resetCharacter();
-    document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    setCharacter();
-  };
-});
-
-$('#printBtn').click(function() {
-  window.print();
-});
-$('#saveLink').click(function() {
-  saveFile();
-});
-
-$('.hasMenu').on('touchstart mousedown', '.edit', function() {
-  $(this).addClass('show');
-});
-$('.hasMenu').on('touchend mouseleave', function() {
-  $(this).find('.edit').removeClass('show');
-});
-
-// --------------------------------------------------------------------------------------
-// -- Display Setup --
-// --------------------------------------------------------------------------------------
-$('.editable').on("click", ".checkBall.unchecked", function() {
-  $(this).removeClass('unchecked').addClass('checked');
-});
-$('.editable').on("click", ".checkBall.checked", function() {
-  $(this).removeClass('checked').addClass('unchecked');
-});
-
-$('#calcModalSave').click(function() {
-  var character = {};
-
-  character.baseStr = parseInt($('#baseStr').val());
-  character.baseDex = parseInt($('#baseDex').val());
-  character.baseCon = parseInt($('#baseCon').val());
-  character.baseInt = parseInt($('#baseInt').val());
-  character.baseWis = parseInt($('#baseWis').val());
-  character.baseCha = parseInt($('#baseCha').val());
-
-  $.extend(true, file.character, character);
-  setCharacter();
-  saveCookies();
-  $(this).removeClass('btn-primary').addClass('btn-success');
-});
-$('.modal').on('hidden.bs.modal', function() {
-  $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
-});
-
-$('.display').focusout(function() {
-  var dit = $(this);
-  var character = {};
-  var key = dit.attr('id');
-
-  if ( dit.attr('id') === "name" ) {
-    if ( dit.text() !== "" ) {
-      character.name = dit.text();
+  function setBodyTag() {
+    var body = $('body');
+    if ( moveEnabled === true ) {
+      body.removeClass('inputMode').addClass('moveMode');
     } else {
-      character.name = "JoSheet";
+      body.removeClass('moveMode').addClass('inputMode');
     };
-  } else if ( dit.is('div') ) {
-    character[key] = dit.text();
-  } else if ( dit.is('select') ) {
-    character[key] = dit.val();
   };
-console.log(character);
-  $.extend(true, file.character, character);
-  saveCookies();
-  setCharacter();
-});
+  setBodyTag();
+
+  $('.outerPage').on('touchstart mousedown', function() {
+    if ( moveEnabled === true ) {
+      $('.outerPage').addClass("grid");
+    };
+  });
+  $('.outerPage').on('touchend mouseup', function() {
+    $('.outerPage').removeClass("grid");
+  });
+
+  function moveListener(event) {
+    var target = event.target,
+      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+    if ( event.type === "resizemove" ) {
+      target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0),
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+      target.style.width  = event.rect.width + 'px';
+      target.style.height = event.rect.height + 'px';
+
+      x += event.deltaRect.left;
+      y += event.deltaRect.top;
+    };
+
+    target.style.webkitTransform = target.style.transform =
+      'translate(' + x + 'px, ' + y + 'px)';
+
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+
+    file.objects[target.id] = {
+      width: target.style.width,
+      height: target.style.height,
+      x: x,
+      y: y,
+    };
+    saveCookies();
+  };
+
+  var restrictObj = {
+    restriction: 'parent',
+    elementRect: { top: 0, right: 1, bottom: 1, left: 0 },
+  };
+
+  var snapObj = {
+    targets: [ interact.createSnapGrid({ x: 5, y: 5 }) ],
+    relativePoints: [ { x: 0, y: 0 } ],
+  };
+
+  interact('.moveMode .draggable')
+    .origin('parent')
+    .draggable({
+      restrict: restrictObj,
+      snap: snapObj,
+      onmove: moveListener,
+    });
+  interact('.moveMode .resizable')
+    .origin('parent')
+    .draggable({
+      restrict: restrictObj,
+      snap: snapObj,
+      onmove: moveListener,
+    })
+    .resizable({
+      preserveAspectRatio: false,
+      restrict: restrictObj,
+      edges: { top: true, right: true, bottom: true, left: true },
+      invert: 'reposition',
+      max: Infinity,
+      snap: snapObj,
+    })
+    .on('resizemove', moveListener);
+
+  // ------------------------------------------------------------------------------------
+  // -- Menu --
+  // ------------------------------------------------------------------------------------
+  $('#moveBtn').click(function() {
+    moveEnabled = true;
+    setBodyTag();
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
+    $('.display.input').attr("contentEditable", false);
+  });
+  $('#inputBtn').click(function() {
+    moveEnabled = false;
+    setBodyTag();
+    setCharacter();
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
+    $('#showBtn').trigger('click');
+    $('div.display').attr("contentEditable", true);
+  });
+
+  $('#hideBtn').click(function() {
+    $('#hideBtn, .display').hide();
+    $('#showBtn').show();
+  });
+  $('#showBtn').click(function() {
+    $('#showBtn').hide();
+    $('#hideBtn, .display').show();
+  });
+
+  $('#calcBtn').click(function() {
+    $('#calcModal').modal('show');
+  });
+
+  $('#resetBtn').click(function() {
+    if ( moveEnabled === true ) {
+      resetObjects();
+      document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    } else {
+      resetCharacter();
+      document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      setCharacter();
+    };
+  });
+
+  $('#printBtn').click(function() {
+    window.print();
+  });
+  $('#saveLink').click(function() {
+    saveFile();
+  });
+
+  $('.hasMenu').on('touchstart mousedown', '.edit', function() {
+    $(this).addClass('show');
+  });
+  $('.hasMenu').on('touchend mouseleave', function() {
+    $(this).find('.edit').removeClass('show');
+  });
+
+  // ------------------------------------------------------------------------------------
+  // -- Display Setup --
+  // ------------------------------------------------------------------------------------
+  $('.editable').on("click", ".checkBall.unchecked", function() {
+    $(this).removeClass('unchecked').addClass('checked');
+  });
+  $('.editable').on("click", ".checkBall.checked", function() {
+    $(this).removeClass('checked').addClass('unchecked');
+  });
+
+  $('#calcModalSave').click(function() {
+    var character = {};
+
+    character.baseStr = parseInt($('#baseStr').val());
+    character.baseDex = parseInt($('#baseDex').val());
+    character.baseCon = parseInt($('#baseCon').val());
+    character.baseInt = parseInt($('#baseInt').val());
+    character.baseWis = parseInt($('#baseWis').val());
+    character.baseCha = parseInt($('#baseCha').val());
+
+    $.extend(true, file.character, character);
+    setCharacter();
+    saveCookies();
+    $(this).removeClass('btn-primary').addClass('btn-success');
+  });
+  $('.modal').on('hidden.bs.modal', function() {
+    $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
+  });
+
+  $('.display').focusout(function() {
+    var dit = $(this);
+    var character = {};
+    var key = dit.attr('id');
+
+    if ( dit.attr('id') === "name" ) {
+      if ( dit.text() !== "" ) {
+        character.name = dit.text();
+      } else {
+        character.name = "JoSheet";
+      };
+    } else if ( dit.is('div') ) {
+      character[key] = dit.text();
+    } else if ( dit.is('select') ) {
+      character[key] = dit.val();
+    };
+  console.log(character);
+    $.extend(true, file.character, character);
+    saveCookies();
+    setCharacter();
+  });
 
 }); // ----------------------------------------------------------------------------------
 

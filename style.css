@@ -190,6 +190,10 @@ body, button, optgroup, select, input, textarea {
 .hasMenu:hover .edit {
   display: block;
 }
+.hasMenu:hover .edit button:active + .dropdown-menu,
+.hasMenu:hover .edit button:focus + .dropdown-menu {
+  display: block;
+}
 
 .navbar .btn-toolbar {
   width: 100%;
