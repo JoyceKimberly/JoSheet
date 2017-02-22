@@ -167,13 +167,12 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
-.edit {
-    cursor: pointer;
+#editBtn {
+    /*cursor: pointer;*/
     width: 16px;
     height: 16px;
     z-index: 999;
-    top: -4px;
-    right: -4px;
+    position: absolute;
 }
 
 .navbar .btn-toolbar {
