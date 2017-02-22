@@ -175,14 +175,7 @@ var characterFiles = [];
   $('#saveLink').click(function() {
     saveFile();
   });
-/*
-  $('.hasMenu').on('touchstart mousedown', '.edit', function() {
-    $(this).addClass('show');
-  });
-  $('.hasMenu').on('touchend mouseleave', function() {
-    $(this).find('.edit').removeClass('show');
-  });
-*/
+
   // ------------------------------------------------------------------------------------
   // -- Display Setup --
   // ------------------------------------------------------------------------------------
