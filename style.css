@@ -536,18 +536,18 @@ div .bg img {
   left: 510px;
 }
 
-#equipBlock {
-  width: 230px;
-  height: 235px;
-  top: 750px;
-  left: 260px;
-}
-
 #featsBlock {
   width: 240px;
   height: 495px;
   top: 490px;
   left: 495px;
+}
+
+#equipBlock {
+  width: 230px;
+  height: 235px;
+  top: 0;
+  left: 0;
 }
 
 .coinBg {
