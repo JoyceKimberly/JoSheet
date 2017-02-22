@@ -172,8 +172,8 @@ body, button, optgroup, select, input, textarea {
     background-color: rgba(105, 20, 229, 0.2);
     width: 16px;
     height: 16px;
-    top: -8px;
-    right: -8px;
+    top: -4px;
+    right: -4px;
 }
 
 .navbar .btn-toolbar {
