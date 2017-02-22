@@ -202,8 +202,8 @@ var characterFiles = [];
         page : parseInt(dit.attr('data-toPage'))
       }
     };
-    objectToPage(parent, newPage);
     $.extend(true, file.objects, obj);
+    objectToPage(parent, newPage);
     saveCookies();
   });
 
@@ -269,7 +269,7 @@ function setCharacter() {
 
     if ( ele.is('div') ) {
       ele.text(file.character[key]);
-    } else if ( ele.is('select') ) {
+    } else if ( ele.is('select') || ele.is('input') ) {
       ele.val(file.character[key]);
     };
   };
@@ -277,17 +277,15 @@ function setCharacter() {
 
 function resetCharacter() {
   file.character = {
-    name           : "JoSheet",
-    level          : 1,
-    exp            : 0,
-    baseAttr : {
-      str        : 8,
-      dex        : 8,
-      con        : 8,
-      int        : 8,
-      wis        : 8,
-      cha        : 8,
-    },
+    name    : "JoSheet",
+    level   : 1,
+    exp     : 0,
+    baseStr : 8,
+    baseDex : 8,
+    baseCon : 8,
+    baseInt : 8,
+    baseWis : 8,
+    baseCha : 8,
   };
   file.notes = {};
 };
