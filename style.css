@@ -171,6 +171,7 @@ body, button, optgroup, select, input, textarea {
     cursor: pointer;
     width: 16px;
     height: 16px;
+    z-index: 999;
     top: -4px;
     right: -4px;
 }
