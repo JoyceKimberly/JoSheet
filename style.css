@@ -167,11 +167,10 @@ body, button, optgroup, select, input, textarea {
     display: block;
 }
 
-#editBtn {
+#editMenu {
     /*cursor: pointer;*/
     width: 16px;
     height: 16px;
-    z-index: 999;
     position: absolute;
 }
 
