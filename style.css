@@ -168,7 +168,8 @@ body, button, optgroup, select, input, textarea {
 }
 
 .edit {
-    
+    border: 1px solid rgba(77, 15, 167, 0.2);
+    background-color: rgba(105, 20, 229, 0.2);
 }
 
 .navbar .btn-toolbar {
