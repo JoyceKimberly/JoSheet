@@ -177,20 +177,21 @@ body, button, optgroup, select, input, textarea {
 .edit .dropdown-toggle::after {
   display: none;
 }
-.edit,
 .edit button {
   width: 22px;
   height: 22px;
-}
-.edit button {
   margin: 0;
   padding: 1px 0 0 1px;
   vertical-align: top;
+  float: right;
+}
+.edit .dropdown-menu {
+  position: relative;
 }
 .hasMenu:hover .edit {
   display: block;
 }
-.hasMenu:hover .edit button:hover + .dropdown-menu {
+.hasMenu:hover .edit:hover .dropdown-menu {
   display: block;
 }
 
