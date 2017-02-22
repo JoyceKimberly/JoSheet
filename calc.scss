@@ -37,6 +37,10 @@ div .bg img {
     right: auto;
 }
 
+#blockMenuContainer {
+    background-color: $bgColor;
+}
+
 .outerPage {
     width: $fullWidth;
     height: $fullHeight;
