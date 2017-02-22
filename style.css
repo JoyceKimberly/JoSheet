@@ -10,83 +10,10 @@ a {
     border: 0 !important;
 }
 
-body {
-    background-color: #292b2c;
-    margin: 0;
-    padding: 0
-}
-div .bg,
-div .bg img {
-    width: 100%;
-    height: 100%
-}
-
 .z1 { z-index: 1; }
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 .display { z-index: 6; }
-
-.navbar, .outerPage {
-    width: 793px
-}
-#alerts {
-    width: 793px;
-    padding-top: 15px;
-    right: auto
-}
-#blockMenuContainer {
-    background-color: #292b2c
-}
-
-.outerPage {
-    width: 793px;
-    height: 1122px;
-    position: relative;
-    margin-bottom: 4px
-}
-.page {
-    width: 745px;
-    height: 1033.2px;
-    position: relative;
-    top: 24px;
-    left: 24px
-}
-
-.attrBlock {
-    width: 70px;
-    height: 82px
-}
-.attrBlock .attrBg {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    top: 0
-}
-.attrBlock .attrTxt {
-    width: 100%;
-    z-index: 2;
-    top: 6px
-}
-
-@media screen and (min-width: 794px) {
-    .navbar {
-        padding-right: 0
-    }
-}
-
-@media screen and (orientation: portrait) {
-    .navbar h1 {
-        font-size: 1.8rem !important
-    }
-
-    .navbar button, .navbar input, .navbar optgroup, .navbar select, .navbar textarea {
-        font-size: 1.4rem !important
-    }
-
-    .alert {
-        font-size: 1.4rem !important
-    }
-}
 
 html {
   overflow-y: scroll;
@@ -95,6 +22,16 @@ body, button, optgroup, select, input, textarea {
   font-family: 'scaly_sans';
 }
 /*.display { border: 1px solid red; } /* debug */
+body {
+    background-color: #292b2c;
+    margin: 0;
+    padding: 0;
+}
+div .bg,
+div .bg img {
+    width: 100%;
+    height: 100%;
+}
 
 .outerPage div {
   color: black !important;
@@ -316,13 +253,33 @@ body, button, optgroup, select, input, textarea {
   right: 10px;
 }
 
+#race,
+#race * {
+  text-transform: capitalize;
+}
+
 #blockMenu {
   margin-bottom: 15px;
 }
 
+.navbar, .outerPage {
+  width: 793px;
+}
+#alerts {
+  width: 793px;
+  padding-top: 15px;
+  right: auto;
+}
+#blockMenuContainer {
+  background-color: #292b2c;
+}
+
 .outerPage {
-  /*page-break-after: always;*/
   background-color: white;
+  width: 793px;
+  height: 1122px;
+  position: relative;
+  margin-bottom: 4px;
   transform-origin: 0 0;
 }
 .outerPage.drop-target {
@@ -340,10 +297,28 @@ body, button, optgroup, select, input, textarea {
   background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
   background-position: 23px 23px;
 }
+.page {
+  width: 745px;
+  height: 1033.2px;
+  position: relative;
+  top: 24px;
+  left: 24px
+}
 
-#raceDisplay,
-#raceInput {
-  text-transform: capitalize;
+.attrBlock {
+  width: 70px;
+  height: 82px
+}
+.attrBlock .attrBg {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0
+}
+.attrBlock .attrTxt {
+  width: 100%;
+  z-index: 2;
+  top: 6px
 }
 
 .labelBlock1 img,
@@ -649,4 +624,27 @@ body, button, optgroup, select, input, textarea {
   border-image-source: url("img/Block8.svg");
   border-image-slice: 14 19 34 fill;
   border-image-width: 14px 19px 34px;
+}
+
+/* ----------------------------------------------------------------------------------- */
+/* -- Overrides -- */
+/* ----------------------------------------------------------------------------------- */
+@media screen and (min-width: 794px) {
+  .navbar {
+    padding-right: 0;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .navbar h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .navbar button, .navbar input, .navbar optgroup, .navbar select, .navbar textarea {
+    font-size: 1.4rem !important;
+  }
+
+  .alert {
+    font-size: 1.4rem !important;
+  }
 }
