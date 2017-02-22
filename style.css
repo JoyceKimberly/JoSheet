@@ -1,5 +1,92 @@
 @import url("fonts/fonts.css");
-@import url("https://joycekimberly.github.io/JoSheet/calc.css");
+a {
+    outline: none !important;
+}
+:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+::-moz-focus-inner {
+    border: 0 !important;
+}
+
+body {
+    background-color: #292b2c;
+    margin: 0;
+    padding: 0
+}
+div .bg,
+div .bg img {
+    width: 100%;
+    height: 100%
+}
+
+.z1 { z-index: 1; }
+.z2 { z-index: 2; }
+.z3 { z-index: 3; }
+.display { z-index: 6; }
+
+.navbar, .outerPage {
+    width: 793px
+}
+#alerts {
+    width: 793px;
+    padding-top: 15px;
+    right: auto
+}
+#blockMenuContainer {
+    background-color: #292b2c
+}
+
+.outerPage {
+    width: 793px;
+    height: 1122px;
+    position: relative;
+    margin-bottom: 4px
+}
+.page {
+    width: 745px;
+    height: 1033.2px;
+    position: relative;
+    top: 24px;
+    left: 24px
+}
+
+.attrBlock {
+    width: 70px;
+    height: 82px
+}
+.attrBlock .attrBg {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0
+}
+.attrBlock .attrTxt {
+    width: 100%;
+    z-index: 2;
+    top: 6px
+}
+
+@media screen and (min-width: 794px) {
+    .navbar {
+        padding-right: 0
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .navbar h1 {
+        font-size: 1.8rem !important
+    }
+
+    .navbar button, .navbar input, .navbar optgroup, .navbar select, .navbar textarea {
+        font-size: 1.4rem !important
+    }
+
+    .alert {
+        font-size: 1.4rem !important
+    }
+}
 
 html {
   overflow-y: scroll;
