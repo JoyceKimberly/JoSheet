@@ -2,562 +2,562 @@
 @import url("https://joycekimberly.github.io/JoSheet/calc.css");
 
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 body, button, optgroup, select, input, textarea {
-    font-family: 'scaly_sans';
+  font-family: 'scaly_sans';
 }
 /*.display { border: 1px solid red; } /* debug */
 
 .outerPage div {
-    color: black !important;
-    position: absolute;
+  color: black !important;
+  position: absolute;
 }
 
 .content {
-    width: 100%;
-    height: 100%;
-    padding: 10px 0 10px 10px ;
+  width: 100%;
+  height: 100%;
+  padding: 10px 0 10px 10px ;
 }
 .alert .content {
-    padding: 0;
+  padding: 0;
 }
 
 .lbl1,
 .lbl2,
 .lbl3 {
-    font-family: 'scaly_sans';
-    text-transform: uppercase;
+  font-family: 'scaly_sans';
+  text-transform: uppercase;
 }
 .lbl1 {
-    font-size: 8px;
-    font-weight: bold;
-    letter-spacing: 0.3px;
-    width: 100%;
-    text-align: center;
+  font-size: 8px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  width: 100%;
+  text-align: center;
 }
 .lbl2 {
-    font-size: 9px;
+  font-size: 9px;
 }
 .lbl3 {
-    font-size: 7.5px;
+  font-size: 7.5px;
 }
 .lbl1.lower {
-    width: 100%;
-    text-align: center;
-    bottom: 2.5px;
+  width: 100%;
+  text-align: center;
+  bottom: 2.5px;
 }
 .lbl3.lower {
-    width: 100%;
-    text-align: center;
-    bottom: 3.5px;
+  width: 100%;
+  text-align: center;
+  bottom: 3.5px;
 }
 #acBlock .lbl1 {
-    line-height: 8px;
-    bottom: 11px;
+  line-height: 8px;
+  bottom: 11px;
 }
 
 .display,
 .display.custom-select {
-    /*font-family: 'bookinsanity';*/
-    border: 1px solid rgba(0, 0, 0, 0);
-    border-radius: 0;
-    color: black;
-    font-size: 14px;
-    line-height: 21px;
-    letter-spacing: -0.3px;
-    vertical-align: top;
+  /*font-family: 'bookinsanity';*/
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 0;
+  color: black;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.3px;
+  vertical-align: top;
 }
 .display.center {
-    text-align: center;
+  text-align: center;
 }
 .display.right {
-    text-align: right;
+  text-align: right;
 }
 .display.notes {
-    font-size: 11px;
+  font-size: 11px;
 }
 .display.custom-select {
-    background-color: transparent;
-    background-image: none;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  background-color: transparent;
+  background-image: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .attrInput {
-    max-width: 50px;
-    text-align: center;
+  max-width: 50px;
+  text-align: center;
 }
 
 .inputMode .display .custom-select,
 .inputMode .checkBall {
-    cursor: pointer;
+  cursor: pointer;
 }
 .checkBall {
-    margin-top: 1px;
+  margin-top: 1px;
 }
 .checkBall,
 .checkBall img {
-    width: 10px;
-    height: 10px;
+  width: 10px;
+  height: 10px;
 }
 .checkBall.unchecked {
-    content: url('img/CheckBox1.svg');
+  content: url('img/CheckBox1.svg');
 }
 .checkBall.checked {
-    content: url('img/CheckBox2.svg');
+  content: url('img/CheckBox2.svg');
 }
 
 .outerPage .savesSkill {
-    width: 100%;
-    height: 17px;
-    position: relative;
+  width: 100%;
+  height: 17px;
+  position: relative;
 }
 .mod {
-    display: inline;
+  display: inline;
 }
 .mod.display,
 .mod.underline {
-    line-height: 11px;
-    font-size: 11px;
-    text-align: center;
-    width: 18px;
-    height: 12px;
-    left: 15px;
+  line-height: 11px;
+  font-size: 11px;
+  text-align: center;
+  width: 18px;
+  height: 12px;
+  left: 15px;
 }
 .mod.underline {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .mod.lbl {
-    font-size: 10px;
-    left: 40px;
+  font-size: 10px;
+  left: 40px;
 }
 .mod.lbl span {
-    color: #9D9FA2;
+  color: #9D9FA2;
 }
 
 .resizable {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .line {
-    border-bottom: 1px solid #d5d7db;
+  border-bottom: 1px solid #d5d7db;
 }
 
 .hover {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 999;
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 .moveMode .hover {
-    border: 1px solid rgba(4, 141, 204, 0.2);
-    background-color: rgba(56, 166, 229, 0.2);
+  border: 1px solid rgba(4, 141, 204, 0.2);
+  background-color: rgba(56, 166, 229, 0.2);
 }
 .inputMode .editable .display:hover {
-    border: 1px solid rgba(77, 15, 167, 0.2);
-    background-color: rgba(105, 20, 229, 0.2);
+  border: 1px solid rgba(77, 15, 167, 0.2);
+  background-color: rgba(105, 20, 229, 0.2);
 }
 .moveMode .draggable:hover .hover,
 .moveMode .resizable:hover .hover {
-    display: block;
+  display: block;
 }
 
 .edit {
-    display: none;
-    z-index: 999;
-    top: -6px;
-    right: -5px;
+  display: none;
+  z-index: 999;
+  top: -6px;
+  right: -5px;
 }
 .edit .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
 .edit,
 .edit button {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
 }
 .edit button {
-    margin: 0;
-    padding: 1px 0 0 1px;
-    vertical-align: top;
+  margin: 0;
+  padding: 1px 0 0 1px;
+  vertical-align: top;
 }
 .hasMenu:hover .edit {
-    display: block;
+  display: block;
 }
 
 .navbar .btn-toolbar {
-    width: 100%;
+  width: 100%;
 }
 .navbar h1 {
-    font-family: 'mr_eaves';
-    font-variant: small-caps;
+  font-family: 'mr_eaves';
+  font-variant: small-caps;
 }
 .loadCharacter {
-    padding-right: 10px;
+  padding-right: 10px;
 }
 .loadCharacter .close {
-    display: none;
+  display: none;
 }
 .loadCharacter:hover .close {
-    display: block;
+  display: block;
 }
 
 #hideBtn,
 .display {
-    display: none;
+  display: none;
 }
 
 .dropdown-menu {
-    right: 0;
-    left: initial;
+  right: 0;
+  left: initial;
 }
 .dropdown-item {
-    position: relative;
-    padding-right: 35px;
+  position: relative;
+  padding-right: 35px;
 }
 .dropdown-item .close {
-    position: absolute;
-    top: 2px;
-    right: 10px;
+  position: absolute;
+  top: 2px;
+  right: 10px;
 }
 
 #blockMenu {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .outerPage {
-    /*page-break-after: always;*/
-    background-color: white;
-    transform-origin: 0 0;
+  /*page-break-after: always;*/
+  background-color: white;
+  transform-origin: 0 0;
 }
 .outerPage.drop-target {
-    background-color: #f2dede;
+  background-color: #f2dede;
 }
 .grid {
-    background-color: white;
-    background-image:
-        linear-gradient(rgba(175, 175, 175, 0.4) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(175, 175, 175, 0.6) 1px, transparent 1px),
-        linear-gradient(rgba(175, 175, 175, 0.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(175, 175, 175, 0.2) 1px, transparent 1px),
-        linear-gradient(rgba(175, 175, 175, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(175, 175, 175, 0.1) 1px, transparent 1px);
-    background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
-    background-position: 23px 23px;
+  background-color: white;
+  background-image:
+    linear-gradient(rgba(175, 175, 175, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(175, 175, 175, 0.6) 1px, transparent 1px),
+    linear-gradient(rgba(175, 175, 175, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(175, 175, 175, 0.2) 1px, transparent 1px),
+    linear-gradient(rgba(175, 175, 175, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(175, 175, 175, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 10px 10px, 10px 10px, 5px 5px, 5px 5px;
+  background-position: 23px 23px;
 }
 
 #raceDisplay,
 #raceInput {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .labelBlock1 img,
 .labelBlock2 img,
 .labelBlock3 img {
-    z-index: 1;
-    position: absolute;
-    top: 0;
+  z-index: 1;
+  position: absolute;
+  top: 0;
 }
 .labelBlock1 .lbl,
 .labelBlock2 .lbl,
 .labelBlock3 .lbl {
-    width: 100%;
-    text-align: center;
-    font-size: 7px;
-    z-index: 2;
-    right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 7px;
+  z-index: 2;
+  right: 0;
 }
 
 .labelBlock1 .lbl {
-    width: 114px;
-    top: 14px;
+  width: 114px;
+  top: 14px;
 }
 .labelBlock2 .lbl {
-    padding-left: 33px;
-    top: 18px;
+  padding-left: 33px;
+  top: 18px;
 }
 .labelBlock3 .lbl {
-    font-size: 7.5px;
-    padding-left: 46px;
-    top: 13px;
+  font-size: 7.5px;
+  padding-left: 46px;
+  top: 13px;
 }
 
 /* ----------------------------------------------------------------------------------- */
 /* -- Objects -- */
 /* ----------------------------------------------------------------------------------- */
 #basicBar {
-    width: 745px;
-    height: 130px;
-    top: 20px;
-    left: 0px;
+  width: 745px;
+  height: 130px;
+  top: 20px;
+  left: 0px;
 }
 
 #attrBox {
-    width: 80px;
-    height: 580px;
-    top: 160px;
-    left: 15px;
+  width: 80px;
+  height: 580px;
+  top: 160px;
+  left: 15px;
 }
 
 .attrBlock {
-    width: 70px;
-    height: 82px;
+  width: 70px;
+  height: 82px;
 }
 #strBlock {
-    top: 180px;
-    left: 20px;
+  top: 180px;
+  left: 20px;
 }
 #dexBlock {
-    top: 273px;
-    left: 20px;
+  top: 273px;
+  left: 20px;
 }
 #conBlock {
-    top: 365px;
-    left: 20px;
+  top: 365px;
+  left: 20px;
 }
 #intBlock {
-    top: 457px;
-    left: 20px;
+  top: 457px;
+  left: 20px;
 }
 #wisBlock {
-    top: 548px;
-    left: 20px;
+  top: 548px;
+  left: 20px;
 }
 #chaBlock {
-    top: 640px;
-    left: 20px;
+  top: 640px;
+  left: 20px;
 }
 
 #savesBlock {
-    width: 150px;
-    height: 130px;
-    top: 260px;
-    left: 100px;
+  width: 150px;
+  height: 130px;
+  top: 260px;
+  left: 100px;
 }
 
 #skillsBlock {
-    width: 150px;
-    height: 335px;
-    top: 405px;
-    left: 100px;
+  width: 150px;
+  height: 335px;
+  top: 405px;
+  left: 100px;
 }
 
 #inspBlock {
-    width: 146px;
-    height: 36px;
-    top: 160px;
-    left: 100px;
+  width: 146px;
+  height: 36px;
+  top: 160px;
+  left: 100px;
 }
 #profBlock {
-    width: 146px;
-    height: 45px;
-    top: 205px;
-    left: 100px;
+  width: 146px;
+  height: 45px;
+  top: 205px;
+  left: 100px;
 }
 #percBlock {
-    width: 235px;
-    height: 35px;
-    top: 750px;
-    left: 15px;
+  width: 235px;
+  height: 35px;
+  top: 750px;
+  left: 15px;
 }
 
 #langBlock {
-    width: 235px;
-    height: 185px;
-    top: 800px;
-    left: 15px;
+  width: 235px;
+  height: 185px;
+  top: 800px;
+  left: 15px;
 }
 
 #boxBg1,
 #boxBg2 {
-    width: 230px;
-    height: 320px;
+  width: 230px;
+  height: 320px;
 }
 #boxBg1 {
-    top: 160px;
-    left: 260px;
+  top: 160px;
+  left: 260px;
 }
 #boxBg2 {
-    top: 160px;
-    left: 500px;
+  top: 160px;
+  left: 500px;
 }
 
 #acBlock {
-    width: 60px;
-    height: 70px;
-    top: 170px;
-    left: 270px;
+  width: 60px;
+  height: 70px;
+  top: 170px;
+  left: 270px;
 }
 #initBlock {
-    top: 175px;
-    left: 340px;
-    width: 65px;
-    height: 60px;
+  top: 175px;
+  left: 340px;
+  width: 65px;
+  height: 60px;
 }
 #speedBlock {
-    top: 175px;
-    left: 415px;
-    width: 65px;
-    height: 60px;
+  top: 175px;
+  left: 415px;
+  width: 65px;
+  height: 60px;
 }
 
 #hpBlock {
-    width: 211px;
-    height: 80px;
-    top: 245px;
-    left: 270px;
+  width: 211px;
+  height: 80px;
+  top: 245px;
+  left: 270px;
 }
 #tempHpBlock {
-    width: 211px;
-    height: 65px;
-    top: 330px;
-    left: 270px;
+  width: 211px;
+  height: 65px;
+  top: 330px;
+  left: 270px;
 }
 
 #hitDiceBlock {
-    width: 100px;
-    height: 65px;
-    top: 405px;
-    left: 270px;
+  width: 100px;
+  height: 65px;
+  top: 405px;
+  left: 270px;
 }
 #deathBlock {
-    width: 100px;
-    height: 65px;
-    top: 405px;
-    left: 380px;
+  width: 100px;
+  height: 65px;
+  top: 405px;
+  left: 380px;
 }
 
 #attackBlock {
-    width: 240px;
-    height: 250px;
-    top: 490px;
-    left: 255px;
+  width: 240px;
+  height: 250px;
+  top: 490px;
+  left: 255px;
 }
 
 #inputBg1 {
-    width: 82px;
-    height: 20px;
-    top: 505px;
-    left: 270px;
+  width: 82px;
+  height: 20px;
+  top: 505px;
+  left: 270px;
 }
 
 #persTraits {
-    width: 211px;
-    height: 80px;
-    top: 175px;
-    left: 510px;
+  width: 211px;
+  height: 80px;
+  top: 175px;
+  left: 510px;
 }
 #ideals {
-    width: 211px;
-    height: 65px;
-    top: 263px;
-    left: 510px;
+  width: 211px;
+  height: 65px;
+  top: 263px;
+  left: 510px;
 }
 #bonds {
-    width: 211px;
-    height: 65px;
-    top: 335px;
-    left: 510px;
+  width: 211px;
+  height: 65px;
+  top: 335px;
+  left: 510px;
 }
 #flaws {
-    width: 211px;
-    height: 65px;
-    top: 405px;
-    left: 510px;
+  width: 211px;
+  height: 65px;
+  top: 405px;
+  left: 510px;
 }
 
 #equipBlock {
-    width: 230px;
-    height: 235px;
-    top: 750px;
-    left: 260px;
+  width: 230px;
+  height: 235px;
+  top: 750px;
+  left: 260px;
 }
 
 #featsBlock {
-    width: 240px;
-    height: 495px;
-    top: 490px;
-    left: 495px;
+  width: 240px;
+  height: 495px;
+  top: 490px;
+  left: 495px;
 }
 
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
 .labelBlock1 .bg {
-    border-image-source: url("img/InspBlock.svg");
-    border-image-slice: 17 16 17 41 fill;
-    border-image-width: 17px 16px 17px 41px;
+  border-image-source: url("img/InspBlock.svg");
+  border-image-slice: 17 16 17 41 fill;
+  border-image-width: 17px 16px 17px 41px;
 }
 .labelBlock2 .bg {
-    border-image-source: url("img/ProfBlock.svg");
-    border-image-slice: 18 16 18 45 fill;
-    border-image-width: 18px 16px 18px 45px;
+  border-image-source: url("img/ProfBlock.svg");
+  border-image-slice: 18 16 18 45 fill;
+  border-image-width: 18px 16px 18px 45px;
 }
 .labelBlock3 .bg {
-    border-image-source: url("img/PercBlock.svg");
-    border-image-slice: 17 16 17 48 fill;
-    border-image-width: 17px 16px 17px 48px;
+  border-image-source: url("img/PercBlock.svg");
+  border-image-slice: 17 16 17 48 fill;
+  border-image-width: 17px 16px 17px 48px;
 }
 
 .boxBg1 .bg {
-    border-image-source: url("img/AttrBox.svg");
-    border-image-slice: 30 38 fill;
-    border-image-width: 30px 38px;
+  border-image-source: url("img/AttrBox.svg");
+  border-image-slice: 30 38 fill;
+  border-image-width: 30px 38px;
 }
 .boxBg2 .bg {
-    border-image-source: url("img/BoxBg.svg");
-    border-image-slice: 30 101 fill;
-    border-image-width: 30px 101px;
+  border-image-source: url("img/BoxBg.svg");
+  border-image-slice: 30 101 fill;
+  border-image-width: 30px 101px;
 }
 .inputBg .bg {
-    border-image-source: url("img/InputBg.svg");
-    border-image-slice: 3 fill;
-    border-image-width: 3px;
+  border-image-source: url("img/InputBg.svg");
+  border-image-slice: 3 fill;
+  border-image-width: 3px;
 }
 
 .block1 .bg {
-    border-image-source: url("img/Block1.svg");
-    border-image-slice: 16 fill;
-    border-image-width: 16px;
+  border-image-source: url("img/Block1.svg");
+  border-image-slice: 16 fill;
+  border-image-width: 16px;
 }
 .block2 .bg {
-    border-image-source: url("img/Block2.svg");
-    border-image-slice: 60 18 fill;
-    border-image-width: 60px 18px;
+  border-image-source: url("img/Block2.svg");
+  border-image-slice: 60 18 fill;
+  border-image-width: 60px 18px;
 }
 .block3 .bg {
-    border-image-source: url("img/Block3.svg");
-    border-image-slice: 15 16 34 fill;
-    border-image-width: 15px 16px 34px;
+  border-image-source: url("img/Block3.svg");
+  border-image-slice: 15 16 34 fill;
+  border-image-width: 15px 16px 34px;
 }
 .block4 .bg {
-    border-image-source: url("img/Block4.svg");
-    border-image-slice: 32 16 fill;
-    border-image-width: 32px 16px;
+  border-image-source: url("img/Block4.svg");
+  border-image-slice: 32 16 fill;
+  border-image-width: 32px 16px;
 }
 .block5 .bg {
-    border-image-source: url("img/Block5.svg");
-    border-image-slice: 33 16 16 fill;
-    border-image-width: 33px 16px 16px;
+  border-image-source: url("img/Block5.svg");
+  border-image-slice: 33 16 16 fill;
+  border-image-width: 33px 16px 16px;
 }
 .block6 .bg {
-    border-image-source: url("img/Block6.svg");
-    border-image-slice: 14 19 34 fill;
-    border-image-width: 14px 19px 34px;
+  border-image-source: url("img/Block6.svg");
+  border-image-slice: 14 19 34 fill;
+  border-image-width: 14px 19px 34px;
 }
 .block7 .bg {
-    border-image-source: url("img/Block7.svg");
-    border-image-slice: 8 8 fill;
-    border-image-width: 8px 8px;
+  border-image-source: url("img/Block7.svg");
+  border-image-slice: 8 8 fill;
+  border-image-width: 8px 8px;
 }
 .block8 .bg {
-    border-image-source: url("img/Block8.svg");
-    border-image-slice: 14 19 34 fill;
-    border-image-width: 14px 19px 34px;
+  border-image-source: url("img/Block8.svg");
+  border-image-slice: 14 19 34 fill;
+  border-image-width: 14px 19px 34px;
 }

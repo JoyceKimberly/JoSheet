@@ -1,531 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>JoSheet</title>
-    <meta name="viewport" content="width=793">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://unpkg.com/jquery"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
-    <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-    <script type="text/javascript" src="lists.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRacesUA.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
-    <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
-    <link rel="stylesheet" href="style.css"/>
-    <script type="text/javascript" src="functions.js"></script>
+  <meta charset="utf-8">
+  <title>JoSheet</title>
+  <meta name="viewport" content="width=793">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+  <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+  <script type="text/javascript" src="lists.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRacesUA.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
+  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <script type="text/javascript" src="functions.js"></script>
 </head>
 <body>
-    <nav id="navbar" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-        <h1 class="navbar-brand mb-0">JoSheet</h1>
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Edit">
-            <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Mode">
-                <button id="inputBtn" type="button" class="btn btn-secondary" title="Input"><i class="fa fa-i-cursor fa-fw"></i></button>
-                <button id="moveBtn" type="button" class="btn btn-info active" title="Move"><i class="fa fa-arrows fa-fw"></i></button>
-            </div>
-            <button id="hideBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i></button>
-            <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw" aria-hidden="true"></i></button>
-            <button id="calcBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw" aria-hidden="true"></i></button>
+  <nav id="navbar" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+    <h1 class="navbar-brand mb-0">JoSheet</h1>
+    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Edit">
+      <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Mode">
+        <button id="inputBtn" type="button" class="btn btn-secondary" title="Input"><i class="fa fa-i-cursor fa-fw"></i></button>
+        <button id="moveBtn" type="button" class="btn btn-info active" title="Move"><i class="fa fa-arrows fa-fw"></i></button>
+      </div>
+      <button id="hideBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i></button>
+      <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw" aria-hidden="true"></i></button>
+      <button id="calcBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw" aria-hidden="true"></i></button>
 <!--            <button id="addBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Add" data-toggle="collapse" data-target="#blockMenu" aria-expanded="false" aria-controls="blockMenu"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Add</button> -->
-            <button id="resetBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Reset"><i class="fa fa-times fa-fw" aria-hidden="true"></i>Reset</button>
-            <div class="btn-group btn-group-sm" role="group" aria-label="Manage">
-                <button id="printBtn" type="button" class="btn btn-secondary" title="Print"><i class="fa fa-print fa-fw" aria-hidden="true"></i>Print</button>
-                <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Sheets</button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
-                    <a id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>New</a>
-                    <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw" aria-hidden="true"></i>Connect</a>
-                </div>
-            </div>
+      <button id="resetBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Reset"><i class="fa fa-times fa-fw" aria-hidden="true"></i>Reset</button>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Manage">
+        <button id="printBtn" type="button" class="btn btn-secondary" title="Print"><i class="fa fa-print fa-fw" aria-hidden="true"></i>Print</button>
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Sheets</button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1">
+          <a id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i>New</a>
+          <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw" aria-hidden="true"></i>Connect</a>
         </div>
-    </nav>
-    <div id="blockMenuContainer" class="container-fluid fixed-top">
-    <div class="collapse" id="blockMenu">
-        <div class="card card-block">
-            <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-sm btn-warning active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Page 1
-  </label>
-  <label class="btn btn-sm btn-warning">
-    <input type="radio" name="options" id="option2" autocomplete="off" disabled> Page 2
-  </label>
-  <label class="btn btn-sm btn-warning">
-    <input type="radio" name="options" id="option3" autocomplete="off" disabled> Page 3
-  </label>
-</div>
-            <div class="row">&nbsp;</div>
-            <div class="row">
-            <div style="height: 100px;" class="col block1"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block2"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block3"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block4"><div class="bg"></div></div>
-            </div>
-            <div class="row">&nbsp;</div>
-            <div class="row">
-            <div style="height: 100px;" class="col block5"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block6"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block7"><div class="bg"></div></div>
-            <div style="height: 100px;" class="col block8"><div class="bg"></div></div>
-            </div>
+      </div>
+    </div>
+  </nav>
+  <div id="blockMenuContainer" class="container-fluid fixed-top">
+  <div class="collapse" id="blockMenu">
+    <div class="card card-block">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-sm btn-warning active">
+          <input type="radio" name="options" id="option1" autocomplete="off" checked> Page 1
+        </label>
+        <label class="btn btn-sm btn-warning">
+          <input type="radio" name="options" id="option2" autocomplete="off" disabled> Page 2
+        </label>
+        <label class="btn btn-sm btn-warning">
+          <input type="radio" name="options" id="option3" autocomplete="off" disabled> Page 3
+        </label>
+      </div>
+      <div class="row">&nbsp;</div>
+      <div class="row">
+        <div style="height: 100px;" class="col block1"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block2"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block3"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block4"><div class="bg"></div></div>
+      </div>
+      <div class="row">&nbsp;</div>
+      <div class="row">
+        <div style="height: 100px;" class="col block5"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block6"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block7"><div class="bg"></div></div>
+        <div style="height: 100px;" class="col block8"><div class="bg"></div></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="alerts" class="container fixed-bottom"></div>
+  <div id="page1" class="outerPage">
+    <div class="page">
+      <div id="basicBar" class="pageHeader1 z2 draggable editable">
+        <div class="bg"><img src="img/PageHeader1.svg"></div>
+        <div style="top: 55px; left: 40px; width: 267px; height: 38px; line-height: 38px;" id="name" class="display center"></div>
+        <div style="top: 96px; left: 70px;" class="lbl2">Character Name</div>
+        <div style="top: 44px; left: 324px; width: 22px;" id="level" class="display right"></div>
+        <div style="top: 44px; left: 348px; width: 120px;">
+          <select class="custom-select display" id="class">
+            <option value="" selected></option>
+          </select>
         </div>
-    </div>
-    </div>
-    <div id="alerts" class="container fixed-bottom"></div>
-    <div id="page1" class="outerPage">
-        <div class="page">
-            <div id="basicBar" class="pageHeader1 z2 draggable editable">
-                <div class="bg"><img src="img/PageHeader1.svg"></div>
-                <div style="top: 55px; left: 40px; width: 267px; height: 38px; line-height: 38px;" id="name" class="display center"></div>
-                <div style="top: 96px; left: 70px;" class="lbl2">Character Name</div>
-                <div style="top: 44px; left: 324px; width: 22px;" id="level" class="display right"></div>
-                <div style="top: 44px; left: 348px; width: 120px;">
-                    <select class="custom-select display" id="class">
-                        <option value="" selected></option>
-                    </select>
-                </div>
-                <div style="top: 62px; left: 328px;" class="lbl2">Level &amp; Class</div>
-                <div style="top: 78px; left: 328px; width: 140px; height: 23px;">
-                    <select class="custom-select display" id="background">
-                        <option value="" selected></option>
-                    </select>
-                </div>
-                <div style="top: 96px; left: 328px;" class="lbl2">Background</div>
-                <div style="top: 44px; left: 474px; width: 140px;">
-                    <select class="custom-select display" id="race">
-                        <option value="" selected></option>
-                    </select>
-                </div>
-                <div style="top: 62px; left: 474px;" class="lbl2">Race</div>
-                <div style="top: 78px; left: 474px; width: 140px;" id="alignment" class="display"></div>
-                <div style="top: 96px; left: 474px;" class="lbl2">Alignment</div>
-                <div style="top: 44px; left: 620px; width: 90px;" id="player" class="display"></div>
-                <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
-                <div style="top: 78px; left: 620px; width: 90px;" id="exp" class="display"></div>
-                <div style="top: 96px; left: 620px;" class="lbl2">Experience Points</div>
-                <div style="top: 62px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-                <div style="top: 96px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-                <div class="hover"></div>
-            </div>
-            <div id="attrBox" class="boxBg1 z1 resizable">
-                <div class="bg"></div>
-                <div class="hover"></div>
-            </div>
-            <div id="strBlock" class="attrBlock str z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock1.svg"></div>
-                <div class="attrTxt lbl1">Strength</div>
-                <div class="hover"></div>
-            </div>
-            <div id="dexBlock" class="attrBlock dex z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock2.svg"></div>
-                <div class="attrTxt lbl1">Dexterity</div>
-                <div class="hover"></div>
-            </div>
-            <div id="conBlock" class="attrBlock con z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock3.svg"></div>
-                <div class="attrTxt lbl1">Constitution</div>
-                <div class="hover"></div>
-            </div>
-            <div id="intBlock" class="attrBlock int z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock4.svg"></div>
-                <div class="attrTxt lbl1">Intelligence</div>
-                <div class="hover"></div>
-            </div>
-            <div id="wisBlock" class="attrBlock wis z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock5.svg"></div>
-                <div class="attrTxt lbl1">Wisdom</div>
-                <div class="hover"></div>
-            </div>
-            <div id="chaBlock" class="attrBlock cha z2 draggable editable">
-                <div class="bg"><img src="img/AttrBlock6.svg"></div>
-                <div class="attrTxt lbl1">Charisma</div>
-                <div class="hover"></div>
-            </div>
-            <div id="savesBlock" class="block2 z2 draggable editable hasMenu">
-                <div class="bg"></div>
-                <div class="content">
-                    <div id="savesStr" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Strength</div>
-                    </div>
-                    <div id="savesDex" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Dexterity</div>
-                    </div>
-                    <div id="savesCon" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Constitution</div>
-                    </div>
-                    <div id="savesInt" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Intelligence</div>
-                    </div>
-                    <div id="savesWis" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Wisdom</div>
-                    </div>
-                    <div id="savesCha" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Charisma</div>
-                    </div>
-                </div>
-                <div class="lbl1 lower">Saving Throws</div>
-                <div class="hover"></div>
-                <div class="edit dropdown">
-                  <button class="btn btn-info dropdown-toggle" type="button">
-                    <i class="fa fa-cog"></i>
-                  </button>
-                  <div class="dropdown-menu">
-                    <a class="dropdown-item">Action</a>
-                    <a class="dropdown-item">Another action</a>
-                    <a class="dropdown-item">Something else here</a>
-                  </div>
-                </div>
-            </div>
-            <div id="skillsBlock" class="block2 z2 draggable editable">
-                <div class="bg"></div>
-                <div class="content">
-                    <div id="skillsAcr" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
-                    </div>
-                    <div id="skillsAni" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
-                    </div>
-                    <div id="skillsArc" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Arcana <span>(Int)</span></div>
-                    </div>
-                    <div id="skillsAth" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Athletics <span>(Str)</span></div>
-                    </div>
-                    <div id="skillsDec" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Deception <span>(Cha)</span></div>
-                    </div>
-                    <div id="skillsHis" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">History <span>(Int)</span></div>
-                    </div>
-                    <div id="skillsIns" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Insight <span>(Wis)</span></div>
-                    </div>
-                    <div id="skillsInt" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Intimidation <span>(Cha)</span></div>
-                    </div>
-                    <div id="skillsInv" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Investigation <span>(Int)</span></div>
-                    </div>
-                    <div id="skillsMed" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Medicine <span>(Wis)</span></div>
-                    </div>
-                    <div id="skillsNat" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Nature <span>(Int)</span></div>
-                    </div>
-                    <div id="skillsPerc" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Perception <span>(Wis)</span></div>
-                    </div>
-                    <div id="skillsPerf" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Performance <span>(Cha)</span></div>
-                    </div>
-                    <div id="skillsPers" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Persuasion <span>(Cha)</span></div>
-                    </div>
-                    <div id="skillsRel" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Religion <span>(Int)</span></div>
-                    </div>
-                    <div id="skillsSle" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
-                    </div>
-                    <div id="skillsSte" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Stealth <span>(Dex)</span></div>
-                    </div>
-                    <div id="skillsSur" class="savesSkill">
-                        <div class="checkBall unchecked"></div>
-                        <div class="display mod"></div>
-                        <div class="underline mod"></div>
-                        <div class="lbl mod">Survival <span>(Wis)</span></div>
-                    </div>
-                </div>
-                <div class="lbl1 lower">Skills</div>
-                <div class="hover"></div>
-            </div>
-            <div id="inspBlock" class="labelBlock1 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl lbl1">Inspiration</div>
-                <div class="hover"></div>
-            </div>
-            <div id="profBlock" class="labelBlock2 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl lbl1">Proficiency Bonus</div>
-                <div class="hover"></div>
-            </div>
-            <div id="boxBg1" class="boxBg2 z1 resizable">
-                <div class="bg"></div>
-                <div class="hover"></div>
-            </div>
-            <div id="acBlock" class="acBlock cha z2 draggable editable">
-                <div class="bg"><img src="img/ACBlock.svg"></div>
-                <div class="lbl1 lower">Armor<br>Class</div>
-                <div class="hover"></div>
-            </div>
-            <div id="initBlock" class="block1 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Initiative</div>
-                <div class="hover"></div>
-            </div>
-            <div id="speedBlock" class="block1 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Speed</div>
-                <div class="hover"></div>
-            </div>
-            <div id="hpBlock" class="block3 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Current Hit Points</div>
-                <div class="hover"></div>
-            </div>
-            <div id="tempHpBlock" class="block5 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Temporary Hit Points</div>
-                <div class="hover"></div>
-            </div>
-            <div id="boxBg2" class="boxBg2 z1 resizable">
-                <div class="bg"></div>
-                <div class="hover"></div>
-            </div>
-            <div id="hitDiceBlock" class="block1 z2 draggable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Hit Dice</div>
-                <div class="hover"></div>
-            </div>
-            <div id="deathBlock" class="block1 z2 draggable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Death Saves</div>
-                <div class="hover"></div>
-            </div>
-            <div id="persTraits" class="block3 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Personality Traits</div>
-                <div class="hover"></div>
-            </div>
-            <div id="ideals" class="block4 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Ideals</div>
-                <div class="hover"></div>
-            </div>
-            <div id="bonds" class="block4 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Bonds</div>
-                <div class="hover"></div>
-            </div>
-            <div id="flaws" class="block5 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl3 lower">Flaws</div>
-                <div class="hover"></div>
-            </div>
-            <div id="percBlock" class="labelBlock3 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl lbl3">Passive Wisdom (Perception)</div>
-                <div class="hover"></div>
-            </div>
-            <div id="langBlock" class="block7 z2 resizable editable">
-                <div class="bg"></div>
-                <div id="" class="display notes"></div>
-                <div class="lbl1 lower">Other Proficiencies &amp; Languages</div>
-                <div class="hover"></div>
-            </div>
-            <div id="attackBlock" class="block6 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Attacks &amp; Spellcasting</div>
-                <div class="hover"></div>
-            </div>
-            <div id="inputBg1" class="inputBg z3 resizable">
-                <div class="bg"></div>
-                <div class="hover"></div>
-            </div>
-            <div id="equipBlock" class="block1 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Equipment</div>
-                <div class="hover"></div>
-            </div>
-            <div id="featsBlock" class="block8 z2 resizable">
-                <div class="bg"></div>
-                <div class="lbl1 lower">Features &amp; Traits</div>
-                <div class="hover"></div>
-            </div>
+        <div style="top: 62px; left: 328px;" class="lbl2">Level &amp; Class</div>
+        <div style="top: 78px; left: 328px; width: 140px; height: 23px;">
+          <select class="custom-select display" id="background">
+            <option value="" selected></option>
+          </select>
         </div>
+        <div style="top: 96px; left: 328px;" class="lbl2">Background</div>
+        <div style="top: 44px; left: 474px; width: 140px;">
+          <select class="custom-select display" id="race">
+            <option value="" selected></option>
+          </select>
+        </div>
+        <div style="top: 62px; left: 474px;" class="lbl2">Race</div>
+        <div style="top: 78px; left: 474px; width: 140px;" id="alignment" class="display"></div>
+        <div style="top: 96px; left: 474px;" class="lbl2">Alignment</div>
+        <div style="top: 44px; left: 620px; width: 90px;" id="player" class="display"></div>
+        <div style="top: 62px; left: 620px;" class="lbl2">Player Name</div>
+        <div style="top: 78px; left: 620px; width: 90px;" id="exp" class="display"></div>
+        <div style="top: 96px; left: 620px;" class="lbl2">Experience Points</div>
+        <div style="top: 62px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div style="top: 96px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div class="hover"></div>
+      </div>
+      <div id="attrBox" class="boxBg1 z1 resizable">
+        <div class="bg"></div>
+        <div class="hover"></div>
+      </div>
+      <div id="strBlock" class="attrBlock str z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock1.svg"></div>
+        <div class="attrTxt lbl1">Strength</div>
+        <div class="hover"></div>
+      </div>
+      <div id="dexBlock" class="attrBlock dex z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock2.svg"></div>
+        <div class="attrTxt lbl1">Dexterity</div>
+        <div class="hover"></div>
+      </div>
+      <div id="conBlock" class="attrBlock con z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock3.svg"></div>
+        <div class="attrTxt lbl1">Constitution</div>
+        <div class="hover"></div>
+      </div>
+      <div id="intBlock" class="attrBlock int z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock4.svg"></div>
+        <div class="attrTxt lbl1">Intelligence</div>
+        <div class="hover"></div>
+      </div>
+      <div id="wisBlock" class="attrBlock wis z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock5.svg"></div>
+        <div class="attrTxt lbl1">Wisdom</div>
+        <div class="hover"></div>
+      </div>
+      <div id="chaBlock" class="attrBlock cha z2 draggable editable">
+        <div class="bg"><img src="img/AttrBlock6.svg"></div>
+        <div class="attrTxt lbl1">Charisma</div>
+        <div class="hover"></div>
+      </div>
+      <div id="savesBlock" class="block2 z2 draggable editable hasMenu">
+        <div class="bg"></div>
+        <div class="content">
+          <div id="savesStr" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Strength</div>
+          </div>
+          <div id="savesDex" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Dexterity</div>
+          </div>
+          <div id="savesCon" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Constitution</div>
+          </div>
+          <div id="savesInt" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Intelligence</div>
+          </div>
+          <div id="savesWis" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Wisdom</div>
+          </div>
+          <div id="savesCha" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Charisma</div>
+          </div>
+        </div>
+        <div class="lbl1 lower">Saving Throws</div>
+        <div class="hover"></div>
+        <div class="edit dropdown">
+          <button class="btn btn-info dropdown-toggle" type="button">
+            <i class="fa fa-cog"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item">Action</a>
+            <a class="dropdown-item">Another action</a>
+            <a class="dropdown-item">Something else here</a>
+          </div>
+        </div>
+      </div>
+      <div id="skillsBlock" class="block2 z2 draggable editable">
+        <div class="bg"></div>
+        <div class="content">
+          <div id="skillsAcr" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
+          </div>
+          <div id="skillsAni" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
+          </div>
+          <div id="skillsArc" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Arcana <span>(Int)</span></div>
+          </div>
+          <div id="skillsAth" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Athletics <span>(Str)</span></div>
+          </div>
+          <div id="skillsDec" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Deception <span>(Cha)</span></div>
+          </div>
+          <div id="skillsHis" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">History <span>(Int)</span></div>
+          </div>
+          <div id="skillsIns" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Insight <span>(Wis)</span></div>
+          </div>
+          <div id="skillsInt" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Intimidation <span>(Cha)</span></div>
+          </div>
+          <div id="skillsInv" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Investigation <span>(Int)</span></div>
+          </div>
+          <div id="skillsMed" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Medicine <span>(Wis)</span></div>
+          </div>
+          <div id="skillsNat" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Nature <span>(Int)</span></div>
+          </div>
+          <div id="skillsPerc" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Perception <span>(Wis)</span></div>
+          </div>
+          <div id="skillsPerf" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Performance <span>(Cha)</span></div>
+          </div>
+          <div id="skillsPers" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Persuasion <span>(Cha)</span></div>
+          </div>
+          <div id="skillsRel" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Religion <span>(Int)</span></div>
+          </div>
+          <div id="skillsSle" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
+          </div>
+          <div id="skillsSte" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Stealth <span>(Dex)</span></div>
+          </div>
+          <div id="skillsSur" class="savesSkill">
+            <div class="checkBall unchecked"></div>
+            <div class="display mod"></div>
+            <div class="underline mod"></div>
+            <div class="lbl mod">Survival <span>(Wis)</span></div>
+          </div>
+        </div>
+        <div class="lbl1 lower">Skills</div>
+        <div class="hover"></div>
+      </div>
+      <div id="inspBlock" class="labelBlock1 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl lbl1">Inspiration</div>
+        <div class="hover"></div>
+      </div>
+      <div id="profBlock" class="labelBlock2 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl lbl1">Proficiency Bonus</div>
+        <div class="hover"></div>
+      </div>
+      <div id="boxBg1" class="boxBg2 z1 resizable">
+        <div class="bg"></div>
+        <div class="hover"></div>
+      </div>
+      <div id="acBlock" class="acBlock cha z2 draggable editable">
+        <div class="bg"><img src="img/ACBlock.svg"></div>
+        <div class="lbl1 lower">Armor<br>Class</div>
+        <div class="hover"></div>
+      </div>
+      <div id="initBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Initiative</div>
+        <div class="hover"></div>
+      </div>
+      <div id="speedBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Speed</div>
+        <div class="hover"></div>
+      </div>
+      <div id="hpBlock" class="block3 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Current Hit Points</div>
+        <div class="hover"></div>
+      </div>
+      <div id="tempHpBlock" class="block5 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Temporary Hit Points</div>
+        <div class="hover"></div>
+      </div>
+      <div id="boxBg2" class="boxBg2 z1 resizable">
+        <div class="bg"></div>
+        <div class="hover"></div>
+      </div>
+      <div id="hitDiceBlock" class="block1 z2 draggable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Hit Dice</div>
+        <div class="hover"></div>
+      </div>
+      <div id="deathBlock" class="block1 z2 draggable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Death Saves</div>
+        <div class="hover"></div>
+      </div>
+      <div id="persTraits" class="block3 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Personality Traits</div>
+        <div class="hover"></div>
+      </div>
+      <div id="ideals" class="block4 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Ideals</div>
+        <div class="hover"></div>
+      </div>
+      <div id="bonds" class="block4 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Bonds</div>
+        <div class="hover"></div>
+      </div>
+      <div id="flaws" class="block5 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl3 lower">Flaws</div>
+        <div class="hover"></div>
+      </div>
+      <div id="percBlock" class="labelBlock3 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl lbl3">Passive Wisdom (Perception)</div>
+        <div class="hover"></div>
+      </div>
+      <div id="langBlock" class="block7 z2 resizable editable">
+        <div class="bg"></div>
+        <div id="" class="display notes"></div>
+        <div class="lbl1 lower">Other Proficiencies &amp; Languages</div>
+        <div class="hover"></div>
+      </div>
+      <div id="attackBlock" class="block6 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Attacks &amp; Spellcasting</div>
+        <div class="hover"></div>
+      </div>
+      <div id="inputBg1" class="inputBg z3 resizable">
+        <div class="bg"></div>
+        <div class="hover"></div>
+      </div>
+      <div id="equipBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Equipment</div>
+        <div class="hover"></div>
+      </div>
+      <div id="featsBlock" class="block8 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Features &amp; Traits</div>
+        <div class="hover"></div>
+      </div>
     </div>
+  </div>
 <!--
-    <div id="page2" class="outerPage">
-        <div class="page">
-        </div>
+  <div id="page2" class="outerPage">
+    <div class="page">
     </div>
+  </div>
 -->
-    <div class="modal" id="calcModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="calcModalLabel">Soon&trade;...</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <label for="baseStr" class="col-3 col-form-label col-form-label-sm">Strength</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseStr">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="baseDex" class="col-3 col-form-label col-form-label-sm">Dexterity</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseDex">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="baseCon" class="col-3 col-form-label col-form-label-sm">Constitution</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCon">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="baseInt" class="col-3 col-form-label col-form-label-sm">Intelligence</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseInt">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="baseWis" class="col-3 col-form-label col-form-label-sm">Wisdom</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseWis">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="baseCha" class="col-3 col-form-label col-form-label-sm">Charisma</label>
-                        <div class="col-2">
-                            <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCha">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-2 col-form-label col-form-label-sm">Base</div>
-                        <div class="col-2"></div>
-                        <div class="col-2"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="calcModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+  <div class="modal" id="calcModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="calcModalLabel">Soon&trade;...</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          <div class="form-group row">
+            <label for="baseStr" class="col-3 col-form-label col-form-label-sm">Strength</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseStr">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="baseDex" class="col-3 col-form-label col-form-label-sm">Dexterity</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseDex">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="baseCon" class="col-3 col-form-label col-form-label-sm">Constitution</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCon">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="baseInt" class="col-3 col-form-label col-form-label-sm">Intelligence</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseInt">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="baseWis" class="col-3 col-form-label col-form-label-sm">Wisdom</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseWis">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="baseCha" class="col-3 col-form-label col-form-label-sm">Charisma</label>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" value="" id="baseCha">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3"></div>
+            <div class="col-2 col-form-label col-form-label-sm">Base</div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="calcModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-    <style>
-    @media print {
-        /*div { border: 1px solid blue; } /* debug */
-        body,
-        .outerPage {
-            background-color: white !important;
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        #navbar,
-        #blockMenuContainer,
-        #alerts,
-        #hover,
-        .modal,
-        .modal .modal-title {
-            display: none !important;
-        }
-        .outerPage {
-            width: 745px;
-            height: initial;
-            border: none;
-            box-shadow: none !important;
-            margin: 0;
-        }
-        .page {
-            page-break-before: always;
-            height: initial;
-            top: 0;
-            left: 0;
-        }
+  </div>
+  <style>
+  @media print {
+    /*div { border: 1px solid blue; } /* debug */
+    body,
+    .outerPage {
+      background-color: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
-    @page {
-        size: 793px 1122px;
-        margin: 24px;
+    #navbar,
+    #blockMenuContainer,
+    #alerts,
+    .edit,
+    #hover,
+    .modal,
+    .modal .modal-title {
+      display: none !important;
     }
-    </style>
+    .outerPage {
+      width: 745px;
+      height: initial;
+      border: none;
+      box-shadow: none !important;
+      margin: 0;
+    }
+    .page {
+      page-break-before: always;
+      height: initial;
+      top: 0;
+      left: 0;
+    }
+  }
+  @page {
+    size: 793px 1122px;
+    margin: 24px;
+  }
+  </style>
 </body>
 </html>
