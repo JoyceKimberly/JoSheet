@@ -170,10 +170,10 @@ body, button, optgroup, select, input, textarea {
 .edit {
     border: 1px solid rgba(77, 15, 167, 0.2);
     background-color: rgba(105, 20, 229, 0.2);
-    width: 20px;
-    height: 20px;
-    top: -10px;
-    right: -10px;
+    width: 16px;
+    height: 16px;
+    top: -8px;
+    right: -8px;
 }
 
 .navbar .btn-toolbar {
