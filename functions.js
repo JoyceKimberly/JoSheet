@@ -176,6 +176,12 @@ $('#saveLink').click(function() {
     saveFile();
 });
 
+$('.edit').on('touchstart mousedown', function() {
+    $(this).find('.dropdown-toggle').dropdown('toggle');
+});
+$('.edit').on('touchend mouseup', function() {
+    $(this).find('.dropdown-toggle').dropdown('toggle');
+});
 
 // --------------------------------------------------------------------------------------
 // -- Display Setup --
