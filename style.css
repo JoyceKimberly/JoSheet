@@ -64,8 +64,9 @@ body, button, optgroup, select, input, textarea {
     border-radius: 0;
     color: black;
     font-size: 14px;
+    line-height: 21px;
     letter-spacing: -0.3px;
-    vertical-align: middle;
+    vertical-align: top;
 }
 .display.center {
     text-align: center;
@@ -173,15 +174,18 @@ body, button, optgroup, select, input, textarea {
     top: -5px;
     right: -5px;
 }
+.edit .dropdown-toggle::after {
+    display: none;
+}
 .edit,
 .edit button {
     width: 20px;
     height: 20px;
 }
 .edit button {
-    background-color: rgba(4, 141, 204, 0.2);
-    border: none;
-    padding: 0 0 0 2px;
+    margin: 0;
+    padding: 0 0 0 1px;
+    vertical-align: top;
 }
 .hasMenu:hover .edit {
     display: block;
