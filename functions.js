@@ -180,8 +180,10 @@ $('.hasMenu').hover(
   function() {
     var dit = $(this);
     var menu = $('#editMenu');
+    var offset = dit.offset();
     
     menu.show();
+    menu.offset({ top: offset.top, left: offset.left });
   }, 
   function() {
     var dit = $(this);
