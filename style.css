@@ -190,8 +190,7 @@ body, button, optgroup, select, input, textarea {
 .hasMenu:hover .edit {
   display: block;
 }
-.hasMenu:hover .edit button:active + .dropdown-menu,
-.hasMenu:hover .edit button:focus + .dropdown-menu {
+.hasMenu:hover .edit button:hover + .dropdown-menu {
   display: block;
 }
 
