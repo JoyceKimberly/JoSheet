@@ -2,6 +2,7 @@ var cWidth = 745;
 var moveEnabled = true;
 var file = {
   objects   : {},
+  pages     : 2,
   character : {},
   notes     : {},
 };
@@ -29,7 +30,7 @@ var characterFiles = [];
     setAlert('success', 'Success! You have connected to Dropbox.');
   } else {
     setAuthLink();
-    $('#authLink').click(function (event) {
+    $('#authLink').click(function(event) {
       event.preventDefault();
       window.location = $(this).attr("href");
     });
@@ -161,6 +162,8 @@ var characterFiles = [];
     if ( moveEnabled === true ) {
       resetObjects();
       document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      document.cookie = "pages=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      location.reload();
     } else {
       resetCharacter();
       document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
@@ -179,11 +182,29 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   // -- Options Setup --
   // ------------------------------------------------------------------------------------
-  $('.hasMenu').ready(function() {
+  $('.hasMenu').on('touchstart mouseenter', function() {
     var dit = $(this);
+    var oldPage = dit.parents('.outerPage').attr('data-page');
     var menu = dit.find('.dropdown-menu');
     menu.html('<h6 class="dropdown-header">Move block to</h6>');
-    menu.append('<a id="page1Btn" class="dropdown-item">Page 1</a>');
+    for ( var i = 0; i < file.pages; i++ ) {
+      if ( (i+1) != oldPage ) {
+        menu.append('<a class="pageBtn dropdown-item" data-toPage="' + (i+1) + '">Page ' + (i+1) + '</a>');
+      };
+    };
+  });
+  $('.hasMenu').on("click", ".pageBtn", function() {
+    var dit = $(this);
+    var parent = dit.parents('.hasMenu');
+    var newPage = dit.attr('data-toPage');
+    var obj = {
+      [parent.attr('id')] : {
+        page : parseInt(dit.attr('data-toPage'))
+      }
+    };
+    objectToPage(parent, newPage);
+    $.extend(true, file.objects, obj);
+    saveCookies();
   });
 
   $('.editable').on("click", ".checkBall.unchecked", function() {
@@ -236,6 +257,11 @@ var characterFiles = [];
 
 }); // ----------------------------------------------------------------------------------
 
+function objectToPage(obj, page) {
+  var newPage = $('#page' + page + ' .page');
+  newPage.append(obj);
+};
+
 function setCharacter() {
   for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
     var key = Object.keys(file.character)[i];
@@ -247,30 +273,6 @@ function setCharacter() {
       ele.val(file.character[key]);
     };
   };
-  /*$('#characterNameDisplay').text(file.character.name);
-  $('#levelDisplay').text(file.character.level);
-  $('#expDisplay').text(file.character.exp);
-  $('#baseStrInput').val(file.character.baseAttr.str);
-  $('#baseDexInput').val(file.character.baseAttr.dex);
-  $('#baseConInput').val(file.character.baseAttr.con);
-  $('#baseIntInput').val(file.character.baseAttr.int);
-  $('#baseWisInput').val(file.character.baseAttr.wis);
-  $('#baseChaInput').val(file.character.baseAttr.cha);
-  if ( file.character.player ) {
-    $('#playerNameDisplay').text(file.character.player);
-  };
-  if ( file.character.race ) {
-    $('#raceDisplay select').val(file.character.race);
-  };
-  if ( file.character.class ) {
-    $('#classDisplay select').val(file.character.class);
-  };
-  if ( file.character.background ) {
-    $('#backgroundDisplay select').val(file.character.background);
-  };
-  if ( file.character.alignment ) {
-    $('#alignDisplay').text(file.character.alignment);
-  };*/
 };
 
 function resetCharacter() {
@@ -314,6 +316,9 @@ function setObjects() {
     };
     if ( file.objects[naam].height ) {
       obj.height(file.objects[naam].height);
+    };
+    if ( file.objects[naam].page ) {
+      objectToPage(obj, file.objects[naam].page);
     };
   };
 };
@@ -433,12 +438,16 @@ function saveCookies() {
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "pages=" + JSON.stringify(file.pages) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 function loadCookies() {
   if ( !!getCookie("objects") ) {
     $.extend(true, file.objects, JSON.parse(getCookie("objects")));
+  };
+  if ( !!getCookie("pages") ) {
+    $.extend(true, file.pages, JSON.parse(getCookie("pages")));
   };
   if ( !!getCookie("character") ) {
     $.extend(true, file.character, JSON.parse(getCookie("character")));
@@ -480,13 +489,6 @@ function isAuthenticated() {
 // --------------------------------------------------------------------------------------
 // -- Helpers --
 // --------------------------------------------------------------------------------------
-/*window.onerror = function() {
-  document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-  document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-  document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-  //location.reload();
-};
-*/
 function getCookie(cname) {
   var name = cname + "=";
   var ca = document.cookie.split(';');

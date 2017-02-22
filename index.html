@@ -51,7 +51,7 @@
     </div>
   </nav>
   <div id="alerts" class="container fixed-bottom"></div>
-  <div id="page1" class="outerPage">
+  <div id="page1" class="outerPage" data-page="1">
     <div class="page">
       <div id="basicBar" class="pageHeader1 z2 draggable editable">
         <div class="bg"><img src="img/PageHeader1.svg"></div>
@@ -389,10 +389,6 @@
       </div>
     </div>
   </div>
-  <div id="page2" class="outerPage">
-    <div class="page">
-    </div>
-  </div>
   <div class="modal" id="calcModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -453,9 +449,12 @@
       </div>
     </div>
   </div>
+  <div id="page2" class="outerPage" data-page="2">
+    <div class="page">
+    </div>
+  </div>
   <style>
   @media print {
-    /*div { border: 1px solid blue; } /* debug */
     body,
     .outerPage {
       background-color: white !important;
@@ -472,15 +471,14 @@
       display: none !important;
     }
     .outerPage {
+      page-break-after: always;
       width: 745px;
-      height: initial;
+      height: 1033px;
       border: none;
       box-shadow: none !important;
       margin: 0;
     }
     .page {
-      page-break-before: always;
-      height: initial;
       top: 0;
       left: 0;
     }
