@@ -177,10 +177,10 @@ $('#saveLink').click(function() {
 });
 
 $('.edit').on('touchstart mousedown', function() {
-    $(this).find('.dropdown-toggle').dropdown();
+    $(this).addClass('show');
 });
-$('.edit').blur(function() {
-    $(this).find('.dropdown-toggle').dropdown();
+$('.edit').on('mouseleave', function() {
+    $(this).removeClass('show');
 });
 
 // --------------------------------------------------------------------------------------
