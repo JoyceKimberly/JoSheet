@@ -550,6 +550,39 @@ div .bg img {
   left: 495px;
 }
 
+.coinBg {
+  width: 45px;
+  height: 20px;
+  top: 5px;
+  left: -1px;
+}
+.coinBlock {
+  width: 55px;
+  height: 30px;
+  right: 0;
+}
+
+#cpBlock {
+  width: 70px;
+  height: 30px;
+}
+#spBlock {
+  width: 70px;
+  height: 30px;
+}
+#epBlock {
+  width: 70px;
+  height: 30px;
+}
+#gpBlock {
+  width: 70px;
+  height: 30px;
+}
+#ppBlock {
+  width: 70px;
+  height: 30px;
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
@@ -624,6 +657,37 @@ div .bg img {
   border-image-source: url("img/Block8.svg");
   border-image-slice: 14 19 34 fill;
   border-image-width: 14px 19px 34px;
+}
+
+.block9 .bg {
+  border-image-source: url("img/Block9.svg");
+  border-image-slice: 8 11 fill;
+  border-image-width: 8px 11px;
+}
+.block10 .bg {
+  border-image-source: url("img/Block10.svg");
+  border-image-slice: 15 12 fill;
+  border-image-width: 15px 12px;
+}
+.block11 .bg {
+  border-image-source: url("img/Block11.svg");
+  border-image-slice: 15 13 fill;
+  border-image-width: 15px 13px;
+}
+.block12 .bg {
+  border-image-source: url("img/Block12.svg");
+  border-image-slice: 15 16 fill;
+  border-image-width: 15px 16px;
+}
+.block13 .bg {
+  border-image-source: url("img/Block13.svg");
+  border-image-slice: 15 16 fill;
+  border-image-width: 15px 16px;
+}
+.block14 .bg {
+  border-image-source: url("img/Block14.svg");
+  border-image-slice: 15 26 fill;
+  border-image-width: 15px 26px;
 }
 
 /* ----------------------------------------------------------------------------------- */
