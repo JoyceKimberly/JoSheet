@@ -180,10 +180,14 @@ $('.hasMenu').hover(
   function() {
     var dit = $(this);
     var menu = $('#editMenu');
+    
+    menu.show();
   }, 
   function() {
     var dit = $(this);
     var menu = $('#editMenu');
+
+    menu.hide();
   }
 );
 
