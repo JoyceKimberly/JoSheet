@@ -169,6 +169,7 @@ body, button, optgroup, select, input, textarea {
 
 #editMenu {
     /*cursor: pointer;*/
+    display: none;
     width: 16px;
     height: 16px;
     position: absolute;
