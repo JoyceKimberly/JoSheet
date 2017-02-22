@@ -39,7 +39,6 @@
       <button id="hideBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i></button>
       <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw" aria-hidden="true"></i></button>
       <button id="calcBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw" aria-hidden="true"></i></button>
-<!--            <button id="addBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Add" data-toggle="collapse" data-target="#blockMenu" aria-expanded="false" aria-controls="blockMenu"><i class="fa fa-plus-square fa-fw" aria-hidden="true"></i>Add</button> -->
       <button id="resetBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Reset"><i class="fa fa-times fa-fw" aria-hidden="true"></i>Reset</button>
       <div class="btn-group btn-group-sm" role="group" aria-label="Manage">
         <button id="printBtn" type="button" class="btn btn-secondary" title="Print"><i class="fa fa-print fa-fw" aria-hidden="true"></i>Print</button>
@@ -51,37 +50,6 @@
       </div>
     </div>
   </nav>
-  <div id="blockMenuContainer" class="container-fluid fixed-top">
-  <div class="collapse" id="blockMenu">
-    <div class="card card-block">
-      <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-sm btn-warning active">
-          <input type="radio" name="options" id="option1" autocomplete="off" checked> Page 1
-        </label>
-        <label class="btn btn-sm btn-warning">
-          <input type="radio" name="options" id="option2" autocomplete="off" disabled> Page 2
-        </label>
-        <label class="btn btn-sm btn-warning">
-          <input type="radio" name="options" id="option3" autocomplete="off" disabled> Page 3
-        </label>
-      </div>
-      <div class="row">&nbsp;</div>
-      <div class="row">
-        <div style="height: 100px;" class="col block1"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block2"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block3"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block4"><div class="bg"></div></div>
-      </div>
-      <div class="row">&nbsp;</div>
-      <div class="row">
-        <div style="height: 100px;" class="col block5"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block6"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block7"><div class="bg"></div></div>
-        <div style="height: 100px;" class="col block8"><div class="bg"></div></div>
-      </div>
-    </div>
-  </div>
-  </div>
   <div id="alerts" class="container fixed-bottom"></div>
   <div id="page1" class="outerPage">
     <div class="page">
@@ -198,11 +166,7 @@
           <button class="btn btn-info dropdown-toggle" type="button">
             <i class="fa fa-cog"></i>
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item">Action</a>
-            <a class="dropdown-item">Another action</a>
-            <a class="dropdown-item">Something else here</a>
-          </div>
+          <div class="dropdown-menu"></div>
         </div>
       </div>
       <div id="skillsBlock" class="block2 z2 draggable editable">
@@ -425,12 +389,10 @@
       </div>
     </div>
   </div>
-<!--
   <div id="page2" class="outerPage">
     <div class="page">
     </div>
   </div>
--->
   <div class="modal" id="calcModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

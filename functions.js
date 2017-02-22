@@ -177,8 +177,15 @@ var characterFiles = [];
   });
 
   // ------------------------------------------------------------------------------------
-  // -- Display Setup --
+  // -- Options Setup --
   // ------------------------------------------------------------------------------------
+  $('.hasMenu').hover(function() {
+    var dit = $(this);
+    var menu = dit.find('.dropdown-menu');
+    menu.html('<h6 class="dropdown-header">Move block to</h6>');
+    menu.append('<a id="page1Btn" class="dropdown-item">Page 1</a>');
+  });
+
   $('.editable').on("click", ".checkBall.unchecked", function() {
     $(this).removeClass('unchecked').addClass('checked');
   });
@@ -221,7 +228,7 @@ var characterFiles = [];
     } else if ( dit.is('select') ) {
       character[key] = dit.val();
     };
-  console.log(character);
+
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
