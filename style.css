@@ -546,8 +546,8 @@ div .bg img {
 #equipBlock {
   width: 230px;
   height: 235px;
-  top: 0;
-  left: 5px;
+  top: 50px;
+  left: 10px;
 }
 
 .coinBg {
@@ -564,22 +564,32 @@ div .bg img {
 #cpBlock {
   width: 70px;
   height: 30px;
+  top: 65px;
+  left: 10px;
 }
 #spBlock {
   width: 70px;
   height: 30px;
+  top: 100px;
+  left: 10px;
 }
 #epBlock {
   width: 70px;
   height: 30px;
+  top: 135px;
+  left: 10px;
 }
 #gpBlock {
   width: 70px;
   height: 30px;
+  top: 170px;
+  left: 10px;
 }
 #ppBlock {
   width: 70px;
   height: 30px;
+  top: 205px;
+  left: 10px;
 }
 
 /* ----------------------------------------------------------------------------------- */
