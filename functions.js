@@ -423,7 +423,7 @@ function setAuthLink() {
 function setAlert(type, msg) {
   $('#alerts').append('\
     <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
       <div class="content">' + msg + '</div>\
     </div>\
   ');
