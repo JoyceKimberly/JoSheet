@@ -341,11 +341,11 @@ function listCharacters() {
         $('#authLink').before('\
         <div class="loadCharacter dropdown-item">\
           <a id="load' + i + '">\
-            <i class="fa fa-user fa-fw" aria-hidden="true"></i>\
+            <i class="fa fa-user fa-fw"></i>\
             ' + characterFiles[i].name.slice(0, -4) + '\
           </a>\
-          <button type="button" id="delete' + i + '" class="deleteCharacter close" aria-label="Delete">\
-            <span aria-hidden="true">&times;</span>\
+          <button type="button" id="delete' + i + '" class="deleteCharacter close">\
+            <i class="fa fa-trash"></i>\
           </button>\
         </div>\
         ');
