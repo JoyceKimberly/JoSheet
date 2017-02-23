@@ -365,7 +365,7 @@ div .bg img {
   padding: 8px 11px;
 }
 .contentList {
-  padding-bottom: 20px;
+  padding-bottom: 18px !important;
 }
 .contentList .row {
   margin: 0;
@@ -397,6 +397,7 @@ div .bg img {
   margin: 2px 0 10px;
 }
 .contentList .longContent {
+  height: 100%;
   overflow: hidden;
 }
 
