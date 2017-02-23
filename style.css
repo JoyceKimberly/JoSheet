@@ -51,7 +51,8 @@ div .bg img {
 
 .lbl1,
 .lbl2,
-.lbl3 {
+.lbl3,
+.hlbl {
   font-family: 'scaly_sans';
   text-transform: uppercase;
 }
@@ -81,6 +82,12 @@ div .bg img {
 #acBlock .lbl1 {
   line-height: 8px;
   bottom: 11px;
+}
+.outerPage .hlbl {
+  color: #9D9FA2 !important;
+  font-size: 9px;
+  line-height: 8px;
+  margin: -1px 0 -2px 3px;
 }
 
 .display,
@@ -349,6 +356,48 @@ div .bg img {
   top: 15px;
 }
 
+.block1 .contentList {
+  padding: 8px;
+}
+.block6 .contentList {
+  padding: 8px 11px;
+}
+.contentList .row {
+  margin: 0;
+}
+.contentList .col {
+  padding: 0;
+  margin: 2px;
+}
+.contentList .subCol {
+  margin: 0;
+}
+.contentList .inputBg {
+  width: 100%;
+  height: 18px;
+}
+.contentList .atk,
+.contentList .hlbl,
+.contentList .row,
+.contentList .col,
+.contentList .inputBg {
+  position: relative;
+}
+.contentList .lbl {
+  font-size: 11px;
+  line-height: 18px;
+}
+.contentList .atk {
+  margin: 2px 0 10px;
+}
+
+#armorBlock .col:first-child {
+  flex: 0 0 10%;
+}
+#attackBlock .col-6:first-child {
+  flex: 0 0 48%;
+}
+
 /* ----------------------------------------------------------------------------------- */
 /* -- Objects -- */
 /* ----------------------------------------------------------------------------------- */
@@ -430,23 +479,16 @@ div .bg img {
 
 #langBlock {
   width: 235px;
-  height: 185px;
+  height: 230px;
   top: 800px;
   left: 15px;
 }
 
-#boxBg1,
-#boxBg2 {
-  width: 230px;
-  height: 320px;
-}
 #boxBg1 {
+  width: 250px;
+  height: 320px;
   top: 160px;
   left: 260px;
-}
-#boxBg2 {
-  top: 160px;
-  left: 500px;
 }
 
 #acBlock {
@@ -469,13 +511,13 @@ div .bg img {
 }
 
 #hpBlock {
-  width: 211px;
+  width: 210px;
   height: 80px;
   top: 245px;
   left: 270px;
 }
 #tempHpBlock {
-  width: 211px;
+  width: 210px;
   height: 65px;
   top: 330px;
   left: 270px;
@@ -495,55 +537,61 @@ div .bg img {
 }
 
 #attackBlock {
-  width: 240px;
-  height: 250px;
-  top: 490px;
+  width: 480px;
+  height: 275px;
+  top: 755px;
   left: 255px;
 }
 
-#inputBg1 {
-  width: 82px;
-  height: 20px;
-  top: 505px;
-  left: 270px;
+#armorBlock {
+  width: 205px;
+  height: 160px;
+  top: 160px;
+  left: 525px;
 }
 
+#boxBg2 {
+  width: 280px;
+  height: 330px;
+  top: 160px;
+  left: 450px;
+}
 #persTraits {
-  width: 211px;
+  width: 260px;
   height: 80px;
   top: 175px;
-  left: 510px;
+  left: 460px;
 }
 #ideals {
-  width: 211px;
+  width: 260px;
   height: 65px;
-  top: 263px;
-  left: 510px;
+  top: 265px;
+  left: 460px;
 }
 #bonds {
-  width: 211px;
+  width: 260px;
   height: 65px;
-  top: 335px;
-  left: 510px;
+  top: 340px;
+  left: 460px;
 }
 #flaws {
-  width: 211px;
-  height: 65px;
-  top: 405px;
-  left: 510px;
+  width: 260px;
+  height: 60px;
+  top: 415px;
+  left: 460px;
 }
 
 #featsBlock {
-  width: 240px;
-  height: 495px;
-  top: 490px;
-  left: 495px;
+  width: 430px;
+  height: 620px;
+  top: 160px;
+  left: 10px;
 }
 
 #equipBlock {
-  width: 230px;
+  width: 715px;
   height: 235px;
-  top: 50px;
+  top: 800px;
   left: 15px;
 }
 
@@ -561,31 +609,31 @@ div .bg img {
 #cpBlock {
   width: 70px;
   height: 30px;
-  top: 65px;
+  top: 810px;
   left: 10px;
 }
 #spBlock {
   width: 70px;
   height: 30px;
-  top: 100px;
+  top: 845px;
   left: 10px;
 }
 #epBlock {
   width: 70px;
   height: 30px;
-  top: 135px;
+  top: 880px;
   left: 10px;
 }
 #gpBlock {
   width: 70px;
   height: 30px;
-  top: 170px;
+  top: 915px;
   left: 10px;
 }
 #ppBlock {
   width: 70px;
   height: 30px;
-  top: 205px;
+  top: 950px;
   left: 10px;
 }
 
@@ -628,7 +676,7 @@ div .bg img {
   border-image-slice: 30 101 fill;
   border-image-width: 30px 101px;
 }
-.inputBg .bg {
+.inputBg {
   border-image-source: url("img/InputBg.svg");
   border-image-slice: 3 fill;
   border-image-width: 3px;
