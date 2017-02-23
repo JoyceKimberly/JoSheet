@@ -47,6 +47,7 @@ div .bg img {
   overflow: hidden;
 }
 .alert .content {
+  width: initial;
   margin: 0;
   padding: 0;
 }
