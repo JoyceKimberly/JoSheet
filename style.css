@@ -379,6 +379,7 @@ div .bg img {
   width: 100%;
   height: 18px;
 }
+.longContent,
 .contentList .atk,
 .contentList .hlbl,
 .contentList .row,
@@ -392,6 +393,9 @@ div .bg img {
 }
 .contentList .atk {
   margin: 2px 0 10px;
+}
+.longContent {
+  padding-bottom: 20px;
 }
 
 #armorBlock .col:first-child {
