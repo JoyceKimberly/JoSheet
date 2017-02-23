@@ -44,7 +44,6 @@ div .bg img {
   width: 100%;
   height: 100%;
   padding: 10px 0 10px 10px ;
-  overflow: hidden;
 }
 .alert .content {
   width: initial;
@@ -365,6 +364,9 @@ div .bg img {
 .block6 .contentList {
   padding: 8px 11px;
 }
+.contentList {
+  padding-bottom: 20px;
+}
 .contentList .row {
   margin: 0;
 }
@@ -395,7 +397,7 @@ div .bg img {
   margin: 2px 0 10px;
 }
 .contentList .longContent {
-  padding-bottom: 20px;
+  overflow: hidden;
 }
 
 #armorBlock .col:first-child {
