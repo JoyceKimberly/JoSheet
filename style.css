@@ -14,6 +14,8 @@ a {
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 .display { z-index: 6; }
+.center { text-align: center; }
+.right { text-align: right; }
 
 html {
   overflow-y: scroll;
@@ -91,12 +93,6 @@ div .bg img {
   line-height: 21px;
   letter-spacing: -0.3px;
   vertical-align: top;
-}
-.display.center {
-  text-align: center;
-}
-.display.right {
-  text-align: right;
 }
 .display.notes {
   font-size: 11px;
@@ -341,16 +337,16 @@ div .bg img {
 
 .labelBlock1 .lbl {
   width: 114px;
-  top: 14px;
+  top: 15px;
 }
 .labelBlock2 .lbl {
   padding-left: 33px;
-  top: 18px;
+  top: 21px;
 }
 .labelBlock3 .lbl {
   font-size: 7.5px;
   padding-left: 46px;
-  top: 13px;
+  top: 15px;
 }
 
 /* ----------------------------------------------------------------------------------- */
@@ -414,20 +410,20 @@ div .bg img {
 }
 
 #inspBlock {
-  width: 146px;
-  height: 36px;
+  width: 145px;
+  height: 40px;
   top: 160px;
   left: 100px;
 }
 #profBlock {
-  width: 146px;
-  height: 45px;
-  top: 205px;
+  width: 145px;
+  height: 50px;
+  top: 200px;
   left: 100px;
 }
 #percBlock {
   width: 235px;
-  height: 35px;
+  height: 40px;
   top: 750px;
   left: 15px;
 }
@@ -597,19 +593,29 @@ div .bg img {
 /* -- Borders -- */
 /* ----------------------------------------------------------------------------------- */
 .labelBlock1 .bg {
-  border-image-source: url("img/InspBlock.svg");
-  border-image-slice: 17 16 17 41 fill;
-  border-image-width: 17px 16px 17px 41px;
+  border-image-source: url("img/LabelBlock1.svg");
+  border-image-slice: 17 16 18 39 fill;
+  border-image-width: 17px 16px 18px 39px;
 }
 .labelBlock2 .bg {
-  border-image-source: url("img/ProfBlock.svg");
-  border-image-slice: 18 16 18 45 fill;
-  border-image-width: 18px 16px 18px 45px;
+  border-image-source: url("img/LabelBlock2.svg");
+  border-image-slice: 22 16 21 45 fill;
+  border-image-width: 22px 16px 21px 45px;
 }
 .labelBlock3 .bg {
-  border-image-source: url("img/PercBlock.svg");
-  border-image-slice: 17 16 17 48 fill;
-  border-image-width: 17px 16px 17px 48px;
+  border-image-source: url("img/LabelBlock3.svg");
+  border-image-slice: 17 18 18 48 fill;
+  border-image-width: 17px 18px 18px 48px;
+}
+.labelBlock4 .bg {
+  border-image-source: url("img/LabelBlock4.svg");
+  border-image-slice: 27 20 27 40 fill;
+  border-image-width: 27px 20px 27px 40px;
+}
+.labelBlock5 .bg {
+  border-image-source: url("img/LabelBlock5.svg");
+  border-image-slice: 27 20 27 94 fill;
+  border-image-width: 27px 20px 27px 94px;
 }
 
 .boxBg1 .bg {
@@ -718,6 +724,16 @@ div .bg img {
   border-image-source: url("img/Block16.svg");
   border-image-slice: 13 11 fill;
   border-image-width: 13px 11px;
+}
+.block17 .bg {
+  border-image-source: url("img/Block17.svg");
+  border-image-slice: 25 13 fill;
+  border-image-width: 25px 13px;
+}
+.block17Var .bg {
+  border-image-source: url("img/Block17.svg");
+  border-image-slice: 13 13 fill;
+  border-image-width: 13px 13px;
 }
 
 /* ----------------------------------------------------------------------------------- */

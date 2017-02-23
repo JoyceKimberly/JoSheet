@@ -273,6 +273,7 @@ function setCharacter() {
       ele.val(file.character[key]);
     };
   };
+  $('.name').text(file.character.name);
 };
 
 function resetCharacter() {
