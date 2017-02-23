@@ -427,9 +427,9 @@ function setAlert(type, msg) {
       <div class="content">' + msg + '</div>\
     </div>\
   ');
-  setTimeout(function() {
+  /*setTimeout(function() {
     $('.alert-' + type).alert('close');
-  }, 5000);
+  }, 5000);*/
 };
 
 function saveCookies() {
