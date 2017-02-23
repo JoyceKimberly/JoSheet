@@ -248,8 +248,9 @@ div .bg img {
   padding-right: 35px;
 }
 .dropdown-item .close {
+  font-size: 1.2rem;
   position: absolute;
-  top: 2px;
+  top: 6px;
   right: 10px;
 }
 
