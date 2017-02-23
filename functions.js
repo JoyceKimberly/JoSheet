@@ -2,7 +2,7 @@ var cWidth = 745;
 var moveEnabled = true;
 var file = {
   objects   : {},
-  pages     : 2,
+  pages     : 3,
   character : {},
   notes     : {},
 };
