@@ -511,10 +511,10 @@ button .fa-stack .fa-stack-2x {
   left: 100px;
 }
 #profBlock {
-  width: 235px;
-  height: 40px;
+  width: 80px;
+  height: 65px;
   top: 750px;
-  left: 15px;
+  left: 340px;
 }
 
 #langBlock {
@@ -539,10 +539,10 @@ button .fa-stack .fa-stack-2x {
 }
 
 #maxHpBlock {
-  width: 80px;
+  width: 70px;
   height: 65px;
   top: 175px;
-  left: 340px;
+  left: 430px;
 }
 
 #initBlock {
@@ -593,7 +593,7 @@ button .fa-stack .fa-stack-2x {
 
 #armorBlock {
   width: 205px;
-  height: 165px;
+  height: 145px;
   top: 160px;
   left: 525px;
 }
