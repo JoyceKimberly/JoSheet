@@ -346,12 +346,12 @@
         <div class="lbl1 lower">Skills</div>
         <div class="hover"></div>
       </div>
-      <div id="inspBlock" class="labelBlock1 z2 resizable">
+      <div id="inspBlock" class="labelBlock1 z2 resizable resizableX">
         <div class="bg"></div>
         <div class="lbl lbl1">Inspiration</div>
         <div class="hover"></div>
       </div>
-      <div id="profBlock" class="labelBlock2 z2 resizable">
+      <div id="profBlock" class="labelBlock2 z2 resizable resizableX">
         <div class="bg"></div>
         <div class="lbl lbl1">Proficiency Bonus</div>
         <div class="hover"></div>
@@ -395,7 +395,7 @@
         <div class="lbl3 lower">Death Saves</div>
         <div class="hover"></div>
       </div>
-      <div id="percBlock" class="labelBlock3 z2 resizable">
+      <div id="percBlock" class="labelBlock3 z2 resizable resizableX">
         <div class="bg"></div>
         <div class="lbl lbl3">Passive Wisdom (Perception)</div>
         <div class="hover"></div>
@@ -406,267 +406,333 @@
         <div class="lbl1 lower">Other Proficiencies &amp; Languages</div>
         <div class="hover"></div>
       </div>
-      <div id="attackBlock" class="block6 z2 resizable">
+      <div id="attackBlock" class="block6 z2 resizable editable">
         <div class="bg"></div>
         <div class="content contentList">
-        <div class="longContent">
-          <div class="row">
-            <div class="col col-6">
+          <div class="longContent">
+            <div class="row lblRow">
+              <div class="col col-6">
+                <div class="row">
+                  <div class="col col-8 subCol">
+                    <div class="hlbl">Attack Name</div>
+                  </div>
+                  <div class="col subCol">
+                    <div class="hlbl right">Prof Ability</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="hlbl">Range</div>
+              </div>
+              <div class="col col-1">
+                <div class="hlbl">To Hit</div>
+              </div>
+              <div class="col">
+                <div class="hlbl">Damage</div>
+              </div>
+              <div class="col">
+                <div class="hlbl">Type</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-6">
+                <div class="inputBg"></div>
+                <div class="row">
+                  <div class="col subCol">
+                    <div class="display"></div>
+                  </div>
+                  <div class="col col-3 subCol">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+              <div class="col col-1">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row lblRow">
+              <div class="col">
+                <div class="hlbl">Description</div>
+              </div>
+            </div>
+            <div class="atk">
               <div class="row">
-                <div class="col col-8 subCol">
-                  <div class="hlbl">Attack Name</div>
+                <div class="col col-6">
+                  <div class="inputBg"></div>
+                  <div class="row">
+                    <div class="col subCol">
+                      <div class="display"></div>
+                    </div>
+                    <div class="col col-3 subCol">
+                    </div>
+                  </div>
                 </div>
-                <div class="col subCol">
-                  <div class="hlbl right">Prof Ability</div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <div class="display"></div>
+                </div>
+                <div class="col col-1">
+                  <div class="inputBg"></div>
+                  <div class="display"></div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <div class="display"></div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <div class="display"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <div class="display"></div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="hlbl">Range</div>
-            </div>
-            <div class="col col-1">
-              <div class="hlbl">To Hit</div>
-            </div>
-            <div class="col">
-              <div class="hlbl">Damage</div>
-            </div>
-            <div class="col">
-              <div class="hlbl">Type</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-6">
-              <div class="inputBg"></div>
-            </div>
-            <div class="col">
-              <div class="inputBg"></div>
-            </div>
-            <div class="col col-1">
-              <div class="inputBg"></div>
-            </div>
-            <div class="col">
-              <div class="inputBg"></div>
-            </div>
-            <div class="col">
-              <div class="inputBg"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="inputBg"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="hlbl">Description</div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
-          <div class="atk">
-            <div class="row">
-              <div class="col col-6">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-1">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-              </div>
-            </div>
-          </div>
           </div>
         </div>
         <div class="lbl1 lower">Attacks &amp; Spellcasting</div>
         <div class="hover"></div>
       </div>
-      <div id="armorBlock" class="block1 z2 resizable">
+      <div id="armorBlock" class="block1 z2 resizable editable">
         <div class="bg"></div>
         <div class="content contentList">
-          <div class="row">
-            <div class="col col-2">
-              <div class="hlbl">AC</div>
+          <div class="longContent">
+            <div class="row lblRow">
+              <div class="col col-2">
+                <div class="hlbl">AC</div>
+              </div>
+              <div class="col col-2">
+              </div>
+              <div class="col">
+                <div class="hlbl">Description</div>
+              </div>
             </div>
-            <div class="col col-2">
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Armor</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-            <div class="col">
-              <div class="hlbl">Description</div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Shield</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col col-2">
-              <div class="inputBg"></div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Dex</div>
+              </div>
+              <div class="col">
+              </div>
             </div>
-            <div class="col col-2">
-              <div class="lbl">Armor</div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Magic</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-            <div class="col">
-              <div class="inputBg"></div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col col-2">
-              <div class="inputBg"></div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-            <div class="col col-2">
-              <div class="lbl">Shield</div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
-            <div class="col">
-              <div class="inputBg"></div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-2">
+                <div class="inputBg"></div>
+                <div class="display center"></div>
+              </div>
+              <div class="col col-2">
+                <div class="lbl">Misc</div>
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <div class="display"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -683,31 +749,18 @@
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" class="name display center"></div>
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <div style="top: 46px; left: 324px; width: 22px;" id="level" class="display right"></div>
-        <div style="top: 46px; left: 348px; width: 120px;">
-          <select class="custom-select display" id="class">
-            <option value="" selected></option>
-          </select>
-        </div>
-        <div style="top: 64px; left: 328px;" class="lbl2">Level &amp; Class</div>
-        <div style="top: 80px; left: 328px; width: 140px; height: 23px;">
-          <select class="custom-select display" id="background">
-            <option value="" selected></option>
-          </select>
-        </div>
-        <div style="top: 98px; left: 328px;" class="lbl2">Background</div>
-        <div style="top: 46px; left: 474px; width: 140px;">
-          <select class="custom-select display" id="race">
-            <option value="" selected></option>
-          </select>
-        </div>
-        <div style="top: 64px; left: 474px;" class="lbl2">Race</div>
-        <div style="top: 80px; left: 474px; width: 140px;" id="alignment" class="display"></div>
-        <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
-        <div style="top: 46px; left: 620px; width: 90px;" id="player" class="display"></div>
-        <div style="top: 64px; left: 620px;" class="lbl2">Player Name</div>
-        <div style="top: 80px; left: 620px; width: 90px;" id="exp" class="display"></div>
-        <div style="top: 98px; left: 620px;" class="lbl2">Experience Points</div>
+        <div style="top: 46px; left: 324px; width: 22px;" class="display right"></div>
+        <div style="top: 64px; left: 328px;" class="lbl2">Age</div>
+        <div style="top: 80px; left: 328px; width: 140px; height: 23px;"></div>
+        <div style="top: 98px; left: 328px;" class="lbl2">Eyes</div>
+        <div style="top: 46px; left: 474px; width: 140px;"></div>
+        <div style="top: 64px; left: 474px;" class="lbl2">Height</div>
+        <div style="top: 80px; left: 474px; width: 140px;" class="display"></div>
+        <div style="top: 98px; left: 474px;" class="lbl2">Skin</div>
+        <div style="top: 46px; left: 620px; width: 90px;" class="display"></div>
+        <div style="top: 64px; left: 620px;" class="lbl2">Weight</div>
+        <div style="top: 80px; left: 620px; width: 90px;" class="display"></div>
+        <div style="top: 98px; left: 620px;" class="lbl2">Hair</div>
         <div class="hover"></div>
       </div>
       <div id="boxBg2" class="boxBg2 z1 resizable">
@@ -779,8 +832,8 @@
     <div class="page">
       <div id="pageHeader3" class="pageHeader z2 draggable editable">
         <div class="bg"><img src="img/PageHeader3.svg"></div>
-        <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" class="name display center"></div>
-        <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
+        <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" class="display center"></div>
+        <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
         <div class="hover"></div>
       </div>
     </div>

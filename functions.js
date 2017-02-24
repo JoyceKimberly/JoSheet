@@ -40,6 +40,8 @@ var characterFiles = [];
 
   $('[data-toggle="tooltip"]').tooltip();
 
+  overflowHider($('.resizable'));
+
   function setBodyTag() {
     var body = $('body');
     if ( moveEnabled === true ) {
@@ -69,8 +71,16 @@ var characterFiles = [];
         x = (parseFloat(target.getAttribute('data-x')) || 0),
         y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-      target.style.width  = event.rect.width + 'px';
-      target.style.height = event.rect.height + 'px';
+      if ( $(target).hasClass('resizableX') ) {
+        target.style.width  = event.rect.width + 'px';
+
+      } else if ( $(target).hasClass('resizableY') ) {
+        target.style.height = event.rect.height + 'px';
+
+      } else {
+        target.style.width  = event.rect.width + 'px';
+        target.style.height = event.rect.height + 'px';
+      };
 
       x += event.deltaRect.left;
       y += event.deltaRect.top;
@@ -88,6 +98,8 @@ var characterFiles = [];
       x: x,
       y: y,
     };
+
+    overflowHider($(target));
     saveCookies();
   };
 
@@ -108,6 +120,7 @@ var characterFiles = [];
       snap: snapObj,
       onmove: moveListener,
     });
+
   interact('.moveMode .resizable')
     .origin('parent')
     .draggable({
@@ -260,6 +273,19 @@ var characterFiles = [];
 function objectToPage(obj, page) {
   var newPage = $('#page' + page + ' .page');
   newPage.append(obj);
+};
+
+function overflowHider(obj) {
+  var visibleHeight = obj.find('.contentList').height();
+  var totalHeight = 0;
+  obj.find('.longContent').children('div').css("visibility", "visible");
+  obj.find('.longContent').children('div').each(function() {
+    var dit = $(this);
+    totalHeight = totalHeight + dit.outerHeight(true);
+    if ( totalHeight > visibleHeight ) {
+      dit.css("visibility", "hidden");
+    };
+  });
 };
 
 function setCharacter() {
