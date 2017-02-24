@@ -88,7 +88,6 @@ div .bg img {
   text-align: center;
   bottom: 3.5px;
 }
-/*#maxHpBlock .lbl1,*/
 #acBlock .lbl1 {
   bottom: 11px;
 }
@@ -583,6 +582,13 @@ button .fa-stack .fa-stack-2x {
   width: 250px;
   height: 170px;
   top: 405px;
+  left: 260px;
+}
+
+#actionsBlock {
+  width: 470px;
+  height: 150px;
+  top: 590px;
   left: 260px;
 }
 
