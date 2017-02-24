@@ -585,6 +585,13 @@ button .fa-stack .fa-stack-2x {
   left: 390px;
 }
 
+#ltdFeatsBlock {
+  width: 250px;
+  height: 170px;
+  top: 480px;
+  left: 260px;
+}
+
 #attackBlock {
   width: 480px;
   height: 275px;
