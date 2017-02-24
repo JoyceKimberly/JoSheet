@@ -88,6 +88,7 @@ div .bg img {
   text-align: center;
   bottom: 3.5px;
 }
+#maxHpBlock .lbl1,
 #acBlock .lbl1 {
   bottom: 11px;
 }
