@@ -533,10 +533,10 @@ button .fa-stack .fa-stack-2x {
 }
 
 #acBlock {
-  width: 60px;
+  width: 65px;
   height: 70px;
   top: 170px;
-  left: 440px;
+  left: 350px;
 }
 
 #maxHpBlock {
@@ -549,13 +549,13 @@ button .fa-stack .fa-stack-2x {
 #initBlock {
   width: 75px;
   height: 65px;
-  top: 245px;
+  top: 175px;
   left: 425px;
 }
 #speedBlock {
   width: 75px;
   height: 65px;
-  top: 315px;
+  top: 245px;
   left: 425px;
 }
 
