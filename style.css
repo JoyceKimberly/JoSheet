@@ -208,6 +208,7 @@ div .bg img {
 }
 
 #edit {
+  width: 100px;
   position: absolute;
   display: none;
   z-index: 999;
@@ -221,14 +222,13 @@ div .bg img {
   margin: 0;
   padding: 1px 0 0 1px;
   vertical-align: top;
-  /*float: right;*/
+  position: absolute;
+  z-index: 1001;
 }
-/*#edit .dropdown-menu {
-  position: relative;
+#edit .dropdown-menu {
+  top: 0;
+  margin: 0;
 }
-#edit:hover .dropdown-menu {
-  display: block;
-}*/
 
 .navbar .btn-toolbar {
   width: 100%;

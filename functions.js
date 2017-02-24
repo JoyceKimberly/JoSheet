@@ -200,29 +200,39 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   // -- Options Setup --
   // ------------------------------------------------------------------------------------
-  $('.hasMenu').on('touchstart mouseenter', function() {
-    var dit = $(this);
-    var pos = dit.offset();
-    var oldPage = dit.parents('.outerPage').attr('data-page');
-    var edit = $('#edit');
-    var menu = edit.find('.dropdown-menu');
+  $('.draggable, .resizable').on('touchstart mouseenter', function() {
+    if ( moveEnabled ) {
+      var dit = $(this);
+      var pos = dit.offset();
+      var oldPage = dit.parents('.outerPage').attr('data-page');
+      var edit = $('#edit');
+      var menu = edit.find('.dropdown-menu');
 
-    edit.offset({ top: (pos.top - 6), left: (pos.left - 5) });
-    menu.html('<h6 class="dropdown-header">Move block to</h6>');
-    for ( var i = 0; i < pages; i++ ) {
-      if ( (i+1) != oldPage ) {
-        menu.append('<a class="pageBtn dropdown-item" data-toPage="' + (i+1) + '">Page ' + (i+1) + '</a>');
+      edit.show();
+      edit.offset({ top: pos.top, left: pos.left });
+      menu.html('<h6 class="dropdown-header">Move block to</h6>');
+      for ( var i = 0; i < pages; i++ ) {
+        if ( (i+1) != oldPage ) {
+          menu.append('<a class="pageBtn dropdown-item" data-source="' + dit.attr('id') + '" data-toPage="' + (i+1) + '">Page ' + (i+1) + '</a>');
+        };
       };
+      menu.append('<div style="position: initial;" class="dropdown-divider"></div>\
+        <a class="pageBtn dropdown-item" data-source="' + dit.attr('id') + '" data-toPage="4">Remove</a>');
     };
-    menu.append('<div style="position: initial;" class="dropdown-divider"></div><a class="pageBtn dropdown-item" data-toPage="4">Remove</a>');
-    edit.show();
   });
-  $('.hasMenu').on("click", ".pageBtn", function() {
+
+  $('#edit').on('touchend mouseleave', function() {
+    var edit = $('#edit');
+    edit.removeClass('show');
+    edit.hide();
+  });
+  $('#edit').on("click", ".pageBtn", function() {
     var dit = $(this);
-    var parent = dit.parents('.hasMenu');
+    var source = dit.attr('data-source');
+    var parent = $('#' + source);
     var newPage = dit.attr('data-toPage');
     var obj = {
-      [parent.attr('id')] : {
+      [source] : {
         page : parseInt(dit.attr('data-toPage'))
       }
     };
