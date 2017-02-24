@@ -2,7 +2,6 @@ var cWidth = 745;
 var moveEnabled = true;
 var file = {
   objects   : {},
-  pages     : 3,
   character : {},
   notes     : {},
 };
@@ -179,7 +178,6 @@ var characterFiles = [];
   $('#moveResetBtn').click(function() {
     resetObjects();
     document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    document.cookie = "pages=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     location.reload();
   });
   $('#inputResetBtn').click(function() {
@@ -484,16 +482,12 @@ function saveCookies() {
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "pages=" + JSON.stringify(file.pages) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 function loadCookies() {
   if ( !!getCookie("objects") ) {
     $.extend(true, file.objects, JSON.parse(getCookie("objects")));
-  };
-  if ( !!getCookie("pages") ) {
-    $.extend(true, file.pages, JSON.parse(getCookie("pages")));
   };
   if ( !!getCookie("character") ) {
     $.extend(true, file.character, JSON.parse(getCookie("character")));
