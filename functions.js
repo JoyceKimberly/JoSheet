@@ -221,7 +221,7 @@ var characterFiles = [];
     };
   });
 
-  $('#edit').on('touchend mouseleave', function() {
+  $('#edit').on('mouseleave', function() {
     var edit = $('#edit');
     edit.removeClass('show');
     edit.hide();
