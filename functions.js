@@ -6,6 +6,7 @@ var file = {
   character : {},
   notes     : {},
 };
+var pages = 3;
 var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
@@ -147,6 +148,8 @@ var characterFiles = [];
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('.display.input').attr("contentEditable", false);
+    $('#inputResetBtn').hide();
+    $('#moveResetBtn').show();
   });
   $('#inputBtn').click(function() {
     moveEnabled = false;
@@ -156,6 +159,8 @@ var characterFiles = [];
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
     $('div.display').attr("contentEditable", true);
+    $('#moveResetBtn').hide();
+    $('#inputResetBtn').show();
   });
 
   $('#hideBtn').click(function() {
@@ -171,19 +176,19 @@ var characterFiles = [];
     $('#calcModal').modal('show');
   });
 
-  $('#resetBtn').click(function() {
-    if ( moveEnabled === true ) {
-      resetObjects();
-      document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-      document.cookie = "pages=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-      location.reload();
-    } else {
-      resetCharacter();
-      document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-      document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-      setCharacter();
-    };
+  $('#moveResetBtn').click(function() {
+    resetObjects();
+    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "pages=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    location.reload();
   });
+  $('#inputResetBtn').click(function() {
+    resetCharacter();
+    document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    setCharacter();
+  });
+
 
   $('#printBtn').click(function() {
     window.print();
@@ -197,14 +202,20 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   $('.hasMenu').on('touchstart mouseenter', function() {
     var dit = $(this);
+    var pos = dit.offset();
     var oldPage = dit.parents('.outerPage').attr('data-page');
-    var menu = dit.find('.dropdown-menu');
+    var edit = $('#edit');
+    var menu = edit.find('.dropdown-menu');
+
+    edit.offset({ top: (pos.top - 6), left: (pos.left - 5) });
     menu.html('<h6 class="dropdown-header">Move block to</h6>');
-    for ( var i = 0; i < file.pages; i++ ) {
+    for ( var i = 0; i < pages; i++ ) {
       if ( (i+1) != oldPage ) {
         menu.append('<a class="pageBtn dropdown-item" data-toPage="' + (i+1) + '">Page ' + (i+1) + '</a>');
       };
     };
+    menu.append('<div style="position: initial;" class="dropdown-divider"></div><a class="pageBtn dropdown-item" data-toPage="4">Remove</a>');
+    edit.show();
   });
   $('.hasMenu').on("click", ".pageBtn", function() {
     var dit = $(this);

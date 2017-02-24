@@ -45,11 +45,24 @@
         <button id="inputBtn" type="button" class="btn btn-secondary" title="Input"><i class="fa fa-i-cursor fa-fw"></i></button>
         <button id="moveBtn" type="button" class="btn btn-info active" title="Move"><i class="fa fa-arrows fa-fw"></i></button>
       </div>
-      <button id="hideBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw"></i></button>
+      <button id="hideBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw"></i></button>
       <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw"></i></button>
       <button id="calcBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw"></i></button>
       <button id="printBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Print"><i class="fa fa-print fa-fw"></i>Print</button>
-      <button id="resetBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Reset"><i class="fa fa-eraser fa-fw"></i>Reset</button>
+      <button id="moveResetBtn" type="button" class="resetBtn btn mr-2 btn-secondary btn-sm" title="Reset">
+        <span class="fa-stack fa-fw">
+          <i class="fa fa-arrows fa-stack-1x"></i>
+          <i class="fa fa-ban fa-stack-2x text-danger"></i>
+        </span>
+        Reset
+      </button>
+      <button id="inputResetBtn" type="button" class="hidden resetBtn btn mr-2 btn-secondary btn-sm" title="Reset">
+        <span class="fa-stack fa-fw">
+          <i class="fa fa-i-cursor fa-stack-1x"></i>
+          <i class="fa fa-ban fa-stack-2x text-danger"></i>
+        </span>
+        Reset
+      </button>
     </div>
   </nav>
   <div id="alerts" class="container fixed-bottom"></div>
@@ -224,12 +237,6 @@
         </div>
         <div class="lbl1 lower">Saving Throws</div>
         <div class="hover"></div>
-        <div class="edit dropdown">
-          <button class="btn btn-info dropdown-toggle" type="button">
-            <i class="fa fa-cog"></i>
-          </button>
-          <div class="dropdown-menu"></div>
-        </div>
       </div>
       <div id="skillsBlock" class="block2 z2 draggable editable">
         <div class="bg"></div>
@@ -365,6 +372,11 @@
         <div class="lbl1 lower">Armor<br>Class</div>
         <div class="hover"></div>
       </div>
+      <div id="maxHpBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="lbl1 lower">Maximum<br>Hit Points</div>
+        <div class="hover"></div>
+      </div>
       <div id="initBlock" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="lbl1 lower">Initiative</div>
@@ -385,14 +397,14 @@
         <div class="lbl1 lower">Temporary Hit Points</div>
         <div class="hover"></div>
       </div>
-      <div id="hitDiceBlock" class="block1 z2 draggable">
+      <div id="hitDiceBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <div class="lbl3 lower">Hit Dice</div>
+        <div class="lbl1 lower">Hit Dice</div>
         <div class="hover"></div>
       </div>
-      <div id="deathBlock" class="block1 z2 draggable">
+      <div id="deathBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <div class="lbl3 lower">Death Saves</div>
+        <div class="lbl1 lower">Death Saves</div>
         <div class="hover"></div>
       </div>
       <div id="percBlock" class="labelBlock3 z2 resizable resizableX">
@@ -796,32 +808,28 @@
         <div class="bg"></div>
         <div class="lbl1 lower">Equipment</div>
         <div class="hover"></div>
-        <div class="edit dropdown">
-          <button class="btn btn-info dropdown-toggle" type="button"><i class="fa fa-cog"></i></button>
-          <div class="dropdown-menu"></div>
-        </div>
       </div>
-      <div id="cpBlock" class="z3 draggable">
+      <div id="cpBlock" class="z3 draggable hasMenu">
         <div class="block9 coinBg"><div class="bg"></div></div>
         <div class="block10 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
       </div>
-      <div id="spBlock" class="z3 draggable">
+      <div id="spBlock" class="z3 draggable hasMenu">
         <div class="block9 coinBg"><div class="bg"></div></div>
         <div class="block11 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
       </div>
-      <div id="epBlock" class="z3 draggable">
+      <div id="epBlock" class="z3 draggable hasMenu">
         <div class="block9 coinBg"><div class="bg"></div></div>
         <div class="block12 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
       </div>
-      <div id="gpBlock" class="z3 draggable">
+      <div id="gpBlock" class="z3 draggable hasMenu">
         <div class="block9 coinBg"><div class="bg"></div></div>
         <div class="block13 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
       </div>
-      <div id="ppBlock" class="z3 draggable">
+      <div id="ppBlock" class="z3 draggable hasMenu">
         <div class="block9 coinBg"><div class="bg"></div></div>
         <div class="block14 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
@@ -838,6 +846,13 @@
       </div>
     </div>
   </div>
+  <div id="page4" class="sparePage outerPage" data-page="4">
+    <div class="page"></div>
+  </div>
+  <div id="edit" class="dropdown">
+    <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
+    <div class="dropdown-menu"></div>
+  </div>
   <style>
   @media print {
     body,
@@ -852,7 +867,8 @@
     .edit,
     #hover,
     .modal,
-    .modal .modal-title {
+    .modal .modal-title,
+    .sparePage {
       display: none !important;
     }
     .outerPage {

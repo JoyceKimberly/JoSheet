@@ -14,8 +14,14 @@ a {
 .z2 { z-index: 2; }
 .z3 { z-index: 3; }
 .display { z-index: 6; }
+
 .center { text-align: center; }
 .right { text-align: right; }
+
+.hidden,
+.display {
+  display: none;
+}
 
 html {
   overflow-y: scroll;
@@ -72,9 +78,10 @@ div .bg img {
   font-size: 7.5px;
 }
 .lbl1.lower {
+  line-height: 8px;
   width: 100%;
   text-align: center;
-  bottom: 2.5px;
+  bottom: 4px;
 }
 .lbl3.lower {
   width: 100%;
@@ -82,7 +89,6 @@ div .bg img {
   bottom: 3.5px;
 }
 #acBlock .lbl1 {
-  line-height: 8px;
   bottom: 11px;
 }
 .outerPage .hlbl {
@@ -201,30 +207,28 @@ div .bg img {
   display: block;
 }
 
-.edit {
+#edit {
+  position: absolute;
   display: none;
   z-index: 999;
-  top: -6px;
-  right: -5px;
 }
-.edit .dropdown-toggle::after {
+#edit .dropdown-toggle::after {
   display: none;
 }
-.edit button {
+#edit button {
   width: 22px;
   height: 22px;
   margin: 0;
   padding: 1px 0 0 1px;
   vertical-align: top;
-  float: right;
+  /*float: right;*/
 }
-.edit .dropdown-menu {
+/*#edit .dropdown-menu {
   position: relative;
 }
-.moveMode .hasMenu:hover .edit,
-.moveMode .hasMenu:hover .edit:hover .dropdown-menu {
+#edit:hover .dropdown-menu {
   display: block;
-}
+}*/
 
 .navbar .btn-toolbar {
   width: 100%;
@@ -243,20 +247,24 @@ div .bg img {
   display: block;
 }
 
-#hideBtn,
-.display {
-  display: none;
-}
-
-#resetBtn {
+.resetBtn {
   position: absolute;
   right: 0;
 }
 
-.dropdown-menu {
-  right: 0;
-  left: initial;
+button .fa-stack {
+  width: 1.28571429em;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: top;
 }
+button .fa-stack .fa-stack-1x {
+  font-size: 12px;
+}
+button .fa-stack .fa-stack-2x {
+  font-size: 18px;
+}
+
 .dropdown-item {
   position: relative;
   padding-right: 35px;
@@ -318,6 +326,12 @@ div .bg img {
   position: relative;
   top: 24px;
   left: 24px
+}
+.sparePage {
+  background-color: transparent;
+}
+.sparePage .page {
+  background-color: transparent;
 }
 
 .attrBlock {
@@ -512,7 +526,7 @@ div .bg img {
 
 #boxBg1 {
   width: 250px;
-  height: 320px;
+  height: 305px;
   top: 160px;
   left: 260px;
 }
@@ -523,43 +537,51 @@ div .bg img {
   top: 170px;
   left: 270px;
 }
-#initBlock {
+
+#maxHpBlock {
+  width: 80px;
+  height: 65px;
   top: 175px;
   left: 340px;
-  width: 65px;
-  height: 60px;
+}
+
+#initBlock {
+  width: 70px;
+  height: 65px;
+  top: 245px;
+  left: 430px;
 }
 #speedBlock {
-  top: 175px;
-  left: 415px;
-  width: 65px;
-  height: 60px;
+  width: 70px;
+  height: 65px;
+  top: 315px;
+  left: 430px;
 }
 
 #hpBlock {
-  width: 210px;
-  height: 80px;
+  width: 150px;
+  height: 65px;
   top: 245px;
   left: 270px;
 }
 #tempHpBlock {
-  width: 210px;
+  width: 150px;
   height: 65px;
-  top: 330px;
+  top: 315px;
   left: 270px;
 }
 
 #hitDiceBlock {
-  width: 100px;
+  width: 110px;
   height: 65px;
-  top: 405px;
+  top: 385px;
   left: 270px;
 }
 #deathBlock {
-  width: 100px;
+  width: 110px;
   height: 65px;
-  top: 405px;
-  left: 380px;
+  top: 385px;
+  left: 390px;
 }
 
 #attackBlock {
