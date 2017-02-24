@@ -505,17 +505,17 @@ button .fa-stack .fa-stack-2x {
   top: 160px;
   left: 100px;
 }
-#percBlock {
+#profBlock {
   width: 145px;
   height: 50px;
   top: 200px;
   left: 100px;
 }
-#profBlock {
-  width: 80px;
-  height: 55px;
-  top: 180px;
-  left: 350px;
+#percBlock {
+  width: 235px;
+  height: 40px;
+  top: 750px;
+  left: 15px;
 }
 
 #langBlock {
