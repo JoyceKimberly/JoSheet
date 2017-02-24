@@ -89,7 +89,7 @@ div .bg img {
   color: #9D9FA2 !important;
   font-size: 9px;
   line-height: 8px;
-  margin: -1px 0 -2px 3px;
+  margin: -2px 0 -2px 3px;
 }
 
 .display,
@@ -359,10 +359,10 @@ div .bg img {
 }
 
 .block1 .contentList {
-  padding: 8px;
+  padding: 9px 8px;
 }
 .block6 .contentList {
-  padding: 8px 11px;
+  padding: 9px 11px;
 }
 .contentList {
   padding-bottom: 18px !important;
