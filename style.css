@@ -830,7 +830,7 @@ button .fa-stack .fa-stack-2x {
   border-image-source: url("img/Block17.svg");
   border-image-slice: 13 13 fill;
   border-image-width: 13px 13px;
-  border-image-repeat: repeat;
+  border-image-repeat: repeat stretch;
 }
 
 /* ----------------------------------------------------------------------------------- */
