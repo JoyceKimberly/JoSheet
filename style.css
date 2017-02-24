@@ -254,15 +254,15 @@ div .bg img {
 
 button .fa-stack {
   width: 1.28571429em;
-  height: 18px;
-  line-height: 18px;
+  height: 1.28571429em;
+  line-height: 1.28571429em;
   vertical-align: top;
 }
 button .fa-stack .fa-stack-1x {
-  font-size: 12px;
+  font-size: 0.66em;
 }
 button .fa-stack .fa-stack-2x {
-  font-size: 18px;
+  font-size: 1.28571429em;
 }
 
 .dropdown-item {
