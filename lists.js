@@ -43,14 +43,14 @@ for ( var key in BackgroundList ) {
 })(jQuery); // --------------------------------------------------------------------------
 
 window.onerror = function(msg, url, lineNo, columnNo, error) {
-    var message = [
+  var message = [
       'Message: ' + msg,
       'URL: ' + url,
       'Line: ' + lineNo,
       'Column: ' + columnNo,
       'Error object: ' + JSON.stringify(error)
     ].join(' - ');
-    console.error(message);
+  console.error(message);
   $('#alerts').append('\
       <div class="alert alert-danger alert-dismissible fade show boxShadow" role="alert">\
         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
