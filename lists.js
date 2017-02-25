@@ -43,11 +43,6 @@ for ( var key in BackgroundList ) {
 })(jQuery); // --------------------------------------------------------------------------
 
 window.onerror = function(msg, url, lineNo, columnNo, error) {
-  var string = msg.toLowerCase();
-  var substring = "script error";
-  if (string.indexOf(substring) > -1){
-    console.error('Script Error: See Browser Console for Detail');
-  } else {
     var message = [
       'Message: ' + msg,
       'URL: ' + url,
@@ -56,7 +51,12 @@ window.onerror = function(msg, url, lineNo, columnNo, error) {
       'Error object: ' + JSON.stringify(error)
     ].join(' - ');
     console.error(message);
-  };
+  $('#alerts').append('\
+      <div class="alert alert-danger alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">' + textStatus + '</div>\
+      </div>\
+  ');
   return true;
 };
 
