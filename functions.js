@@ -1,3 +1,4 @@
+var dbx;
 var cWidth = 745;
 var moveEnabled = true;
 var file = {
@@ -25,6 +26,7 @@ var characterFiles = [];
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
   if ( !!getAccessToken() ) {
+    dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
     listCharacters();
     setAlert('success', 'Success! You have connected to Dropbox.');
@@ -376,7 +378,6 @@ function resetObjects() {
 };
 
 function listCharacters() {
-  var dbx = new Dropbox({ accessToken: getAccessToken() });
   dbx.filesListFolder({path: ''})
     .then(function(response) {
       characterFiles = response.entries;
@@ -413,7 +414,6 @@ function listCharacters() {
 function saveFile() {
   var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
   var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
-  var dbx = new Dropbox({ accessToken: getAccessToken() });
   dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
     .then(function(response) {
       setAlert('success', 'Character saved to your Dropbox.');
@@ -425,7 +425,6 @@ function saveFile() {
 };
 
 function loadFile(i) {
-  var dbx = new Dropbox({ accessToken: getAccessToken() });
   dbx.filesDownload({path: characterFiles[i].path_lower})
     .then(function(response) {
       var blob = response.fileBlob;
@@ -445,7 +444,6 @@ function loadFile(i) {
 };
 
 function deleteFile(i) {
-  var dbx = new Dropbox({ accessToken: getAccessToken() });
   dbx.filesDelete({path: characterFiles[i].path_lower})
     .then(function(response) {
       setAlert('success', 'Character deleted from your Dropbox.');
@@ -457,7 +455,7 @@ function deleteFile(i) {
 };
 
 function setAuthLink() {
-  var dbx = new Dropbox({ clientId: CLIENT_ID });
+  dbx = new Dropbox({ clientId: CLIENT_ID });
   //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
   var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
   document.getElementById('authLink').href = authUrl;
