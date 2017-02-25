@@ -1,5 +1,9 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
+Object.prototype.toSource || (Object.prototype.toSource = function() {
+  return JSON.stringify(this);
+});
+
 $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
   .done(function( script, textStatus ) {
     $('#alerts').append('\
