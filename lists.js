@@ -64,7 +64,7 @@ function debug(msg) {
   $('#alerts').append('\
     <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-      <div class="content">' + msg + '</div>\
+      <div class="content">' + JSON.stringify(msg) + '</div>\
     </div>\
   ');
 };
