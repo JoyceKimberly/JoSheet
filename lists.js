@@ -8,7 +8,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
         <div class="content">' + textStatus + '</div>\
       </div>\
     ');
-    debug(ClassList.fighter.subclasses); // debug
+    debug(ClassList.rangerua.subclasses); // debug
   })
   .fail(function( jqxhr, settings, exception ) {
     $('#alerts').append('\
