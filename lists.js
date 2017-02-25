@@ -1,6 +1,6 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-var toSourceBackup = Object.prototype.toSource.bind({});
+//var toSourceBackup = Object.prototype.toSource.bind({});
 
 /*Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
