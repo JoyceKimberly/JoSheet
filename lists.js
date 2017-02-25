@@ -2,9 +2,9 @@
 
 var toSourceBackup = Object.prototype.toSource.bind({});
 
-Object.prototype.toSource || (Object.prototype.toSource = function() {
+/*Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
-});
+});*/
 
 $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
   .done(function( script, textStatus ) {
@@ -14,8 +14,9 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
         <div class="content">' + textStatus + '</div>\
       </div>\
     ');
-    debug(ClassList.rogue.subclasses); // debug
-    Object.prototype.toSource = toSourceBackup.bind({});
+    debug(script); 
+    debug(ClassList.rogue.subclasses); 
+    //Object.prototype.toSource = toSourceBackup.bind({});
   })
   .fail(function( jqxhr, settings, exception ) {
     $('#alerts').append('\
