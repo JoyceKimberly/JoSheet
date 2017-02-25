@@ -13,6 +13,9 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
       </div>\
     ');
     debug(ClassList.rogue.subclasses); // debug
+Object.prototype.toSource || (Object.prototype.toSource = function() {
+  return JSON.stringify(this);
+});
   })
   .fail(function( jqxhr, settings, exception ) {
     $('#alerts').append('\
