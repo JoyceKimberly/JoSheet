@@ -1,5 +1,24 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
+$.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
+  .done(function( script, textStatus ) {
+    console.log( textStatus );
+    $('#alerts').append('\
+      <div class="alert alert-success alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">' + textStatus + '</div>\
+      </div>\
+    ');
+  })
+  .fail(function( jqxhr, settings, exception ) {
+    $('#alerts').append('\
+      <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">Triggered ajaxError handler.</div>\
+      </div>\
+    ');
+  });
+  
 //console.log(ClassSubList); // debug
 
 for ( var key in RaceList ) {
