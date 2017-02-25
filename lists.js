@@ -19,7 +19,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
     ');
   });
   
-//console.log(ClassSubList); // debug
+debug(ClassSubList); // debug
 
 for ( var key in RaceList ) {
   if ( RaceList.hasOwnProperty(key) ) {
@@ -58,6 +58,15 @@ window.onerror = function(msg, url, lineNo, columnNo, error) {
       </div>\
   ');
   return true;
+};
+
+function debug(msg) {
+  $('#alerts').append('\
+    <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+      <div class="content">' + msg + '</div>\
+    </div>\
+  ');
 };
 
 var tDoc = {
