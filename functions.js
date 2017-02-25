@@ -375,6 +375,10 @@ function resetObjects() {
   obj.removeAttr("data-x");
   obj.removeAttr("data-y");
   obj.removeAttr("style");
+  
+  $.getJSON( "presets/default.txt", function(json) {
+    setAlert( "info", json );
+  });
 };
 
 function listCharacters() {
