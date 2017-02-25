@@ -1,5 +1,7 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
+var toSourceBackup = Object.prototype.toSource;
+
 Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
 });
@@ -13,9 +15,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
       </div>\
     ');
     debug(ClassList.rogue.subclasses); // debug
-Object.prototype.toSource || (Object.prototype.toSource = function() {
-  return JSON.stringify(this);
-});
+    Object.prototype.toSource = toSourceBackup;
   })
   .fail(function( jqxhr, settings, exception ) {
     $('#alerts').append('\
