@@ -19,7 +19,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
     ');
   });
   
-debug(ClassSubList); // debug
+debug(ClassList.fighter.subclasses); // debug
 
 for ( var key in RaceList ) {
   if ( RaceList.hasOwnProperty(key) ) {
