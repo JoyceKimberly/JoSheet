@@ -1,7 +1,5 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
-$('#inputBtn').on('touchstart mouseenter', function() {
-  
 Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
 });
@@ -24,7 +22,6 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
       </div>\
     ');
   });
-});
   
   
 for ( var key in RaceList ) {
