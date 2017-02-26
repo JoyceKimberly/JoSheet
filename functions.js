@@ -10,8 +10,6 @@ var pages = 3;
 var characterFiles = [];
 
 (function($) { $(document).ready(function() { // ----------------------------------------
-  resetObjects();
-  resetCharacter();
   loadCookies();
   setObjects();
   setCharacter();
@@ -499,10 +497,16 @@ function saveCookies() {
 function loadCookies() {
   if ( !!getCookie("objects") ) {
     $.extend(true, file.objects, JSON.parse(getCookie("objects")));
+  } else {
+    resetObjects();
   };
+  
   if ( !!getCookie("character") ) {
     $.extend(true, file.character, JSON.parse(getCookie("character")));
+  } else {
+    resetCharacter();
   };
+
   if ( !!getCookie("notes") ) {
     $.extend(true, file.notes, JSON.parse(getCookie("notes")));
   };
