@@ -149,7 +149,6 @@ var characterFiles = [];
     $('div.display').attr("contentEditable", true);
     $('#moveResetBtn').hide();
     $('#inputResetBtn').show();
-    processLists();
   });
   $('#moveBtn').click(function() {
     moveEnabled = true;
