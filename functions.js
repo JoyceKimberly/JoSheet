@@ -377,7 +377,7 @@ function resetObjects() {
   
   $.getJSON( "presets/default.json", function(json) {
     setAlert( "info", json );
-    console.log(json);
+    $.extend(true, file.objects, json);
   })
   .done(function() {
     setAlert( "info", "second success" );
