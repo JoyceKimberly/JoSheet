@@ -382,8 +382,8 @@ function resetObjects() {
   .done(function() {
     setAlert( "info", "getJSON second success" );
   })
-  .fail(function() {
-    setAlert( "info", "getJSON error" );
+  .fail(function(jqxhr, textStatus, error) {
+    setAlert( "danger", error );
   })
   .always(function() {
     setAlert( "info", "getJSON complete" );
