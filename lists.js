@@ -44,7 +44,7 @@ for ( var key in BackgroundList ) {
 }); // ----------------------------------------------------------------------------------
 
 })(jQuery); // --------------------------------------------------------------------------
-
+/*
 window.onerror = function(msg, url, lineNo, columnNo, error) {
   var message = [
       'Message: ' + msg,
@@ -56,7 +56,7 @@ window.onerror = function(msg, url, lineNo, columnNo, error) {
   console.error(message);
   return true;
 };
-
+*/
 function debug(msg) {
   $('#alerts').append('\
     <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\

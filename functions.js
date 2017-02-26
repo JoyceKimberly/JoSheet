@@ -177,7 +177,7 @@ var characterFiles = [];
 
   $('#moveResetBtn').click(function() {
     resetObjects();
-    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    saveCookies();
     location.reload();
   });
   $('#inputResetBtn').click(function() {
@@ -374,13 +374,13 @@ function resetObjects() {
   obj.removeAttr("data-x");
   obj.removeAttr("data-y");
   obj.removeAttr("style");
-  
+
   $.getJSON( "presets/default.json", function(objects) {
-    setAlert( "info", objects );
-    //$.extend(true, file.objects, json);
+    $.extend(true, file, objects);
+    console.log( file );
   })
   .done(function() {
-    setAlert( "info", "getJSON second success" );
+    setAlert( "info", "Objects have been set to their default position." );
   })
   .fail(function(jqxhr, textStatus, error) {
     setAlert( "danger", error );
