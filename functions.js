@@ -375,19 +375,18 @@ function resetObjects() {
   obj.removeAttr("data-y");
   obj.removeAttr("style");
   
-  $.getJSON( "presets/default.json", function(json) {
-    var objects = json;
+  $.getJSON( "presets/default.json", function(objects) {
     setAlert( "info", objects );
     //$.extend(true, file.objects, json);
   })
   .done(function() {
-    setAlert( "info", "second success" );
+    setAlert( "info", "getJSON second success" );
   })
   .fail(function() {
-    setAlert( "info", "error" );
+    setAlert( "info", "getJSON error" );
   })
   .always(function() {
-    setAlert( "info", "complete" );
+    setAlert( "info", "getJSON complete" );
   });
   overflowHider($('.resizable'));
 };
