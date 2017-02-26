@@ -12,7 +12,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
         <div class="content">' + textStatus + '</div>\
       </div>\
     ');
-    debug(ClassList.rogue.subclasses); 
+    debug(ClassList.rogue.subclasses);
   })
   .fail(function( jqxhr, settings, exception ) {
     $('#alerts').append('\
@@ -22,8 +22,8 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
       </div>\
     ');
   });
-  
-  
+
+
 for ( var key in RaceList ) {
   if ( RaceList.hasOwnProperty(key) ) {
     $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
