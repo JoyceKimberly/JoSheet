@@ -139,15 +139,6 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   // -- Menu --
   // ------------------------------------------------------------------------------------
-  $('#moveBtn').click(function() {
-    moveEnabled = true;
-    setBodyTag();
-    $(this).addClass('btn-info active').removeClass('btn-secondary');
-    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
-    $('.display.input').attr("contentEditable", false);
-    $('#inputResetBtn').hide();
-    $('#moveResetBtn').show();
-  });
   $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
@@ -158,6 +149,16 @@ var characterFiles = [];
     $('div.display').attr("contentEditable", true);
     $('#moveResetBtn').hide();
     $('#inputResetBtn').show();
+    processLists();
+  });
+  $('#moveBtn').click(function() {
+    moveEnabled = true;
+    setBodyTag();
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
+    $('.display.input').attr("contentEditable", false);
+    $('#inputResetBtn').hide();
+    $('#moveResetBtn').show();
   });
 
   $('#hideBtn').click(function() {
@@ -500,7 +501,7 @@ function loadCookies() {
   } else {
     resetObjects();
   };
-  
+
   if ( !!getCookie("character") ) {
     $.extend(true, file.character, JSON.parse(getCookie("character")));
   } else {

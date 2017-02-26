@@ -1,70 +1,53 @@
 (function($) { $(document).ready(function() { // ----------------------------------------
 
+var url = "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/";
+var lists = [
+  url + "_variables/Lists.js",
+  url + "_variables/ListsSources.js",
+  url + "_variables/ListsBackgrounds.js",
+  url + "_variables/ListsClasses.js",
+  url + "_variables/ListsCreatures.js",
+  url + "_variables/ListsFeats.js",
+  url + "_variables/ListsRaces.js",
+  url + "_variables/ListsSpells.js",
+  url + "_variables/ListsGear.js",
+  url + "_variables/ListsClassesUAArtificer.js",
+  url + "_variables/ListsRacesUA.js",
+];
+
+for ( var i = 0; i < lists.length; i++ ) {
+  $.ajax({
+    async: false,
+    url: lists[i],
+    dataType: "script",
+  });
+};
 /*Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
 });*/
-/*
-$.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
-  .done(function( script, textStatus ) {
-    $('#alerts').append('\
-      <div class="alert alert-success alert-dismissible fade show boxShadow" role="alert">\
-        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-        <div class="content">' + textStatus + '</div>\
-      </div>\
-    ');
-    debug(ClassList.rogue.subclasses);
-  })
-  .fail(function( jqxhr, settings, exception ) {
-    $('#alerts').append('\
-      <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
-        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-        <div class="content">Triggered ajaxError handler.</div>\
-      </div>\
-    ');
-  });
-
-*/
-for ( var key in RaceList ) {
-  if ( RaceList.hasOwnProperty(key) ) {
-    $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
-  };
-};
-for ( var key in ClassList ) {
-  if ( ClassList.hasOwnProperty(key) ) {
-    $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
-  };
-};
-for ( var key in BackgroundList ) {
-  if ( BackgroundList.hasOwnProperty(key) ) {
-    $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
-  };
-};
-
 
 }); // ----------------------------------------------------------------------------------
 
+window.processLists = function() {
+  for ( var key in RaceList ) {
+    if ( RaceList.hasOwnProperty(key) ) {
+      $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
+    };
+  };
+  for ( var key in ClassList ) {
+    if ( ClassList.hasOwnProperty(key) ) {
+      $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
+    };
+  };
+  for ( var key in BackgroundList ) {
+    if ( BackgroundList.hasOwnProperty(key) ) {
+      $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
+    };
+  };
+  console.log(ClassSubList);
+};
+
 })(jQuery); // --------------------------------------------------------------------------
-/*
-window.onerror = function(msg, url, lineNo, columnNo, error) {
-  var message = [
-      'Message: ' + msg,
-      'URL: ' + url,
-      'Line: ' + lineNo,
-      'Column: ' + columnNo,
-      'Error object: ' + JSON.stringify(error)
-    ].join(' - ');
-  console.error(message);
-  return true;
-};
-*/
-function debug(msg) {
-  $('#alerts').append('\
-    <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-      <div class="content" style="font-size: 8px; line-height: 8px;">' + JSON.stringify(msg) + '</div>\
-    </div>\
-  ');
-};
 
 var tDoc = {
   info : {
@@ -81,27 +64,27 @@ var app = {};
 function desc(event) { return event; };
 
 /*
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRacesUA.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Icons.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsResources.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsSpells.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/AbilityScores.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsImport.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Shutdown.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Startup.js"></script>
+"_functions/Functions.js",
+"_functions/Functions2.js",
+"_variables/Lists.js",
+"_variables/ListsRaces.js",
+"_variables/ListsClasses.js",
+"_variables/ListsBackgrounds.js",
+"_variables/ListsCreatures.js",
+"_variables/ListsFeats.js",
+"_variables/ListsSpells.js",
+"_variables/ListsGear.js",
+"_variables/ListsSources.js",
+"_variables/ListsRacesUA.js",
+"_variables/ListsClassesUA.js",
+"_variables/ListsClassesUAArtificer.js",
+"_variables/Icons.js",
+"_functions/FunctionsResources.js",
+"_functions/FunctionsSpells.js",
+"_functions/AbilityScores.js",
+"_functions/FunctionsImport.js",
+"_functions/Shutdown.js",
+"_functions/Startup.js",
 */
 
 function toUni(input) {
