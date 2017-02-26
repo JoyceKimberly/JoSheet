@@ -42,8 +42,6 @@ var characterFiles = [];
 
   $('[data-toggle="tooltip"]').tooltip();
 
-  overflowHider($('.resizable'));
-
   function setBodyTag() {
     var body = $('body');
     if ( moveEnabled === true ) {
@@ -367,6 +365,7 @@ function setObjects() {
       objectToPage(obj, file.objects[naam].page);
     };
   };
+  overflowHider($('.resizable'));
 };
 
 function resetObjects() {
@@ -380,6 +379,7 @@ function resetObjects() {
     setAlert( "info", json );
     console.log(json);
   });
+  overflowHider($('.resizable'));
 };
 
 function listCharacters() {
