@@ -295,15 +295,18 @@ function objectToPage(obj, page) {
 };
 
 function overflowHider(obj) {
-  var visibleHeight = obj.find('.contentList').height();
-  var totalHeight = 0;
-  obj.find('.longContent').children('div').css("visibility", "visible");
-  obj.find('.longContent').children('div').each(function() {
+  $.each( obj, function() {
     var dit = $(this);
-    totalHeight = totalHeight + dit.outerHeight(true);
-    if ( totalHeight > visibleHeight ) {
-      dit.css("visibility", "hidden");
-    };
+    var visibleHeight = dit.find('.contentList').height();
+    var totalHeight = 0;
+    dit.find('.longContent').children('div').css("visibility", "visible");
+    dit.find('.longContent').children('div').each(function() {
+      var dit = $(this);
+      totalHeight = totalHeight + dit.outerHeight(true);
+      if ( totalHeight > visibleHeight ) {
+        dit.css("visibility", "hidden");
+      };
+    });
   });
 };
 
@@ -377,11 +380,9 @@ function resetObjects() {
 
   $.getJSON( "presets/default.json", function(objects) {
     $.extend(true, file, objects);
-    console.log( file );
   })
   .done(function() {
     setObjects();
-    //setAlert( "info", "Objects have been set to their default position." );
   })
   .fail(function(jqxhr, textStatus, error) {
     setAlert( "danger", error );
