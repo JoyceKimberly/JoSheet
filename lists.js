@@ -3,7 +3,7 @@
 /*Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this;
 });*/
-
+/*
 $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
   .done(function( script, textStatus ) {
     $('#alerts').append('\
@@ -23,7 +23,7 @@ $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-She
     ');
   });
 
-
+*/
 for ( var key in RaceList ) {
   if ( RaceList.hasOwnProperty(key) ) {
     $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
