@@ -384,9 +384,6 @@ function resetObjects() {
   })
   .fail(function(jqxhr, textStatus, error) {
     setAlert( "danger", error );
-  })
-  .always(function() {
-    setAlert( "info", "getJSON complete" );
   });
   overflowHider($('.resizable'));
 };
