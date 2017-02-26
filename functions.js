@@ -375,9 +375,18 @@ function resetObjects() {
   obj.removeAttr("data-y");
   obj.removeAttr("style");
   
-  $.getJSON( "presets/default.txt", function(json) {
+  $.getJSON( "presets/default.json", function(json) {
     setAlert( "info", json );
     console.log(json);
+  })
+  .done(function() {
+    setAlert( "info", "second success" );
+  })
+  .fail(function() {
+    setAlert( "info", "error" );
+  })
+  .always(function() {
+    setAlert( "info", "complete" );
   });
   overflowHider($('.resizable'));
 };
