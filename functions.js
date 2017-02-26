@@ -376,8 +376,9 @@ function resetObjects() {
   obj.removeAttr("style");
   
   $.getJSON( "presets/default.json", function(json) {
-    setAlert( "info", json );
-    $.extend(true, file.objects, json);
+    var objects = json;
+    setAlert( "info", objects );
+    //$.extend(true, file.objects, json);
   })
   .done(function() {
     setAlert( "info", "second success" );
