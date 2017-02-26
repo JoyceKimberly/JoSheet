@@ -177,7 +177,7 @@ var characterFiles = [];
 
   $('#moveResetBtn').click(function() {
     resetObjects();
-    saveCookies();
+    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     location.reload();
   });
   $('#inputResetBtn').click(function() {
@@ -380,7 +380,8 @@ function resetObjects() {
     console.log( file );
   })
   .done(function() {
-    setAlert( "info", "Objects have been set to their default position." );
+    setObjects();
+    //setAlert( "info", "Objects have been set to their default position." );
   })
   .fail(function(jqxhr, textStatus, error) {
     setAlert( "danger", error );
