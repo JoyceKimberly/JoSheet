@@ -378,6 +378,7 @@ function resetObjects() {
   
   $.getJSON( "presets/default.txt", function(json) {
     setAlert( "info", json );
+    console.log(json);
   });
 };
 
