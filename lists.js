@@ -73,6 +73,24 @@ function desc(event) { return event; };
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Startup.js"></script>
 */
 
+window.onerror = function(msg, url, lineNo, columnNo, error) {
+  var string = msg.toLowerCase();
+  var substring = "script error";
+  if (string.indexOf(substring) > -1){
+    console.error('Script Error: See Browser Console for Detail');
+  } else {
+    var message = [
+      'Message: ' + msg,
+      'URL: ' + url,
+      'Line: ' + lineNo,
+      'Column: ' + columnNo,
+      'Error object: ' + JSON.stringify(error)
+    ].join(' - ');
+    console.error(message);
+  };
+  return true;
+};
+
 function toUni(input) {
   input = input.toString();
   var UniBoldItal = {
