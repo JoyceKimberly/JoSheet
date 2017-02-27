@@ -45,6 +45,10 @@ div .bg img {
   color: black !important;
   position: absolute;
 }
+.outerPage .rel {
+  position: relative;
+  display: inline-block;
+}
 
 .content {
   width: 100%;
@@ -280,10 +284,14 @@ div .bg img {
   width: 100%;
   height: 100%;
 }
+.contentList .profChecks {
+  height: 16px;
+}
 #savesBlock .contentList .lbl {
   text-transform: uppercase;
 }
-#armorBlock .contentList .lbl {
+#armorBlock .contentList .lbl,
+#langBlock .contentList .lbl {
   font-size: 10px;
 }
 #armorBlock .col-2:first-child {
