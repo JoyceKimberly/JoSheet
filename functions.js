@@ -146,6 +146,7 @@ var characterFiles = [];
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
+    $('#edit').removeClass('show').hide();
     $('div.display').attr("contentEditable", true);
     $('#moveResetBtn').hide();
     $('#inputResetBtn').show();
