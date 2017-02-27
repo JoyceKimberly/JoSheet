@@ -1,13 +1,13 @@
 @import url("fonts/fonts.css");
 a {
-    outline: none !important;
+  outline: none !important;
 }
 :focus {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 ::-moz-focus-inner {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .z1 { z-index: 1; }
@@ -31,14 +31,14 @@ body, button, optgroup, select, input, textarea {
 }
 /*.display { border: 1px solid red; } /* debug */
 body {
-    background-color: #292b2c;
-    margin: 0;
-    padding: 0;
+  background-color: #292b2c;
+  margin: 0;
+  padding: 0;
 }
 div .bg,
 div .bg img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .outerPage div {
@@ -55,6 +55,21 @@ div .bg img {
   width: initial;
   margin: 0;
   padding: 0;
+}
+.block1 .content {
+  padding: 9px 8px 12px;
+}
+.block2 .content {
+  padding-right: 0;
+}
+.block6 .content {
+  padding: 9px 11px 2px;
+}
+.block7 .content {
+  padding: 9px 8px 16px;
+}
+#savesBlock {
+  padding: 8px;
 }
 
 .lbl1,
@@ -381,18 +396,6 @@ button .fa-stack .fa-stack-2x {
   top: 15px;
 }
 
-.block1 .content {
-  padding: 9px 8px 12px;
-}
-.block2 .content {
-  padding-right: 0;
-}
-.block6 .content {
-  padding: 9px 11px 2px;
-}
-.block7 .content {
-  padding: 9px 8px 16px;
-}
 .contentList .row {
   margin: 0;
 }
