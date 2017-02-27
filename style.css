@@ -114,6 +114,10 @@ div .bg img {
   font-size: 9px;
   line-height: 8px;
 }
+.lbl.lblInline {
+  display: inline;
+  margin-left: 2px;
+}
 
 .display,
 .display.custom-select {
@@ -147,18 +151,21 @@ div .bg img {
 .inputMode .checkBall {
   cursor: pointer;
 }
-.checkBall {
-  margin-top: 1px;
+.content .checkBall {
+  position: relative;
+  display: inline-block;
+  margin-top: 2px;
+  vertical-align: top;
 }
-.checkBall,
-.checkBall img {
+.content .checkBall,
+.content .checkBall img {
   width: 10px;
   height: 10px;
 }
-.checkBall.unchecked {
+.content .checkBall.unchecked {
   content: url('img/CheckBox1.svg');
 }
-.checkBall.checked {
+.content .checkBall.checked {
   content: url('img/CheckBox2.svg');
 }
 
@@ -181,13 +188,16 @@ div .bg img {
 }
 .content .mod.lbl {
   font-size: 10px;
-  left: 38px;
+  left: 36px;
 }
 .content .mod.lbl span {
   color: #9D9FA2;
 }
 .content .modrow .col {
   margin-bottom: 0;
+}
+.content .spacerRow {
+  height: 8px;
 }
 
 .line,
@@ -228,9 +238,12 @@ div .bg img {
   margin: 0;
 }
 .contentList .col {
-  height: 16px;
+  height: 18px;
   padding: 0;
   margin: 1.5px;
+}
+.contentList .modRow .col {
+  height: 16px;
 }
 .contentList .lblRow .col {
   height: initial;
@@ -255,7 +268,7 @@ div .bg img {
   line-height: 16px;
 }
 .contentList .atk {
-  margin: 2px 0 10px;
+  margin: 2px 0 9px;
 }
 .contentList .longContent {
   height: 100%;
@@ -273,13 +286,12 @@ div .bg img {
 #armorBlock .contentList .lbl {
   font-size: 10px;
 }
-#armorBlock .col:first-child {
+#armorBlock .col-2:first-child {
   flex: 0 0 10%;
 }
 #attackBlock .col-6:first-child {
   flex: 0 0 48%;
 }
-
 #ltdFeatsBlock .col-7 {
   flex: 0 0 54%;
 }
