@@ -49,7 +49,7 @@ div .bg img {
 .content {
   width: 100%;
   height: 100%;
-  padding: 10px;
+  padding: 8px;
 }
 .alert .content {
   width: initial;
@@ -59,17 +59,14 @@ div .bg img {
 .block1 .content {
   padding: 9px 8px 12px;
 }
-.block2 .content {
-  padding-right: 0;
-}
 .block6 .content {
   padding: 9px 11px 2px;
 }
 .block7 .content {
   padding: 9px 8px 16px;
 }
-#savesBlock .content {
-  padding: 8px;
+#skillsBlock .content {
+  padding-right: 0;
 }
 
 .lbl1,
@@ -170,35 +167,125 @@ div .bg img {
   height: 17px;
   position: relative;
 }
-.mod {
+.content .mod {
   display: inline;
 }
-.mod.display,
-.mod.underline {
-  line-height: 11px;
-  font-size: 11px;
+.content .mod.display,
+.content .mod.underline {
+  line-height: 14px;
+  font-size: 12px;
   text-align: center;
   width: 18px;
-  height: 12px;
-  left: 15px;
+  height: 14px;
+  left: 14px;
 }
-.mod.underline {
-  border-bottom: 1px solid black;
-}
-.mod.lbl {
+.content .mod.lbl {
   font-size: 10px;
-  left: 40px;
+  left: 38px;
 }
-.mod.lbl span {
+.content .mod.lbl span {
   color: #9D9FA2;
+}
+.content .modrow .col {
+  margin-bottom: 0;
+}
+
+.line,
+.underline {
+  border-bottom: 1px solid #d5d7db;
+}
+
+.labelBlock1 img,
+.labelBlock2 img,
+.labelBlock3 img {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+}
+.labelBlock1 .lbl,
+.labelBlock2 .lbl,
+.labelBlock3 .lbl {
+  width: 100%;
+  text-align: center;
+  font-size: 7px;
+  z-index: 2;
+  right: 0;
+}
+.labelBlock1 .lbl {
+  padding-left: 33px;
+  top: 15px;
+}
+.labelBlock2 .lbl {
+  padding-left: 33px;
+  top: 21px;
+}
+.labelBlock3 .lbl {
+  padding-left: 46px;
+  top: 15px;
+}
+
+.contentList .row {
+  margin: 0;
+}
+.contentList .col {
+  height: 16px;
+  padding: 0;
+  margin: 1.5px;
+}
+.contentList .lblRow .col {
+  height: initial;
+}
+.contentList .subCol {
+  margin: 0;
+}
+.contentList .inputBg {
+  width: 100%;
+  height: 100%;
+}
+.contentList .longContent,
+.contentList .atk,
+.contentList .hlbl,
+.contentList .row,
+.contentList .col {
+  position: relative;
+}
+.contentList .lbl,
+.contentList .display {
+  font-size: 12px;
+  line-height: 16px;
+}
+.contentList .atk {
+  margin: 2px 0 10px;
+}
+.contentList .longContent {
+  height: 100%;
+  overflow: hidden;
+}
+.contentList .display {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#savesBlock .contentList .lbl {
+  text-transform: uppercase;
+}
+#armorBlock .contentList .lbl {
+  font-size: 10px;
+}
+#armorBlock .col:first-child {
+  flex: 0 0 10%;
+}
+#attackBlock .col-6:first-child {
+  flex: 0 0 48%;
+}
+
+#ltdFeatsBlock .col-7 {
+  flex: 0 0 54%;
 }
 
 .resizable {
   box-sizing: border-box;
-}
-
-.line {
-  border-bottom: 1px solid #d5d7db;
 }
 
 .hover {
@@ -364,91 +451,6 @@ button .fa-stack .fa-stack-2x {
   width: 100%;
   z-index: 2;
   top: 6px
-}
-
-.labelBlock1 img,
-.labelBlock2 img,
-.labelBlock3 img {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-}
-.labelBlock1 .lbl,
-.labelBlock2 .lbl,
-.labelBlock3 .lbl {
-  width: 100%;
-  text-align: center;
-  font-size: 7px;
-  z-index: 2;
-  right: 0;
-}
-
-.labelBlock1 .lbl {
-  width: 114px;
-  top: 15px;
-}
-.labelBlock2 .lbl {
-  padding-left: 33px;
-  top: 21px;
-}
-.labelBlock3 .lbl {
-  padding-left: 46px;
-  top: 15px;
-}
-
-.contentList .row {
-  margin: 0;
-}
-.contentList .col {
-  height: 18px;
-  padding: 0;
-  margin: 1.5px;
-}
-.contentList .lblRow .col {
-  height: initial;
-}
-.contentList .subCol {
-  margin: 0;
-}
-.contentList .inputBg {
-  width: 100%;
-  height: 100%;
-}
-.contentList .longContent,
-.contentList .atk,
-.contentList .hlbl,
-.contentList .row,
-.contentList .col {
-  position: relative;
-}
-.contentList .lbl,
-.contentList .display {
-  font-size: 12px;
-  line-height: 18px;
-}
-.contentList .atk {
-  margin: 2px 0 10px;
-}
-.contentList .longContent {
-  height: 100%;
-  overflow: hidden;
-}
-.contentList .display {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#armorBlock .col:first-child {
-  flex: 0 0 10%;
-}
-#attackBlock .col-6:first-child {
-  flex: 0 0 48%;
-}
-
-#ltdFeatsBlock .col-7 {
-  flex: 0 0 54%;
 }
 
 .coinBg {
