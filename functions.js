@@ -396,6 +396,9 @@ var characterFiles = [];
     character.baseCha = parseInt($('#baseCha').val());
 
     $.extend(true, file.character, character);
+    
+    AbilityScores.current.Str.base = parseInt($('#baseStr').val());
+    
     setCharacter();
     saveCookies();
     $(this).removeClass('btn-primary').addClass('btn-success');
