@@ -608,7 +608,7 @@ function getCookie(cname) {
   };
   return "";
 };
-
+/*
 var tDoc = {
   info : {
     SheetType : "Jo's",
@@ -620,7 +620,7 @@ var tDoc = {
   },
   getField : function(event) { return event; },
 };
-var app = {};
+var app = {};*/
 //function desc(event) { return event; };
 
 (function(window) {
