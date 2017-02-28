@@ -261,11 +261,15 @@ var characterFiles = [];
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
     };
+    
+    if ( dit.is('#class') ) {
+      CurrentClasses.push(ClassList[dit.val()]);
+    };
 
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-    /*console.log(file.character); /*debug*/
+    console.log(tDoc); /*debug*/
   };
 
   function objectToPage(obj, page) {
