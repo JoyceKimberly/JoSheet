@@ -111,30 +111,26 @@ var characterFiles = [];
     relativePoints: [ { x: 0, y: 0 } ],
   };
 
-  interact('.moveMode .draggable')
-    .origin('parent')
-    .draggable({
-      restrict: restrictObj,
-      snap: snapObj,
-      onmove: moveListener,
-    });
+  interact('.moveMode .draggable').origin('parent').draggable({
+    restrict: restrictObj,
+    snap: snapObj,
+    onmove: moveListener,
+  });
 
-  interact('.moveMode .resizable')
-    .origin('parent')
-    .draggable({
-      restrict: restrictObj,
-      snap: snapObj,
-      onmove: moveListener,
-    })
-    .resizable({
-      preserveAspectRatio: false,
-      restrict: restrictObj,
-      edges: { top: true, right: true, bottom: true, left: true },
-      invert: 'reposition',
-      max: Infinity,
-      snap: snapObj,
-    })
-    .on('resizemove', moveListener);
+  interact('.moveMode .resizable').origin('parent').draggable({
+    restrict: restrictObj,
+    snap: snapObj,
+    onmove: moveListener,
+
+  }).resizable({
+    preserveAspectRatio: false,
+    restrict: restrictObj,
+    edges: { top: true, right: true, bottom: true, left: true },
+    invert: 'reposition',
+    max: Infinity,
+    snap: snapObj,
+
+  }).on('resizemove', moveListener);
 
   // ------------------------------------------------------------------------------------
   // -- Menu --
@@ -223,7 +219,7 @@ var characterFiles = [];
     edit.removeClass('show');
     edit.hide();
   });
-  $('#edit').on("click", ".pageBtn", function() {
+  $('#edit').on('click', '.pageBtn', function() {
     var dit = $(this);
     var source = dit.attr('data-source');
     var parent = $('#' + source);
@@ -236,25 +232,6 @@ var characterFiles = [];
     $.extend(true, file.objects, obj);
     objectToPage(parent, newPage);
     saveCookies();
-  });
-
-  $('#calcModalSave').click(function() {
-    var character = {};
-
-    character.baseStr = parseInt($('#baseStr').val());
-    character.baseDex = parseInt($('#baseDex').val());
-    character.baseCon = parseInt($('#baseCon').val());
-    character.baseInt = parseInt($('#baseInt').val());
-    character.baseWis = parseInt($('#baseWis').val());
-    character.baseCha = parseInt($('#baseCha').val());
-
-    $.extend(true, file.character, character);
-    setCharacter();
-    saveCookies();
-    $(this).removeClass('btn-primary').addClass('btn-success');
-  });
-  $('.modal').on('hidden.bs.modal', function() {
-    $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 
   $('.display').focusout(setValues);
@@ -291,243 +268,300 @@ var characterFiles = [];
     /*console.log(file.character); /*debug*/
   };
 
-}); // ----------------------------------------------------------------------------------
+  function objectToPage(obj, page) {
+    var newPage = $('#page' + page + ' .page');
+    newPage.append(obj);
+  };
 
-function objectToPage(obj, page) {
-  var newPage = $('#page' + page + ' .page');
-  newPage.append(obj);
-};
-
-function overflowHider(obj) {
-  $.each( obj, function() {
-    var dit = $(this);
-    var visibleHeight = dit.find('.contentList').height();
-    var totalHeight = 0;
-    dit.find('.longContent').children('div').css("visibility", "visible");
-    dit.find('.longContent').children('div').each(function() {
+  function overflowHider(obj) {
+    $.each( obj, function() {
       var dit = $(this);
-      totalHeight = totalHeight + dit.outerHeight(true);
-      if ( totalHeight > visibleHeight ) {
-        dit.css("visibility", "hidden");
-      };
+      var visibleHeight = dit.find('.contentList').height();
+      var totalHeight = 0;
+      dit.find('.longContent').children('div').css("visibility", "visible");
+      dit.find('.longContent').children('div').each(function() {
+        var dit = $(this);
+        totalHeight = totalHeight + dit.outerHeight(true);
+        if ( totalHeight > visibleHeight ) {
+          dit.css("visibility", "hidden");
+        };
+      });
     });
-  });
-};
+  };
 
-function setCharacter() {
-  for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
-    var key = Object.keys(file.character)[i];
-    var ele = $("#" + key);
+  function setCharacter() {
+    for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
+      var key = Object.keys(file.character)[i];
+      var ele = $("#" + key);
 
-    if ( ele.is('.display.number.mod') ) {
-      ele.text((file.character[key]>0?'+':'') + file.character[key]);
+      if ( ele.is('.display.number.mod') ) {
+        ele.text((file.character[key]>0?'+':'') + file.character[key]);
 
-    } else if ( ele.is('div') ) {
-      ele.text(file.character[key]);
+      } else if ( ele.is('div') ) {
+        ele.text(file.character[key]);
 
-    } else if ( ele.is('input[type=checkbox]') ) {
-      ele.prop('checked', file.character[key]);
+      } else if ( ele.is('input[type=checkbox]') ) {
+        ele.prop('checked', file.character[key]);
 
-    } else if ( ele.is('select') || ele.is('input') ) {
-      ele.val(file.character[key]);
+      } else if ( ele.is('select') || ele.is('input') ) {
+        ele.val(file.character[key]);
+      };
     };
+    $('.name').text(file.character.name);
   };
-  $('.name').text(file.character.name);
-};
 
-function resetCharacter() {
-  file.character = {
-    name    : "JoSheet",
-    level   : 1,
-    exp     : 0,
-    baseStr : 8,
-    baseDex : 8,
-    baseCon : 8,
-    baseInt : 8,
-    baseWis : 8,
-    baseCha : 8,
+  function resetCharacter() {
+    file.character = {
+      name    : "JoSheet",
+      level   : 1,
+      exp     : 0,
+      baseStr : 8,
+      baseDex : 8,
+      baseCon : 8,
+      baseInt : 8,
+      baseWis : 8,
+      baseCha : 8,
+    };
+    file.notes = {};
   };
-  file.notes = {};
-};
 
-function setObjects() {
-  for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
-    var naam = Object.keys(file.objects)[i];
-    var obj = $("#" + naam);
+  function setObjects() {
+    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
+      var naam = Object.keys(file.objects)[i];
+      var obj = $("#" + naam);
+      obj.removeAttr("data-x");
+      obj.removeAttr("data-y");
+      obj.removeAttr("style");
+
+      var x = file.objects[naam].x;
+      var y = file.objects[naam].y;
+
+      if ( file.objects[naam].x ) {
+        obj.css("transform", "translate(" + x + "px, " + y + "px)");
+        obj.attr("data-x", x);
+      };
+      if ( file.objects[naam].y ) {
+        obj.css("transform", "translate(" + x + "px, " + y + "px)");
+        obj.attr("data-y", y);
+      };
+      if ( file.objects[naam].width ) {
+        obj.width(file.objects[naam].width);
+      };
+      if ( file.objects[naam].height ) {
+        obj.height(file.objects[naam].height);
+      };
+      if ( file.objects[naam].page ) {
+        objectToPage(obj, file.objects[naam].page);
+      };
+    };
+    overflowHider($('.resizable'));
+  };
+
+  function resetObjects() {
+    file.objects = {};
+    var obj = $('.draggable, .resizable');
     obj.removeAttr("data-x");
     obj.removeAttr("data-y");
     obj.removeAttr("style");
 
-    var x = file.objects[naam].x;
-    var y = file.objects[naam].y;
-
-    if ( file.objects[naam].x ) {
-      obj.css("transform", "translate(" + x + "px, " + y + "px)");
-      obj.attr("data-x", x);
-    };
-    if ( file.objects[naam].y ) {
-      obj.css("transform", "translate(" + x + "px, " + y + "px)");
-      obj.attr("data-y", y);
-    };
-    if ( file.objects[naam].width ) {
-      obj.width(file.objects[naam].width);
-    };
-    if ( file.objects[naam].height ) {
-      obj.height(file.objects[naam].height);
-    };
-    if ( file.objects[naam].page ) {
-      objectToPage(obj, file.objects[naam].page);
-    };
+    $.getJSON( "presets/default.json", function(objects) {
+      $.extend(true, file, objects);
+    })
+    .done(function() {
+      setObjects();
+    })
+    .fail(function(jqxhr, textStatus, error) {
+      setAlert( "danger", error );
+    });
+    overflowHider($('.resizable'));
   };
-  overflowHider($('.resizable'));
-};
 
-function resetObjects() {
-  file.objects = {};
-  var obj = $('.draggable, .resizable');
-  obj.removeAttr("data-x");
-  obj.removeAttr("data-y");
-  obj.removeAttr("style");
+  // ------------------------------------------------------------------------------------
+  // -- Calculating Options --
+  // ------------------------------------------------------------------------------------
+  $('#calcModal').on('click', '#calcModalSave', function() {
+    var character = {};
+    character.baseStr = parseInt($('#baseStr').val());
+    character.baseDex = parseInt($('#baseDex').val());
+    character.baseCon = parseInt($('#baseCon').val());
+    character.baseInt = parseInt($('#baseInt').val());
+    character.baseWis = parseInt($('#baseWis').val());
+    character.baseCha = parseInt($('#baseCha').val());
 
-  $.getJSON( "presets/default.json", function(objects) {
-    $.extend(true, file, objects);
-  })
-  .done(function() {
-    setObjects();
-  })
-  .fail(function(jqxhr, textStatus, error) {
-    setAlert( "danger", error );
-  });
-  overflowHider($('.resizable'));
-};
+    $.extend(true, file.character, character);
+    setCharacter();
+    saveCookies();
+    $(this).removeClass('btn-primary').addClass('btn-success');
 
-function listCharacters() {
-  dbx.filesListFolder({path: ''})
-    .then(function(response) {
-      characterFiles = response.entries;
-      $('#saveLink').show();
-      $('.loadCharacter').remove();
-
-      for ( var i = 0; i < characterFiles.length; i++ ) {
-        $('#authLink').before('\
-        <div class="loadCharacter dropdown-item">\
-          <a id="load' + i + '">\
-            <i class="fa fa-user fa-fw"></i>\
-            ' + characterFiles[i].name.slice(0, -4) + '\
-          </a>\
-          <button type="button" id="delete' + i + '" class="deleteCharacter close">\
-            <i class="fa fa-trash"></i>\
-          </button>\
-        </div>\
-        ');
+  }).on('show.bs.modal', function() {
+      if ( file.character.race ) {
+        $('#raceStr').text(RaceList[file.character.race].scores[0]);
+        $('#raceDex').text(RaceList[file.character.race].scores[1]);
+        $('#raceCon').text(RaceList[file.character.race].scores[2]);
+        $('#raceInt').text(RaceList[file.character.race].scores[3]);
+        $('#raceWis').text(RaceList[file.character.race].scores[4]);
+        $('#raceCha').text(RaceList[file.character.race].scores[5]);
       };
 
-      $('.loadCharacter a').click(function() {
-        loadFile(Number($(this).attr('id').substring(4)));
+  }).on('hidden.bs.modal', function() {
+    $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
+  });
+
+  for ( var race in RaceList ) {
+    if ( RaceList.hasOwnProperty(race) ) {
+      var $raceEle = $('#race');
+      $raceEle.append('<option value="' + race + '">' + RaceList[race].name + '</option>');
+      if ( RaceList[race].variants ) {
+        for ( var subRace in RaceList[race].variants ) {
+          if ( RaceList[race].variants.hasOwnProperty(subRace) ) {
+            $raceEle.append('<option value="' + race + '-' + RaceList[race].variants[subRace] + '">-- ' + RaceList[race].variants[subRace] + '</option>');
+          };
+        };
+      };
+    };
+  };
+  for ( var key in ClassList ) {
+    if ( ClassList.hasOwnProperty(key) ) {
+      $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
+    };
+  };
+  for ( var key in BackgroundList ) {
+    if ( BackgroundList.hasOwnProperty(key) ) {
+      $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
+    };
+  };
+
+  // ------------------------------------------------------------------------------------
+  // -- Dropbox --
+  // ------------------------------------------------------------------------------------
+  function listCharacters() {
+    dbx.filesListFolder({path: ''})
+      .then(function(response) {
+        characterFiles = response.entries;
+        $('#saveLink').show();
+        $('.loadCharacter').remove();
+
+        for ( var i = 0; i < characterFiles.length; i++ ) {
+          $('#authLink').before('\
+          <div class="loadCharacter dropdown-item">\
+            <a id="load' + i + '">\
+              <i class="fa fa-user fa-fw"></i>\
+              ' + characterFiles[i].name.slice(0, -4) + '\
+            </a>\
+            <button type="button" id="delete' + i + '" class="deleteCharacter close">\
+              <i class="fa fa-trash"></i>\
+            </button>\
+          </div>\
+          ');
+        };
+
+        $('.loadCharacter a').click(function() {
+          loadFile(Number($(this).attr('id').substring(4)));
+        });
+        $('.deleteCharacter').click(function() {
+          deleteFile(Number($(this).attr('id').substring(6)));
+        });
+      })
+      .catch(function(error) {
+        setAlert('danger', error);
+        setAuthLink();
       });
-      $('.deleteCharacter').click(function() {
-        deleteFile(Number($(this).attr('id').substring(6)));
+  };
+
+  function saveFile() {
+    var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
+    var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
+    dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
+      .then(function(response) {
+        setAlert('success', 'Character saved to your Dropbox.');
+        listCharacters();
+      })
+      .catch(function(error) {
+        setAlert('danger', error);
       });
-    })
-    .catch(function(error) {
-      setAlert('danger', error);
-      setAuthLink();
-    });
-};
-
-function saveFile() {
-  var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-  var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
-  dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
-    .then(function(response) {
-      setAlert('success', 'Character saved to your Dropbox.');
-      listCharacters();
-    })
-    .catch(function(error) {
-      setAlert('danger', error);
-    });
-};
-
-function loadFile(i) {
-  dbx.filesDownload({path: characterFiles[i].path_lower})
-    .then(function(response) {
-      var blob = response.fileBlob;
-      var reader = new FileReader();
-      reader.onload = function() {
-        resetObjects();
-        resetCharacter();
-        $.extend(true, file, JSON.parse(reader.result));
-        setObjects();
-        setCharacter();
-        saveCookies();
-        location.reload();
-        setAlert('success', 'Character loaded.');
-      }
-      reader.readAsText(blob);
-    })
-    .catch(function(error) {
-      setAlert('danger', error);
-    });
-};
-
-function deleteFile(i) {
-  dbx.filesDelete({path: characterFiles[i].path_lower})
-    .then(function(response) {
-      setAlert('success', 'Character deleted from your Dropbox.');
-      listCharacters();
-    })
-    .catch(function(error) {
-      setAlert('danger', error);
-    });
-};
-
-function setAuthLink() {
-  dbx = new Dropbox({ clientId: CLIENT_ID });
-  //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-  var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
-  document.getElementById('authLink').href = authUrl;
-  $('#saveLink').hide();
-  $('#authLink').show();
-};
-
-function setAlert(type, msg) {
-  var $alert = $('\
-    <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-      <div class="content">' + msg + '</div>\
-    </div>\
-  ').appendTo('#alerts');
-  setTimeout(function() {
-    $($alert).alert('close');
-  }, 5000);
-};
-
-function saveCookies() {
-  var d = new Date();
-  d.setTime(d.getTime() + (14*24*60*60*1000));
-
-  document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
-};
-function loadCookies() {
-  if ( !!getCookie("objects") ) {
-    $.extend(true, file.objects, JSON.parse(getCookie("objects")));
-  } else {
-    resetObjects();
   };
 
-  if ( !!getCookie("character") ) {
-    $.extend(true, file.character, JSON.parse(getCookie("character")));
-  } else {
-    resetCharacter();
+  function loadFile(i) {
+    dbx.filesDownload({path: characterFiles[i].path_lower})
+      .then(function(response) {
+        var blob = response.fileBlob;
+        var reader = new FileReader();
+        reader.onload = function() {
+          resetObjects();
+          resetCharacter();
+          $.extend(true, file, JSON.parse(reader.result));
+          setObjects();
+          setCharacter();
+          saveCookies();
+          location.reload();
+          setAlert('success', 'Character loaded.');
+        }
+        reader.readAsText(blob);
+      })
+      .catch(function(error) {
+        setAlert('danger', error);
+      });
   };
 
-  if ( !!getCookie("notes") ) {
-    $.extend(true, file.notes, JSON.parse(getCookie("notes")));
+  function deleteFile(i) {
+    dbx.filesDelete({path: characterFiles[i].path_lower})
+      .then(function(response) {
+        setAlert('success', 'Character deleted from your Dropbox.');
+        listCharacters();
+      })
+      .catch(function(error) {
+        setAlert('danger', error);
+      });
   };
-};
 
+  function setAuthLink() {
+    dbx = new Dropbox({ clientId: CLIENT_ID });
+    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
+    document.getElementById('authLink').href = authUrl;
+    $('#saveLink').hide();
+    $('#authLink').show();
+  };
+
+  function setAlert(type, msg) {
+    var $alert = $('\
+      <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">' + msg + '</div>\
+      </div>\
+    ').appendTo('#alerts');
+    setTimeout(function() {
+      $($alert).alert('close');
+    }, 5000);
+  };
+
+  function saveCookies() {
+    var d = new Date();
+    d.setTime(d.getTime() + (14*24*60*60*1000));
+
+    document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
+    document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
+    document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
+  };
+  function loadCookies() {
+    if ( !!getCookie("objects") ) {
+      $.extend(true, file.objects, JSON.parse(getCookie("objects")));
+    } else {
+      resetObjects();
+    };
+
+    if ( !!getCookie("character") ) {
+      $.extend(true, file.character, JSON.parse(getCookie("character")));
+    } else {
+      resetCharacter();
+    };
+
+    if ( !!getCookie("notes") ) {
+      $.extend(true, file.notes, JSON.parse(getCookie("notes")));
+    };
+  };
+
+}); // ----------------------------------------------------------------------------------
 })(jQuery); // --------------------------------------------------------------------------
 
 var CLIENT_ID = 'ztucdd8z8fjuh08';
@@ -573,6 +607,112 @@ function getCookie(cname) {
     };
   };
   return "";
+};
+
+var tDoc = {
+  info : {
+    SheetType : "Jo's",
+  },
+  bookmarkRoot : {
+    children : [{
+      children : [],
+    }],
+  },
+  getField : function(event) { return event; },
+};
+var app = {};
+function desc(event) { return event; };
+
+window.onerror = function(msg, url, lineNo, columnNo, error) {
+  var string = msg.toLowerCase();
+  var substring = "script error";
+  if (string.indexOf(substring) > -1){
+    console.error('Script Error: See Browser Console for Detail');
+  } else {
+    var message = [
+      'Message: ' + msg,
+      'URL: ' + url,
+      'Line: ' + lineNo,
+      'Column: ' + columnNo,
+      'Error object: ' + JSON.stringify(error)
+    ].join(' - ');
+    console.error(message);
+  };
+  return true;
+};
+
+function toUni(input) {
+  input = input.toString();
+  var UniBoldItal = {
+    "0" : "\uD835\uDFCE",
+    "1" : "\uD835\uDFCF",
+    "2" : "\uD835\uDFD0",
+    "3" : "\uD835\uDFD1",
+    "4" : "\uD835\uDFD2",
+    "5" : "\uD835\uDFD3",
+    "6" : "\uD835\uDFD4",
+    "7" : "\uD835\uDFD5",
+    "8" : "\uD835\uDFD6",
+    "9" : "\uD835\uDFD7",
+    "A" : "\uD835\uDE3C",
+    "B" : "\uD835\uDE3D",
+    "C" : "\uD835\uDE3E",
+    "D" : "\uD835\uDE3F",
+    "E" : "\uD835\uDE40",
+    "F" : "\uD835\uDE41",
+    "G" : "\uD835\uDE42",
+    "H" : "\uD835\uDE43",
+    "I" : "\uD835\uDE44",
+    "J" : "\uD835\uDE45",
+    "K" : "\uD835\uDE46",
+    "L" : "\uD835\uDE47",
+    "M" : "\uD835\uDE48",
+    "N" : "\uD835\uDE49",
+    "O" : "\uD835\uDE4A",
+    "P" : "\uD835\uDE4B",
+    "Q" : "\uD835\uDE4C",
+    "R" : "\uD835\uDE4D",
+    "S" : "\uD835\uDE4E",
+    "T" : "\uD835\uDE4F",
+    "U" : "\uD835\uDE50",
+    "V" : "\uD835\uDE51",
+    "W" : "\uD835\uDE52",
+    "X" : "\uD835\uDE53",
+    "Y" : "\uD835\uDE54",
+    "Z" : "\uD835\uDE55",
+    "a" : "\uD835\uDE56",
+    "b" : "\uD835\uDE57",
+    "c" : "\uD835\uDE58",
+    "d" : "\uD835\uDE59",
+    "e" : "\uD835\uDE5A",
+    "f" : "\uD835\uDE5B",
+    "g" : "\uD835\uDE5C",
+    "h" : "\uD835\uDE5D",
+    "i" : "\uD835\uDE5E",
+    "j" : "\uD835\uDE5F",
+    "k" : "\uD835\uDE60",
+    "l" : "\uD835\uDE61",
+    "m" : "\uD835\uDE62",
+    "n" : "\uD835\uDE63",
+    "o" : "\uD835\uDE64",
+    "p" : "\uD835\uDE65",
+    "q" : "\uD835\uDE66",
+    "r" : "\uD835\uDE67",
+    "s" : "\uD835\uDE68",
+    "t" : "\uD835\uDE69",
+    "u" : "\uD835\uDE6A",
+    "v" : "\uD835\uDE6B",
+    "w" : "\uD835\uDE6C",
+    "x" : "\uD835\uDE6D",
+    "y" : "\uD835\uDE6E",
+    "z" : "\uD835\uDE6F",
+  };
+  var output = "";
+  for (i = 0; i < input.length; i++) {
+    var tempChar = input.charAt(i);
+    output += UniBoldItal[tempChar] ? UniBoldItal[tempChar] : tempChar;
+  }
+  return output;
 };
 
 (function(window) {
