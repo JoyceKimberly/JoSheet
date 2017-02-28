@@ -390,19 +390,20 @@ var characterFiles = [];
     var character = {};
     
     $.each(AbilityScores.abbreviations, function(key, value) {
-      console.log( key + ": " + value );
+      character["base" + value] = parseInt($("#base" + value).val());
+      AbilityScores.current[value].base = parseInt($("#base" + value).val());
     });
     
-    character.baseStr = parseInt($('#baseStr').val());
+    /*character.baseStr = parseInt($('#baseStr').val());
     character.baseDex = parseInt($('#baseDex').val());
     character.baseCon = parseInt($('#baseCon').val());
     character.baseInt = parseInt($('#baseInt').val());
     character.baseWis = parseInt($('#baseWis').val());
-    character.baseCha = parseInt($('#baseCha').val());
+    character.baseCha = parseInt($('#baseCha').val());*/
 
     $.extend(true, file.character, character);
     
-    AbilityScores.current.Str.base = parseInt($('#baseStr').val());
+    //AbilityScores.current.Str.base = parseInt($('#baseStr').val());
     
     setCharacter();
     saveCookies();
