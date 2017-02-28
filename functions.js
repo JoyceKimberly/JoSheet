@@ -625,8 +625,8 @@ tDoc.getField = function(event) {
 };
 var app = {};
 
-Object.prototype.toSource = function() {
-	return this.toString();
+ClassSubList.prototype.toSource = function() {
+  return this.toString();
 };
 
 (function(window) {
