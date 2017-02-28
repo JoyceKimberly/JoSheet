@@ -625,6 +625,10 @@ tDoc.getField = function(event) {
 };
 var app = {};
 
+Array.prototype.toSource = function() {
+	return this.toString();
+};
+
 (function(window) {
 /*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
