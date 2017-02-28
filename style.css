@@ -181,6 +181,9 @@ div .bg img {
 .content .mod {
   display: inline;
 }
+.content .mod.display {
+  display: none;
+}
 .content .mod.display,
 .content .mod.underline {
   line-height: 14px;
