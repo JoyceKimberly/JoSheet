@@ -1,8 +1,3 @@
-tDoc.getField = function(event) { 
-  console.log(event);
-  return event; 
-};
-/*
 var tDoc = {
   info : {
     SheetType : "Jo's",
@@ -12,8 +7,12 @@ var tDoc = {
       children : [],
     }],
   },
-  getField : function(event) { return event; },
-};*/
+  //getField : function(event) { return event; },
+};
+tDoc.getField = function(event) { 
+  console.log(event);
+  return event; 
+};
 var app = {};
 //function desc(event) { return event; };
 
