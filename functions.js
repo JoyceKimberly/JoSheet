@@ -622,7 +622,7 @@ tDoc.getField = function(event) {
   console.log(event);
   return event; 
 };
-var app = {};
+//var app = {};
 //function desc(event) { return event; };
 
 (function(window) {
