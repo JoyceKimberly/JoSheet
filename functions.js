@@ -684,7 +684,7 @@ var app = {};
   };
 })(window);
 
-ClassSubList.prototype.toSource = function() {
+/*ClassSubList.prototype.toSource = function() {
   console.log(this);
   return this.toString();
-};
+};*/
