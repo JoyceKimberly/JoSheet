@@ -263,9 +263,8 @@ var characterFiles = [];
     };
     
     if ( dit.is('#class') ) {
-      var chosenClass = {
-        dit.val() : ClassList[dit.val()],
-      };
+      var chosenClass = {};
+      chosenClass[dit.val()] = ClassList[dit.val()];
       $.extend(CurrentClasses, chosenClass);
     };
 
