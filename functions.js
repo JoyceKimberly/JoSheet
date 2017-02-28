@@ -142,7 +142,6 @@ var characterFiles = [];
   $('#inputBtn').click(function() {
     moveEnabled = false;
     setBodyTag();
-    setCharacter();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
@@ -162,12 +161,13 @@ var characterFiles = [];
   });
 
   $('#hideBtn').click(function() {
-    $('#hideBtn, .display').hide();
-    $('#showBtn').show();
+    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').hide();
+    $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function() {
-    $('#showBtn').hide();
-    $('#hideBtn, .display').show();
+    setCharacter();
+    $('#showBtn, .custom-checkbox .checkBall').hide();
+    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
 
   $('#calcBtn').click(function() {

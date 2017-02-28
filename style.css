@@ -162,13 +162,20 @@ div .bg img {
   padding-left: 12px;
   margin: 0;
 }
+.custom-checkbox .checkBall,
 .custom-checkbox .custom-control-indicator {
   width: 10px;
   height: 10px;
   border: none;
   background: none;
   content: url('img/CheckBox1.svg');
+  display: block;
+  position: absolute;
   top: 2px;
+  left: 0;
+}
+.custom-checkbox .custom-control-indicator {
+  display: none;
 }
 .custom-checkbox .custom-control-input:checked~.custom-control-indicator {
   border: none;
