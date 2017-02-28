@@ -431,7 +431,7 @@ var characterFiles = [];
     };
   };
 
-  console.log(ClassList); /*debug*/
+  console.log(tDoc); /*debug*/
   
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
