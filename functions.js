@@ -27,7 +27,7 @@ var characterFiles = [];
     dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
     listCharacters();
-    setAlert('success', 'Success! You have connected to Dropbox.');
+    //setAlert('success', 'Success! You have connected to Dropbox.');
   } else {
     setAuthLink();
     $('#authLink').click(function(event) {
@@ -36,7 +36,7 @@ var characterFiles = [];
     });
   };
 
-  setAlert('info', 'Move all... the... things!');
+  //setAlert('info', 'Move all... the... things!');
 
   $('[data-toggle="tooltip"]').tooltip();
 
@@ -454,10 +454,13 @@ function loadFile(i) {
       var blob = response.fileBlob;
       var reader = new FileReader();
       reader.onload = function() {
+        resetObjects();
+        resetCharacter();
         $.extend(true, file, JSON.parse(reader.result));
         setObjects();
         setCharacter();
         saveCookies();
+        location.reload();
         setAlert('success', 'Character loaded.');
       }
       reader.readAsText(blob);
