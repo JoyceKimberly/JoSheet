@@ -306,7 +306,7 @@
         <div class="lbl1 lower">Saving Throws</div>
         <div class="hover"></div>
       </div>
-      <div id="skillsBlock" class="block2 z2 editable resizable resizableY">
+      <div id="skillsBlock" class="block2 z2 editable draggable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -372,9 +372,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsInsi" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="insiProf" class="checkBall unchecked"></div>
+                  <div id="insiMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
                 </div>
@@ -382,9 +382,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsInti" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="intiProf" class="checkBall unchecked"></div>
+                  <div id="intiMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Intimidation <span>(Cha)</span></div>
                 </div>
@@ -392,9 +392,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsInve" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="inveProf" class="checkBall unchecked"></div>
+                  <div id="inveMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
                 </div>
@@ -402,9 +402,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsMedi" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="mediProf" class="checkBall unchecked"></div>
+                  <div id="mediMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Medicine <span>(Wis)</span></div>
                 </div>
@@ -412,9 +412,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsNatu" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="natuProf" class="checkBall unchecked"></div>
+                  <div id="natuMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
                 </div>
@@ -422,9 +422,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsPerc" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="percProf" class="checkBall unchecked"></div>
+                  <div id="percMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Perception <span>(Wis)</span></div>
                 </div>
@@ -432,9 +432,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsPerf" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="perfProf" class="checkBall unchecked"></div>
+                  <div id="perfMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Performance <span>(Cha)</span></div>
                 </div>
@@ -442,9 +442,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsPers" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="persProf" class="checkBall unchecked"></div>
+                  <div id="persMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Persuasion <span>(Cha)</span></div>
                 </div>
@@ -452,9 +452,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsReli" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="reliProf" class="checkBall unchecked"></div>
+                  <div id="reliMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Religion <span>(Int)</span></div>
                 </div>
@@ -462,9 +462,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsSlei" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="sleiProf" class="checkBall unchecked"></div>
+                  <div id="sleiMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
                 </div>
@@ -472,9 +472,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsStea" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="steaProf" class="checkBall unchecked"></div>
+                  <div id="steaMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Stealth <span>(Dex)</span></div>
                 </div>
@@ -482,9 +482,9 @@
             </div>
             <div class="row modRow">
               <div class="col">
-                <div id="skillsSurv" class="savesSkill">
-                  <div class="checkBall unchecked"></div>
-                  <div class="display mod"></div>
+                <div class="savesSkill">
+                  <div id="survProf" class="checkBall unchecked"></div>
+                  <div id="survMod" class="display mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Survival <span>(Wis)</span></div>
                 </div>
