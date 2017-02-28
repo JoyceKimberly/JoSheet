@@ -622,8 +622,10 @@ function getCookie(cname) {
   },
   getField : function(event) { return event; },
 };*/
-tDoc.info = {
-  SheetType : "Jo's",
+tDoc.info = { SheetType : "JoSheet" };
+tDoc.getField = function(event) { 
+  console.log(event);
+  return event; 
 };
 var app = {};
 //function desc(event) { return event; };
