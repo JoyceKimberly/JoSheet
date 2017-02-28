@@ -625,10 +625,6 @@ tDoc.getField = function(event) {
 };
 var app = {};
 
-ClassSubList.prototype.toSource = function() {
-  return this.toString();
-};
-
 (function(window) {
 /*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
@@ -687,3 +683,7 @@ ClassSubList.prototype.toSource = function() {
     }
   };
 })(window);
+
+ClassSubList.prototype.toSource = function() {
+  return this.toString();
+};
