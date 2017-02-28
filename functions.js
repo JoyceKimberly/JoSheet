@@ -625,7 +625,7 @@ tDoc.getField = function(event) {
 };
 var app = {};
 
-Array.prototype.toSource = function() {
+Object.prototype.toSource = function() {
 	return this.toString();
 };
 
