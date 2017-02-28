@@ -134,30 +134,30 @@
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" id="name" class="display center"></div>
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <div style="top: 46px; left: 324px; width: 22px;" id="level" class="display right"></div>
-        <div style="top: 46px; left: 348px; width: 120px;">
+        <div style="top: 48px; left: 324px; width: 22px;" id="level" class="display number right"></div>
+        <div style="top: 48px; left: 348px; width: 120px;">
           <select class="custom-select display" id="class">
             <option value="" selected></option>
           </select>
         </div>
         <div style="top: 64px; left: 328px;" class="lbl2">Level &amp; Class</div>
-        <div style="top: 80px; left: 328px; width: 140px; height: 23px;">
+        <div style="top: 82px; left: 328px; width: 140px;">
           <select class="custom-select display" id="background">
             <option value="" selected></option>
           </select>
         </div>
         <div style="top: 98px; left: 328px;" class="lbl2">Background</div>
-        <div style="top: 46px; left: 474px; width: 140px;">
+        <div style="top: 48px; left: 474px; width: 140px;">
           <select class="custom-select display" id="race">
             <option value="" selected></option>
           </select>
         </div>
         <div style="top: 64px; left: 474px;" class="lbl2">Race</div>
-        <div style="top: 80px; left: 474px; width: 140px;" id="alignment" class="display"></div>
+        <div style="top: 82px; left: 474px; width: 140px;" id="alignment" class="display"></div>
         <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
-        <div style="top: 46px; left: 620px; width: 90px;" id="player" class="display"></div>
+        <div style="top: 48px; left: 620px; width: 90px;" id="player" class="display"></div>
         <div style="top: 64px; left: 620px;" class="lbl2">Player Name</div>
-        <div style="top: 80px; left: 620px; width: 90px;" id="exp" class="display"></div>
+        <div style="top: 82px; left: 620px; width: 90px;" id="exp" class="display number"></div>
         <div style="top: 98px; left: 620px;" class="lbl2">Experience Points</div>
         <div class="hover"></div>
       </div>
@@ -203,8 +203,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="strProf" class="checkBall unchecked"></div>
-                    <div id="strMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="strProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="strMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Str</div>
                   </div>
@@ -213,8 +216,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="intProf" class="checkBall unchecked"></div>
-                    <div id="intMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="intProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="intMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Int</div>
                   </div>
@@ -225,8 +231,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="dexProf" class="checkBall unchecked"></div>
-                    <div id="dexMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="dexProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="dexMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Dex</div>
                   </div>
@@ -235,8 +244,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="wisProf" class="checkBall unchecked"></div>
-                    <div id="wisMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="wisProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="wisMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Wis</div>
                   </div>
@@ -247,8 +259,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="conProf" class="checkBall unchecked"></div>
-                    <div id="conMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="conProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="conMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Con</div>
                   </div>
@@ -257,8 +272,11 @@
               <div class="col">
                 <div class="row">
                   <div class="col">
-                    <div id="chaProf" class="checkBall unchecked"></div>
-                    <div id="chaMod" class="display mod"></div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="chaProf" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                    </label>
+                    <div id="chaMod" class="display number mod"></div>
                     <div class="underline mod"></div>
                     <div class="lbl mod">Cha</div>
                   </div>
@@ -313,8 +331,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="acroProf" class="checkBall unchecked"></div>
-                  <div id="acroMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="acroProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="acroMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
                 </div>
@@ -323,8 +344,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="animProf" class="checkBall unchecked"></div>
-                  <div id="animMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="animProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="animMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
                 </div>
@@ -333,8 +357,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="arcaProf" class="checkBall unchecked"></div>
-                  <div id="arcaMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="arcaProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="arcaMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Arcana <span>(Int)</span></div>
                 </div>
@@ -343,8 +370,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="athlProf" class="checkBall unchecked"></div>
-                  <div id="athlMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="athlProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="athlMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Athletics <span>(Str)</span></div>
                 </div>
@@ -353,8 +383,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="deceProf" class="checkBall unchecked"></div>
-                  <div id="deceMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="deceProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="deceMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Deception <span>(Cha)</span></div>
                 </div>
@@ -363,8 +396,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="histProf" class="checkBall unchecked"></div>
-                  <div id="histMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="histProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="histMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">History <span>(Int)</span></div>
                 </div>
@@ -373,8 +409,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="insiProf" class="checkBall unchecked"></div>
-                  <div id="insiMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="insiProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="insiMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
                 </div>
@@ -383,8 +422,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="intiProf" class="checkBall unchecked"></div>
-                  <div id="intiMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="intiProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="intiMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Intimidation <span>(Cha)</span></div>
                 </div>
@@ -393,8 +435,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="inveProf" class="checkBall unchecked"></div>
-                  <div id="inveMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="inveProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="inveMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
                 </div>
@@ -403,8 +448,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="mediProf" class="checkBall unchecked"></div>
-                  <div id="mediMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="mediProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="mediMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Medicine <span>(Wis)</span></div>
                 </div>
@@ -413,8 +461,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="natuProf" class="checkBall unchecked"></div>
-                  <div id="natuMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="natuProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="natuMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
                 </div>
@@ -423,8 +474,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="percProf" class="checkBall unchecked"></div>
-                  <div id="percMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="percProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="percMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Perception <span>(Wis)</span></div>
                 </div>
@@ -433,8 +487,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="perfProf" class="checkBall unchecked"></div>
-                  <div id="perfMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="perfProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="perfMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Performance <span>(Cha)</span></div>
                 </div>
@@ -443,8 +500,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="persProf" class="checkBall unchecked"></div>
-                  <div id="persMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="persProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="persMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Persuasion <span>(Cha)</span></div>
                 </div>
@@ -453,8 +513,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="reliProf" class="checkBall unchecked"></div>
-                  <div id="reliMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="reliProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="reliMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Religion <span>(Int)</span></div>
                 </div>
@@ -463,8 +526,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="sleiProf" class="checkBall unchecked"></div>
-                  <div id="sleiMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="sleiProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="sleiMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
                 </div>
@@ -473,8 +539,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="steaProf" class="checkBall unchecked"></div>
-                  <div id="steaMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="steaProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="steaMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Stealth <span>(Dex)</span></div>
                 </div>
@@ -483,8 +552,11 @@
             <div class="row modRow">
               <div class="col">
                 <div class="savesSkill">
-                  <div id="survProf" class="checkBall unchecked"></div>
-                  <div id="survMod" class="display mod"></div>
+                  <label class="custom-control custom-checkbox">
+                    <input id="survProf" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <div id="survMod" class="display number mod"></div>
                   <div class="underline mod"></div>
                   <div class="lbl mod">Survival <span>(Wis)</span></div>
                 </div>
@@ -497,19 +569,19 @@
       </div>
       <div id="inspBlock" class="labelBlock1 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="inspiration" style="width: 30px; height: 30px; top: 4px; left: 3px;" class="display center"></div>
+        <div id="inspiration" style="width: 30px; height: 30px; top: 4px; left: 3px;" class="display number center"></div>
         <div class="lbl lbl1">Inspiration</div>
         <div class="hover"></div>
       </div>
       <div id="profBlock" class="labelBlock2 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="profBonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display center"></div>
+        <div id="profBonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display number mod center"></div>
         <div class="lbl lbl1">Proficiency Bonus</div>
         <div class="hover"></div>
       </div>
       <div id="percBlock" class="labelBlock3 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="passivePerc" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display center"></div>
+        <div id="passivePerc" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display number center"></div>
         <div class="lbl lbl1">Passive Wisdom (Perception)</div>
         <div class="hover"></div>
       </div>
@@ -1658,17 +1730,17 @@
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" class="name display center"></div>
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <div style="top: 46px; left: 324px; width: 22px;" class="display right"></div>
+        <div style="top: 48px; left: 324px; width: 22px;" class="display right"></div>
         <div style="top: 64px; left: 328px;" class="lbl2">Age</div>
-        <div style="top: 80px; left: 328px; width: 140px; height: 23px;"></div>
+        <div style="top: 82px; left: 328px; width: 140px;"></div>
         <div style="top: 98px; left: 328px;" class="lbl2">Eyes</div>
-        <div style="top: 46px; left: 474px; width: 140px;"></div>
+        <div style="top: 48px; left: 474px; width: 140px;"></div>
         <div style="top: 64px; left: 474px;" class="lbl2">Height</div>
-        <div style="top: 80px; left: 474px; width: 140px;" class="display"></div>
+        <div style="top: 82px; left: 474px; width: 140px;" class="display"></div>
         <div style="top: 98px; left: 474px;" class="lbl2">Skin</div>
-        <div style="top: 46px; left: 620px; width: 90px;" class="display"></div>
+        <div style="top: 48px; left: 620px; width: 90px;" class="display"></div>
         <div style="top: 64px; left: 620px;" class="lbl2">Weight</div>
-        <div style="top: 80px; left: 620px; width: 90px;" class="display"></div>
+        <div style="top: 82px; left: 620px; width: 90px;" class="display"></div>
         <div style="top: 98px; left: 620px;" class="lbl2">Hair</div>
         <div class="hover"></div>
       </div>

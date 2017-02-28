@@ -112,7 +112,7 @@ div .bg img {
   font-size: 8px;
   line-height: 8px;
   letter-spacing: -0.3px;
-  margin: -1px 0 -3px 3px;
+  margin: -1px 0 -3px 2px;
 }
 #pageHeader3 .lbl2 {
   font-size: 9px;
@@ -129,12 +129,14 @@ div .bg img {
   border-radius: 0;
   color: black;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 16px;
+  white-space: nowrap;
   letter-spacing: -0.3px;
   vertical-align: top;
 }
 .display.notes {
   font-size: 11px;
+  white-space: pre-line;
 }
 .display.custom-select {
   background-color: transparent;
@@ -154,24 +156,8 @@ div .bg img {
 .inputMode .checkBall {
   cursor: pointer;
 }
-.content .checkBall {
-  position: relative;
-  display: inline-block;
-  margin-top: 2px;
-  vertical-align: top;
-}
-.content .checkBall,
-.content .checkBall img {
-  width: 10px;
-  height: 10px;
-}
-.content .checkBall.unchecked {
-  content: url('img/CheckBox1.svg');
-}
-.content .checkBall.checked {
-  content: url('img/CheckBox2.svg');
-}
 .custom-checkbox {
+  min-height: 16px;
   position: absolute;
   padding-left: 12px;
   margin: 0;

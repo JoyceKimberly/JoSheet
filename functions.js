@@ -237,14 +237,7 @@ var characterFiles = [];
     objectToPage(parent, newPage);
     saveCookies();
   });
-/*
-  $('.page').on("click", ".checkBall.unchecked", function() {
-    $(this).removeClass('unchecked').addClass('checked');
-  });
-  $('.page').on("click", ".checkBall.checked", function() {
-    $(this).removeClass('checked').addClass('unchecked');
-  });
-*/
+
   $('#calcModalSave').click(function() {
     var character = {};
 
@@ -264,17 +257,23 @@ var characterFiles = [];
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 
-  $('.display').focusout(function() {
-    var dit = $(this);
+  $('.display').focusout(setValues);
+  $('.custom-control-input').change(setValues);
+
+  function setValues(event) {
+    var dit = $(event.target);
     var character = {};
     var key = dit.attr('id');
 
-    if ( dit.attr('id') === "name" ) {
+    if ( dit.is('#name') ) {
       if ( dit.text() !== "" ) {
         character.name = dit.text();
       } else {
         character.name = "JoSheet";
       };
+
+    } else if ( dit.is('.number') ) {
+      character[key] = Number(dit.text());
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
@@ -289,7 +288,8 @@ var characterFiles = [];
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-  });
+    /*console.log(file.character); /*debug*/
+  };
 
 }); // ----------------------------------------------------------------------------------
 
@@ -319,7 +319,10 @@ function setCharacter() {
     var key = Object.keys(file.character)[i];
     var ele = $("#" + key);
 
-    if ( ele.is('div') ) {
+    if ( ele.is('.display.number.mod') ) {
+      ele.text((file.character[key]>0?'+':'') + file.character[key]);
+
+    } else if ( ele.is('div') ) {
       ele.text(file.character[key]);
 
     } else if ( ele.is('input[type=checkbox]') ) {
