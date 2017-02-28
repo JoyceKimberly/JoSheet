@@ -388,6 +388,11 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   $('#calcModal').on('click', '#calcModalSave', function() {
     var character = {};
+    
+    $.each(AbilityScores.abbreviations, function(key, value) {
+      console.log( key + ": " + value );
+    });
+    
     character.baseStr = parseInt($('#baseStr').val());
     character.baseDex = parseInt($('#baseDex').val());
     character.baseCon = parseInt($('#baseCon').val());
