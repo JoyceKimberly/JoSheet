@@ -610,24 +610,6 @@ function getCookie(cname) {
   };
   return "";
 };
-/*
-var tDoc = {
-  info : {
-    SheetType : "Jo's",
-  },
-  bookmarkRoot : {
-    children : [{
-      children : [],
-    }],
-  },
-  getField : function(event) { return event; },
-};*/
-var app = {};
-//function desc(event) { return event; };
-tDoc.getField = function(event) { 
-  console.log(event);
-  return event; 
-};
 
 (function(window) {
 /*  window.onerror = function(msg, url, lineNo, columnNo, error) {
