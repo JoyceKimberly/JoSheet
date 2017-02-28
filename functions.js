@@ -265,11 +265,14 @@ var characterFiles = [];
     if ( dit.is('#class') ) {
       CurrentClasses[dit.val()] = ClassList[dit.val()];
     };
-
+    if ( dit.is('#race') ) {
+      $.extend(CurrentRace, RaceList[dit.val()]);
+    };
+    
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-    console.log(tDoc); /*debug*/
+    console.log(CurrentRace); /*debug*/
   };
 
   function objectToPage(obj, page) {
@@ -415,13 +418,13 @@ var characterFiles = [];
     if ( RaceList.hasOwnProperty(race) ) {
       var $raceEle = $('#race');
       $raceEle.append('<option value="' + race + '">' + RaceList[race].name + '</option>');
-      if ( RaceList[race].variants ) {
+      /*if ( RaceList[race].variants ) {
         for ( var subRace in RaceList[race].variants ) {
           if ( RaceList[race].variants.hasOwnProperty(subRace) ) {
             $raceEle.append('<option value="' + race + '-' + RaceList[race].variants[subRace] + '">-- ' + RaceList[race].variants[subRace] + '</option>');
           };
         };
-      };
+      };*/
     };
   };
   for ( var key in ClassList ) {
