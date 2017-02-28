@@ -431,7 +431,7 @@ var characterFiles = [];
     };
   };
 
-  console.log(RaceList); /*debug*/
+  console.log(ClassList); /*debug*/
   
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
@@ -621,8 +621,8 @@ var tDoc = {
     }],
   },
   getField : function(event) { return event; },
-};
-var app = {};*/
+};*/
+var app = {};
 //function desc(event) { return event; };
 tDoc.getField = function(event) { 
   console.log(event);
