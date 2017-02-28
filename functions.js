@@ -263,7 +263,7 @@ var characterFiles = [];
     };
     
     if ( dit.is('#class') ) {
-      CurrentClasses.push(ClassList[dit.val()]);
+      $.extend(CurrentClasses, ClassList[dit.val()]);
     };
 
     $.extend(true, file.character, character);
