@@ -236,7 +236,28 @@ var characterFiles = [];
 
   $('.display').focusout(setValues);
   $('.custom-control-input').change(setValues);
+  
+  function objectToPage(obj, page) {
+    var newPage = $('#page' + page + ' .page');
+    newPage.append(obj);
+  };
 
+  function overflowHider(obj) {
+    $.each( obj, function() {
+      var dit = $(this);
+      var visibleHeight = dit.find('.contentList').height();
+      var totalHeight = 0;
+      dit.find('.longContent').children('div').css("visibility", "visible");
+      dit.find('.longContent').children('div').each(function() {
+        var dit = $(this);
+        totalHeight = totalHeight + dit.outerHeight(true);
+        if ( totalHeight > visibleHeight ) {
+          dit.css("visibility", "hidden");
+        };
+      });
+    });
+  };
+  
   function setValues(event) {
     var dit = $(event.target);
     var character = {};
@@ -267,27 +288,6 @@ var characterFiles = [];
     setCharacter();
   };
 
-  function objectToPage(obj, page) {
-    var newPage = $('#page' + page + ' .page');
-    newPage.append(obj);
-  };
-
-  function overflowHider(obj) {
-    $.each( obj, function() {
-      var dit = $(this);
-      var visibleHeight = dit.find('.contentList').height();
-      var totalHeight = 0;
-      dit.find('.longContent').children('div').css("visibility", "visible");
-      dit.find('.longContent').children('div').each(function() {
-        var dit = $(this);
-        totalHeight = totalHeight + dit.outerHeight(true);
-        if ( totalHeight > visibleHeight ) {
-          dit.css("visibility", "hidden");
-        };
-      });
-    });
-  };
-
   function setCharacter() {
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
@@ -305,15 +305,15 @@ var characterFiles = [];
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
       };
+      
+      if ( ele.is('#class') ) {
+        CurrentClasses[ele.val()] = ClassList[ele.val()];
+      };
+      if ( ele.is('#race') ) {
+        $.extend(CurrentRace, RaceList[ele.val()]);
+      };
     };
     $('.name').text(file.character.name);
-    
-    if ( ele.is('#class') ) {
-      CurrentClasses[ele.val()] = ClassList[ele.val()];
-    };
-    if ( ele.is('#race') ) {
-      $.extend(CurrentRace, RaceList[ele.val()]);
-    };
     console.log(tDoc); /*debug*/
   };
 
