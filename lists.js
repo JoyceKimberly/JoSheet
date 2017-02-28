@@ -1,3 +1,7 @@
+tDoc.getField = function(event) { 
+  console.log(event);
+  return event; 
+};
 /*
 var tDoc = {
   info : {
@@ -12,11 +16,8 @@ var tDoc = {
 };*/
 var app = {};
 //function desc(event) { return event; };
-tDoc.getField = function(event) { 
-  console.log(event);
-  return event; 
-};
 
+/*
 var url = "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/";
 var lists = [
   url + "_variables/Lists.js",
@@ -31,7 +32,7 @@ var lists = [
   url + "_variables/ListsSpells.js",
   url + "_variables/ListsGear.js",
 ];
-
+*/
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
