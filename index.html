@@ -128,7 +128,7 @@
   </div>
   <div id="page1" class="outerPage" data-page="1">
     <div class="page">
-      <div id="pageHeader1" class="pageHeader z2 draggable editable">
+      <div id="pageHeader1" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader1.svg"></div>
         <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
@@ -165,37 +165,37 @@
         <div class="bg"></div>
         <div class="hover"></div>
       </div>
-      <div id="strBlock" class="attrBlock str z2 draggable editable">
+      <div id="strBlock" class="attrBlock str z2 draggable">
         <div class="bg"><img src="img/AttrBlock1.svg"></div>
         <div class="attrTxt lbl1">Strength</div>
         <div class="hover"></div>
       </div>
-      <div id="dexBlock" class="attrBlock dex z2 draggable editable">
+      <div id="dexBlock" class="attrBlock dex z2 draggable">
         <div class="bg"><img src="img/AttrBlock2.svg"></div>
         <div class="attrTxt lbl1">Dexterity</div>
         <div class="hover"></div>
       </div>
-      <div id="conBlock" class="attrBlock con z2 draggable editable">
+      <div id="conBlock" class="attrBlock con z2 draggable">
         <div class="bg"><img src="img/AttrBlock3.svg"></div>
         <div class="attrTxt lbl1">Constitution</div>
         <div class="hover"></div>
       </div>
-      <div id="intBlock" class="attrBlock int z2 draggable editable">
+      <div id="intBlock" class="attrBlock int z2 draggable">
         <div class="bg"><img src="img/AttrBlock4.svg"></div>
         <div class="attrTxt lbl1">Intelligence</div>
         <div class="hover"></div>
       </div>
-      <div id="wisBlock" class="attrBlock wis z2 draggable editable">
+      <div id="wisBlock" class="attrBlock wis z2 draggable">
         <div class="bg"><img src="img/AttrBlock5.svg"></div>
         <div class="attrTxt lbl1">Wisdom</div>
         <div class="hover"></div>
       </div>
-      <div id="chaBlock" class="attrBlock cha z2 draggable editable">
+      <div id="chaBlock" class="attrBlock cha z2 draggable">
         <div class="bg"><img src="img/AttrBlock6.svg"></div>
         <div class="attrTxt lbl1">Charisma</div>
         <div class="hover"></div>
       </div>
-      <div id="savesBlock" class="block2 z2 editable resizable resizableY">
+      <div id="savesBlock" class="block2 z2 resizable resizableY">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -306,7 +306,7 @@
         <div class="lbl1 lower">Saving Throws</div>
         <div class="hover"></div>
       </div>
-      <div id="skillsBlock" class="block2 z2 editable draggable">
+      <div id="skillsBlock" class="block2 z2 draggable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -495,18 +495,21 @@
         <div class="lbl1 lower">Skills</div>
         <div class="hover"></div>
       </div>
-      <div id="inspBlock" class="labelBlock1 z2 resizable resizableX">
+      <div id="inspBlock" class="labelBlock1 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
+        <div id="inspiration" style="width: 30px; height: 30px; top: 4px; left: 3px;" class="display center"></div>
         <div class="lbl lbl1">Inspiration</div>
         <div class="hover"></div>
       </div>
-      <div id="profBlock" class="labelBlock2 z2 resizable resizableX">
+      <div id="profBlock" class="labelBlock2 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
+        <div id="profBonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display center"></div>
         <div class="lbl lbl1">Proficiency Bonus</div>
         <div class="hover"></div>
       </div>
-      <div id="percBlock" class="labelBlock3 z2 resizable resizableX">
+      <div id="percBlock" class="labelBlock3 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
+        <div id="passivePerc" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display center"></div>
         <div class="lbl lbl1">Passive Wisdom (Perception)</div>
         <div class="hover"></div>
       </div>
@@ -514,7 +517,7 @@
         <div class="bg"></div>
         <div class="hover"></div>
       </div>
-      <div id="acBlock" class="acBlock cha z2 draggable editable">
+      <div id="acBlock" class="acBlock cha z2 draggable">
         <div class="bg"><img src="img/ACBlock.svg"></div>
         <div class="lbl1 lower">Armor<br>Class</div>
         <div class="hover"></div>
@@ -549,7 +552,7 @@
         <div class="lbl1 lower">Death Saves</div>
         <div class="hover"></div>
       </div>
-      <div id="langBlock" class="block1 z2 resizable editable">
+      <div id="langBlock" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -560,20 +563,32 @@
             </div>
             <div class="row profChecks">
               <div style="flex: 0 0 20%;" class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Light</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="lightProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Light</span>
+                </label>
               </div>
               <div style="flex: 0 0 27%;" class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Medium</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="mediumProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Medium</span>
+                </label>
               </div>
               <div style="flex: 0 0 22%;" class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Heavy</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="heavyProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Heavy</span>
+                </label>
               </div>
               <div class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Shields</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="shieldProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Shields</span>
+                </label>
               </div>
             </div>
             <div class="row spacerRow"></div>
@@ -584,16 +599,25 @@
             </div>
             <div class="row profChecks">
               <div class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Simple</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="simpleProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Simple</span>
+                </label>
               </div>
               <div class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Martial</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="martialProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Martial</span>
+                </label>
               </div>
               <div class="col">
-                <div class="checkBall unchecked"></div>
-                <div class="lbl lblInline">Other:</div>
+                <label class="custom-control custom-checkbox">
+                  <input id="otherProf" type="checkbox" class="custom-control-input">
+                  <span class="custom-control-indicator"></span>
+                  <span class="lbl lblInline custom-control-description">Other:</span>
+                </label>
               </div>
             </div>
             <div class="row">
@@ -696,7 +720,7 @@
         <div class="lbl1 lower">Proficiencies &amp; Languages</div>
         <div class="hover"></div>
       </div>
-      <div id="ltdFeatsBlock" class="block1 z2 resizable editable">
+      <div id="ltdFeatsBlock" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -899,7 +923,7 @@
         <div class="lbl1 lower">Limited Features</div>
         <div class="hover"></div>
       </div>
-      <div id="actionsBlock" class="block7 z2 resizable editable">
+      <div id="actionsBlock" class="block7 z2 resizable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -1059,7 +1083,7 @@
         <div class="lbl1 lower">Actions</div>
         <div class="hover"></div>
       </div>
-      <div id="attackBlock" class="block6 z2 resizable editable">
+      <div id="attackBlock" class="block6 z2 resizable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -1383,7 +1407,7 @@
         <div class="lbl1 lower">Attacks &amp; Spellcasting</div>
         <div class="hover"></div>
       </div>
-      <div id="armorBlock" class="block1 z2 resizable editable">
+      <div id="armorBlock" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content contentList">
           <div class="longContent">
@@ -1434,12 +1458,18 @@
               <div class="col">
                 <div class="row">
                   <div class="col col-6">
-                    <div class="checkBall unchecked"></div>
-                    <div class="lbl lblInline">Medium</div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="mediumAcBonus" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="lbl lblInline custom-control-description">Medium</span>
+                    </label>
                   </div>
                   <div class="col">
-                    <div class="checkBall unchecked"></div>
-                    <div class="lbl lblInline">Heavy</div>
+                    <label class="custom-control custom-checkbox">
+                      <input id="heavyAcBonus" type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                      <span class="lbl lblInline custom-control-description">Heavy</span>
+                    </label>
                   </div>
                 </div>
               </div>
@@ -1622,7 +1652,7 @@
   </div>
   <div id="page2" class="outerPage" data-page="2">
     <div class="page">
-      <div id="pageHeader2" class="pageHeader z2 draggable editable">
+      <div id="pageHeader2" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader2.svg"></div>
         <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
@@ -1705,7 +1735,7 @@
   </div>
   <div id="page3" class="outerPage" data-page="3">
     <div class="page">
-      <div id="pageHeader3" class="pageHeader z2 draggable editable">
+      <div id="pageHeader3" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader3.svg"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; line-height: 38px;" class="display center"></div>
         <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>

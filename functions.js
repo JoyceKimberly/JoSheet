@@ -237,14 +237,14 @@ var characterFiles = [];
     objectToPage(parent, newPage);
     saveCookies();
   });
-
-  $('.editable').on("click", ".checkBall.unchecked", function() {
+/*
+  $('.page').on("click", ".checkBall.unchecked", function() {
     $(this).removeClass('unchecked').addClass('checked');
   });
-  $('.editable').on("click", ".checkBall.checked", function() {
+  $('.page').on("click", ".checkBall.checked", function() {
     $(this).removeClass('checked').addClass('unchecked');
   });
-
+*/
   $('#calcModalSave').click(function() {
     var character = {};
 
@@ -275,10 +275,15 @@ var characterFiles = [];
       } else {
         character.name = "JoSheet";
       };
+
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
+
     } else if ( dit.is('select') ) {
       character[key] = dit.val();
+
+    } else if ( dit.is('input[type=checkbox]') ) {
+      character[key] = dit.prop('checked');
     };
 
     $.extend(true, file.character, character);
@@ -316,6 +321,10 @@ function setCharacter() {
 
     if ( ele.is('div') ) {
       ele.text(file.character[key]);
+
+    } else if ( ele.is('input[type=checkbox]') ) {
+      ele.prop('checked', file.character[key]);
+
     } else if ( ele.is('select') || ele.is('input') ) {
       ele.val(file.character[key]);
     };

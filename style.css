@@ -120,7 +120,6 @@ div .bg img {
 }
 .lbl.lblInline {
   display: inline;
-  margin-left: 2px;
 }
 
 .display,
@@ -172,6 +171,24 @@ div .bg img {
 .content .checkBall.checked {
   content: url('img/CheckBox2.svg');
 }
+.custom-checkbox {
+  position: absolute;
+  padding-left: 12px;
+  margin: 0;
+}
+.custom-checkbox .custom-control-indicator {
+  width: 10px;
+  height: 10px;
+  border: none;
+  background: none;
+  content: url('img/CheckBox1.svg');
+  top: 2px;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-indicator {
+  border: none;
+  background: none;
+  content: url('img/CheckBox2.svg');
+}
 
 .outerPage .savesSkill {
   width: 100%;
@@ -212,21 +229,21 @@ div .bg img {
   border-bottom: 1px solid #d5d7db;
 }
 
-.labelBlock1 img,
-.labelBlock2 img,
-.labelBlock3 img {
+.labelBlock img {
   z-index: 1;
   position: absolute;
   top: 0;
 }
-.labelBlock1 .lbl,
-.labelBlock2 .lbl,
-.labelBlock3 .lbl {
+.labelBlock .lbl {
   width: 100%;
   text-align: center;
   font-size: 7px;
   z-index: 2;
   right: 0;
+}
+.labelBlock .display {
+  font-size: 18px;
+  line-height: 30px;
 }
 .labelBlock1 .lbl {
   padding-left: 33px;
@@ -324,7 +341,7 @@ div .bg img {
   border: 1px solid rgba(4, 141, 204, 0.2);
   background-color: rgba(56, 166, 229, 0.2);
 }
-.inputMode .editable .display:hover {
+.inputMode .display:hover {
   border: 1px solid rgba(77, 15, 167, 0.2);
   background-color: rgba(105, 20, 229, 0.2);
 }
