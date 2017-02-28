@@ -265,7 +265,7 @@ var characterFiles = [];
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-    /*console.log(file.character); /*debug*/
+    console.log(file.character); /*debug*/
   };
 
   function objectToPage(obj, page) {
