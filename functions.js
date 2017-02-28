@@ -262,17 +262,9 @@ var characterFiles = [];
       character[key] = dit.prop('checked');
     };
     
-    if ( dit.is('#class') ) {
-      CurrentClasses[dit.val()] = ClassList[dit.val()];
-    };
-    if ( dit.is('#race') ) {
-      $.extend(CurrentRace, RaceList[dit.val()]);
-    };
-    
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-    console.log(CurrentRace); /*debug*/
   };
 
   function objectToPage(obj, page) {
@@ -315,6 +307,14 @@ var characterFiles = [];
       };
     };
     $('.name').text(file.character.name);
+    
+    if ( ele.is('#class') ) {
+      CurrentClasses[ele.val()] = ClassList[ele.val()];
+    };
+    if ( ele.is('#race') ) {
+      $.extend(CurrentRace, RaceList[ele.val()]);
+    };
+    console.log(tDoc); /*debug*/
   };
 
   function resetCharacter() {
@@ -438,8 +438,6 @@ var characterFiles = [];
     };
   };
 
-  console.log(tDoc); /*debug*/
-  
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
