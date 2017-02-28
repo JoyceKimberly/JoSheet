@@ -1,4 +1,4 @@
-var tDoc = {
+/*var tDoc = {
   info : {
     SheetType : "Jo's",
   },
@@ -8,7 +8,7 @@ var tDoc = {
     }],
   },
   //getField : function(event) { return event; },
-};
+};*/
 tDoc.getField = function(event) { 
   console.log(event);
   return event; 
