@@ -1,4 +1,21 @@
-(function($) { $(document).ready(function() { // ----------------------------------------
+/*
+var tDoc = {
+  info : {
+    SheetType : "Jo's",
+  },
+  bookmarkRoot : {
+    children : [{
+      children : [],
+    }],
+  },
+  getField : function(event) { return event; },
+};*/
+var app = {};
+//function desc(event) { return event; };
+tDoc.getField = function(event) { 
+  console.log(event);
+  return event; 
+};
 
 var url = "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/";
 var lists = [
@@ -14,9 +31,6 @@ var lists = [
   url + "_variables/ListsSpells.js",
   url + "_variables/ListsGear.js",
 ];
-
-}); // ----------------------------------------------------------------------------------
-})(jQuery); // --------------------------------------------------------------------------
 
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
