@@ -622,6 +622,10 @@ var tDoc = {
 };
 var app = {};*/
 //function desc(event) { return event; };
+tDoc.getField = function(event) { 
+  console.log(event);
+  return event; 
+};
 
 (function(window) {
   window.onerror = function(msg, url, lineNo, columnNo, error) {
