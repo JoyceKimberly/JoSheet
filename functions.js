@@ -628,7 +628,7 @@ tDoc.getField = function(event) {
 };
 
 (function(window) {
-  window.onerror = function(msg, url, lineNo, columnNo, error) {
+/*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -645,7 +645,7 @@ tDoc.getField = function(event) {
     };
     return true;
   };
-
+*/
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
