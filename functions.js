@@ -611,18 +611,13 @@ function getCookie(cname) {
   return "";
 };
 
-/*var tDoc = {
-  info : {
-    SheetType : "Jo's",
-  },
-  bookmarkRoot : {
-    children : [{
-      children : [],
-    }],
-  },
-  getField : function(event) { return event; },
-};*/
+//var tDoc = {};
 tDoc.info = { SheetType : "JoSheet" };
+tDoc.bookmarkRoot = {
+  children : [{
+    children : [],
+  }],
+};
 tDoc.getField = function(event) { 
   console.log(event);
   return event; 
