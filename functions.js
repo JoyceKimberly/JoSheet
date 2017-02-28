@@ -388,7 +388,6 @@ var characterFiles = [];
   // ------------------------------------------------------------------------------------
   $('#calcModal').on('click', '#calcModalSave', function() {
     var character = {};
-    
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = parseInt($("#base" + value).val());
       AbilityScores.current[value].base = parseInt($("#base" + value).val());
@@ -405,12 +404,6 @@ var characterFiles = [];
           $("#race" + value).text(RaceList[file.character.race].scores[key]);
           AbilityScores.current[value].race = RaceList[file.character.race].scores[key];
         });
-        /*$('#raceStr').text(RaceList[file.character.race].scores[0]);
-        $('#raceDex').text(RaceList[file.character.race].scores[1]);
-        $('#raceCon').text(RaceList[file.character.race].scores[2]);
-        $('#raceInt').text(RaceList[file.character.race].scores[3]);
-        $('#raceWis').text(RaceList[file.character.race].scores[4]);
-        $('#raceCha').text(RaceList[file.character.race].scores[5]);*/
       };
 
   }).on('hidden.bs.modal', function() {
