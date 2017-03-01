@@ -689,6 +689,6 @@ var app = {};
   };
 })(window);
 
-var Object.prototype.toSource = function() {};
+Object.prototype.toSource = function() {};
 Object.prototype.toSource = null;
 
