@@ -30,6 +30,9 @@ tDoc.getField = function(event) {
   } else if ( event === "Template.extras.WSfront" ) {
     field = "";
 
+  } else if ( event === "Class Features Remember" ) {
+    field = "";
+
   } else if ( event === "Proficiencies Remember" ) {
     field = "";
 
