@@ -289,8 +289,6 @@ var characterFiles = [];
   };
 
   function setCharacter() {
-    FindRace();
-    ApplyProficiencies(true);
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
       var ele = $("#" + key);
@@ -307,60 +305,10 @@ var characterFiles = [];
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
       };
-
-      classes.old.toSource = function() {
-        return $.extend( {}, classes.old );
-      };
-
-      if ( ele.is('#class') ) {
-        FindClasses();
-
-      } else if ( ele.is('#race') ) {
-        FindRace();
-
-      } else if ( ele.is('#level') ) {
-        LoadLevelsonStartup();
-
-      } else if ( ele.is('#background') ) {
-        FindBackground();
-
-      } else if ( ele.is('#armor') ) {
-        FindArmor();
-
-      } else if ( ele.is('#shield') ) {
-        FindShield();
-
-      };
     };
     $('.name').text(file.character.name);
     console.log(tDoc); /*debug*/
-    console.log(classes);
-    console.log(CurrentRace);
-    console.log(CurrentBackground);
-    console.log(CurrentArmour);
-    console.log(CurrentShield);
   };
-/*
-  //setListsUnitSystem(false, true);
-  //UAstartupCode();
-  FindClasses();
-  FindRace();
-  //FindCompRace();
-  //FindWeapons();
-  //FindCompWeapons();
-  FindArmor();
-  FindBackground();
-  //FindFeats();
-  LoadLevelsonStartup();
-  //FindManualOtherWeapons(true);
-  ApplyProficiencies(true);
-  //UpdateTooltips();
-  //SetRichTextFields();
-
-  console.log(CurrentBackground);
-  console.log(CurrentWeapons);
-  console.log(CurrentArmour);
-*/
 
   function resetCharacter() {
     file.character = {
@@ -444,12 +392,32 @@ var characterFiles = [];
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
-      if ( file.character.race ) {
+  //setListsUnitSystem(false, true);
+  //UAstartupCode();
+  FindClasses();
+  FindRace();
+  //FindCompRace();
+  //FindWeapons();
+  //FindCompWeapons();
+  FindArmor();
+  FindBackground();
+  //FindFeats();
+  LoadLevelsonStartup();
+  //FindManualOtherWeapons(true);
+  ApplyProficiencies(true);
+  //UpdateTooltips();
+  //SetRichTextFields();
+
+  console.log(CurrentBackground);
+  console.log(CurrentWeapons);
+  console.log(CurrentArmour);
+
+    if ( file.character.race ) {
         $.each(AbilityScores.abbreviations, function(key, value) {
           $("#race" + value).text(RaceList[file.character.race].scores[key]);
           AbilityScores.current[value].race = RaceList[file.character.race].scores[key];
         });
-      };
+    };
 
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
