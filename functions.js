@@ -289,6 +289,8 @@ var characterFiles = [];
   };
 
   function setCharacter() {
+    FindRace();
+    ApplyProficiencies(true);
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
       var ele = $("#" + key);
@@ -306,16 +308,59 @@ var characterFiles = [];
         ele.val(file.character[key]);
       };
 
-      if ( ele.is('#class') ) {
-        CurrentClasses[ele.val()] = ClassList[ele.val()];
+      classes.old.toSource = function() {
+        return $.extend( {}, classes.old );
       };
-      if ( ele.is('#race') ) {
-        $.extend(CurrentRace, RaceList[ele.val()]);
+
+      if ( ele.is('#class') ) {
+        FindClasses();
+
+      } else if ( ele.is('#race') ) {
+        FindRace();
+
+      } else if ( ele.is('#level') ) {
+        LoadLevelsonStartup();
+
+      } else if ( ele.is('#background') ) {
+        FindBackground();
+
+      } else if ( ele.is('#armor') ) {
+        FindArmor();
+
+      } else if ( ele.is('#shield') ) {
+        FindShield();
+
       };
     };
     $('.name').text(file.character.name);
     console.log(tDoc); /*debug*/
+    console.log(classes);
+    console.log(CurrentRace);
+    console.log(CurrentBackground);
+    console.log(CurrentArmour);
+    console.log(CurrentShield);
   };
+/*
+  //setListsUnitSystem(false, true);
+  //UAstartupCode();
+  FindClasses();
+  FindRace();
+  //FindCompRace();
+  //FindWeapons();
+  //FindCompWeapons();
+  FindArmor();
+  FindBackground();
+  //FindFeats();
+  LoadLevelsonStartup();
+  //FindManualOtherWeapons(true);
+  ApplyProficiencies(true);
+  //UpdateTooltips();
+  //SetRichTextFields();
+
+  console.log(CurrentBackground);
+  console.log(CurrentWeapons);
+  console.log(CurrentArmour);
+*/
 
   function resetCharacter() {
     file.character = {
@@ -434,21 +479,9 @@ var characterFiles = [];
     };
   };
 
-  //setListsUnitSystem(false, true);
-  //UAstartupCode();
-  FindClasses();
-  //FindRace();
-  //FindCompRace();
-  //FindWeapons();
-  //FindCompWeapons();
-  //FindArmor();
-  //FindBackground();
-  //FindFeats();
-  //LoadLevelsonStartup();
-  //FindManualOtherWeapons(true);
-  //ApplyProficiencies(false);
-  //UpdateTooltips();
-  //SetRichTextFields();
+  classes.old.toSource = function() {
+    return $.extend( {}, classes.old );
+  };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
@@ -555,6 +588,11 @@ var characterFiles = [];
   };
 
 }); // ----------------------------------------------------------------------------------
+/*
+Object.prototype.toSource = function(event) {
+  return $.extend( {}, event );
+};
+*/
 })(jQuery); // --------------------------------------------------------------------------
 
 var CLIENT_ID = 'ztucdd8z8fjuh08';
