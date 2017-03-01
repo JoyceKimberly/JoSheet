@@ -684,6 +684,7 @@ var app = {};
   };
 })(window);
 
-Object.prototype.toSource = function Object_toSource() {
+/*Object.prototype.toSource = function Object_toSource() {
   return uneval(this);
 };
+*/
