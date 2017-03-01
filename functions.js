@@ -282,6 +282,10 @@ var characterFiles = [];
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
     };
+  
+    classes.old.toSource = function() {
+      return $.extend( {}, classes.old );
+    };
     
     if ( dit.is('#class') ) {
       ApplyClasses(dit.val());
@@ -439,31 +443,33 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
-    classes.old.toSource = function() {
-      return $.extend( {}, classes.old );
-    };
+  
+  classes.old.toSource = function() {
+    return $.extend( {}, classes.old );
+  };
     
-    //setListsUnitSystem(false, true);
-    //UAstartupCode();
-    FindClasses();
-    FindRace();
-    //FindCompRace();
-    //FindWeapons();
-    //FindCompWeapons();
-    FindArmor();
-    FindBackground();
-    //FindFeats();
-    LoadLevelsonStartup();
-    //FindManualOtherWeapons(true);
-    ApplyProficiencies(true);
-    //UpdateTooltips();
-    //SetRichTextFields();
+  //setListsUnitSystem(false, true);
+  //UAstartupCode();
+  FindClasses();
+  FindRace();
+  //FindCompRace();
+  //FindWeapons();
+  //FindCompWeapons();
+  FindArmor();
+  FindBackground();
+  //FindFeats();
+  LoadLevelsonStartup();
+  //FindManualOtherWeapons(true);
+  ApplyProficiencies(true);
+  //UpdateTooltips();
+  //SetRichTextFields();
 
-    console.log(classes);
-    console.log(CurrentRace);
-    console.log(CurrentBackground);
-    console.log(CurrentWeapons);
-    console.log(CurrentArmour);
+  console.log(classes);
+  console.log(CurrentRace);
+  console.log(CurrentBackground);
+  console.log(CurrentWeapons);
+  console.log(CurrentArmour);
+  
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
