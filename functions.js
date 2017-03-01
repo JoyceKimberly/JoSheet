@@ -285,7 +285,7 @@ var characterFiles = [];
     
     if ( dit.is('#class') ) {
       console.log(classes);
-      FindClasses();
+      ApplyArmor(dit.val());
       console.log(classes);
     };
 
