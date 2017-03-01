@@ -27,8 +27,7 @@ var lists = [
   url + "_variables/ListsSpells.js",
   url + "_variables/ListsGear.js",
 ];
-*/
-/*
+
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
