@@ -433,6 +433,8 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
+  
+  console.log(ClassSubList.toSource());
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
