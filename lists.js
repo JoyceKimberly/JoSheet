@@ -22,8 +22,8 @@ var app = {};
 //function desc(event) { return event; };
 
 function What(event) {
-  console.log(tDoc.getField(field) ? tDoc.getField(field).value : "");
-  return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  console.log(tDoc.getField(field));
+  //return tDoc.getField(field) ? tDoc.getField(field).value : "";
 };
 
 /*
