@@ -429,7 +429,7 @@ var characterFiles = [];
     classes.old.toSource = function() {
       return $.extend( {}, classes.old );
     };
-    /*
+    
     //setListsUnitSystem(false, true);
     //UAstartupCode();
     FindClasses();
@@ -450,7 +450,7 @@ var characterFiles = [];
     console.log(CurrentRace);
     console.log(CurrentBackground);
     console.log(CurrentWeapons);
-    console.log(CurrentArmour);*/
+    console.log(CurrentArmour);
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
