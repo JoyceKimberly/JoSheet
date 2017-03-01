@@ -14,7 +14,6 @@ app.thermometer = {
 
 tDoc.getField = function(event) {
   var field = {};
-  field.display = "";
 
   if ( event === "Class and Levels" ) {
     field.value = file.character.class;
@@ -81,6 +80,7 @@ tDoc.getField = function(event) {
 };
 
 function Hide() {};
+function DontPrint() {};
 function testSource() { return false; };
 
 /*
