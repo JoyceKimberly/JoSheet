@@ -7,11 +7,20 @@ tDoc.bookmarkRoot = {
 };
 
 tDoc.getField = function(event) {
-  return event;
+  var field = event;
+  if ( event === "Class and Levels" ) {
+    field = file.character.class;
+
+  } else if ( event === "Character Level" ) {
+    field = file.character.level;
+
+  };
+  console.log(field);
+  return field;
 };
 var app = {};
 //function desc(event) { return event; };
-
+/*
 function What(event) {
   //return tDoc.getField(field) ? tDoc.getField(field).value : "";
   var field = event;
@@ -25,7 +34,7 @@ function What(event) {
   console.log(field);
   return field;
 };
-
+*/
 /*
 var url = "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/";
 var lists = [
