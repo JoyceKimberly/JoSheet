@@ -284,6 +284,7 @@ var characterFiles = [];
     };
     
     if ( dit.is('#class') ) {
+      console.log(classes);
       FindClasses();
       console.log(classes);
     };
