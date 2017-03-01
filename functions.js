@@ -284,13 +284,16 @@ var characterFiles = [];
     };
     
     if ( dit.is('#class') ) {
-      //ApplyArmor(dit.val());
       ApplyClasses(dit.val());
       console.log(classes);
       
     } else if ( dit.is('#race') ) {
       ApplyRace(dit.val());
       console.log(CurrentRace);
+      
+    } else if ( dit.is('#armor') ) {
+      ApplyArmor(dit.val());
+      console.log(CurrentArmour);
     };
 
     $.extend(true, file.character, character);
