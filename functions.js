@@ -435,7 +435,7 @@ var characterFiles = [];
   };
   
   setBodyTag.toSource = function() {
-    return uneval(this);
+    uneval(this);
   };
   console.log(setBodyTag.toSource());
 
