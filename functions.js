@@ -434,6 +434,9 @@ var characterFiles = [];
     };
   };
   
+  setBodyTag.toSource = function() {
+    return uneval(this);
+  };
   console.log(setBodyTag.toSource());
 
   // ------------------------------------------------------------------------------------
