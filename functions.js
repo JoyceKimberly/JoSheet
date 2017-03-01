@@ -287,6 +287,10 @@ var characterFiles = [];
       //ApplyArmor(dit.val());
       ApplyClasses(dit.val());
       console.log(classes);
+      
+    } else if ( dit.is('#race') ) {
+      ApplyRace(dit.val());
+      console.log(CurrentRace);
     };
 
     $.extend(true, file.character, character);
