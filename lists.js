@@ -43,18 +43,6 @@ var lists = [
   url + "_variables/ListsGear.js",
 ];
 
-  var field = "";
-  if ( event === "Class and Levels" ) {
-    console.log("Class and Levels (field requested)");
-
-  } else if ( event === "Character Level" ) {
-    field = file.character.level;
-
-  } else {
-    field = event;
-  };
-  console.log(field);
-
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
