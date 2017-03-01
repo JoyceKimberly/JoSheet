@@ -72,10 +72,18 @@ tDoc.getField = function(event) {
     field.checkThisBox = function() {};
 
   } else if ( event === "AC Armor Description" ) {
-    field.value = file.character.armor;
+    if ( file.character.armor ) {
+      field.value = file.character.armor;
+    } else {
+      field.value = "";
+    };
 
   } else if ( event === "AC Shield Bonus Description" ) {
-    field.value = file.character.shield;
+    if ( file.character.shield ) {
+      field.value = file.character.shield;
+    } else {
+      field.value = "";
+    };
 
   };
   //console.log(event + ": " + JSON.stringify(field));
