@@ -15,7 +15,7 @@ tDoc.getField = function(event) {
     field = file.character.level.toString();
 
   };
-  //console.log(field);
+  console.log(field);
   return field;
 };
 var app = {};
@@ -82,7 +82,7 @@ function testSource(key, obj, CSatt, concise) {
 function FindClasses(event) {
 	if (event === undefined) {
 		classes.field = What("Class and Levels");
-		console.log(classes.field);
+		console.log(classes);
 	};
 	var temp = clean(classes.field.toLowerCase()) === "" ? "" : classes.field.toLowerCase();
 	var tempArray = [];
