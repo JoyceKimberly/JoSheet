@@ -235,7 +235,7 @@ var characterFiles = [];
   });
 
   $('.display').focusout(setValues);
-  $('.custom-control-input').change(setValues);
+  $('.display, .custom-control-input').change(setValues);
 
   function objectToPage(obj, page) {
     var newPage = $('#page' + page + ' .page');
