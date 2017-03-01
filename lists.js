@@ -21,7 +21,7 @@ tDoc.getField = function(event) {
 var app = {};
 //function desc(event) { return event; };
 
-function What(event) {
+function What(field) {
   console.log(tDoc.getField(field));
   return tDoc.getField(field) ? tDoc.getField(field).value : "";
 };
