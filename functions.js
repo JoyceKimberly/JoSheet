@@ -611,7 +611,7 @@ function getCookie(cname) {
   };
   return "";
 };
-
+/*
 //var tDoc = {};
 tDoc.info = { SheetType : "JoSheet" };
 tDoc.bookmarkRoot = {
@@ -624,7 +624,7 @@ tDoc.getField = function(event) {
   return event; 
 };
 var app = {};
-
+*/
 (function(window) {
 /*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
