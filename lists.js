@@ -13,18 +13,17 @@ var app = {};
 //function desc(event) { return event; };
 
 function What(event) {
-	//return tDoc.getField(field) ? tDoc.getField(field).value : "";
-  var field = "";
+  //return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  var field = event;
   if ( event === "Class and Levels" ) {
     console.log("Class and Levels (field requested)");
 
   } else if ( event === "Character Level" ) {
     field = file.character.level;
 
-  } else {
-    console.log(field);
-    return field;
   };
+  console.log(field);
+  return field;
 };
 
 /*
