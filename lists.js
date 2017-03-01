@@ -16,7 +16,7 @@ function What(event) {
   //return tDoc.getField(field) ? tDoc.getField(field).value : "";
   var field = event;
   if ( event === "Class and Levels" ) {
-    console.log("Class and Levels (field requested)");
+    field = file.character.class;
 
   } else if ( event === "Character Level" ) {
     field = file.character.level;
@@ -81,8 +81,7 @@ function testSource(key, obj, CSatt, concise) {
 //detects classes entered and parses information to global classes variable
 function FindClasses(event) {
 	if (event === undefined) {
-		//classes.field = What("Class and Levels");
-    classes.field = file.character.class;
+		classes.field = What("Class and Levels");
 	};
 	var temp = clean(classes.field.toLowerCase()) === "" ? "" : classes.field.toLowerCase();
 	var tempArray = [];
