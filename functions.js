@@ -685,6 +685,6 @@ var app = {};
 })(window);
 
 ClassSubList.prototype.toSource = function() {
-  console.log(this);
-  return this.toString();
+  console.log('toSource');
+  //return this.toString();
 };
