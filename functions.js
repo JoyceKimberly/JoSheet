@@ -392,30 +392,6 @@ var characterFiles = [];
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
-    classes.old.toSource = function() {
-      return $.extend( {}, classes.old );
-    };
-    
-    //setListsUnitSystem(false, true);
-    //UAstartupCode();
-    FindClasses();
-    FindRace();
-    //FindCompRace();
-    //FindWeapons();
-    //FindCompWeapons();
-    FindArmor();
-    FindBackground();
-    //FindFeats();
-    LoadLevelsonStartup();
-    //FindManualOtherWeapons(true);
-    ApplyProficiencies(true);
-    //UpdateTooltips();
-    //SetRichTextFields();
-
-    console.log(CurrentBackground);
-    console.log(CurrentWeapons);
-    console.log(CurrentArmour);
-
     if ( file.character.race ) {
       $.each(AbilityScores.abbreviations, function(key, value) {
         $("#race" + value).text(RaceList[file.character.race].scores[key]);
@@ -450,7 +426,29 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
+    classes.old.toSource = function() {
+      return $.extend( {}, classes.old );
+    };
+    
+    //setListsUnitSystem(false, true);
+    //UAstartupCode();
+    FindClasses();
+    FindRace();
+    //FindCompRace();
+    //FindWeapons();
+    //FindCompWeapons();
+    FindArmor();
+    FindBackground();
+    //FindFeats();
+    LoadLevelsonStartup();
+    //FindManualOtherWeapons(true);
+    ApplyProficiencies(true);
+    //UpdateTooltips();
+    //SetRichTextFields();
 
+    console.log(CurrentBackground);
+    console.log(CurrentWeapons);
+    console.log(CurrentArmour);
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
