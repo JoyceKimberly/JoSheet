@@ -434,9 +434,6 @@ var characterFiles = [];
     };
   };
 
-  console.log(classes);
-  classes.field = file.character.class;
-
   //setListsUnitSystem(false, true);
   //UAstartupCode();
   FindClasses();
@@ -452,8 +449,6 @@ var characterFiles = [];
   //ApplyProficiencies(false);
   //UpdateTooltips();
   //SetRichTextFields();
-
-  console.log(classes);
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
