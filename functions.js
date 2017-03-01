@@ -284,8 +284,8 @@ var characterFiles = [];
     };
     
     if ( dit.is('#class') ) {
-      console.log(classes);
-      ApplyArmor(dit.val());
+      //ApplyArmor(dit.val());
+      ApplyClasses(dit.val());
       console.log(classes);
     };
 
