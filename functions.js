@@ -282,6 +282,11 @@ var characterFiles = [];
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
     };
+    
+    if ( dit.is('#class') ) {
+      FindClasses();
+      console.log(classes);
+    };
 
     $.extend(true, file.character, character);
     saveCookies();
