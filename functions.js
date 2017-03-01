@@ -684,7 +684,7 @@ var app = {};
   };
 })(window);
 
-ClassSubList.prototype.toSource = function() {
+ClassSubList.prototype.toSource = function Object_toSource() {
   console.log('toSource');
-  //return this.toString();
+  //return uneval(this);
 };
