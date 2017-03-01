@@ -7,6 +7,7 @@ tDoc.bookmarkRoot = {
 };
 
 tDoc.getField = function(event) {
+  console.log(event);
   var field = "";
   if ( event === "Class and Levels" ) {
     field = file.character.class;
