@@ -23,7 +23,8 @@ var app = {};
 
 function What(field) {
   console.log(tDoc.getField(field));
-  return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  //return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  return tDoc.getField(field);
 };
 
 /*
