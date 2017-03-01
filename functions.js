@@ -392,31 +392,35 @@ var characterFiles = [];
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
-  //setListsUnitSystem(false, true);
-  //UAstartupCode();
-  FindClasses();
-  FindRace();
-  //FindCompRace();
-  //FindWeapons();
-  //FindCompWeapons();
-  FindArmor();
-  FindBackground();
-  //FindFeats();
-  LoadLevelsonStartup();
-  //FindManualOtherWeapons(true);
-  ApplyProficiencies(true);
-  //UpdateTooltips();
-  //SetRichTextFields();
+    classes.old.toSource = function() {
+      return $.extend( {}, classes.old );
+    };
+    
+    //setListsUnitSystem(false, true);
+    //UAstartupCode();
+    FindClasses();
+    FindRace();
+    //FindCompRace();
+    //FindWeapons();
+    //FindCompWeapons();
+    FindArmor();
+    FindBackground();
+    //FindFeats();
+    LoadLevelsonStartup();
+    //FindManualOtherWeapons(true);
+    ApplyProficiencies(true);
+    //UpdateTooltips();
+    //SetRichTextFields();
 
-  console.log(CurrentBackground);
-  console.log(CurrentWeapons);
-  console.log(CurrentArmour);
+    console.log(CurrentBackground);
+    console.log(CurrentWeapons);
+    console.log(CurrentArmour);
 
     if ( file.character.race ) {
-        $.each(AbilityScores.abbreviations, function(key, value) {
-          $("#race" + value).text(RaceList[file.character.race].scores[key]);
-          AbilityScores.current[value].race = RaceList[file.character.race].scores[key];
-        });
+      $.each(AbilityScores.abbreviations, function(key, value) {
+        $("#race" + value).text(RaceList[file.character.race].scores[key]);
+        AbilityScores.current[value].race = RaceList[file.character.race].scores[key];
+      });
     };
 
   }).on('hidden.bs.modal', function() {
@@ -445,10 +449,6 @@ var characterFiles = [];
     if ( BackgroundList.hasOwnProperty(key) ) {
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
-  };
-
-  classes.old.toSource = function() {
-    return $.extend( {}, classes.old );
   };
 
   // ------------------------------------------------------------------------------------
