@@ -20,21 +20,13 @@ tDoc.getField = function(event) {
 };
 var app = {};
 //function desc(event) { return event; };
-/*
+
 function What(event) {
   //return tDoc.getField(field) ? tDoc.getField(field).value : "";
-  var field = event;
-  if ( event === "Class and Levels" ) {
-    field = file.character.class;
 
-  } else if ( event === "Character Level" ) {
-    field = file.character.level;
-
-  };
-  console.log(field);
-  return field;
+  console.log(event);
 };
-*/
+
 /*
 var url = "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/";
 var lists = [
