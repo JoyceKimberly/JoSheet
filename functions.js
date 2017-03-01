@@ -1,7 +1,7 @@
 var dbx;
 var cWidth = 745;
 var moveEnabled = true;
-var file = {
+window.file = {
   objects   : {},
   character : {},
   notes     : {},
@@ -236,7 +236,7 @@ var characterFiles = [];
 
   $('.display').focusout(setValues);
   $('.custom-control-input').change(setValues);
-  
+
   function objectToPage(obj, page) {
     var newPage = $('#page' + page + ' .page');
     newPage.append(obj);
@@ -257,7 +257,7 @@ var characterFiles = [];
       });
     });
   };
-  
+
   function setValues(event) {
     var dit = $(event.target);
     var character = {};
@@ -282,7 +282,7 @@ var characterFiles = [];
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
     };
-    
+
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
@@ -305,7 +305,7 @@ var characterFiles = [];
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
       };
-      
+
       if ( ele.is('#class') ) {
         CurrentClasses[ele.val()] = ClassList[ele.val()];
       };
@@ -393,7 +393,7 @@ var characterFiles = [];
       AbilityScores.current[value].base = parseInt($("#base" + value).val());
     });
     $.extend(true, file.character, character);
-    
+
     setCharacter();
     saveCookies();
     $(this).removeClass('btn-primary').addClass('btn-success');
@@ -433,11 +433,27 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
-  
-  setBodyTag.toSource = function() {
-    return this.toString();
-  };
-  console.log(setBodyTag.toSource());
+
+  console.log(classes);
+  classes.field = file.character.class;
+
+  //setListsUnitSystem(false, true);
+  //UAstartupCode();
+  FindClasses();
+  //FindRace();
+  //FindCompRace();
+  //FindWeapons();
+  //FindCompWeapons();
+  //FindArmor();
+  //FindBackground();
+  //FindFeats();
+  //LoadLevelsonStartup();
+  //FindManualOtherWeapons(true);
+  //ApplyProficiencies(false);
+  //UpdateTooltips();
+  //SetRichTextFields();
+
+  console.log(classes);
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
@@ -624,14 +640,14 @@ tDoc.bookmarkRoot = {
     children : [],
   }],
 };
-tDoc.getField = function(event) { 
+tDoc.getField = function(event) {
   console.log(event);
-  return event; 
+  return event;
 };
 var app = {};
 */
 (function(window) {
-  window.onerror = function(msg, url, lineNo, columnNo, error) {
+/*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -648,7 +664,7 @@ var app = {};
     };
     return true;
   };
-
+*/
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
@@ -688,7 +704,3 @@ var app = {};
     }
   };
 })(window);
-
-Object.prototype.toSource = function() {};
-Object.prototype.toSource = null;
-
