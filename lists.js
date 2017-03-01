@@ -15,7 +15,7 @@ tDoc.getField = function(event) {
     field = [file.character.level];
 
   };
-  console.log(field);
+  //console.log(field);
   return field;
 };
 var app = {};
