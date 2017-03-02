@@ -37,7 +37,7 @@ var characterFiles = [];
   };
 
   //setAlert('info', 'Move all... the... things!');
-  $('input').prop('disabled', true);
+  $('input.display').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
 
   function setBodyTag() {
