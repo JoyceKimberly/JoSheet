@@ -271,38 +271,35 @@ var characterFiles = [];
       };
 
     } else if ( dit.is('.number') ) {
-      character[key] = Number(dit.text());
+      character[key] = Number(dit.val());
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
 
-    } else if ( dit.is('select') ) {
-      character[key] = dit.val();
-
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
-    };
-  
-    classes.old.toSource = function() {
-      return $.extend( {}, classes.old );
-    };
-    
-    if ( dit.is('#class') ) {
-      ApplyClasses(dit.val());
-      console.log(classes);
-      
-    } else if ( dit.is('#race') ) {
-      ApplyRace(dit.val());
-      console.log(CurrentRace);
-      
-    } else if ( dit.is('#armor') ) {
-      ApplyArmor(dit.val());
-      console.log(CurrentArmour);
+
+    } else if ( dit.is('select') || dit.is('input') ) {
+      character[key] = dit.val();
     };
 
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
+
+    if ( dit.is('#class') ) {
+      classes.old.toSource = function() { return $.extend({}, this); };
+      ApplyClasses(dit.val());
+      console.log(classes);
+
+    } else if ( dit.is('#race') ) {
+      ApplyRace(dit.val());
+      console.log(CurrentRace);
+
+    } else if ( dit.is('#armor') ) {
+      ApplyArmor(dit.val());
+      console.log(CurrentArmour);
+    };
   };
 
   function setCharacter() {
@@ -311,7 +308,7 @@ var characterFiles = [];
       var ele = $("#" + key);
 
       if ( ele.is('.display.number.mod') ) {
-        ele.text((file.character[key]>0?'+':'') + file.character[key]);
+        ele.val((file.character[key]>0?'+':'') + file.character[key]);
 
       } else if ( ele.is('div') ) {
         ele.text(file.character[key]);
@@ -325,6 +322,7 @@ var characterFiles = [];
     };
     $('.name').text(file.character.name);
     console.log(tDoc); /*debug*/
+    console.log("What: " + What("Con Mod"));
   };
 
   function resetCharacter() {
@@ -443,11 +441,14 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
-  
-  classes.old.toSource = function() {
-    return $.extend( {}, classes.old );
-  };
-    
+
+  classes.old.toSource = function() { return $.extend({}, this); };
+  CurrentSpells.toSource = function() { return $.extend({}, this); };
+  CurrentCasters.toSource = function() { return $.extend({}, this); };
+  CurrentSources.toSource = function() { return $.extend({}, this); };
+  CurrentEvals.toSource = function() { return $.extend({}, this); };
+  IsSubclassException.toSource = function() { return $.extend({}, this); };
+
   //setListsUnitSystem(false, true);
   //UAstartupCode();
   FindClasses();
@@ -469,7 +470,7 @@ var characterFiles = [];
   console.log(CurrentBackground);
   console.log(CurrentWeapons);
   console.log(CurrentArmour);
-  
+
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
@@ -579,7 +580,7 @@ function loadCookies() {
     $.extend(true, file.notes, JSON.parse(getCookie("notes")));
   };
 };
-  
+
   function setAlert(type, msg) {
     var $alert = $('\
       <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
@@ -595,7 +596,7 @@ function loadCookies() {
 }); // ----------------------------------------------------------------------------------
 /*
 Object.prototype.toSource = function(event) {
-  return $.extend( {}, event );
+  return $.extend({}, event);
 };
 */
 })(jQuery); // --------------------------------------------------------------------------

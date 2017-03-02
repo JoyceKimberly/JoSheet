@@ -6,28 +6,13 @@ tDoc.bookmarkRoot = {
   }],
 };
 tDoc.resetForm = function() {};
-var app = {};
-app.thermometer = {
-  begin : function() {},
-  end : function() {},
-};
+tDoc.calculateNow = function() {};
 
 tDoc.getField = function(event) {
   var field = {};
+  var ele = document.querySelector('[data-field="' + event + '"]');
 
-  if ( event === "Class and Levels" ) {
-    field.value = file.character.class;
-
-  } else if ( event === "Character Level" ) {
-    field.value = file.character.level;
-
-  } else if ( event === "Race Remember" ) {
-    field.value = file.character.race;
-
-  } else if ( event === "Background" ) {
-    field.value = file.character.background;
-
-  } else if ( event === "Template.extras.WSfront" ) {
+  if ( event === "Template.extras.WSfront" ) {
     field = "";
 
   } else if ( event === "Class Features Remember" ) {
@@ -71,28 +56,50 @@ tDoc.getField = function(event) {
     field.isBoxChecked = function() {};
     field.checkThisBox = function() {};
 
-  } else if ( event === "AC Armor Description" ) {
-    if ( file.character.armor ) {
-      field.value = file.character.armor;
-    } else {
-      field.value = "";
-    };
+  } else if ( event === "AC Armor Bonus" ) {
+    field.setAction = function() {};
 
-  } else if ( event === "AC Shield Bonus Description" ) {
-    if ( file.character.shield ) {
-      field.value = file.character.shield;
-    } else {
-      field.value = "";
-    };
+  } else if ( event === "ShowHide 2nd DC" ) {
+    field.buttonGetCaption = function() {};
 
+  } else if ( ele ) {
+    var value = document.querySelector('[data-field="' + event + '"]').value;
+    field.value = value;
+    field.submitName = value;
+
+  } else {
+    field.value = "";
+    field.isBoxChecked = function() {};
+    field.checkThisBox = function() {};
+    field.submitName = "";
+    console.log(event);
   };
-  //console.log(event + ": " + JSON.stringify(field));
   return field;
 };
+
+/*
+		"AC Armor Bonus", //0
+		"Medium Armor", //1
+		"Heavy Armor", //2
+		"AC Stealth Disadvantage", //3
+		"AC Armor Weight", //4
+		"AC Dexterity Modifier"
+*/
+
+var app = {};
+app.thermometer = {
+  begin : function() {},
+  end : function() {},
+};
+app.execDialog = function() {};
 
 function Hide() {};
 function DontPrint() {};
 function testSource() { return false; };
+
+var fieldLinks = [
+  
+];
 
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
