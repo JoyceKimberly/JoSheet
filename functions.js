@@ -428,6 +428,7 @@ var characterFiles = [];
 
   function initializeLists() {
     classes.old.toSource = function() { return $.extend({}, this); };
+
     //setListsUnitSystem(false, true);
     //UAstartupCode();
     FindClasses();
@@ -438,6 +439,11 @@ var characterFiles = [];
     FindArmor();
     FindBackground();
     //FindFeats();
+    
+    $.each(AbilityScores.abbreviations, function(key, value) {
+      Value(key + " Remember", value + "," + CurrentRace.scores[key]);
+    });
+    
     LoadLevelsonStartup();
     //FindManualOtherWeapons(true);
     ApplyProficiencies(true);
