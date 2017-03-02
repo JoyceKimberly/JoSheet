@@ -163,6 +163,7 @@ var characterFiles = [];
     setCharacter();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
+    $('input').prop('readonly', true);
   });
 
   $('#calcBtn').click(function() {
