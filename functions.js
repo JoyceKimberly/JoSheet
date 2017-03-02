@@ -399,7 +399,7 @@ var characterFiles = [];
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = parseInt($("#base" + value).val());
-      //AbilityScores.current[value].base = parseInt($("#base" + value).val());
+      Value(value + " Remember", character["base" + value] + "," + CurrentRace.scores[key]);
     });
     $.extend(true, file.character, character);
 
@@ -411,7 +411,6 @@ var characterFiles = [];
     if ( file.character.race ) {
       $.each(AbilityScores.abbreviations, function(key, value) {
         $("#race" + value).text(CurrentRace.scores[key]);
-        //AbilityScores.current[value].race = CurrentRace.scores[key];
       });
     };
 
