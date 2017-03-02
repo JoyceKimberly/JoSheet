@@ -37,7 +37,7 @@ var characterFiles = [];
   };
 
   //setAlert('info', 'Move all... the... things!');
-
+  $('input').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
 
   function setBodyTag() {
@@ -163,7 +163,7 @@ var characterFiles = [];
     setCharacter();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
-    $('input').prop('disabled', true);
+    $('.editable').prop('disabled', false);
   });
 
   $('#calcBtn').click(function() {
