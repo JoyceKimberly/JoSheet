@@ -472,7 +472,6 @@ var characterFiles = [];
     console.log(classes);
     console.log(CurrentRace);
     console.log(CurrentBackground);
-    console.log(CurrentWeapons);
     console.log(CurrentArmour);
   };
 
