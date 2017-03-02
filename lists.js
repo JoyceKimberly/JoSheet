@@ -1,5 +1,5 @@
 //var tDoc = {};
-tDoc.info = { SheetType : "JoSheet" };
+tDoc.info = { SheetType : "JoSheet - a4 - printer friendly" };
 tDoc.bookmarkRoot = {
   children : [{
     children : [],
@@ -15,12 +15,15 @@ tDoc.getField = function(event) {
   if ( event === "Template.extras.WSfront" ) {
     field = "";
 
+  } else if ( event === "Race Remember" ) {
+    field = file.character.race;
+
   } else if ( event === "Class Features Remember" ) {
     field = "";
 
   } else if ( event === "Proficiencies Remember" ) {
     field = "";
-
+/*
   } else if ( event === "Proficiency Weapon Martial" ) {
     field.value = "";
     field.isBoxChecked = function() {};
@@ -55,27 +58,55 @@ tDoc.getField = function(event) {
     field.value = "";
     field.isBoxChecked = function() {};
     field.checkThisBox = function() {};
-
-  } else if ( event === "AC Armor Bonus" ) {
-    field.setAction = function() {};
-
-  } else if ( event === "ShowHide 2nd DC" ) {
-    field.buttonGetCaption = function() {};
-
+*/
   } else if ( ele ) {
     var value = document.querySelector('[data-field="' + event + '"]').value;
     field.value = value;
     field.submitName = value;
+    field.isBoxChecked = function() {};
+    field.checkThisBox = function() {};
+    field.setAction = function() {};
+    field.buttonGetCaption = function() {};
 
   } else {
     field.value = "";
+    field.submitName = "";
     field.isBoxChecked = function() {};
     field.checkThisBox = function() {};
-    field.submitName = "";
-    console.log(event);
+    field.setAction = function() {};
+    field.buttonGetCaption = function() {};
+    //console.log(event);
   };
   return field;
 };
+
+function Value(field, FldValue, tooltip) {
+  console.log("Setting: " + field + " -> " + JSON.stringify(FldValue) );
+  var ele = document.querySelector('[data-field="' + field + '"]');
+
+	if (!ele) return false;
+	ele.value = FldValue;
+
+	if (tooltip !== undefined) {
+    ele.setAttribute('title', tooltip);
+	};
+};
+function Checkbox(field, FldValue, tooltip) {
+  console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
+  var ele = document.querySelector('[data-field="' + field + '"]');
+
+	if (!ele) return false;
+	var Checkit = (FldValue === undefined) ? true : FldValue;
+  ele.checked = Checkit;
+
+	if (tooltip !== undefined) {
+    ele.setAttribute('title', tooltip);
+	};
+};
+function Show() {};
+function Hide() {};
+function DontPrint() {};
+function testSource() { return false; };
 
 /*
 		"AC Armor Bonus", //0
@@ -91,11 +122,8 @@ app.thermometer = {
   begin : function() {},
   end : function() {},
 };
+app.alert = function() {};
 app.execDialog = function() {};
-
-function Hide() {};
-function DontPrint() {};
-function testSource() { return false; };
 
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>

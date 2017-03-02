@@ -152,7 +152,7 @@
         <div style="top: 64px; left: 328px;" class="lbl2">Level &amp; Class</div>
         <input style="top: 82px; left: 328px; width: 140px; height: 18px;" id="background" data-field="Background" class="display form-control" type="text">
         <div style="top: 98px; left: 328px;" class="lbl2">Background</div>
-        <input style="top: 48px; left: 474px; width: 140px; height: 18px;" id="race" data-field="Race Remember" class="display form-control" type="text">
+        <input style="top: 48px; left: 474px; width: 140px; height: 18px;" id="race" data-field="Race" class="display form-control" type="text">
         <div style="top: 64px; left: 474px;" class="lbl2">Race</div>
         <div style="top: 82px; left: 474px; width: 140px; height: 18px;" id="alignment" class="display"></div>
         <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
@@ -677,7 +677,7 @@
               <div style="flex: 0 0 20%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="lightProf" type="checkbox" class="custom-control-input">
+                  <input id="lightProf" data-field="Proficiency Armor Light" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Light</span>
                 </label>
@@ -685,7 +685,7 @@
               <div style="flex: 0 0 27%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="mediumProf" type="checkbox" class="custom-control-input">
+                  <input id="mediumProf" data-field="Proficiency Armor Medium" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Medium</span>
                 </label>
@@ -693,7 +693,7 @@
               <div style="flex: 0 0 22%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="heavyProf" type="checkbox" class="custom-control-input">
+                  <input id="heavyProf" data-field="Proficiency Armor Heavy" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Heavy</span>
                 </label>
@@ -701,7 +701,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="shieldProf" type="checkbox" class="custom-control-input">
+                  <input id="shieldProf" data-field="Proficiency Shields" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Shields</span>
                 </label>
@@ -717,7 +717,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="simpleProf" type="checkbox" class="custom-control-input">
+                  <input id="simpleProf" data-field="Proficiency Weapon Simple" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Simple</span>
                 </label>
@@ -725,7 +725,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="martialProf" type="checkbox" class="custom-control-input">
+                  <input id="martialProf" data-field="Proficiency Weapon Martial" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Martial</span>
                 </label>
@@ -733,7 +733,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="otherProf" type="checkbox" class="custom-control-input">
+                  <input id="otherProf" data-field="Proficiency Weapon Other" type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Other:</span>
                 </label>
@@ -757,7 +757,7 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="language1" data-field="Language 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1651,7 +1651,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="armorAc" class="display center"></div>
+                <input id="armorAc" data-field="AC Armor Bonus" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Armor</div>
@@ -1664,7 +1664,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="shieldAc" class="display center"></div>
+                <input id="shieldAc" data-field="AC Shield Bonus" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Shield</div>

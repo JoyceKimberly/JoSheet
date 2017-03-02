@@ -169,6 +169,9 @@ div .bg img {
   text-align: center;
 }
 
+.inputMode > * {
+  cursor: auto;
+}
 .inputMode .display .custom-select,
 .inputMode .checkBall {
   cursor: pointer;

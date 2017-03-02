@@ -12,7 +12,7 @@ var characterFiles = [];
 (function($) { $(document).ready(function() { // ----------------------------------------
   loadCookies();
   setObjects();
-  setCharacter();
+  //setCharacter();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -161,6 +161,7 @@ var characterFiles = [];
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function() {
+    initializeLists();
     setCharacter();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
@@ -235,7 +236,7 @@ var characterFiles = [];
   });
 
   $('.display').focusout(setValues);
-  $('.custom-control-input').change(setValues);
+  $('.display, .custom-control-input').change(setValues);
 
   function objectToPage(obj, page) {
     var newPage = $('#page' + page + ' .page');
@@ -279,27 +280,13 @@ var characterFiles = [];
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
 
-    } else if ( dit.is('select') || dit.is('input') ) {
+    } else {
       character[key] = dit.val();
     };
 
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-
-    if ( dit.is('#class') ) {
-      classes.old.toSource = function() { return $.extend({}, this); };
-      ApplyClasses(dit.text());
-      console.log(classes);
-
-    } else if ( dit.is('#race') ) {
-      ApplyRace(dit.text());
-      console.log(CurrentRace);
-
-    } else if ( dit.is('#armor') ) {
-      ApplyArmor(dit.text());
-      console.log(CurrentArmour);
-    };
   };
 
   function setCharacter() {
@@ -318,6 +305,25 @@ var characterFiles = [];
 
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
+      };
+
+      if ( ele.is('#class') ) {
+        classes.old.toSource = function() { return $.extend({}, this); };
+        ApplyClasses(ele.val());
+        console.log(classes);
+
+      } else if ( ele.is('#race') ) {
+        console.log(ele.val());
+        ApplyRace(ele.val());
+        //console.log(CurrentRace);
+
+      } else if ( ele.is('#armor') ) {
+        ApplyArmor(ele.val());
+        //console.log(CurrentArmour);
+
+      } else if ( ele.is('#shield') ) {
+        ApplyShield(ele.val());
+
       };
     };
     $('.name').text(file.character.name);
@@ -416,7 +422,7 @@ var characterFiles = [];
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
-
+/*
   for ( var race in RaceList ) {
     if ( RaceList.hasOwnProperty(race) ) {
       var $raceEle = $('#race');
@@ -427,7 +433,7 @@ var characterFiles = [];
             $raceEle.append('<option value="' + race + '-' + RaceList[race].variants[subRace] + '">-- ' + RaceList[race].variants[subRace] + '</option>');
           };
         };
-      };*/
+      };
     };
   };
   for ( var key in ClassList ) {
@@ -440,7 +446,7 @@ var characterFiles = [];
       $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
     };
   };
-
+*/
   classes.old.toSource = function() { return $.extend({}, this); };
   CurrentSpells.toSource = function() { return $.extend({}, this); };
   CurrentCasters.toSource = function() { return $.extend({}, this); };
@@ -448,27 +454,29 @@ var characterFiles = [];
   CurrentEvals.toSource = function() { return $.extend({}, this); };
   IsSubclassException.toSource = function() { return $.extend({}, this); };
 
-  //setListsUnitSystem(false, true);
-  //UAstartupCode();
-  FindClasses();
-  FindRace();
-  //FindCompRace();
-  //FindWeapons();
-  //FindCompWeapons();
-  FindArmor();
-  FindBackground();
-  //FindFeats();
-  LoadLevelsonStartup();
-  //FindManualOtherWeapons(true);
-  ApplyProficiencies(true);
-  //UpdateTooltips();
-  //SetRichTextFields();
+  function initializeLists() {
+    //setListsUnitSystem(false, true);
+    //UAstartupCode();
+    FindClasses();
+    FindRace();
+    //FindCompRace();
+    //FindWeapons();
+    //FindCompWeapons();
+    FindArmor();
+    FindBackground();
+    //FindFeats();
+    LoadLevelsonStartup();
+    //FindManualOtherWeapons(true);
+    ApplyProficiencies(true);
+    //UpdateTooltips();
+    //SetRichTextFields();
 
-  console.log(classes);
-  console.log(CurrentRace);
-  console.log(CurrentBackground);
-  console.log(CurrentWeapons);
-  console.log(CurrentArmour);
+    console.log(classes);
+    console.log(CurrentRace);
+    console.log(CurrentBackground);
+    console.log(CurrentWeapons);
+    console.log(CurrentArmour);
+  };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
