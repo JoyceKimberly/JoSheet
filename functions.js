@@ -246,7 +246,7 @@ var characterFiles = [];
   function overflowHider(obj) {
     $.each( obj, function() {
       var dit = $(this);
-      var visibleHeight = dit.find('.contentList').height();
+      var visibleHeight = dit.find('.content').height();
       var totalHeight = 0;
       dit.find('.longContent').children('div').css("visibility", "visible");
       dit.find('.longContent').children('div').each(function() {
@@ -452,6 +452,7 @@ var characterFiles = [];
   IsSubclassException.toSource = function() { return $.extend({}, this); };
 
   function initializeLists() {
+    classes.old.toSource = function() { return $.extend({}, this); };
     //setListsUnitSystem(false, true);
     //UAstartupCode();
     FindClasses();

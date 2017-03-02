@@ -123,7 +123,7 @@ div .bg img {
 }
 
 .display,
-.display.form-control {
+.form-control {
   /*font-family: 'bookinsanity';*/
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 0;
@@ -135,7 +135,7 @@ div .bg img {
   letter-spacing: -0.3px;
   vertical-align: top;
 }
-.display.form-control {
+.form-control {
   background-color: transparent;
   background-image: none;
   position: absolute;
@@ -169,7 +169,7 @@ div .bg img {
   text-align: center;
 }
 
-.inputMode > * {
+.inputMode * {
   cursor: auto;
 }
 .custom-checkbox {
@@ -197,6 +197,10 @@ div .bg img {
   border: none;
   background: none;
   content: url('img/CheckBox2.svg');
+}
+.custom-control-input:disabled~.custom-control-description {
+  color: black;
+  cursor: auto;
 }
 
 .outerPage .savesSkill {
@@ -267,60 +271,61 @@ div .bg img {
   top: 15px;
 }
 
-.contentList .row {
+.content .row {
   margin: 0;
 }
-.contentList .col {
+.content .col {
   height: 18px;
   padding: 0;
   margin: 1.5px;
 }
-.contentList .modRow .col {
+.content .modRow .col {
   height: 16px;
 }
-.contentList .lblRow .col {
+.content .lblRow .col {
   height: initial;
 }
-.contentList .subCol {
+.content .subCol {
   margin: 0;
 }
-.contentList .inputBg {
+.content .inputBg {
   width: 100%;
   height: 100%;
 }
-.contentList .longContent,
-.contentList .atk,
-.contentList .hlbl,
-.contentList .row,
-.contentList .col {
+.content .longContent,
+.content .atk,
+.content .hlbl,
+.content .row,
+.content .col {
   position: relative;
 }
-.contentList .lbl,
-.contentList .display {
+.content .lbl,
+.content .display,
+.content input {
   font-size: 12px;
   line-height: 16px;
 }
-.contentList .atk {
+.content .atk {
   margin: 2px 0 9px;
 }
-.contentList .longContent {
+.content .longContent {
   height: 100%;
   overflow: hidden;
 }
-.contentList .display {
+.content .display {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.contentList .profChecks {
+.content .profChecks {
   height: 16px;
 }
-#savesBlock .contentList .lbl {
+#savesBlock .content .lbl {
   text-transform: uppercase;
 }
-#armorBlock .contentList .lbl,
-#langBlock .contentList .lbl {
+#armorBlock .content .lbl,
+#langBlock .content .lbl {
   font-size: 10px;
 }
 #armorBlock .col-2:first-child {
@@ -508,6 +513,10 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
+#hiddenFields * {
+  background-color: white;
+  position: static;
+}
 #hiddenFields *::before {
   content: attr(data-field) ": ";
 }

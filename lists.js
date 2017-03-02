@@ -12,57 +12,9 @@ tDoc.getField = function(event) {
   var field = {};
   var ele = document.querySelector('[data-field="' + event + '"]');
 
-  if ( event === "Template.extras.WSfront" ) {
-    field = "";
-/*
-  } else if ( event === "Race Remember" ) {
-    field = file.character.race;
-
-  } else if ( event === "Class Features Remember" ) {
-    field = "";
-
-  } else if ( event === "Proficiencies Remember" ) {
-    field = "";*/
-/*
-  } else if ( event === "Proficiency Weapon Martial" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Weapon Simple" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Armor Light" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Armor Medium" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Armor Heavy" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Shields" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-
-  } else if ( event === "Proficiency Weapon Other" ) {
-    field.value = "";
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-*/
-  } else if ( ele ) {
-    var value = document.querySelector('[data-field="' + event + '"]').value;
-    field.value = value;
-    field.submitName = value;
+  if ( ele ) {
+    field.value = ele.value;
+    field.submitName = ele.value;
     field.isBoxChecked = function() {};
     field.checkThisBox = function() {};
     field.setAction = function() {};
@@ -75,16 +27,18 @@ tDoc.getField = function(event) {
     field.checkThisBox = function() {};
     field.setAction = function() {};
     field.buttonGetCaption = function() {};
-    console.log(event);
+    //console.log(event);
   };
   return field;
 };
 
 function Value(field, FldValue, tooltip) {
-  console.log("Setting: " + field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
-	if (!ele) return false;
+  if (!ele) {
+    console.log("Setting: " + field + " -> " + JSON.stringify(FldValue) );
+    return false
+  };
   if ( ele.classList.contains('number') ) {
     ele.value = +(FldValue);
 
@@ -100,7 +54,10 @@ function Checkbox(field, FldValue, tooltip) {
   console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
-	if (!ele) return false;
+	if (!ele) {
+    console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
+    return false
+  };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
   ele.checked = Checkit;
 
