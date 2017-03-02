@@ -27,7 +27,7 @@ tDoc.getField = function(event) {
     field.checkThisBox = function() {};
     field.setAction = function() {};
     field.buttonGetCaption = function() {};
-    //console.log(event);
+    console.log(event);
   };
   return field;
 };
@@ -51,10 +51,11 @@ function Value(field, FldValue, tooltip) {
 	};
 };
 function Checkbox(field, FldValue, tooltip) {
+  console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
 	if (!ele) {
-    console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
+    //console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
     return false
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
