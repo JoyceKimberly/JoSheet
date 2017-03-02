@@ -122,8 +122,8 @@ div .bg img {
   display: inline;
 }
 
-.display,
-.form-control {
+.display, 
+.display.form-control {
   /*font-family: 'bookinsanity';*/
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 0;
@@ -135,7 +135,7 @@ div .bg img {
   letter-spacing: -0.3px;
   vertical-align: top;
 }
-.form-control {
+.display.form-control {
   background-color: transparent;
   background-image: none;
   position: absolute;
