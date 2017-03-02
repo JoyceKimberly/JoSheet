@@ -338,6 +338,17 @@ div .bg img {
   flex: 0 0 54%;
 }
 
+.smallBlock .content {
+  padding: 6px 7px 12px 6px;
+}
+.smallBlock .content input {
+  text-transform: lowercase;
+}
+.smallBlock .content input,
+.smallBlock .content .inputBg {
+  height: 16px;
+}
+
 .resizable {
   box-sizing: border-box;
 }

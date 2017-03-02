@@ -51,7 +51,6 @@ function Value(field, FldValue, tooltip) {
 	};
 };
 function Checkbox(field, FldValue, tooltip) {
-  console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
 	if (!ele) {

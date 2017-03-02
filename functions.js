@@ -142,7 +142,6 @@ var characterFiles = [];
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
     $('#showBtn').trigger('click');
     $('#edit').removeClass('show').hide();
-    $('div.display').attr("contentEditable", true);
     $('#moveResetBtn').hide();
     $('#inputResetBtn').show();
   });
@@ -151,7 +150,6 @@ var characterFiles = [];
     setBodyTag();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
-    $('.display.input').attr("contentEditable", false);
     $('#inputResetBtn').hide();
     $('#moveResetBtn').show();
   });
@@ -180,7 +178,8 @@ var characterFiles = [];
     resetCharacter();
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    setCharacter();
+    $('input').val("");
+    $('input[type=checkbox]').prop('unchecked');
   });
 
 
@@ -324,7 +323,7 @@ var characterFiles = [];
       };
     };
     $('.name').text(file.character.name);
-    console.log(tDoc); /*debug*/
+    //console.log(tDoc); // debug
   };
 
   function resetCharacter() {
@@ -400,7 +399,7 @@ var characterFiles = [];
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = parseInt($("#base" + value).val());
-      AbilityScores.current[value].base = parseInt($("#base" + value).val());
+      //AbilityScores.current[value].base = parseInt($("#base" + value).val());
     });
     $.extend(true, file.character, character);
 
@@ -412,38 +411,14 @@ var characterFiles = [];
     if ( file.character.race ) {
       $.each(AbilityScores.abbreviations, function(key, value) {
         $("#race" + value).text(CurrentRace.scores[key]);
-        AbilityScores.current[value].race = CurrentRace.scores[key];
+        //AbilityScores.current[value].race = CurrentRace.scores[key];
       });
     };
 
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
-/*
-  for ( var race in RaceList ) {
-    if ( RaceList.hasOwnProperty(race) ) {
-      var $raceEle = $('#race');
-      $raceEle.append('<option value="' + race + '">' + RaceList[race].name + '</option>');
-      /*if ( RaceList[race].variants ) {
-        for ( var subRace in RaceList[race].variants ) {
-          if ( RaceList[race].variants.hasOwnProperty(subRace) ) {
-            $raceEle.append('<option value="' + race + '-' + RaceList[race].variants[subRace] + '">-- ' + RaceList[race].variants[subRace] + '</option>');
-          };
-        };
-      };
-    };
-  };
-  for ( var key in ClassList ) {
-    if ( ClassList.hasOwnProperty(key) ) {
-      $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
-    };
-  };
-  for ( var key in BackgroundList ) {
-    if ( BackgroundList.hasOwnProperty(key) ) {
-      $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
-    };
-  };
-*/
+
   classes.old.toSource = function() { return $.extend({}, this); };
   CurrentSpells.toSource = function() { return $.extend({}, this); };
   CurrentCasters.toSource = function() { return $.extend({}, this); };

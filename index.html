@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-  <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
+  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
@@ -644,8 +644,26 @@
         <div class="lbl1 lower">Initiative</div>
         <div class="hover"></div>
       </div>
-      <div id="speedBlock" class="block1 z2 resizable">
+      <div id="speedBlock" class="block1 smallBlock z2 resizable">
         <div class="bg"></div>
+        <div class="content">
+          <div class="row lblRow">
+            <div class="col">
+              <div class="hlbl center">Encumbered</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="inputBg"></div>
+              <input data-field="Speed encumbered" class="display center form-control" type="text">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input style="font-size: 18px; line-height: 18px; height: 20px; margin-top: -2px;" data-field="Speed" class="display center form-control" type="text">
+            </div>
+          </div>
+        </div>
         <div class="lbl1 lower">Speed</div>
         <div class="hover"></div>
       </div>
@@ -1651,7 +1669,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input data-field="AC Armor Bonus" class="center form-control" type="text">
+                <input data-field="AC Armor Bonus" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Armor</div>
@@ -1664,7 +1682,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input data-field="AC Shield Bonus" class="center form-control" type="text">
+                <input data-field="AC Shield Bonus" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Shield</div>
@@ -1677,7 +1695,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Dex</div>
@@ -1706,7 +1723,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="magicAc" class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Magic</div>
@@ -1719,7 +1735,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="miscAc1" class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
@@ -1732,7 +1747,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="miscAc2" class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
@@ -1745,7 +1759,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="miscAc3" class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
@@ -1758,7 +1771,6 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <div id="miscAc4" class="display center"></div>
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
