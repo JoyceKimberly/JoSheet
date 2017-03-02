@@ -158,7 +158,7 @@
         <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
         <div style="top: 48px; left: 620px; width: 90px; height: 18px;" id="player" class="display"></div>
         <div style="top: 64px; left: 620px;" class="lbl2">Player Name</div>
-        <input style="top: 82px; left: 620px; width: 90px; height: 18px;" id="exp" class="display number form-control" type="text">
+        <input style="top: 82px; left: 620px; width: 90px; height: 18px;" id="exp" data-field="Total Experience" class="display number form-control" type="text">
         <div style="top: 98px; left: 620px;" class="lbl2">Experience Points</div>
         <div class="hover"></div>
       </div>
@@ -168,43 +168,43 @@
       </div>
       <div id="strBlock" class="attrBlock str z2 draggable">
         <div class="bg"><img src="img/AttrBlock1.svg"></div>
-        <div id="strMod" class="display number mod center"></div>
-        <div id="strAttr" class="display number center"></div>
+        <input id="strMod" data-field="Str Mod" class="display number mod center form-control" type="text">
+        <input id="strAttr" data-field="Str" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Strength</div>
         <div class="hover"></div>
       </div>
       <div id="dexBlock" class="attrBlock dex z2 draggable">
         <div class="bg"><img src="img/AttrBlock2.svg"></div>
-        <div id="dexMod" class="display number mod center"></div>
-        <div id="dexAttr" class="display number center"></div>
+        <input id="dexMod" data-field="Dex Mod" class="display number mod center form-control" type="text">
+        <input id="dexAttr" data-field="Dex" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Dexterity</div>
         <div class="hover"></div>
       </div>
       <div id="conBlock" class="attrBlock con z2 draggable">
         <div class="bg"><img src="img/AttrBlock3.svg"></div>
         <input id="conMod" data-field="Con Mod" class="display number mod center form-control" type="text">
-        <div id="conAttr" class="display number center"></div>
+        <input id="conAttr" data-field="Con" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Constitution</div>
         <div class="hover"></div>
       </div>
       <div id="intBlock" class="attrBlock int z2 draggable">
         <div class="bg"><img src="img/AttrBlock4.svg"></div>
-        <div id="intMod" class="display number mod center"></div>
-        <div id="intAttr" class="display number center"></div>
+        <input id="intMod" data-field="Int Mod" class="display number mod center form-control" type="text">
+        <input id="intAttr" data-field="Int" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Intelligence</div>
         <div class="hover"></div>
       </div>
       <div id="wisBlock" class="attrBlock wis z2 draggable">
         <div class="bg"><img src="img/AttrBlock5.svg"></div>
-        <div id="wisMod" class="display number mod center"></div>
-        <div id="wisAttr" class="display number center"></div>
+        <input id="wisMod" data-field="Wis Mod" class="display number mod center form-control" type="text">
+        <input id="wisAttr" data-field="Wis" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Wisdom</div>
         <div class="hover"></div>
       </div>
       <div id="chaBlock" class="attrBlock cha z2 draggable">
         <div class="bg"><img src="img/AttrBlock6.svg"></div>
-        <div id="chaMod" class="display number mod center"></div>
-        <div id="chaAttr" class="display number center"></div>
+        <input id="chaMod" data-field="Cha Mod" class="display number mod center form-control" type="text">
+        <input id="chaAttr" data-field="Cha" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Charisma</div>
         <div class="hover"></div>
       </div>
@@ -860,181 +860,289 @@
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat1" data-field="Limited Feature 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax1" data-field="Limited Feature Max Usages 1" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec1" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed1" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat2" data-field="Limited Feature 2" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax2" data-field="Limited Feature Max Usages 2" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec2" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed2" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat3" data-field="Limited Feature 3" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax3" data-field="Limited Feature Max Usages 3" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec3" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed3" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat4" data-field="Limited Feature 4" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax4" data-field="Limited Feature Max Usages 4" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec4" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed4" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat5" data-field="Limited Feature 5" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax5" data-field="Limited Feature Max Usages 5" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec5" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed5" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat6" data-field="Limited Feature 6" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax6" data-field="Limited Feature Max Usages 6" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec6" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed6" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat7" data-field="Limited Feature 7" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax7" data-field="Limited Feature Max Usages 7" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec7" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed7" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat8" data-field="Limited Feature 8" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax8" data-field="Limited Feature Max Usages 8" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec8" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed8" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat9" data-field="Limited Feature 9" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax9" data-field="Limited Feature Max Usages 9" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec9" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed9" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-
+                <input id="ltdFeat10" data-field="Limited Feature 10" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatMax10" data-field="Limited Feature Max Usages 10" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatRec10" data-field="" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div class="display center"></div>
+                <input id="ltdFeatUsed10" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat11" data-field="Limited Feature 11" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax11" data-field="Limited Feature Max Usages 11" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec11" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed11" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat12" data-field="Limited Feature 12" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax12" data-field="Limited Feature Max Usages 12" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec12" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed12" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat13" data-field="Limited Feature 13" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax13" data-field="Limited Feature Max Usages 13" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec13" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed13" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat14" data-field="Limited Feature 14" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax14" data-field="Limited Feature Max Usages 14" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec14" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed14" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat15" data-field="Limited Feature 15" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax15" data-field="Limited Feature Max Usages 15" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec15" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed15" data-field="" class="display center form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col col-7">
+                <div class="inputBg"></div>
+                <input id="ltdFeat16" data-field="Limited Feature 16" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatMax16" data-field="Limited Feature Max Usages 16" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatRec16" data-field="" class="display center form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="ltdFeatUsed16" data-field="" class="display center form-control" type="text">
               </div>
             </div>
           </div>

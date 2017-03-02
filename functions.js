@@ -289,15 +289,15 @@ var characterFiles = [];
 
     if ( dit.is('#class') ) {
       classes.old.toSource = function() { return $.extend({}, this); };
-      ApplyClasses(dit.val());
+      ApplyClasses(dit.text());
       console.log(classes);
 
     } else if ( dit.is('#race') ) {
-      ApplyRace(dit.val());
+      ApplyRace(dit.text());
       console.log(CurrentRace);
 
     } else if ( dit.is('#armor') ) {
-      ApplyArmor(dit.val());
+      ApplyArmor(dit.text());
       console.log(CurrentArmour);
     };
   };
@@ -322,7 +322,6 @@ var characterFiles = [];
     };
     $('.name').text(file.character.name);
     console.log(tDoc); /*debug*/
-    console.log("What: " + What("Con Mod"));
   };
 
   function resetCharacter() {

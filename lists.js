@@ -97,10 +97,6 @@ function Hide() {};
 function DontPrint() {};
 function testSource() { return false; };
 
-var fieldLinks = [
-  
-];
-
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
