@@ -449,8 +449,6 @@ var characterFiles = [];
     ApplyProficiencies(true);
     //UpdateTooltips();
     //SetRichTextFields();
-    
-    CalcSave();
 
     console.log(classes);
     console.log(CurrentRace);
