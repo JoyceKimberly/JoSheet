@@ -14,7 +14,7 @@ tDoc.getField = function(event) {
 
   if ( event === "Template.extras.WSfront" ) {
     field = "";
-
+/*
   } else if ( event === "Race Remember" ) {
     field = file.character.race;
 
@@ -22,7 +22,7 @@ tDoc.getField = function(event) {
     field = "";
 
   } else if ( event === "Proficiencies Remember" ) {
-    field = "";
+    field = "";*/
 /*
   } else if ( event === "Proficiency Weapon Martial" ) {
     field.value = "";
@@ -75,7 +75,7 @@ tDoc.getField = function(event) {
     field.checkThisBox = function() {};
     field.setAction = function() {};
     field.buttonGetCaption = function() {};
-    //console.log(event);
+    console.log(event);
   };
   return field;
 };
@@ -85,7 +85,12 @@ function Value(field, FldValue, tooltip) {
   var ele = document.querySelector('[data-field="' + field + '"]');
 
 	if (!ele) return false;
-	ele.value = FldValue;
+  if ( ele.classList.contains('number') ) {
+    ele.value = +(FldValue);
+
+  } else {
+  	ele.value = FldValue;
+  };
 
 	if (tooltip !== undefined) {
     ele.setAttribute('title', tooltip);

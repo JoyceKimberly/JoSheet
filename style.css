@@ -172,10 +172,6 @@ div .bg img {
 .inputMode > * {
   cursor: auto;
 }
-.inputMode .display .custom-select,
-.inputMode .checkBall {
-  cursor: pointer;
-}
 .custom-checkbox {
   min-height: 16px;
   position: absolute;
@@ -510,6 +506,10 @@ button .fa-stack .fa-stack-2x {
   width: 55px;
   height: 30px;
   right: 0;
+}
+
+#hiddenFields *::before {
+  content: attr(data-field) ": ";
 }
 
 /* ----------------------------------------------------------------------------------- */

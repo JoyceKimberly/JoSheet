@@ -313,13 +313,10 @@ var characterFiles = [];
         console.log(classes);
 
       } else if ( ele.is('#race') ) {
-        console.log(ele.val());
         ApplyRace(ele.val());
-        //console.log(CurrentRace);
 
       } else if ( ele.is('#armor') ) {
         ApplyArmor(ele.val());
-        //console.log(CurrentArmour);
 
       } else if ( ele.is('#shield') ) {
         ApplyShield(ele.val());
@@ -414,8 +411,8 @@ var characterFiles = [];
   }).on('show.bs.modal', function() {
     if ( file.character.race ) {
       $.each(AbilityScores.abbreviations, function(key, value) {
-        $("#race" + value).text(RaceList[file.character.race].scores[key]);
-        AbilityScores.current[value].race = RaceList[file.character.race].scores[key];
+        $("#race" + value).text(CurrentRace.scores[key]);
+        AbilityScores.current[value].race = CurrentRace.scores[key];
       });
     };
 
