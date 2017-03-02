@@ -441,7 +441,7 @@ var characterFiles = [];
     //FindFeats();
     
     $.each(AbilityScores.abbreviations, function(key, value) {
-      Value(value + " Remember", character["base" + value] + "," + CurrentRace.scores[key]);
+      Value(value + " Remember", file.character["base" + value] + "," + CurrentRace.scores[key]);
     });
     
     LoadLevelsonStartup();
