@@ -178,8 +178,7 @@ var characterFiles = [];
     resetCharacter();
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    $('input').val("");
-    $('input[type=checkbox]').prop('unchecked');
+    location.reload();
   });
 
 
@@ -417,18 +416,16 @@ var characterFiles = [];
       Value(value + " Remember", character["base" + value] + "," + CurrentRace.scores[key]);
     });
     $.extend(true, file.character, character);
-
     setCharacter();
     saveCookies();
-    AbilityScores_Button();
+    calcAbilityScores();
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
-    if ( file.character.race ) {
-      $.each(AbilityScores.abbreviations, function(key, value) {
-        $("#race" + value).text(CurrentRace.scores[key]);
-      });
-    };
+    $.each(AbilityScores.abbreviations, function(key, value) {
+      $("#base" + value).val(file.character["base" + value]);
+      $("#race" + value).text(CurrentRace.scores[key]);
+    });
 
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
