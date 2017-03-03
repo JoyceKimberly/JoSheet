@@ -37,7 +37,7 @@ var characterFiles = [];
   };
 
   //setAlert('info', 'Move all... the... things!');
-  $('.page input').prop('disabled', true);
+  //$('.page input').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
 
   function setBodyTag() {
@@ -324,7 +324,7 @@ var characterFiles = [];
       };
     };
     $('.name').text(file.character.name);
-    //console.log(tDoc); // debug
+    console.log(tDoc); // debug
   };
 
   function resetCharacter() {
@@ -439,11 +439,11 @@ var characterFiles = [];
     FindArmor();
     FindBackground();
     //FindFeats();
-    
+
     $.each(AbilityScores.abbreviations, function(key, value) {
       Value(value + " Remember", file.character["base" + value] + "," + CurrentRace.scores[key]);
     });
-    
+
     LoadLevelsonStartup();
     //FindManualOtherWeapons(true);
     ApplyProficiencies(true);
