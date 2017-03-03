@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript">var tDoc;</script>
+<script type="text/javascript">tDoc = window;</script>
 <head>
   <meta charset="utf-8">
   <title>JoSheet</title>
@@ -55,7 +55,7 @@
       </div>
       <button id="hideBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw"></i></button>
       <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw"></i></button>
-      <button id="calcBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw"></i></button>
+      <button id="calcBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw"></i></button>
       <button id="printBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Print"><i class="fa fa-print fa-fw"></i>Print</button>
       <button id="moveResetBtn" type="button" class="resetBtn btn mr-2 btn-secondary btn-sm" title="Reset">
         <span class="fa-stack fa-fw">
@@ -145,20 +145,20 @@
         <div class="bg"><img src="img/PageHeader1.svg"></div>
         <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-        <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" id="name" class="display center"></div>
+        <input style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" id="name" class="display center" type="text">
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <input style="top: 48px; left: 324px; width: 22px; height: 18px;" id="level" data-field="Character Level" class="display editable right number form-control" type="text">
-        <input style="top: 48px; left: 348px; width: 120px; height: 18px;" id="class" data-field="Class and Levels" class="display editable form-control" type="text">
+        <input style="top: 48px; left: 324px; width: 22px; height: 18px;" id="level" data-field="Character Level" class="display right number form-control" type="text">
+        <input style="top: 48px; left: 348px; width: 120px; height: 18px;" id="class" data-field="Class and Levels" class="display form-control" type="text">
         <div style="top: 64px; left: 328px;" class="lbl2">Level &amp; Class</div>
-        <input style="top: 82px; left: 328px; width: 140px; height: 18px;" id="background" data-field="Background" class="display editable form-control" type="text">
+        <input style="top: 82px; left: 328px; width: 140px; height: 18px;" id="background" data-field="Background" class="display form-control" type="text">
         <div style="top: 98px; left: 328px;" class="lbl2">Background</div>
-        <input style="top: 48px; left: 474px; width: 140px; height: 18px;" id="race" data-field="Race" class="display editable form-control" type="text">
+        <input style="top: 48px; left: 474px; width: 140px; height: 18px;" id="race" data-field="Race" class="display form-control" type="text">
         <div style="top: 64px; left: 474px;" class="lbl2">Race</div>
         <div style="top: 82px; left: 474px; width: 140px; height: 18px;" id="alignment" class="display"></div>
         <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
         <div style="top: 48px; left: 620px; width: 90px; height: 18px;" id="player" class="display"></div>
         <div style="top: 64px; left: 620px;" class="lbl2">Player Name</div>
-        <input style="top: 82px; left: 620px; width: 90px; height: 18px;" id="exp" data-field="Total Experience" class="display editable number form-control" type="text">
+        <input style="top: 82px; left: 620px; width: 90px; height: 18px;" id="exp" data-field="Total Experience" class="display number form-control" type="text">
         <div style="top: 98px; left: 620px;" class="lbl2">Experience Points</div>
         <div class="hover"></div>
       </div>
@@ -182,7 +182,7 @@
       </div>
       <div id="conBlock" class="attrBlock con z2 draggable">
         <div class="bg"><img src="img/AttrBlock3.svg"></div>
-        <input id="conMod" data-field="Con Mod" class="display number mod center form-control" type="text">
+        <input id="conMod" data-subname="" data-field="Con Mod" class="display number mod center form-control" type="text">
         <input id="conAttr" data-field="Con" class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Constitution</div>
         <div class="hover"></div>
@@ -628,19 +628,19 @@
       </div>
       <div id="acBlock" class="acBlock cha z2 draggable">
         <div class="bg"><img src="img/ACBlock.svg"></div>
-        <div style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center"></div>
+        <input data-field="" style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center">
         <div class="lbl1 lower">Armor<br>Class</div>
         <div class="hover"></div>
       </div>
       <div id="maxHpBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <input style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="maxHp" data-field="HP Max" class="display number center form-control" type="text">
+        <input data-field="HP Max" data-subname="" style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="maxHp" class="display number center form-control" type="text">
         <div class="lbl1 lower">Maximum<br>Hit Points</div>
         <div class="hover"></div>
       </div>
       <div id="initBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <div style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="initiative" class="display number mod center"></div>
+        <input data-field="" style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="initiative" class="display number mod center">
         <div class="lbl1 lower">Initiative</div>
         <div class="hover"></div>
       </div>
@@ -775,81 +775,81 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language1" data-field="Language 1" class="display editable form-control" type="text">
+                <input id="language1" data-field="Language 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="tool1" data-field="Tool 1" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="language2" data-field="Language 2" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="tool2" data-field="Tool 2" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="language3" data-field="Language 3" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="tool3" data-field="Tool 3" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="language4" data-field="Language 4" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="tool4" data-field="Tool 4" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="language5" data-field="Language 5" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="tool5" data-field="Tool 5" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language6" data-field="Language 6" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool6" data-field="Tool 6" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language7" data-field="Language 7" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool7" data-field="Tool 7" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language8" data-field="Language 8" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool8" data-field="Tool 8" class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -878,19 +878,19 @@
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat1" data-field="Limited Feature 1" class="display editable form-control" type="text">
+                <input id="ltdFeat1" data-field="Limited Feature 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax1" data-field="Limited Feature Max Usages 1" class="display editable center form-control" type="text">
+                <input id="ltdFeatMax1" data-field="Limited Feature Max Usages 1" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec1" data-field="" class="display editable center form-control" type="text">
+                <input id="ltdFeatRec1" data-field="Limited Feature Recovery 1" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed1" data-field="" class="display editable center form-control" type="text">
+                <input id="ltdFeatUsed1" data-field="" class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -904,7 +904,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec2" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec2" data-field="Limited Feature Recovery 2" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -922,7 +922,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec3" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec3" data-field="Limited Feature Recovery 3" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -940,7 +940,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec4" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec4" data-field="Limited Feature Recovery 4" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -958,7 +958,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec5" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec5" data-field="Limited Feature Recovery 5" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -976,7 +976,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec6" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec6" data-field="Limited Feature Recovery 6" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -994,7 +994,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec7" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec7" data-field="Limited Feature Recovery 7" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1012,7 +1012,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec8" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec8" data-field="Limited Feature Recovery 8" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1030,7 +1030,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec9" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec9" data-field="Limited Feature Recovery 9" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1048,7 +1048,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec10" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec10" data-field="Limited Feature Recovery 10" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1066,7 +1066,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec11" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec11" data-field="Limited Feature Recovery 11" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1084,7 +1084,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec12" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec12" data-field="Limited Feature Recovery 12" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1102,7 +1102,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec13" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec13" data-field="Limited Feature Recovery 13" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1120,7 +1120,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec14" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec14" data-field="Limited Feature Recovery 14" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1138,7 +1138,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec15" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec15" data-field="Limited Feature Recovery 15" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1156,7 +1156,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec16" data-field="" class="display center form-control" type="text">
+                <input id="ltdFeatRec16" data-field="Limited Feature Recovery 16" class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
@@ -1186,141 +1186,169 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action1" data-field="Action 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction1" data-field="Bonus Action 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="reaction1" data-field="Reaction 1" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action2" data-field="Action 2" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction2" data-field="Bonus Action 2" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="reaction2" data-field="Reaction 2" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action3" data-field="Action 3" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction3" data-field="Bonus Action 3" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="reaction3" data-field="Reaction 3" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action4" data-field="Action 4" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction4" data-field="Bonus Action 4" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input id="reaction4" data-field="Reaction 4" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action5" data-field="Action 5" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction5" data-field="Bonus Action 5" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="reaction5" data-field="Reaction 5" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="action6" data-field="Action 6" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="bonusAction6" data-field="Bonus Action 6" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="reaction6" data-field="Reaction 6" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action7" data-field="Action 7" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction7" data-field="Bonus Action 7" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction7" data-field="Reaction 7" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action8" data-field="Action 8" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction8" data-field="Bonus Action 8" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction8" data-field="Reaction 8" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action9" data-field="Action 9" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction9" data-field="Bonus Action 9" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction9" data-field="Reaction 9" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action10" data-field="Action 10" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction10" data-field="Bonus Action 10" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction10" data-field="Reaction 10" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action11" data-field="Action 11" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction11" data-field="Bonus Action 11" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction11" data-field="Reaction 11" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action12" data-field="Action 12" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction12" data-field="Bonus Action 12" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction12" data-field="Reaction 12" class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -1361,7 +1389,7 @@
                 <div class="inputBg"></div>
                 <div class="row">
                   <div class="col subCol">
-
+                    <input id="attackName1" data-field="Attack.1.Weapon Selection" class="display form-control" type="text">
                   </div>
                   <div class="col col-3 subCol">
                   </div>
@@ -1401,223 +1429,7 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
-                    </div>
-                    <div class="col col-3 subCol">
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col col-1">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <div class="inputBg"></div>
-
-                </div>
-              </div>
-            </div>
-            <div class="atk">
-              <div class="row">
-                <div class="col col-6">
-                  <div class="inputBg"></div>
-                  <div class="row">
-                    <div class="col subCol">
-
+                      <input id="attackName2" data-field="Attack.2.Weapon Selection" class="display form-control" type="text">
                     </div>
                     <div class="col col-3 subCol">
                     </div>
@@ -1676,7 +1488,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="armor" data-field="AC Armor Description" class="display editable form-control" type="text">
+                <input id="armor" data-field="AC Armor Description" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1689,7 +1501,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="shield" data-field="AC Shield Bonus Description" class="display editable form-control" type="text">
+                <input id="shield" data-field="AC Shield Bonus Description" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1814,6 +1626,7 @@
       <div id="raceTraits" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content">
+          <div class="underlines"><div class="line"></div></div>
           <textarea data-field="Racial Traits" class="display notes"></textarea>
         </div>
         <div class="lbl1 lower">Racial Traits</div>
@@ -1869,6 +1682,10 @@
       </div>
       <div id="featsBlock" class="block8 z2 resizable">
         <div class="bg"></div>
+        <div class="content">
+          <div class="underlines"><div class="line"></div></div>
+          <textarea data-field="Class Features" class="display notes"></textarea>
+        </div>
         <div class="lbl1 lower">Features &amp; Traits</div>
         <div class="hover"></div>
       </div>
@@ -1927,15 +1744,29 @@
         <input data-field="Cha Remember" class="form-control form-control-sm" type="text">
         <input data-field="Race Remember" class="form-control form-control-sm" type="text">
         <input data-field="Class Features Remember" class="form-control form-control-sm" type="text">
+        <input data-field="SubClass Remember" class="form-control form-control-sm" type="text">
         <input data-field="Proficiencies Remember" class="form-control form-control-sm" type="text">
+        <input data-field="SpellSlotsRemember" class="form-control form-control-sm" type="text">
+        <input data-field="Companion.Remember" class="form-control form-control-sm" type="text">
+        <input data-field="AC Armor Weight" class="form-control form-control-sm" type="text">
+        <input data-field="AC Shield Weight" class="form-control form-control-sm" type="text">
+        <input data-field="AC Stealth Disadvantage" class="form-control form-control-sm" type="text">
+        <input data-field="HoS Remember" class="form-control form-control-sm" type="text">
+        <input data-field="HoSRememberState" class="form-control form-control-sm" type="text">
+
+        <input data-field="Wildshape.Race.1" class="form-control form-control-sm" type="text">
+        <input data-field="Wildshape.Race.2" class="form-control form-control-sm" type="text">
+        <input data-field="Wildshape.Race.3" class="form-control form-control-sm" type="text">
+        <input data-field="Wildshape.Race.4" class="form-control form-control-sm" type="text">
+
         <input data-field="Manual Attack Remember" value="No" class="form-control form-control-sm" type="text">
         <input data-field="Manual Background Remember" value="No" class="form-control form-control-sm" type="text">
         <input data-field="Manual Class Remember" value="No" class="form-control form-control-sm" type="text">
         <input data-field="Manual Feat Remember" value="No" class="form-control form-control-sm" type="text">
         <input data-field="Manual Race Remember" value="No" class="form-control form-control-sm" type="text">
-        <input data-field="AC Armor Weight" class="form-control form-control-sm" type="text">
-        <input data-field="AC Shield Weight" class="form-control form-control-sm" type="text">
-        <input data-field="AC Stealth Disadvantage" class="form-control form-control-sm" type="text">
+
+        <input data-field="Template.extras.WSfront" class="form-control form-control-sm" type="text">
+        <input data-field="Template.extras.AScomp" class="form-control form-control-sm" type="text">
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@ var characterFiles = [];
 (function($) { $(document).ready(function() { // ----------------------------------------
   loadCookies();
   setObjects();
-  //setCharacter();
+  initializeLists();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -143,7 +143,7 @@ var characterFiles = [];
     $('#showBtn').trigger('click');
     $('#edit').removeClass('show').hide();
     $('#moveResetBtn').hide();
-    $('#inputResetBtn').show();
+    $('#inputResetBtn, #calcBtn').show();
   });
   $('#moveBtn').click(function() {
     moveEnabled = true;
@@ -159,7 +159,6 @@ var characterFiles = [];
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function() {
-    initializeLists();
     setCharacter();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
@@ -256,6 +255,13 @@ var characterFiles = [];
           dit.css("visibility", "hidden");
         };
       });
+
+      var underlines = dit.find('.underlines');
+      var lineHeight = dit.find('.line').outerHeight(true);
+      var nrLines = (visibleHeight / lineHeight)-2;
+      for ( var i = 0; i < nrLines; i++ ) {
+        underlines.append('<div class="line"></div>');
+      };
     });
   };
 
@@ -265,8 +271,8 @@ var characterFiles = [];
     var key = dit.attr('id');
 
     if ( dit.is('#name') ) {
-      if ( dit.text() !== "" ) {
-        character.name = dit.text();
+      if ( dit.val() !== "" ) {
+        character.name = dit.val();
       } else {
         character.name = "JoSheet";
       };
@@ -406,6 +412,7 @@ var characterFiles = [];
 
     setCharacter();
     saveCookies();
+    AbilityScores_Button();
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
@@ -425,36 +432,6 @@ var characterFiles = [];
   CurrentSources.toSource = function() { return $.extend({}, this); };
   CurrentEvals.toSource = function() { return $.extend({}, this); };
   IsSubclassException.toSource = function() { return $.extend({}, this); };
-
-  function initializeLists() {
-    classes.old.toSource = function() { return $.extend({}, this); };
-
-    //setListsUnitSystem(false, true);
-    //UAstartupCode();
-    FindClasses();
-    FindRace();
-    //FindCompRace();
-    //FindWeapons();
-    //FindCompWeapons();
-    FindArmor();
-    FindBackground();
-    //FindFeats();
-
-    $.each(AbilityScores.abbreviations, function(key, value) {
-      Value(value + " Remember", file.character["base" + value] + "," + CurrentRace.scores[key]);
-    });
-
-    LoadLevelsonStartup();
-    //FindManualOtherWeapons(true);
-    ApplyProficiencies(true);
-    //UpdateTooltips();
-    //SetRichTextFields();
-
-    console.log(classes);
-    console.log(CurrentRace);
-    console.log(CurrentBackground);
-    console.log(CurrentArmour);
-  };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --

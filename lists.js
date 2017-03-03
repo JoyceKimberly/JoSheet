@@ -1,42 +1,78 @@
-//var tDoc = {};
-tDoc.info = { SheetType : "JoSheet - a4 - printer friendly" };
-tDoc.bookmarkRoot = {
+info = { SheetType : "JoSheet - a4 - printer friendly" };
+bookmarkRoot = {
   children : [{
     children : [],
   }],
 };
-tDoc.resetForm = function() {};
-tDoc.calculateNow = function() {};
+resetForm = function() {};
 
-tDoc.getField = function(event) {
+initializeLists = function() {
+  classes.old.toSource = function() { return $.extend({}, this); };
+
+  //setListsUnitSystem(false, true);
+  //UAstartupCode();
+  FindClasses();
+  FindRace();
+  //FindCompRace();
+  FindWeapons();
+  //FindCompWeapons();
+  FindArmor();
+  FindBackground();
+  //FindFeats();
+
+  $.each(AbilityScores.abbreviations, function(key, value) {
+    Value(value + " Remember", file.character["base" + value] + "," + CurrentRace.scores[key]);
+  });
+
+  LoadLevelsonStartup();
+  //FindManualOtherWeapons(true);
+  ApplyProficiencies(true);
+  //UpdateTooltips();
+  //SetRichTextFields();
+
+  console.log(classes);
+};
+
+calculateNow = function(event, value) {
+  console.log(event);
+  console.log(value);
+};
+
+getField = function(event) {
   var field = {};
   var ele = document.querySelector('[data-field="' + event + '"]');
 
   if ( ele ) {
     field.value = ele.value;
-    field.submitName = ele.value;
-    field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-    field.setAction = function() {};
-    field.buttonGetCaption = function() {};
+    field.submitName = ele.getAttribute('data-subname');
+    field.isBoxChecked = function() {
+      return ele.checked;
+    };
 
   } else {
     field.value = "";
     field.submitName = "";
     field.isBoxChecked = function() {};
-    field.checkThisBox = function() {};
-    field.setAction = function() {};
     field.buttonGetCaption = function() {};
     console.log(event);
+  };
+  field.setAction = function(type, value) {
+    if ( type === "Calculate" ) {
+      calculateNow(event, value);
+    } else {
+      console.log(type);
+      console.log(value);
+    };
   };
   return field;
 };
 
-function Value(field, FldValue, tooltip) {
+Value = function(field, FldValue, tooltip) {
+  console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
   if (!ele) {
-    console.log("Setting: " + field + " -> " + JSON.stringify(FldValue) );
+    console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
   if ( ele.classList.contains('number') ) {
@@ -50,12 +86,12 @@ function Value(field, FldValue, tooltip) {
     ele.setAttribute('title', tooltip);
 	};
 };
-function Checkbox(field, FldValue, tooltip) {
-  console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
+Checkbox = function(field, FldValue, tooltip) {
+  console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
 	if (!ele) {
-    //console.log("Checking: " + field + " -> " + JSON.stringify(FldValue) );
+    //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
@@ -65,25 +101,15 @@ function Checkbox(field, FldValue, tooltip) {
     ele.setAttribute('title', tooltip);
 	};
 };
-function Show() {};
-function Hide() {};
-function DontPrint() {};
-function testSource() { return false; };
+Show = function() {};
+Hide = function() {};
+DontPrint = function() {};
+testSource = function() { return false; };
 
-/*
-		"AC Armor Bonus", //0
-		"Medium Armor", //1
-		"Heavy Armor", //2
-		"AC Stealth Disadvantage", //3
-		"AC Armor Weight", //4
-		"AC Dexterity Modifier"
-*/
-
-var app = {};
-app.thermometer = {
-  begin : function() {},
-  end : function() {},
-};
+app = {};
+app.thermometer = {};
+app.thermometer.begin = function() {},
+app.thermometer.end = function() {},
 app.alert = function() {};
 app.execDialog = function() {};
 

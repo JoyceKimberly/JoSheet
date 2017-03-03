@@ -41,8 +41,10 @@ div .bg img {
   height: 100%;
 }
 
-.outerPage div {
+.outerPage div,
+.outerPage input {
   color: black !important;
+  background-color: transparent;
   position: absolute;
 }
 .outerPage .rel {
@@ -238,6 +240,20 @@ div .bg img {
 .line,
 .underline {
   border-bottom: 1px solid #d5d7db;
+}
+.underlines {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 9px 9px 16px;
+}
+.content .underlines * {
+  height: 14px;
+  position: relative;
+}
+.block8 .underlines {
+  padding: 9px 13px 16px;
 }
 
 .labelBlock img {
