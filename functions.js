@@ -552,7 +552,7 @@ function loadCookies() {
     var $alert = $('\
       <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
         <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-        <div class="content">' + msg + '</div>\
+        <div class="content">' + JSON.stringify(msg) + '</div>\
       </div>\
     ').appendTo('#alerts');
     setTimeout(function() {
