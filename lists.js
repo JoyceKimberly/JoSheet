@@ -68,7 +68,7 @@ getField = function(event) {
 };
 
 Value = function(field, FldValue, tooltip) {
-  console.log(field + " -> " + JSON.stringify(FldValue) );
+  //console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
   if (!ele) {
@@ -87,11 +87,11 @@ Value = function(field, FldValue, tooltip) {
 	};
 };
 Checkbox = function(field, FldValue, tooltip) {
-  console.log(field + " -> " + JSON.stringify(FldValue) );
+  //console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
 	if (!ele) {
-    //console.log(field + " -> " + JSON.stringify(FldValue) );
+    console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
@@ -113,6 +113,14 @@ app.thermometer.end = function() {},
 app.alert = function() {};
 app.execDialog = function() {};
 
+/*
+var Results = app.execDialog(AbilityScores_Dialog);
+
+//don't continu with the function if "apply" was not pressed in the dialog
+if (Results === "ok") {
+  var remCon = What("Con");
+
+*/
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>

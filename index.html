@@ -655,12 +655,12 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input data-field="Speed encumbered" class="display center form-control" type="text">
+              <input data-field="Speed encumbered" class="display noTransform center form-control" type="text">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <input style="font-size: 18px; line-height: 18px; height: 20px; margin-top: -2px;" data-field="Speed" class="display center form-control" type="text">
+              <input style="font-size: 18px; line-height: 18px; height: 20px; margin-top: -2px;" data-field="Speed" class="display noTransform center form-control" type="text">
             </div>
           </div>
         </div>
@@ -1363,7 +1363,7 @@
             <div class="row lblRow">
               <div class="col col-6">
                 <div class="row">
-                  <div class="col col-8 subCol">
+                  <div class="col col-9 subCol">
                     <div class="hlbl">Attack Name</div>
                   </div>
                   <div class="col subCol">
@@ -1388,16 +1388,26 @@
               <div class="col col-6">
                 <div class="inputBg"></div>
                 <div class="row">
-                  <div class="col subCol">
-                    <input id="attackName1" data-field="Attack.1.Weapon Selection" class="display form-control" type="text">
+                  <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                    <input id="attack1" data-field="Attack.1.Weapon Selection" class="attack display form-control" type="text">
                   </div>
-                  <div class="col col-3 subCol">
+                  <div class="col subCol">
+                    <div class="row">
+                      <div class="col col-3">
+                        <label class="custom-control custom-checkbox">
+                          <span class="checkBall"></span>
+                          <input data-field="Attack.1.Proficiency" type="checkbox" class="custom-control-input">
+                          <span class="custom-control-indicator"></span>
+                        </label>
+                      </div>
+                      <div class="col"></div>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="attack1Range" data-field="Attack.1.Range" class="display center noTransform form-control" type="text">
               </div>
               <div class="col col-1">
                 <div class="inputBg"></div>
@@ -1409,13 +1419,13 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="attack1Type" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="attack1Desc" data-field="Attack.1.Description" class="display noTransform form-control" type="text">
               </div>
             </div>
             <div class="row lblRow">
@@ -1428,16 +1438,26 @@
                 <div class="col col-6">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col subCol">
-                      <input id="attackName2" data-field="Attack.2.Weapon Selection" class="display form-control" type="text">
+                    <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                      <input id="attack2" data-field="Attack.2.Weapon Selection" class="attack display form-control" type="text">
                     </div>
-                    <div class="col col-3 subCol">
+                    <div class="col subCol">
+                      <div class="row">
+                        <div class="col col-3">
+                          <label class="custom-control custom-checkbox">
+                            <span class="checkBall"></span>
+                            <input data-field="Attack.2.Proficiency" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="col"></div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack2Range" data-field="Attack.2.Range" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
@@ -1449,13 +1469,13 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack2Type" class="display form-control" type="text">
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack2Desc" data-field="Attack.2.Description" class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1732,48 +1752,102 @@
     </div>
   </div>
   <div id="page4" class="sparePage outerPage" data-page="4">
-    <div class="page">
-      <div id="hiddenFields" class="noPrint">
-        <input data-field="Highlighting" class="form-control form-control-sm" type="text">
-        <input data-field="Unit System" value="imperial" class="form-control form-control-sm" type="text">
-        <input data-field="Str Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Dex Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Con Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Int Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Wis Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Cha Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Race Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Class Features Remember" class="form-control form-control-sm" type="text">
-        <input data-field="SubClass Remember" class="form-control form-control-sm" type="text">
-        <input data-field="Proficiencies Remember" class="form-control form-control-sm" type="text">
-        <input data-field="SpellSlotsRemember" class="form-control form-control-sm" type="text">
-        <input data-field="Companion.Remember" class="form-control form-control-sm" type="text">
-        <input data-field="AC Armor Weight" class="form-control form-control-sm" type="text">
-        <input data-field="AC Shield Weight" class="form-control form-control-sm" type="text">
-        <input data-field="AC Stealth Disadvantage" class="form-control form-control-sm" type="text">
-        <input data-field="HoS Remember" class="form-control form-control-sm" type="text">
-        <input data-field="HoSRememberState" class="form-control form-control-sm" type="text">
-
-        <input data-field="Wildshape.Race.1" class="form-control form-control-sm" type="text">
-        <input data-field="Wildshape.Race.2" class="form-control form-control-sm" type="text">
-        <input data-field="Wildshape.Race.3" class="form-control form-control-sm" type="text">
-        <input data-field="Wildshape.Race.4" class="form-control form-control-sm" type="text">
-
-        <input data-field="Manual Attack Remember" value="No" class="form-control form-control-sm" type="text">
-        <input data-field="Manual Background Remember" value="No" class="form-control form-control-sm" type="text">
-        <input data-field="Manual Class Remember" value="No" class="form-control form-control-sm" type="text">
-        <input data-field="Manual Feat Remember" value="No" class="form-control form-control-sm" type="text">
-        <input data-field="Manual Race Remember" value="No" class="form-control form-control-sm" type="text">
-
-        <input data-field="Template.extras.WSfront" class="form-control form-control-sm" type="text">
-        <input data-field="Template.extras.AScomp" class="form-control form-control-sm" type="text">
-      </div>
-    </div>
+    <div class="page"></div>
   </div>
   <div id="edit" class="dropdown" data-source="">
     <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
     <div class="dropdown-menu"></div>
   </div>
+  <div id="hiddenFields" class="noPrint">
+    <input data-field="Highlighting" type="text">
+    <input data-field="Unit System" value="imperial" type="text">
+    <input data-field="Str Remember" type="text">
+    <input data-field="Dex Remember" type="text">
+    <input data-field="Con Remember" type="text">
+    <input data-field="Int Remember" type="text">
+    <input data-field="Wis Remember" type="text">
+    <input data-field="Cha Remember" type="text">
+    <input data-field="Race Remember" type="text">
+    <input data-field="Class Features Remember" type="text">
+    <input data-field="SubClass Remember" type="text">
+    <input data-field="Proficiencies Remember" type="text">
+    <input data-field="SpellSlotsRemember" type="text">
+    <input data-field="Companion.Remember" type="text">
+    <input data-field="AC Armor Weight" type="text">
+    <input data-field="AC Shield Weight" type="text">
+    <input data-field="AC Stealth Disadvantage" type="text">
+    <input data-field="HoS Remember" type="text">
+    <input data-field="HoSRememberState" type="text">
+
+    <input data-field="Attack.1.Weapon" type="text">
+    <input data-field="Attack.1.Mod" type="text">
+    <input data-field="Attack.1.Damage Type" type="text">
+    <input data-field="Attack.1.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.1.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.1.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.1.Damage Die" type="text">
+    <input data-field="BlueText.Attack.1.Weight" type="text">
+
+    <input data-field="Attack.2.Weapon" type="text">
+    <input data-field="Attack.2.Mod" type="text">
+    <input data-field="Attack.2.Damage Type" type="text">
+    <input data-field="Attack.2.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.2.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.2.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.2.Damage Die" type="text">
+    <input data-field="BlueText.Attack.2.Weight" type="text">
+
+    <input data-field="Attack.3.Weapon" type="text">
+    <input data-field="Attack.3.Mod" type="text">
+    <input data-field="Attack.3.Damage Type" type="text">
+    <input data-field="Attack.3.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.3.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.3.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.3.Damage Die" type="text">
+    <input data-field="BlueText.Attack.3.Weight" type="text">
+
+    <input data-field="Attack.4.Weapon" type="text">
+    <input data-field="Attack.4.Mod" type="text">
+    <input data-field="Attack.4.Damage Type" type="text">
+    <input data-field="Attack.4.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.4.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.4.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.4.Damage Die" type="text">
+    <input data-field="BlueText.Attack.4.Weight" type="text">
+
+    <input data-field="Attack.5.Weapon" type="text">
+    <input data-field="Attack.5.Mod" type="text">
+    <input data-field="Attack.5.Damage Type" type="text">
+    <input data-field="Attack.5.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.5.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.5.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.5.Damage Die" type="text">
+    <input data-field="BlueText.Attack.5.Weight" type="text">
+
+    <input data-field="Attack.6.Weapon" type="text">
+    <input data-field="Attack.6.Mod" type="text">
+    <input data-field="Attack.6.Damage Type" type="text">
+    <input data-field="Attack.6.Description Tooltip" type="text">
+    <input data-field="BlueText.Attack.6.To Hit Bonus" type="text">
+    <input data-field="BlueText.Attack.6.Damage Bonus" type="text">
+    <input data-field="BlueText.Attack.6.Damage Die" type="text">
+    <input data-field="BlueText.Attack.6.Weight" type="text">
+
+    <input data-field="Wildshape.Race.1" type="text">
+    <input data-field="Wildshape.Race.2" type="text">
+    <input data-field="Wildshape.Race.3" type="text">
+    <input data-field="Wildshape.Race.4" type="text">
+
+    <input data-field="Manual Attack Remember" value="No" type="text">
+    <input data-field="Manual Background Remember" value="No" type="text">
+    <input data-field="Manual Class Remember" value="No" type="text">
+    <input data-field="Manual Feat Remember" value="No" type="text">
+    <input data-field="Manual Race Remember" value="No" type="text">
+
+    <input data-field="Template.extras.WSfront" type="text">
+    <input data-field="Template.extras.AScomp" type="text">
+  </div>
+
   <style>
   @media print {
     body,

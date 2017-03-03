@@ -364,8 +364,8 @@ div .bg img {
 .smallBlock .content {
   padding: 6px 7px 12px 6px;
 }
-.smallBlock .content input {
-  text-transform: lowercase;
+.content input.noTransform {
+  text-transform: initial;
 }
 .smallBlock .content input,
 .smallBlock .content .inputBg {
@@ -549,7 +549,10 @@ button .fa-stack .fa-stack-2x {
 
 #hiddenFields * {
   background-color: white;
+  font-size: 12px;
+  display: block;
   position: static;
+  margin: 0 0 0 auto;
 }
 #hiddenFields *::before {
   content: attr(data-field) ": ";
