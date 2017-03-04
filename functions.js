@@ -315,7 +315,7 @@ var characterFiles = [];
 
       if ( ele.is('#class') ) {
         classes.old.toSource = function() { return $.extend({}, this); };
-        ApplyClasses(ele.val());
+        //ApplyClasses(ele.val());
         console.log(classes);
 
       } else if ( ele.is('#race') ) {
