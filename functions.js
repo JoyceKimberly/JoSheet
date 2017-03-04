@@ -562,11 +562,11 @@ function loadCookies() {
   };
 
 }); // ----------------------------------------------------------------------------------
-
+/*
 Object.prototype.toSource = function(event) {
   return $.extend({}, event);
 };
-
+*/
 })(jQuery); // --------------------------------------------------------------------------
 
 var CLIENT_ID = 'ztucdd8z8fjuh08';
