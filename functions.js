@@ -290,16 +290,14 @@ var characterFiles = [];
       character[key] = dit.val();
     };
 
+    if ( dit.is('#armorClass') ) {
+      CalcAC();
+      character[key] = Number(event.originalEvent.value);
+    };
+    
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-
-    if ( dit.is('#armorClass') ) {
-      CalcAC();
-      character[key] = event.originalEvent.value;
-      dit.val(event.originalEvent.value);
-    };
-
   };
   
   function testFunction() {
