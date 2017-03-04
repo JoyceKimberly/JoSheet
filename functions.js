@@ -22,7 +22,7 @@ var characterFiles = [];
     $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
   }, false);
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
-
+/*
   if ( !!getAccessToken() ) {
     dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
@@ -35,7 +35,7 @@ var characterFiles = [];
       window.location = $(this).attr("href");
     });
   };
-
+*/
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
