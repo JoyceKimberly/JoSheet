@@ -336,7 +336,7 @@ var characterFiles = [];
         };
 
       } else if ( ele.is('#background') ) {
-        ApplyBackground(file.character[key]);
+        //ApplyBackground(file.character[key]);
         
       };
     };
