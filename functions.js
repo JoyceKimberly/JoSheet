@@ -570,7 +570,7 @@ Object.prototype.toSource = function(event) {
 })(jQuery); // --------------------------------------------------------------------------
 
 Object.prototype.toSource || (Object.prototype.toSource = function() {
-  return this;
+  return this.toString();
 });
 
 var CLIENT_ID = 'ztucdd8z8fjuh08';
