@@ -119,7 +119,7 @@ getField = function(event) {
     field.value = ele.value;
     //field.submitName = ele.getAttribute('data-submit-name');
     //field.submitName = ele.dataset.submitName;
-    field.submitName = ele.value;
+    field.submitName = "";
     field.isBoxChecked = function() {
       return ele.checked;
     };
