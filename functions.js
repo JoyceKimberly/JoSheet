@@ -568,11 +568,11 @@ Object.prototype.toSource = function(event) {
 };
 */
 })(jQuery); // --------------------------------------------------------------------------
-
+/*
 Object.prototype.toSource || (Object.prototype.toSource = function() {
   return this.toString();
 });
-
+*/
 var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
