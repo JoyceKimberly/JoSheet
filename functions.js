@@ -278,7 +278,7 @@ var characterFiles = [];
 
     } else if ( dit.is('.number') ) {
       character[key] = Number(dit.val());
-      CalcSkill(event);
+      CalcMod(event);
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
