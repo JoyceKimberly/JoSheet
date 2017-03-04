@@ -335,6 +335,9 @@ var characterFiles = [];
           $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
         };
 
+      } else if ( ele.is('#background') ) {
+        ApplyBackground(ele.val());
+        
       };
     };
     $('.name').text(file.character.name);
