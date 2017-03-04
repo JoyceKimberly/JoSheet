@@ -263,7 +263,7 @@ var characterFiles = [];
       };
     });
   };
-var testvar = {};
+
   function setValues(event) {
     var dit = $(event.target);
     var character = {};
@@ -295,15 +295,14 @@ var testvar = {};
     setCharacter();
 
     if ( dit.is('#armorClass') ) {
-      testFunction(testvar);
+      testFunction();
+      console.log(event.value);
     };
 
   };
   
   function testFunction() {
     event.value = "testvalue";
-    console.log(event);
-    console.log(testvar);
   };
 
   function setCharacter() {
