@@ -338,11 +338,13 @@ var characterFiles = [];
       } else if ( ele.is('#background') ) {
         //ApplyBackground(file.character[key]);
         
+      } else if ( ele.is('#armorClass') ) {
+        ele.CalcAC();
+
       };
     };
     $('.name').text(file.character.name);
     console.log(tDoc); // debug
-    CalcAC();
   };
 
   function resetCharacter() {
