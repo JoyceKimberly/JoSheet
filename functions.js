@@ -295,7 +295,8 @@ var characterFiles = [];
     setCharacter();
 
     if ( dit.is('#armorClass') ) {
-      event.testFunction();
+      event = event || window.event;
+      testFunction(event);
       console.log(event.value);
     };
 
@@ -327,7 +328,7 @@ var characterFiles = [];
       if ( ele.is('#class') ) {
         classes.old.toSource = function() { return $.extend({}, this); };
         ApplyClasses(file.character[key]);
-        console.log(classes);
+        //console.log(classes);
 
       } else if ( ele.is('#race') ) {
         ApplyRace(file.character[key]);
