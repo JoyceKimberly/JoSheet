@@ -303,6 +303,7 @@ var characterFiles = [];
   
   function testFunction() {
     event.value = "testvalue";
+    console.log(event.value);
   };
 
   function setCharacter() {
