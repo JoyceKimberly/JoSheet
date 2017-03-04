@@ -295,7 +295,7 @@ var characterFiles = [];
     setCharacter();
 
     if ( dit.is('#armorClass') ) {
-      testFunction(event);
+      testFunction(event.target);
     };
 
   };
