@@ -325,7 +325,7 @@ var characterFiles = [];
         ApplyArmor(ele.val());
 
       } else if ( ele.is('#shield') ) {
-        //ApplyShield(ele.val());
+        ApplyShield(ele.val());
 
       } else if ( ele.is('.attack') ) {
         //ApplyWeapon(ele.val(), ele.data('field'));
