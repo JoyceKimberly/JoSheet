@@ -295,9 +295,13 @@ var characterFiles = [];
     setCharacter();
 
     if ( dit.is('#armorClass') ) {
-      event.CalcAC();
+      event.testFunction();
     };
 
+  };
+  
+  function testFunction() {
+    console.log(event);
   };
 
   function setCharacter() {
