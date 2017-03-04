@@ -295,6 +295,7 @@ var characterFiles = [];
     setCharacter();
 
     if ( dit.is('#armorClass') ) {
+      console.log(event);
       event.testFunction();
     };
 
