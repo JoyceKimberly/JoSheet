@@ -278,7 +278,7 @@ var characterFiles = [];
 
     } else if ( dit.is('.number') ) {
       character[key] = Number(dit.val());
-      CalcMod(event);
+      //CalcMod(event);
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
@@ -315,20 +315,20 @@ var characterFiles = [];
 
       if ( ele.is('#class') ) {
         classes.old.toSource = function() { return $.extend({}, this); };
-        ApplyClasses(ele.val());
+        ApplyClasses(file.character[key]);
         console.log(classes);
 
       } else if ( ele.is('#race') ) {
-        ApplyRace(ele.val());
+        ApplyRace(file.character[key]);
 
       } else if ( ele.is('#armor') ) {
-        ApplyArmor(ele.val());
+        ApplyArmor(file.character[key]);
 
       } else if ( ele.is('#shield') ) {
-        ApplyShield(ele.val());
+        ApplyShield(file.character[key]);
 
       } else if ( ele.is('.attack') ) {
-        ApplyWeapon(ele.val(), ele.data('field'));
+        ApplyWeapon(file.character[key], ele.attr("name"));
         var nr = Number($(ele).attr('id').substring(6));
         var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
         if ( dmgType ) {
@@ -336,7 +336,7 @@ var characterFiles = [];
         };
 
       } else if ( ele.is('#background') ) {
-        ApplyBackground(ele.val());
+        ApplyBackground(file.character[key]);
         
       };
     };
