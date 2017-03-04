@@ -29,7 +29,7 @@ initializeLists = function() {
   //UpdateTooltips();
   //SetRichTextFields();
 
-  console.log(classes);
+  //console.log(classes);
 };
 
 calculateNow = function(event, value) {
