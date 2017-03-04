@@ -322,7 +322,7 @@ var characterFiles = [];
         //ApplyRace(ele.val());
 
       } else if ( ele.is('#armor') ) {
-        //ApplyArmor(ele.val());
+        ApplyArmor(ele.val());
 
       } else if ( ele.is('#shield') ) {
         //ApplyShield(ele.val());
