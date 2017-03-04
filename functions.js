@@ -296,7 +296,7 @@ var characterFiles = [];
 
     if ( dit.is('#armorClass') ) {
       CalcAC();
-      console.log(event.originalEvent.value);
+      character[key] = event.originalEvent.value;
     };
 
   };
