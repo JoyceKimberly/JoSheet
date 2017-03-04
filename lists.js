@@ -113,12 +113,11 @@ calcAbilityScores = function() {
 
 getField = function(event) {
   var field = {};
-  //var ele = document.querySelector('[data-field="' + event + '"]');
   var ele = document.getElementsByName(event)[0];
 
   if ( ele ) {
     field.value = ele.value;
-    field.submitName = ele.getAttribute('data-subname');
+    field.submitName = ele.dataset.subname;
     field.isBoxChecked = function() {
       return ele.checked;
     };
@@ -143,7 +142,6 @@ getField = function(event) {
 
 Value = function(field, FldValue, tooltip) {
   //console.log(field + " -> " + JSON.stringify(FldValue) );
-  //var ele = document.querySelector('[data-field="' + field + '"]');
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
@@ -163,7 +161,6 @@ Value = function(field, FldValue, tooltip) {
 };
 Checkbox = function(field, FldValue, tooltip) {
   //console.log(field + " -> " + JSON.stringify(FldValue) );
-  //var ele = document.querySelector('[data-field="' + field + '"]');
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
