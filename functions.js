@@ -293,6 +293,11 @@ var characterFiles = [];
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
+
+    if ( dit.is('#armorClass') ) {
+      event.CalcAC();
+    };
+
   };
 
   function setCharacter() {
@@ -338,9 +343,6 @@ var characterFiles = [];
       } else if ( ele.is('#background') ) {
         //ApplyBackground(file.character[key]);
         
-      } else if ( ele.is('#armorClass') ) {
-        ele.CalcAC();
-
       };
     };
     $('.name').text(file.character.name);
