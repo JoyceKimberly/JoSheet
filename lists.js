@@ -117,7 +117,7 @@ getField = function(event) {
 
   if ( ele ) {
     field.value = ele.value;
-    //field.submitName = ele.dataset.submitName;
+    field.submitName = ele.dataset.submitName;
     field.isBoxChecked = function() {
       return ele.checked;
     };
@@ -141,7 +141,7 @@ getField = function(event) {
 };
 
 Value = function(field, FldValue, tooltip) {
-  //console.log(field + " -> " + JSON.stringify(FldValue) );
+  console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
@@ -160,7 +160,7 @@ Value = function(field, FldValue, tooltip) {
 	};
 };
 Checkbox = function(field, FldValue, tooltip) {
-  //console.log(field + " -> " + JSON.stringify(FldValue) );
+  console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
