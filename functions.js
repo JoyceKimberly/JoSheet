@@ -536,19 +536,19 @@ var characterFiles = [];
 
 function loadCookies() {
   if ( !!getCookie("objects") ) {
-    $.extend(true, file.objects, JSON.parse(getCookie("objects")));
+    $.extend(true, file.objects, JSON.parse(decodeURIComponent(getCookie("objects"))));
   } else {
     resetObjects();
   };
 
   if ( !!getCookie("character") ) {
-    $.extend(true, file.character, JSON.parse(getCookie("character")));
+    $.extend(true, file.character, JSON.parse(decodeURIComponent(getCookie("character"))));
   } else {
     resetCharacter();
   };
 
   if ( !!getCookie("notes") ) {
-    $.extend(true, file.notes, JSON.parse(getCookie("notes")));
+    $.extend(true, file.notes, JSON.parse(decodeURIComponent(getCookie("notes"))));
   };
 };
 
@@ -610,9 +610,9 @@ function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
-  document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "objects=" + encodeURIComponent(JSON.stringify(file.objects)) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + encodeURIComponent(JSON.stringify(file.character)) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "notes=" + encodeURIComponent(JSON.stringify(file.notes)) + "; expires=" + d.toUTCString() + "; path=/";
 };
 
 function getCookie(cname) {
