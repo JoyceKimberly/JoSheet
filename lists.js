@@ -143,11 +143,11 @@ getField = function(event) {
 };
 
 Value = function(field, FldValue, tooltip) {
-  console.log(field + " -> " + JSON.stringify(FldValue) );
+  //console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
-    //console.log(field + " -> " + JSON.stringify(FldValue) );
+    console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
   if ( ele.classList.contains('number') ) {
@@ -162,11 +162,11 @@ Value = function(field, FldValue, tooltip) {
 	};
 };
 Checkbox = function(field, FldValue, tooltip) {
-  console.log(field + " -> " + JSON.stringify(FldValue) );
+  //console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
-    //console.log(field + " -> " + JSON.stringify(FldValue) );
+    console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
