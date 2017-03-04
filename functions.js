@@ -296,8 +296,7 @@ var characterFiles = [];
 
     if ( dit.is('#armorClass') ) {
       event = event || window.event;
-      testFunction(event);
-      console.log(event);
+      testFunction();
       console.log(event.originalEvent.value);
     };
 
@@ -305,7 +304,6 @@ var characterFiles = [];
   
   function testFunction() {
     event.value = "testvalue";
-    console.log(event);
   };
 
   function setCharacter() {
