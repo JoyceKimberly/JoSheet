@@ -116,8 +116,7 @@ getField = function(event) {
   var ele = document.getElementsByName(event)[0];
 
   if ( ele ) {
-    field.value = ele.value;
-    field.submitName = ele.dataset.subname;
+    field = ele;
     field.isBoxChecked = function() {
       return ele.checked;
     };
