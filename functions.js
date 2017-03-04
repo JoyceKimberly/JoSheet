@@ -342,6 +342,7 @@ var characterFiles = [];
     };
     $('.name').text(file.character.name);
     console.log(tDoc); // debug
+    CalcAC();
   };
 
   function resetCharacter() {
