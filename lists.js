@@ -34,8 +34,8 @@ initializeLists = function() {
 };
 
 calculateNow = function(event, value) {
-  console.log(event);
-  console.log(value);
+  //console.log(event);
+  //console.log(value);
 };
 
 calcAbilityScores = function() {
@@ -128,14 +128,14 @@ getField = function(event) {
     field.submitName = "";
     field.isBoxChecked = function() {};
     field.buttonGetCaption = function() {};
-    console.log(event);
+    //console.log(event);
   };
   field.setAction = function(type, value) {
     if ( type === "Calculate" ) {
       calculateNow(event, value);
     } else {
-      console.log(type);
-      console.log(value);
+      //console.log(type);
+      //console.log(value);
     };
   };
   return field;
@@ -146,7 +146,7 @@ Value = function(field, FldValue, tooltip) {
   var ele = document.querySelector('[data-field="' + field + '"]');
 
   if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
+    //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
   if ( ele.classList.contains('number') ) {
@@ -164,8 +164,8 @@ Checkbox = function(field, FldValue, tooltip) {
   //console.log(field + " -> " + JSON.stringify(FldValue) );
   var ele = document.querySelector('[data-field="' + field + '"]');
 
-	if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
+  if (!ele) {
+    //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
