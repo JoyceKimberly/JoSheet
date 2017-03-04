@@ -312,7 +312,7 @@ var characterFiles = [];
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
       };
-
+/*
       if ( ele.is('#class') ) {
         classes.old.toSource = function() { return $.extend({}, this); };
         ApplyClasses(ele.val());
@@ -335,7 +335,7 @@ var characterFiles = [];
           $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
         };
 
-      };
+      };*/
     };
     $('.name').text(file.character.name);
     console.log(tDoc); // debug
