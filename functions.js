@@ -312,30 +312,30 @@ var characterFiles = [];
       } else if ( ele.is('select') || ele.is('input') ) {
         ele.val(file.character[key]);
       };
-/*
+
       if ( ele.is('#class') ) {
         classes.old.toSource = function() { return $.extend({}, this); };
         ApplyClasses(ele.val());
         console.log(classes);
 
       } else if ( ele.is('#race') ) {
-        ApplyRace(ele.val());
+        //ApplyRace(ele.val());
 
       } else if ( ele.is('#armor') ) {
-        ApplyArmor(ele.val());
+        //ApplyArmor(ele.val());
 
       } else if ( ele.is('#shield') ) {
-        ApplyShield(ele.val());
+        //ApplyShield(ele.val());
 
       } else if ( ele.is('.attack') ) {
-        ApplyWeapon(ele.val(), ele.data('field'));
+        //ApplyWeapon(ele.val(), ele.data('field'));
         var nr = Number($(ele).attr('id').substring(6));
         var dmgType = $('#hiddenFields').find('[data-field="Attack.' + nr + '.Damage Type"]').val();
         if ( dmgType ) {
           $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
         };
 
-      };*/
+      };
     };
     $('.name').text(file.character.name);
     console.log(tDoc); // debug
