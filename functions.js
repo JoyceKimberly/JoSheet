@@ -319,7 +319,7 @@ var characterFiles = [];
         console.log(classes);
 
       } else if ( ele.is('#race') ) {
-        //ApplyRace(ele.val());
+        ApplyRace(ele.val());
 
       } else if ( ele.is('#armor') ) {
         ApplyArmor(ele.val());
