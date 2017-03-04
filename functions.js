@@ -278,8 +278,7 @@ var characterFiles = [];
 
     } else if ( dit.is('.number') ) {
       character[key] = Number(dit.val());
-      console.log(event);
-      event.CalcSkill();
+      console.log(event.CalcSkill());
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
