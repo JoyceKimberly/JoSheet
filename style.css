@@ -333,6 +333,7 @@ div .bg img {
   height: 100%;
 }
 .content .display.notes {
+  background-color: transparent;
   font-size: 11px;
   line-height: 14px;
   text-transform: none;
