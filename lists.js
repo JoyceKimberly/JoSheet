@@ -9,6 +9,10 @@ resetForm = function() {};
 initializeLists = function() {
   classes.old.toSource = function() { return $.extend({}, this); };
 
+  $.each(AbilityScores.abbreviations, function(key, value) {
+    Value(value + " Remember", file.character["base" + value] + ",0,0,0,0");
+  });
+
   //setListsUnitSystem(false, true);
   //UAstartupCode();
   FindClasses();
@@ -19,11 +23,6 @@ initializeLists = function() {
   FindArmor();
   FindBackground();
   //FindFeats();
-
-  $.each(AbilityScores.abbreviations, function(key, value) {
-    Value(value + " Remember", file.character["base" + value] + ",0,0,0,0");
-  });
-
   LoadLevelsonStartup();
   //FindManualOtherWeapons(true);
   ApplyProficiencies(true);
