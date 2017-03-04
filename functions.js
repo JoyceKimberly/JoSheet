@@ -298,6 +298,7 @@ var characterFiles = [];
       event = event || window.event;
       testFunction(event);
       console.log(event);
+      console.log(event.originalEvent.value);
     };
 
   };
