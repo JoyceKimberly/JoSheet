@@ -611,7 +611,7 @@ function saveCookies() {
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "character=" + encodeURIComponent(JSON.stringify(file.character)) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 
