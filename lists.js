@@ -21,7 +21,7 @@ initializeLists = function() {
   //FindFeats();
 
   $.each(AbilityScores.abbreviations, function(key, value) {
-    Value(value + " Remember", file.character["base" + value] + ", 0, 0, 0, 0");
+    Value(value + " Remember", file.character["base" + value] + ",0,0,0,0");
   });
 
   LoadLevelsonStartup();
