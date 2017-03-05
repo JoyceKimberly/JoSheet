@@ -152,10 +152,10 @@ Value = function(field, FldValue, tooltip) {
     return false;
   };
   if ( ele.classList.contains('number') ) {
-    ele.val(+(FldValue));
+    ele.value = +(FldValue);
 
   } else {
-  	ele.val(FldValue);
+  	ele.value = FldValue;
   };
 
 	if ( tooltip !== undefined ) {
