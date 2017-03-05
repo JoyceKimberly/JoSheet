@@ -10,13 +10,13 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://unpkg.com/jquery"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
-  <!--<script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>-->
-  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
+  <!--<script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
@@ -355,7 +355,7 @@
                     <input name="Acr Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="acroMod" class="display number mod"></div>
+                  <input id="acroMod" name="Acr Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
                 </div>
@@ -369,7 +369,7 @@
                     <input name="Ani Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="animMod" class="display number mod"></div>
+                  <input id="animMod" name="Ani Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
                 </div>
@@ -383,7 +383,7 @@
                     <input name="Arc Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="arcaMod" class="display number mod"></div>
+                  <input id="arcaMod" name="Arc Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Arcana <span>(Int)</span></div>
                 </div>
@@ -397,7 +397,7 @@
                     <input name="Ath Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="athlMod" class="display number mod"></div>
+                  <input id="athlMod" name="Ath Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Athletics <span>(Str)</span></div>
                 </div>
@@ -411,7 +411,7 @@
                     <input name="Dec Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="deceMod" class="display number mod"></div>
+                  <input id="deceMod" name="Dec Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Deception <span>(Cha)</span></div>
                 </div>
@@ -425,7 +425,7 @@
                     <input name="His Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="histMod" class="display number mod"></div>
+                  <input id="histMod" name="His Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">History <span>(Int)</span></div>
                 </div>
@@ -439,7 +439,7 @@
                     <input name="Ins Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="insiMod" class="display number mod"></div>
+                  <input id="insiMod" name="Ins Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
                 </div>
@@ -453,7 +453,7 @@
                     <input name="Inti Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="intiMod" class="display number mod"></div>
+                  <input id="intiMod" name="Inti Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Intimidation <span>(Cha)</span></div>
                 </div>
@@ -467,7 +467,7 @@
                     <input name="Inv Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="inveMod" class="display number mod"></div>
+                  <input id="inveMod" name="Inv Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
                 </div>
@@ -481,7 +481,7 @@
                     <input name="Med Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="mediMod" class="display number mod"></div>
+                  <input id="mediMod" name="Med Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Medicine <span>(Wis)</span></div>
                 </div>
@@ -495,7 +495,7 @@
                     <input name="Nat Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="natuMod" class="display number mod"></div>
+                  <input id="natuMod" name="Nat Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
                 </div>
@@ -509,7 +509,7 @@
                     <input name="Perc Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="percMod" class="display number mod"></div>
+                  <input id="percMod" name="Perc Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Perception <span>(Wis)</span></div>
                 </div>
@@ -523,7 +523,7 @@
                     <input name="Perf Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="perfMod" class="display number mod"></div>
+                  <input id="perfMod" name="Perf Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Performance <span>(Cha)</span></div>
                 </div>
@@ -537,7 +537,7 @@
                     <input name="Pers Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="persMod" class="display number mod"></div>
+                  <input id="persMod" name="Pers Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Persuasion <span>(Cha)</span></div>
                 </div>
@@ -551,7 +551,7 @@
                     <input name="Rel Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="reliMod" class="display number mod"></div>
+                  <input id="reliMod" name="Rel Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Religion <span>(Int)</span></div>
                 </div>
@@ -565,7 +565,7 @@
                     <input name="Sle Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="sleiMod" class="display number mod"></div>
+                  <input id="sleiMod" name="Sle Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
                 </div>
@@ -579,7 +579,7 @@
                     <input name="Ste Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="steaMod" class="display number mod"></div>
+                  <input id="steaMod" name="Ste Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Stealth <span>(Dex)</span></div>
                 </div>
@@ -593,7 +593,7 @@
                     <input name="Sur Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <div id="survMod" class="display number mod"></div>
+                  <input id="survMod" name="Sur Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Survival <span>(Wis)</span></div>
                 </div>
@@ -618,7 +618,7 @@
       </div>
       <div id="percBlock" class="labelBlock3 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="passivePerc" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display number center"></div>
+        <input id="passivePerc" name="Passive Perception" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display number skill center form-control" type="text">
         <div class="lbl lbl1">Passive Wisdom (Perception)</div>
         <div class="hover"></div>
       </div>
@@ -679,7 +679,7 @@
             <div class="col">
               <div class="hlbl center">Level</div>
             </div>
-            <div class="col">
+            <div class="col col-5">
               <div class="hlbl center">Die</div>
             </div>
             <div class="col">
@@ -691,7 +691,7 @@
               <div class="inputBg"></div>
               <input name="HD1 Level" class="display noTransform center form-control" type="text">
             </div>
-            <div class="col">
+            <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD1 Die" class="display noTransform center form-control" type="text">
             </div>
@@ -705,7 +705,7 @@
               <div class="inputBg"></div>
               <input name="HD2 Level" class="display noTransform center form-control" type="text">
             </div>
-            <div class="col">
+            <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD2 Die" class="display noTransform center form-control" type="text">
             </div>
@@ -719,7 +719,7 @@
               <div class="inputBg"></div>
               <input name="HD3 Level" class="display noTransform center form-control" type="text">
             </div>
-            <div class="col">
+            <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD3 Die" class="display noTransform center form-control" type="text">
             </div>
@@ -1582,6 +1582,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
+                <input name="AC Dexterity Modifier" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Dex</div>
@@ -1838,6 +1839,8 @@
     <input name="CurrentSpells.Stringified" type="text">
     <input name="CurrentSources.Stringified" type="text">
     <input name="CurrentEvals.Stringified" type="text">
+
+    <input name="SpellSlots.CheckboxesSet.lvl1" type="text">
 
     <input name="Attack.1.Weapon" type="text">
     <input name="Attack.1.Mod" type="text">

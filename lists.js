@@ -33,9 +33,11 @@ initializeLists = function() {
 };
 
 calculateNow = function(event, value) {
-    //console.log(event);
+/*  if ( event ) {
+    console.log(event);
     //console.log(value);
-    //$('input.display').change();
+    //$('[name="' + event + '"]').focusout();
+  };*/
 };
 
 calcAbilityScores = function() {
@@ -122,7 +124,7 @@ getField = function(event) {
     //field.submitName = ele.dataset.submitName;
     field.submitName = "";
     field.isBoxChecked = function() {
-      console.log(event + " is checked? " + ele.checked);
+      //console.log(event + " is checked? " + ele.checked);
       return ele.checked;
     };
 

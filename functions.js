@@ -6,13 +6,17 @@ window.file = {
   character : {},
   notes     : {},
 };
+window.allowCalc = true;
 var pages = 3;
 var characterFiles = [];
 
-(function($) { $(document).ready(function() { // ----------------------------------------
+$(function() { // -----------------------------------------------------------------------
   loadCookies();
   setObjects();
-  initializeLists();
+  if ( allowCalc ) {
+    //$('input').attr("disabled", true);
+    initializeLists();
+  };
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -289,21 +293,23 @@ var characterFiles = [];
       character[key] = dit.val();
     };
 
-    if ( dit.is('#armorClass') ) {
-      CalcAC();
-      character[key] = Number(event.originalEvent.value);
+    if ( allowCalc ) {
+      if ( dit.is('#armorClass') ) {
+        CalcAC();
+        character[key] = Number(event.originalEvent.value);
 
-    } else if ( dit.is('.attr.mod') ) {
-      CalcMod();
-      character[key] = Number(event.originalEvent.value);
+      } else if ( dit.is('.attr.mod') ) {
+        CalcMod();
+        character[key] = Number(event.originalEvent.value);
 
-    } else if ( dit.is('.save.mod') ) {
-      CalcSave();
-      character[key] = Number(event.originalEvent.value);
+      } else if ( dit.is('.save.mod') ) {
+        CalcSave();
+        character[key] = Number(event.originalEvent.value);
 
-    } else if ( dit.is('.skill.mod') ) {
-      CalcSkill();
-      character[key] = Number(event.originalEvent.value);
+      } else if ( dit.is('.skill') ) {
+        CalcSkill();
+        character[key] = Number(event.originalEvent.value);
+      };
     };
 
     $.extend(true, file.character, character);
@@ -329,33 +335,33 @@ var characterFiles = [];
         ele.val(file.character[key]);
       };
 
-      if ( ele.is('#class') ) {
-        classes.old.toSource = function() { return $.extend({}, this); };
-        ApplyClasses(file.character[key]);
-        //console.log(classes);
+      if ( allowCalc ) {
+        if ( ele.is('#class') ) {
+          classes.old.toSource = function() { return $.extend({}, this); };
+          ApplyClasses(file.character[key]);
 
-      } else if ( ele.is('#race') ) {
-        ApplyRace(file.character[key]);
+        } else if ( ele.is('#race') ) {
+          ApplyRace(file.character[key]);
 
-      } else if ( ele.is('#armor') ) {
-        ApplyArmor(file.character[key]);
+        } else if ( ele.is('#armor') ) {
+          ApplyArmor(file.character[key]);
 
-      } else if ( ele.is('#shield') ) {
-        ApplyShield(file.character[key]);
+        } else if ( ele.is('#shield') ) {
+          ApplyShield(file.character[key]);
 
-      } else if ( ele.is('.attack') ) {
-        ApplyWeapon(file.character[key], ele.attr("name"));
-        var nr = Number($(ele).attr('id').substring(6));
-        var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
-        if ( dmgType ) {
-          $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
+        } else if ( ele.is('.attack') ) {
+          ApplyWeapon(file.character[key], ele.attr("name"));
+          var nr = Number($(ele).attr('id').substring(6));
+          var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
+          if ( dmgType ) {
+            $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
+          };
+
+        } else if ( ele.is('#background') ) {
+          //ApplyBackground(file.character[key]);
+
         };
-
-      } else if ( ele.is('#background') ) {
-        //ApplyBackground(file.character[key]);
-
       };
-      //ele.change();
     };
     $('.name').text(file.character.name);
     //console.log(tDoc); // debug
@@ -440,7 +446,7 @@ var characterFiles = [];
     setCharacter();
     saveCookies();
     calcAbilityScores();
-    //triggerAll();
+    triggerAll();
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
@@ -454,9 +460,7 @@ var characterFiles = [];
   });
 
   function triggerAll() {
-    console.log('trigger all');
-    $('#armorClass').change();
-    console.log('triggered all');
+    $('input.display').focus();
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
@@ -589,17 +593,7 @@ function loadCookies() {
   };
 
 }); // ----------------------------------------------------------------------------------
-/*
-Object.prototype.toSource = function(event) {
-  return $.extend({}, event);
-};
-*/
-})(jQuery); // --------------------------------------------------------------------------
-/*
-Object.prototype.toSource || (Object.prototype.toSource = function() {
-  return this.toString();
-});
-*/
+
 var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
@@ -653,20 +647,7 @@ function getCookie(cname) {
   };
   return "";
 };
-/*
-//var tDoc = {};
-tDoc.info = { SheetType : "JoSheet" };
-tDoc.bookmarkRoot = {
-  children : [{
-    children : [],
-  }],
-};
-tDoc.getField = function(event) {
-  console.log(event);
-  return event;
-};
-var app = {};
-*/
+
 (function(window) {
 /*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
