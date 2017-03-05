@@ -36,7 +36,7 @@ initializeLists = function() {
   calculateNow = function(event, value) {
     //console.log(event);
     //console.log(value);
-    $('.display').trigger('change');
+    //$('.display').trigger('change');
   };
 //});
 
