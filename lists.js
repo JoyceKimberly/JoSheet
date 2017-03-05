@@ -32,10 +32,13 @@ initializeLists = function() {
   //console.log(classes);
 };
 
-calculateNow = function(event, value) {
-  //console.log(event);
-  //console.log(value);
-};
+$(function() {
+  calculateNow = function(event, value) {
+    //console.log(event);
+    //console.log(value);
+    $('.display')
+  };
+});
 
 calcAbilityScores = function() {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
