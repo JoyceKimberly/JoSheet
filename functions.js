@@ -305,12 +305,12 @@ var characterFiles = [];
       CalcSkill();
       character[key] = Number(event.originalEvent.value);
     };
-    
+
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
   };
-  
+
   function setCharacter() {
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
@@ -353,7 +353,7 @@ var characterFiles = [];
 
       } else if ( ele.is('#background') ) {
         //ApplyBackground(file.character[key]);
-        
+
       };
       //ele.change();
     };
@@ -440,7 +440,7 @@ var characterFiles = [];
     setCharacter();
     saveCookies();
     calcAbilityScores();
-    triggerAll();
+    //triggerAll();
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
@@ -458,7 +458,7 @@ var characterFiles = [];
     $('#armorClass').change();
     console.log('triggered all');
   };
-  
+
   classes.old.toSource = function() { return $.extend({}, this); };
   CurrentSpells.toSource = function() { return $.extend({}, this); };
   CurrentCasters.toSource = function() { return $.extend({}, this); };

@@ -125,7 +125,7 @@ div .bg img {
 }
 
 .display,
-.display.form-control {
+input.display {
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 0;
   color: black;
@@ -136,7 +136,7 @@ div .bg img {
   letter-spacing: -0.3px;
   vertical-align: top;
 }
-.display.form-control {
+input.display {
   background-color: transparent;
   background-image: none;
   position: absolute;
