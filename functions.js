@@ -278,7 +278,6 @@ var characterFiles = [];
 
     } else if ( dit.is('.number') ) {
       character[key] = Number(dit.val());
-      //CalcMod(event);
 
     } else if ( dit.is('div') ) {
       character[key] = dit.text();
@@ -293,6 +292,10 @@ var characterFiles = [];
     if ( dit.is('#armorClass') ) {
       CalcAC();
       character[key] = Number(event.originalEvent.value);
+
+    } else if ( dit.is('.mod') ) {
+      CalcMod();
+      console.log(event.originalEvent.value);
     };
     
     $.extend(true, file.character, character);
