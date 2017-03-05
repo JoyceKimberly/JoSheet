@@ -295,7 +295,7 @@ var characterFiles = [];
 
     } else if ( dit.is('.attr.mod') ) {
       CalcMod();
-      character[key] = event.originalEvent.value;
+      character[key] = Number(event.originalEvent.value);
     };
     
     $.extend(true, file.character, character);
