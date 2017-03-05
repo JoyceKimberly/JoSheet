@@ -36,7 +36,7 @@ $(function() {
   calculateNow = function(event, value) {
     //console.log(event);
     //console.log(value);
-    $('.display')
+    $('.display').trigger('change');
   };
 });
 
