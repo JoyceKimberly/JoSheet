@@ -300,6 +300,10 @@ var characterFiles = [];
     } else if ( dit.is('.save.mod') ) {
       CalcSave();
       character[key] = Number(event.originalEvent.value);
+
+    } else if ( dit.is('.skill.mod') ) {
+      CalcSkill();
+      character[key] = Number(event.originalEvent.value);
     };
     
     $.extend(true, file.character, character);
