@@ -351,6 +351,7 @@ var characterFiles = [];
         //ApplyBackground(file.character[key]);
         
       };
+      ele.change();
     };
     $('.name').text(file.character.name);
     //console.log(tDoc); // debug
