@@ -451,6 +451,7 @@ var characterFiles = [];
   function triggerAll() {
     console.log('trigger all');
     $('.display, .custom-control-input').trigger('change');
+    console.log('triggered all');
   };
   
   classes.old.toSource = function() { return $.extend({}, this); };
