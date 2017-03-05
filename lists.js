@@ -32,13 +32,11 @@ initializeLists = function() {
   //console.log(classes);
 };
 
-//$(function() {
-  calculateNow = function(event, value) {
+calculateNow = function(event, value) {
     //console.log(event);
     //console.log(value);
-    //$('.display').trigger('change');
-  };
-//});
+    //$('input.display').change();
+};
 
 calcAbilityScores = function() {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
@@ -151,16 +149,16 @@ Value = function(field, FldValue, tooltip) {
 
   if (!ele) {
     console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false
+    return false;
   };
   if ( ele.classList.contains('number') ) {
-    ele.value = +(FldValue);
+    ele.val(+(FldValue));
 
   } else {
-  	ele.value = FldValue;
+  	ele.val(FldValue);
   };
 
-	if (tooltip !== undefined) {
+	if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
 	};
 };
@@ -170,19 +168,21 @@ Checkbox = function(field, FldValue, tooltip) {
 
   if (!ele) {
     console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false
+    return false;
   };
 	var Checkit = (FldValue === undefined) ? true : FldValue;
   ele.checked = Checkit;
 
-	if (tooltip !== undefined) {
+	if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
-	};
+  };
 };
 Show = function() {};
 Hide = function() {};
 DontPrint = function() {};
 testSource = function() { return false; };
+
+//Object.prototype.toSource = function() { return $.extend({}, this); };
 
 app = {};
 app.thermometer = {};
@@ -191,14 +191,6 @@ app.thermometer.end = function() {},
 app.alert = function() {};
 app.execDialog = function() {};
 
-/*
-var Results = app.execDialog(AbilityScores_Dialog);
-
-//don't continu with the function if "apply" was not pressed in the dialog
-if (Results === "ok") {
-  var remCon = What("Con");
-
-*/
 /*
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
