@@ -451,7 +451,7 @@ var characterFiles = [];
 
   function triggerAll() {
     console.log('trigger all');
-    $('input.display').change();
+    $('#armorClass').change();
     console.log('triggered all');
   };
   
