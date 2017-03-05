@@ -435,6 +435,7 @@ var characterFiles = [];
     setCharacter();
     saveCookies();
     calcAbilityScores();
+    triggerAll();
     $(this).removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
@@ -447,6 +448,10 @@ var characterFiles = [];
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 
+  function triggerAll() {
+    $('.display, .custom-control-input').trigger('change');
+  };
+  
   classes.old.toSource = function() { return $.extend({}, this); };
   CurrentSpells.toSource = function() { return $.extend({}, this); };
   CurrentCasters.toSource = function() { return $.extend({}, this); };
