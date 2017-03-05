@@ -296,6 +296,10 @@ var characterFiles = [];
     } else if ( dit.is('.attr.mod') ) {
       CalcMod();
       character[key] = Number(event.originalEvent.value);
+
+    } else if ( dit.is('.save.mod') ) {
+      CalcSave();
+      character[key] = Number(event.originalEvent.value);
     };
     
     $.extend(true, file.character, character);
@@ -303,10 +307,6 @@ var characterFiles = [];
     setCharacter();
   };
   
-  function testFunction() {
-    event.value = "testvalue";
-  };
-
   function setCharacter() {
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
@@ -449,6 +449,7 @@ var characterFiles = [];
   });
 
   function triggerAll() {
+    console.log('trigger all');
     $('.display, .custom-control-input').trigger('change');
   };
   
