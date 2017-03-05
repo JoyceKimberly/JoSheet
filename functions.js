@@ -450,7 +450,7 @@ var characterFiles = [];
 
   function triggerAll() {
     console.log('trigger all');
-    $('.display, .custom-control-input').change();
+    $('input.display').change();
     console.log('triggered all');
   };
   
