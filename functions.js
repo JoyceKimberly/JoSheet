@@ -293,9 +293,9 @@ var characterFiles = [];
       CalcAC();
       character[key] = Number(event.originalEvent.value);
 
-    } else if ( dit.is('.mod') ) {
+    } else if ( dit.is('.attr.mod') ) {
       CalcMod();
-      console.log(event.originalEvent.value);
+      character[key] = event.originalEvent.value;
     };
     
     $.extend(true, file.character, character);
