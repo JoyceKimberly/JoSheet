@@ -43,6 +43,9 @@ $(function() { // --------------------------------------------------------------
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
+  $('#hiddenFields input').wrap("<div></div>").before(function() {
+    return "<label>" + $(this).attr("name") + ": </label>";
+  });
 
   function setBodyTag() {
     var body = $('body');
@@ -358,7 +361,7 @@ $(function() { // --------------------------------------------------------------
           };
 
         } else if ( ele.is('#background') ) {
-          //ApplyBackground(file.character[key]);
+          ApplyBackground(file.character[key]);
 
         };
       };
@@ -564,7 +567,7 @@ $(function() { // --------------------------------------------------------------
 
 function loadCookies() {
   if ( !!getCookie("objects") ) {
-    $.extend(true, file.objects, JSON.parse(decodeURIComponent(getCookie("objects"))));
+    $.extend(true, file.objects, JSON.parse(getCookie("objects")));
   } else {
     resetObjects();
   };
@@ -628,7 +631,7 @@ function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
-  document.cookie = "objects=" + encodeURIComponent(JSON.stringify(file.objects)) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + encodeURIComponent(JSON.stringify(file.character)) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "notes=" + encodeURIComponent(JSON.stringify(file.notes)) + "; expires=" + d.toUTCString() + "; path=/";
 };

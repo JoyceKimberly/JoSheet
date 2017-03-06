@@ -133,7 +133,7 @@ getField = function(event) {
     field.submitName = "";
     field.isBoxChecked = function() {};
     field.buttonGetCaption = function() {};
-    //console.log(event);
+    console.log(event);
   };
   field.setAction = function(type, value) {
     if ( type === "Calculate" ) {
@@ -143,6 +143,10 @@ getField = function(event) {
       //console.log(value);
     };
   };
+  field.setItems = function(value) {
+    console.log(value);
+  };
+  field.clearItems = function() {};
   return field;
 };
 

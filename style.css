@@ -19,7 +19,8 @@ a {
 .right { text-align: right; }
 
 .hidden,
-.display {
+.display,
+.expertise {
   display: none;
 }
 
@@ -394,7 +395,8 @@ input.display {
   border: 1px solid rgba(4, 141, 204, 0.2);
   background-color: rgba(56, 166, 229, 0.2);
 }
-.inputMode .display:hover {
+.inputMode .display:hover,
+.content .dropdown-toggle-split-parent:hover .btn.dropdown-toggle-split {
   border: 1px solid rgba(77, 15, 167, 0.2);
   background-color: rgba(105, 20, 229, 0.2);
 }
@@ -461,6 +463,9 @@ button .fa-stack .fa-stack-2x {
   font-size: 1.28571429em;
 }
 
+.content .dropdown-menu {
+  background-color: white;
+}
 .dropdown-item {
   position: relative;
   padding-right: 35px;
@@ -470,6 +475,30 @@ button .fa-stack .fa-stack-2x {
   position: absolute;
   top: 6px;
   right: 10px;
+}
+.content .dropdown-toggle-split-parent,
+.content .btn.dropdown-toggle-split {
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+}
+.content .dropdown-toggle-split-parent > * {
+  margin: 0;
+}
+.content .btn.dropdown-toggle-split {
+  border-radius: 0;
+  display: none;
+}
+.content .dropdown-toggle::after {
+  margin: 0;
+}
+.content .dropdown-toggle-split-parent:hover .btn.dropdown-toggle-split {
+  display: block;
 }
 
 #blockMenu {
@@ -559,8 +588,13 @@ button .fa-stack .fa-stack-2x {
   position: static;
   margin: 0 0 0 auto;
 }
-#hiddenFields *::before {
-  content: attr(data-field) ": ";
+#hiddenFields div * {
+  border: none;
+  display: inline-block;
+}
+#hiddenFields div input {
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 /* ----------------------------------------------------------------------------------- */

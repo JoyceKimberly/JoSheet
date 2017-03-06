@@ -311,31 +311,31 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <div id="resist1" class="display"></div>
+                <input id="resist1" name="Resistance Damage Type 1" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div id="resist2" class="display"></div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <div id="resist3" class="display"></div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <div id="resist4" class="display"></div>
+                <input id="resist4" name="Resistance Damage Type 4" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <div id="resist5" class="display"></div>
+                <input id="resist2" name="Resistance Damage Type 2" class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <div id="resist6" class="display"></div>
+                <input id="resist5" name="Resistance Damage Type 5" class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="resist3" name="Resistance Damage Type 3" class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="resist6" name="Resistance Damage Type 6" class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -355,6 +355,11 @@
                     <input name="Acr Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Acr Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="acroMod" name="Acr Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
@@ -367,6 +372,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Ani Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Ani Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="animMod" name="Ani Mod" class="display number skill mod center form-control" type="text">
@@ -383,6 +393,11 @@
                     <input name="Arc Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Arc Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="arcaMod" name="Arc Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Arcana <span>(Int)</span></div>
@@ -395,6 +410,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Ath Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Ath Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="athlMod" name="Ath Mod" class="display number skill mod center form-control" type="text">
@@ -411,6 +431,11 @@
                     <input name="Dec Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Dec Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="deceMod" name="Dec Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Deception <span>(Cha)</span></div>
@@ -423,6 +448,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="His Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="His Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="histMod" name="His Mod" class="display number skill mod center form-control" type="text">
@@ -439,6 +469,11 @@
                     <input name="Ins Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Ins Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="insiMod" name="Ins Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
@@ -451,6 +486,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Inti Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Inti Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="intiMod" name="Inti Mod" class="display number skill mod center form-control" type="text">
@@ -467,6 +507,11 @@
                     <input name="Inv Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Inv Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="inveMod" name="Inv Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
@@ -479,6 +524,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Med Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Med Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="mediMod" name="Med Mod" class="display number skill mod center form-control" type="text">
@@ -495,6 +545,11 @@
                     <input name="Nat Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Nat Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="natuMod" name="Nat Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
@@ -507,6 +562,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Perc Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Perc Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="percMod" name="Perc Mod" class="display number skill mod center form-control" type="text">
@@ -523,6 +583,11 @@
                     <input name="Perf Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Perf Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="perfMod" name="Perf Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Performance <span>(Cha)</span></div>
@@ -535,6 +600,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Pers Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Pers Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="persMod" name="Pers Mod" class="display number skill mod center form-control" type="text">
@@ -551,6 +621,11 @@
                     <input name="Rel Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Rel Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="reliMod" name="Rel Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Religion <span>(Int)</span></div>
@@ -563,6 +638,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Sle Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Sle Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="sleiMod" name="Sle Mod" class="display number skill mod center form-control" type="text">
@@ -579,6 +659,11 @@
                     <input name="Ste Prof" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Ste Exp" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
                   <input id="steaMod" name="Ste Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Stealth <span>(Dex)</span></div>
@@ -591,6 +676,11 @@
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
                     <input name="Sur Prof" type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                  <label class="expertise custom-control custom-checkbox">
+                    <span class="checkBall"></span>
+                    <input name="Sur Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <input id="survMod" name="Sur Mod" class="display number skill mod center form-control" type="text">
@@ -1444,7 +1534,15 @@
                 <div class="inputBg"></div>
                 <div class="row">
                   <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                    <input id="attack1" name="Attack.1.Weapon Selection" class="attack display form-control" type="text">
+                    <div class="row btn-group dropdown-toggle-split-parent">
+                      <div class="col"><input id="attack1" name="Attack.1.Weapon Selection" class="attack display form-control" type="text"></div>
+                      <div class="col col-1">
+                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item"></a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="col subCol">
                     <div class="row">
@@ -1756,6 +1854,15 @@
         <div class="lbl3 lower">Flaws</div>
         <div class="hover"></div>
       </div>
+      <div id="bgFeatBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="content">
+          <div class="underlines"><div class="line"></div></div>
+          <textarea name="Background Feature" class="display notes"></textarea>
+        </div>
+        <div class="lbl1 lower">Background Feature</div>
+        <div class="hover"></div>
+      </div>
       <div id="featsBlock" class="block8 z2 resizable">
         <div class="bg"></div>
         <div class="content">
@@ -1829,18 +1936,51 @@
     <input name="SubClass Remember" type="text">
     <input name="Proficiencies Remember" type="text">
     <input name="SpellSlotsRemember" type="text">
+    <input name="Speed Remember" type="text">
     <input name="AC Armor Weight" type="text">
     <input name="AC Shield Weight" type="text">
     <input name="AC Stealth Disadvantage" type="text">
     <input name="HoS Remember" type="text">
     <input name="HoSRememberState" type="text">
     <input name="Size Category" type="text">
+    <input name="Background Extra" type="text">
+    <input name="Text.SkillsNames" type="text">
+    <input name="MoreProficiencies" type="text">
 
     <input name="CurrentSpells.Stringified" type="text">
     <input name="CurrentSources.Stringified" type="text">
     <input name="CurrentEvals.Stringified" type="text">
 
     <input name="SpellSlots.CheckboxesSet.lvl1" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl2" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl3" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl4" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl5" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl6" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl7" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl8" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl9" type="text">
+
+    <input name="Wildshape.Race.1" type="text">
+    <input name="Wildshape.Race.2" type="text">
+    <input name="Wildshape.Race.3" type="text">
+    <input name="Wildshape.Race.4" type="text">
+
+    <input name="Companion.Remember" type="text">
+    <input name="Comp.Use.HD.Die" type="text">
+    <input name="Comp.Use.HD.Level" type="text">
+    <input name="Comp.Use.Ability.Con.Mod" type="text">
+    <input name="Comp.Use.HP.Max" type="text">
+
+    <input name="Template.extras.WSfront" type="text">
+    <input name="Template.extras.AScomp" type="text">
+
+    <input name="Decimal Separator" value="," type="text">
+    <input name="Manual Attack Remember" value="No" type="text">
+    <input name="Manual Background Remember" value="No" type="text">
+    <input name="Manual Class Remember" value="No" type="text">
+    <input name="Manual Feat Remember" value="No" type="text">
+    <input name="Manual Race Remember" value="No" type="text">
 
     <input name="Attack.1.Weapon" type="text">
     <input name="Attack.1.Mod" type="text">
@@ -1895,23 +2035,6 @@
     <input name="BlueText.Attack.6.Damage Bonus" type="text">
     <input name="BlueText.Attack.6.Damage Die" type="text">
     <input name="BlueText.Attack.6.Weight" type="text">
-
-    <input name="Wildshape.Race.1" type="text">
-    <input name="Wildshape.Race.2" type="text">
-    <input name="Wildshape.Race.3" type="text">
-    <input name="Wildshape.Race.4" type="text">
-
-    <input name="Companion.Remember" type="text">
-    <input name="Comp.Use.HD.Die" type="text">
-
-    <input name="Manual Attack Remember" value="No" type="text">
-    <input name="Manual Background Remember" value="No" type="text">
-    <input name="Manual Class Remember" value="No" type="text">
-    <input name="Manual Feat Remember" value="No" type="text">
-    <input name="Manual Race Remember" value="No" type="text">
-
-    <input name="Template.extras.WSfront" type="text">
-    <input name="Template.extras.AScomp" type="text">
   </div>
 
   <style>
