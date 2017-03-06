@@ -298,13 +298,13 @@ $(function() { // --------------------------------------------------------------
     };
 
     if ( allowCalc ) {
-      if ( dit.is('#armorClass') ) {
+      if ( dit.is('[name="AC Dexterity Modifier"]') ) {
+        dit.val(calcMaxDexToAC());
+
+      } else if ( dit.is('#armorClass') ) {
         CalcAC();
         character[key] = Number(event.originalEvent.value);
       
-      } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
-        dit.val(calcMaxDexToAC());
-
       } else if ( dit.is('.attr.mod') ) {
         CalcMod();
         character[key] = Number(event.originalEvent.value);
