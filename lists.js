@@ -198,7 +198,27 @@ app.thermometer.end = function() {},
 app.alert = function() {};
 app.execDialog = function() {};
 
+$(function() { // -----------------------------------------------------------------------
+  for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
+    $('#attackBlock .dropdown-menu').append('<a class="dropdown-item" id=attackChoice"' + key + '">' + WeaponsList.DropDownList[key] + '</a>');
+  };
+}); // ----------------------------------------------------------------------------------
 /*
+for ( var key in RaceList ) {
+  if ( RaceList.hasOwnProperty(key) ) {
+    $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
+  };
+};
+for ( var key in ClassList ) {
+  if ( ClassList.hasOwnProperty(key) ) {
+    $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
+  };
+};
+for ( var key in BackgroundList ) {
+  if ( BackgroundList.hasOwnProperty(key) ) {
+    $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
+  };
+};
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
 <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
