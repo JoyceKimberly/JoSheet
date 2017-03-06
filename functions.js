@@ -264,7 +264,8 @@ $(function() { // --------------------------------------------------------------
 
       var underlines = dit.find('.underlines');
       var lineHeight = dit.find('.line').outerHeight(true);
-      var nrLines = (visibleHeight / lineHeight)-2;
+      var nrLines = (visibleHeight / lineHeight)-1;
+      underlines.find('.line').remove();
       for ( var i = 0; i < nrLines; i++ ) {
         underlines.append('<div class="line"></div>');
       };
@@ -300,6 +301,9 @@ $(function() { // --------------------------------------------------------------
       if ( dit.is('#armorClass') ) {
         CalcAC();
         character[key] = Number(event.originalEvent.value);
+      
+      } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
+        dit.val(calcMaxDexToAC());
 
       } else if ( dit.is('.attr.mod') ) {
         CalcMod();
