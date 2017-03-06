@@ -200,7 +200,7 @@ app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------
   for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
-    $('#attackBlock .dropdown-menu').append('<a class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
+    $('#attackBlock .dropdown-menu').append('<a onclick="FindWeapons(' + i + ')" class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
   };
 }); // ----------------------------------------------------------------------------------
 /*
