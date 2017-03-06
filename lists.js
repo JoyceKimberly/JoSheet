@@ -6,6 +6,8 @@ bookmarkRoot = {
 };
 resetForm = function() {};
 
+Array.prototype.toSource = function () { return $.extend({}, this); };
+
 initializeLists = function() {
   classes.old.toSource = function() { return $.extend({}, this); };
 
