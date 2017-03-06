@@ -476,6 +476,7 @@ $(function() { // --------------------------------------------------------------
   CurrentSources.toSource = function() { return $.extend({}, this); };
   CurrentEvals.toSource = function() { return $.extend({}, this); };
   IsSubclassException.toSource = function() { return $.extend({}, this); };
+  Array.prototype.toSource = function () { return $.extend({}, this); };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
