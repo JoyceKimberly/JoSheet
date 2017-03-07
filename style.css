@@ -126,7 +126,8 @@ div .bg img {
 }
 
 .display,
-input.display {
+input.display,
+select.display {
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 0;
   color: black;
@@ -137,7 +138,8 @@ input.display {
   letter-spacing: -0.3px;
   vertical-align: top;
 }
-input.display {
+input.display,
+select.display {
   background-color: transparent;
   background-image: none;
   position: absolute;
@@ -364,6 +366,18 @@ input.display {
   flex: 0 0 54%;
 }
 
+.pageHeader .content {
+  padding: 0;
+}
+.pageHeader .content .col {
+  height: 100%;
+}
+.pageHeader .content .col input,
+.pageHeader .content .col select {
+  font-size: 14px;
+  height: 18px;
+}
+
 .smallBlock .content {
   padding: 6px 7px 12px 6px;
 }
@@ -582,11 +596,13 @@ button .fa-stack .fa-stack-2x {
 }
 
 #hiddenFields * {
-  background-color: white;
+  color: white;
+  background-color: transparent;
   font-size: 12px;
   display: block;
   position: static;
   margin: 0 0 0 auto;
+  padding: 0 5px;
 }
 #hiddenFields div * {
   border: none;
@@ -594,7 +610,6 @@ button .fa-stack .fa-stack-2x {
 }
 #hiddenFields div input {
   font-weight: bold;
-  margin-left: 5px;
 }
 
 /* ----------------------------------------------------------------------------------- */

@@ -279,16 +279,13 @@ $(function() { // --------------------------------------------------------------
 
     if ( dit.is('#name') ) {
       if ( dit.val() !== "" ) {
-        character.name = dit.val();
+        character.name = encodeURIComponent(dit.val());
       } else {
         character.name = "JoSheet";
       };
 
     } else if ( dit.is('.number') ) {
       character[key] = Number(dit.val());
-
-    } else if ( dit.is('div') ) {
-      character[key] = dit.text();
 
     } else if ( dit.is('input[type=checkbox]') ) {
       character[key] = dit.prop('checked');
@@ -298,16 +295,15 @@ $(function() { // --------------------------------------------------------------
     };
 
     if ( allowCalc ) {
-      if ( dit.is('[name="AC Dexterity Modifier"]') ) {
-        dit.val(calcMaxDexToAC());
-
-      } else if ( dit.is('#armorClass') ) {
-        CalcAC();
-        character[key] = Number(event.originalEvent.value);
-      
-      } else if ( dit.is('.attr.mod') ) {
+      if ( dit.is('.attr.mod') ) {
         CalcMod();
         character[key] = Number(event.originalEvent.value);
+
+      } else if ( dit.is('#level') ) {
+        $('[name="Character Level"]').val(Number(dit.val()));
+
+      } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
+        dit.val(calcMaxDexToAC());
 
       } else if ( dit.is('.save.mod') ) {
         CalcSave();
@@ -315,6 +311,10 @@ $(function() { // --------------------------------------------------------------
 
       } else if ( dit.is('.skill') ) {
         CalcSkill();
+        character[key] = Number(event.originalEvent.value);
+
+      } else if ( dit.is('#armorClass') ) {
+        CalcAC();
         character[key] = Number(event.originalEvent.value);
       };
     };
@@ -332,14 +332,11 @@ $(function() { // --------------------------------------------------------------
       if ( ele.is('.display.number.mod') ) {
         ele.val((file.character[key]>0?'+':'') + file.character[key]);
 
-      } else if ( ele.is('div') ) {
-        ele.text(file.character[key]);
-
       } else if ( ele.is('input[type=checkbox]') ) {
         ele.prop('checked', file.character[key]);
 
-      } else if ( ele.is('select') || ele.is('input') ) {
-        ele.val(file.character[key]);
+      } else {
+        ele.val(decodeURIComponent(file.character[key]));
       };
 
       if ( allowCalc ) {
@@ -371,20 +368,32 @@ $(function() { // --------------------------------------------------------------
       };
     };
     $('.name').text(file.character.name);
-    //console.log(tDoc); // debug
+    console.log(tDoc); // debug
   };
 
   function resetCharacter() {
     file.character = {
-      name    : "JoSheet",
-      level   : 1,
-      exp     : 0,
-      baseStr : 8,
-      baseDex : 8,
-      baseCon : 8,
-      baseInt : 8,
-      baseWis : 8,
-      baseCha : 8,
+      name     : "JoSheet",
+      level    : 1,
+      exp      : 0,
+      baseStr  : 8,
+      baseDex  : 8,
+      baseCon  : 8,
+      baseInt  : 8,
+      baseWis  : 8,
+      baseCha  : 8,
+      magicStr : 0,
+      magicDex : 0,
+      magicCon : 0,
+      magicInt : 0,
+      magicWis : 0,
+      magicCha : 0,
+      extraStr : 0,
+      extraDex : 0,
+      extraCon : 0,
+      extraInt : 0,
+      extraWis : 0,
+      extraCha : 0,
     };
     file.notes = {};
   };
@@ -444,30 +453,63 @@ $(function() { // --------------------------------------------------------------
   // -- Calculating Options --
   // ------------------------------------------------------------------------------------
   $('#calcModal').on('click', '#calcModalSave', function() {
+    var $dit = $(this);
+    var $progressBar = $dit.siblings('.progress');
     var character = {};
+    $progressBar.show();
     $.each(AbilityScores.abbreviations, function(key, value) {
-      character["base" + value] = parseInt($("#base" + value).val());
-      Value(value + " Remember", character["base" + value] + "," + CurrentRace.scores[key]);
+      character["base" + value] = Number($("#base" + value).val());
+      character["magic" + value] = Number($("#magic" + value).val());
+      character["extra" + value] = Number($("#extra" + value).val());
+      Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
     });
     $.extend(true, file.character, character);
     setCharacter();
     saveCookies();
-    calcAbilityScores();
-    triggerAll();
-    $(this).removeClass('btn-primary').addClass('btn-success');
+    if ( allowCalc ) {
+      calcAbilityScores();
+      calculateAll();
+    };
+    $progressBar.hide();
+    $dit.removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
       $("#base" + value).val(file.character["base" + value]);
       $("#race" + value).text(CurrentRace.scores[key]);
+      $("#magic" + value).val(file.character["magic" + value]);
+      $("#extra" + value).val(file.character["extra" + value]);
     });
 
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 
-  function triggerAll() {
-    $('input.display').focus();
+  calculateAll = function() {
+    if ( file.character.class ) {
+      ApplyClasses(file.character.class);
+    };
+    if ( file.character.race ) {
+      ApplyRace(file.character.race);
+    };
+    if ( file.character.background ) {
+      ApplyBackground(file.character.background);
+    };
+    if ( file.character.armor ) {
+      ApplyArmor(file.character.armor);
+    };
+    if ( file.character.shield ) {
+      ApplyShield(file.character.shield);
+    };
+    if ( file.character.attack1 ) {
+      ApplyWeapon(file.character.attack1, $('#attack1').attr("name"));
+      var nr = Number($(ele).attr('id').substring(6));
+      var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
+      if ( dmgType ) {
+        $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
+      };
+    };
+
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
@@ -476,7 +518,6 @@ $(function() { // --------------------------------------------------------------
   CurrentSources.toSource = function() { return $.extend({}, this); };
   CurrentEvals.toSource = function() { return $.extend({}, this); };
   IsSubclassException.toSource = function() { return $.extend({}, this); };
-  Array.prototype.toSource = function () { return $.extend({}, this); };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
@@ -578,13 +619,13 @@ function loadCookies() {
   };
 
   if ( !!getCookie("character") ) {
-    $.extend(true, file.character, JSON.parse(decodeURIComponent(getCookie("character"))));
+    $.extend(true, file.character, JSON.parse(getCookie("character")));
   } else {
     resetCharacter();
   };
 
   if ( !!getCookie("notes") ) {
-    $.extend(true, file.notes, JSON.parse(decodeURIComponent(getCookie("notes"))));
+    $.extend(true, file.notes, JSON.parse(getCookie("notes")));
   };
 };
 
@@ -601,6 +642,10 @@ function loadCookies() {
   };
 
 }); // ----------------------------------------------------------------------------------
+//ClassSubList.prototype.toSource = function () { return $.extend({}, this); };
+/*Object.prototype.toSource || (Object.prototype.toSource = function() {
+  //return JSON.stringify(this);
+});*/
 
 var CLIENT_ID = 'ztucdd8z8fjuh08';
 
@@ -637,8 +682,8 @@ function saveCookies() {
   d.setTime(d.getTime() + (14*24*60*60*1000));
 
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "character=" + encodeURIComponent(JSON.stringify(file.character)) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "notes=" + encodeURIComponent(JSON.stringify(file.notes)) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 
 function getCookie(cname) {

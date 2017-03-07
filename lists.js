@@ -6,7 +6,7 @@ bookmarkRoot = {
 };
 resetForm = function() {};
 
-Array.prototype.toSource = function () { return $.extend({}, this); };
+//Object.prototype.toSource = function () { return $.extend({}, this); };
 
 initializeLists = function() {
   classes.old.toSource = function() { return $.extend({}, this); };
@@ -135,7 +135,7 @@ getField = function(event) {
     field.submitName = "";
     field.isBoxChecked = function() {};
     field.buttonGetCaption = function() {};
-    console.log(event);
+    //console.log(event);
   };
   field.setAction = function(type, value) {
     if ( type === "Calculate" ) {
@@ -146,7 +146,7 @@ getField = function(event) {
     };
   };
   field.setItems = function(value) {
-    console.log(value);
+    //console.log(value);
   };
   field.clearItems = function() {};
   return field;
@@ -157,7 +157,7 @@ Value = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
+    //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
   if ( ele.classList.contains('number') ) {
@@ -176,7 +176,7 @@ Checkbox = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
+    //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
   var Checkit = (FldValue === undefined) ? true : FldValue;
@@ -204,6 +204,16 @@ $(function() { // --------------------------------------------------------------
   for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
     $('#attackBlock .dropdown-menu').append('<a onclick="FindWeapons(' + i + ')" class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
   };
+
+  for ( var i = 0; i < levels.length; i++ ) {
+    if ( i === 0 ) {
+      $('#level').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
+    } else {
+      $('#level').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
+    };
+  };
+
+
 }); // ----------------------------------------------------------------------------------
 /*
 for ( var key in RaceList ) {

@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta name="format-detection" content="telephone=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/jquery"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
@@ -36,7 +36,7 @@
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
   <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
   <script type="text/javascript" src="functions.js"></script>
-  <script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>
+  <!--<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>-->
 </head>
 <body>
   <nav id="navbar" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
@@ -90,6 +90,12 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseStr">
             </div>
             <div id="raceStr" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicStr">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraStr">
+            </div>
           </div>
           <div class="form-group row">
             <label for="baseDex" class="col-3 col-form-label col-form-label-sm">Dexterity</label>
@@ -97,6 +103,12 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseDex">
             </div>
             <div id="raceDex" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicDex">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraDex">
+            </div>
           </div>
           <div class="form-group row">
             <label for="baseCon" class="col-3 col-form-label col-form-label-sm">Constitution</label>
@@ -104,6 +116,12 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseCon">
             </div>
             <div id="raceCon" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicCon">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraCon">
+            </div>
           </div>
           <div class="form-group row">
             <label for="baseInt" class="col-3 col-form-label col-form-label-sm">Intelligence</label>
@@ -111,6 +129,12 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseInt">
             </div>
             <div id="raceInt" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicInt">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraInt">
+            </div>
           </div>
           <div class="form-group row">
             <label for="baseWis" class="col-3 col-form-label col-form-label-sm">Wisdom</label>
@@ -118,6 +142,12 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseWis">
             </div>
             <div id="raceWis" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicWis">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraWis">
+            </div>
           </div>
           <div class="form-group row">
             <label for="baseCha" class="col-3 col-form-label col-form-label-sm">Charisma</label>
@@ -125,16 +155,24 @@
               <input class="attrInput form-control form-control-sm" type="number" id="baseCha">
             </div>
             <div id="raceCha" class="col-2 form-control-sm center"></div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="magicCha">
+            </div>
+            <div class="col-2">
+              <input class="attrInput form-control form-control-sm" type="number" id="extraCha">
+            </div>
           </div>
           <div class="row">
             <div class="col-3"></div>
             <div class="col-2 col-form-label col-form-label-sm center">Base</div>
             <div class="col-2 col-form-label col-form-label-sm center">Racial</div>
+            <div class="col-2 col-form-label col-form-label-sm center">Magic</div>
+            <div class="col-2 col-form-label col-form-label-sm center">Extra</div>
           </div>
         </div>
         <div class="modal-footer">
-          <div class="progress">
-            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          <div style="width: 100%; display: none;" class="progress">
+            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%"></div>
           </div>
           <button id="calcModalSave" type="button" class="btnSave btn btn-primary">Save changes</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -146,23 +184,37 @@
     <div class="page">
       <div id="pageHeader1" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader1.svg"></div>
-        <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-        <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-        <div style="top: 82px; left: 327px; width: 382px; height: 18px;" class="row"></div>
-        <div style="top: 48px; left: 327px; width: 382px; height: 18px;" class="row"></div>
         <input style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" id="name" class="display center" type="text">
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <input style="top: 48px; left: 324px; width: 22px; height: 18px;" id="level" name="Character Level" class="display right number form-control" type="text">
-        <input style="top: 48px; left: 348px; width: 120px; height: 18px;" id="class" name="Class and Levels" class="display form-control" type="text">
-        <div style="top: 64px; left: 328px;" class="lbl2">Level &amp; Class</div>
-        <input style="top: 82px; left: 328px; width: 140px; height: 18px;" id="background" name="Background" class="display form-control" type="text">
-        <div style="top: 98px; left: 328px;" class="lbl2">Background</div>
-        <input style="top: 82px; left: 474px; width: 140px; height: 18px;" id="race" name="Race" class="display form-control" type="text">
-        <div style="top: 98px; left: 474px;" class="lbl2">Race</div>
-        <input style="top: 48px; left: 620px; width: 90px; height: 18px;" id="player" class="display form-control" type="text">
-        <div style="top: 64px; left: 620px;" class="lbl2">Player Name</div>
-        <input style="top: 82px; left: 620px; width: 90px; height: 18px;" id="exp" name="Total Experience" class="display number form-control" type="text">
-        <div style="top: 98px; left: 620px;" class="lbl2">Experience Points</div>
+        <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div class="content">
+          <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
+            <div class="col">
+              <select style="left: -2px; width: 20px; height: 18px;" id="level" class="display right number custom-select form-control"></select>
+              <input style="left: 20px;" id="class" name="Class and Levels" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Level &amp; Class</div>
+            </div>
+            <div class="col col-3">
+              <input id="player" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Player Name</div>
+            </div>
+          </div>
+          <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
+            <div class="col">
+              <input id="background" name="Background" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Background</div>
+            </div>
+            <div class="col col-4">
+              <input id="race" name="Race" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Race</div>
+            </div>
+            <div class="col col-3">
+              <input id="exp" name="Total Experience" class="display number form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Experience Points</div>
+            </div>
+          </div>
+        </div>
         <div class="hover"></div>
       </div>
       <div id="attrBox" class="boxBg1 z1 resizable">
@@ -1937,6 +1989,7 @@
     <input name="Race Remember" type="text">
     <input name="Class Features Remember" type="text">
     <input name="SubClass Remember" type="text">
+    <input name="Character Level" type="text">
     <input name="Proficiencies Remember" type="text">
     <input name="SpellSlotsRemember" type="text">
     <input name="Speed Remember" type="text">
@@ -1949,7 +2002,6 @@
     <input name="Background Extra" type="text">
     <input name="Text.SkillsNames" type="text">
     <input name="MoreProficiencies" type="text">
-
     <input name="CurrentSpells.Stringified" type="text">
     <input name="CurrentSources.Stringified" type="text">
     <input name="CurrentEvals.Stringified" type="text">
