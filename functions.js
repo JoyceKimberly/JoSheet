@@ -457,21 +457,20 @@ $(function() { // --------------------------------------------------------------
     var $progressBar = $dit.siblings('.progress');
     var character = {};
     $progressBar.show('fast', function() {
-      console.log('progress');
+      $.each(AbilityScores.abbreviations, function(key, value) {
+        character["base" + value] = Number($("#base" + value).val());
+        character["magic" + value] = Number($("#magic" + value).val());
+        character["extra" + value] = Number($("#extra" + value).val());
+        Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
+      });
+      $.extend(true, file.character, character);
+      setCharacter();
+      saveCookies();
+      if ( allowCalc ) {
+        calcAbilityScores();
+        calculateAll();
+      };
     });
-    $.each(AbilityScores.abbreviations, function(key, value) {
-      character["base" + value] = Number($("#base" + value).val());
-      character["magic" + value] = Number($("#magic" + value).val());
-      character["extra" + value] = Number($("#extra" + value).val());
-      Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
-    });
-    $.extend(true, file.character, character);
-    setCharacter();
-    saveCookies();
-    if ( allowCalc ) {
-      calcAbilityScores();
-      calculateAll();
-    };
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
 
