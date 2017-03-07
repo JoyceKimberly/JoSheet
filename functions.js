@@ -456,7 +456,7 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     var character = {};
-    $progressBar.show({queue: false}, function() {
+    $progressBar.show('fast', function() {
       console.log('progress');
     });
     $.each(AbilityScores.abbreviations, function(key, value) {
