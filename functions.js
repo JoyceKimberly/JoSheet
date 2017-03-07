@@ -512,10 +512,8 @@ $(function() { // --------------------------------------------------------------
       };*//*
     };*/
     $('[name="Character Level"]').val(file.character.level);
-    $('.attr.mod').focus();
+    $('.attr, .save, .skill').focus();
     $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
-    $('.save.mod').focus();
-    $('.skill').focus();
     $('#armorClass').focus();
     return true;
   };
