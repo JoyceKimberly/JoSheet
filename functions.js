@@ -483,11 +483,11 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
+    $('[name="Character Level"]').val(parseInt(file.character.level));
     calcAbilityScores();
     $('.attr, .save, .skill, #armor, #shield').focus();
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
     $('#armorClass, #class, #race, #background, .attack').focus();
-    $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
   };
 
