@@ -160,14 +160,11 @@ Value = function(field, FldValue, tooltip) {
     //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
-
   if ( $ele.find('.number') ) {
     $ele.val(+(FldValue));
+
   } else {
     $ele.val(FldValue);
-  };
-  if ( field === "Character Level" ) {
-    $ele.val(parseInt(FldValue));
   };
 
   if ( tooltip !== undefined ) {
