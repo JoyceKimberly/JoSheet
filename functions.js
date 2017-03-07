@@ -300,10 +300,10 @@ $(function() { // --------------------------------------------------------------
         character[key] = Number(event.originalEvent.value);
 
       } else if ( dit.is('#level') ) {
-        $('[name="Character Level"]').val(+(Number(dit.val())));
+        $('[name="Character Level"]').val(parseInt(dit.val()));
 
       } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
-        dit.val(+(Number(calcMaxDexToAC())));
+        dit.val(parseInt(calcMaxDexToAC()));
 
       } else if ( dit.is('.save.mod') ) {
         CalcSave();
@@ -465,7 +465,7 @@ $(function() { // --------------------------------------------------------------
       character["base" + value] = Number($("#base" + value).val());
       character["magic" + value] = Number($("#magic" + value).val());
       character["extra" + value] = Number($("#extra" + value).val());
-      Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
+      Value(value + " Remember", parseInt($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + parseInt($("#extra" + value).val()) + "," + parseInt($("#magic" + value).val()) + ",0");
     });
     $.extend(true, file.character, character);
     setCharacter();
@@ -488,10 +488,10 @@ $(function() { // --------------------------------------------------------------
 
   calculateAll = function() {
     calcAbilityScores();
-    $('[name="Character Level"]').val(file.character.level);
     $('.attr, .save, .skill, #armor, #shield').focus();
-    $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
+    $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
     $('#armorClass, #class, #race, #background, .attack').focus();
+    $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
   };
 
