@@ -452,26 +452,27 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Calculating Options --
   // ------------------------------------------------------------------------------------
-  $('#calcModal').on('click', '#calcModalSave', function() {
+  $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
+    var $dit = $(this);
+    var $progressBar = $dit.siblings('.progress');
+    $progressBar.show();        
+
+  }).on('click', '#calcModalSave', function() {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     var character = {};
-    $progressBar.show();
-    
-      $.each(AbilityScores.abbreviations, function(key, value) {
-        character["base" + value] = Number($("#base" + value).val());
-        character["magic" + value] = Number($("#magic" + value).val());
-        character["extra" + value] = Number($("#extra" + value).val());
-        Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
-      });
-      $.extend(true, file.character, character);
-      setCharacter();
-      saveCookies();
-      
-    if ( calculateAll() ) {
-      $progressBar.hide();
-      $dit.removeClass('btn-primary').addClass('btn-success');        
-    };
+    $.each(AbilityScores.abbreviations, function(key, value) {
+      character["base" + value] = Number($("#base" + value).val());
+      character["magic" + value] = Number($("#magic" + value).val());
+      character["extra" + value] = Number($("#extra" + value).val());
+      Value(value + " Remember", Number($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + Number($("#extra" + value).val()) + "," + Number($("#magic" + value).val()) + ",0");
+    });
+    $.extend(true, file.character, character);
+    setCharacter();
+    saveCookies();
+    calculateAll();
+    $progressBar.hide();
+    $dit.removeClass('btn-primary').addClass('btn-success');        
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
