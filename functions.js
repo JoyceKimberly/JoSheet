@@ -510,15 +510,15 @@ $(function() { // --------------------------------------------------------------
       };*//*
     };*/
     //CalcMod();
-    $('.attr.mod').focusout();
-    $('[name="Character Level"]').val(file.character.level);
-    $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
+    //$('.attr.mod').focusout();
+    //$('[name="Character Level"]').val(file.character.level);
+    //$('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
     //CalcSave();
-    $('.save.mod').focusout();
+    //$('.save.mod').focusout();
     //CalcSkill();
-    $('.skill').focusout();
+    //$('.skill').focusout();
     //CalcAC();
-    $('#armorClass').focusout();
+    //$('#armorClass').focusout();
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
