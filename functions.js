@@ -486,9 +486,9 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
-    /*if ( file.character.class ) {
+    if ( file.character.class ) {
       ApplyClasses(file.character.class);
-    };
+    };/*
     if ( file.character.race ) {
       ApplyRace(file.character.race);
     };
