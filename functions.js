@@ -456,7 +456,8 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     var character = {};
-    $progressBar.show('fast', function() {
+    $progressBar.show();
+    
       $.each(AbilityScores.abbreviations, function(key, value) {
         character["base" + value] = Number($("#base" + value).val());
         character["magic" + value] = Number($("#magic" + value).val());
@@ -466,13 +467,11 @@ $(function() { // --------------------------------------------------------------
       $.extend(true, file.character, character);
       setCharacter();
       saveCookies();
-      if ( allowCalc ) {
-        calcAbilityScores();
-        calculateAll();
-      };
-    });
-    $progressBar.hide();
-    $dit.removeClass('btn-primary').addClass('btn-success');
+      
+    if ( calculateAll() ) {
+      $progressBar.hide();
+      $dit.removeClass('btn-primary').addClass('btn-success');        
+    };
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -487,6 +486,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
+    calcAbilityScores();
     /*if ( file.character.class ) {
       ApplyClasses(file.character.class);
     };
@@ -516,6 +516,7 @@ $(function() { // --------------------------------------------------------------
     $('.save.mod').focus();
     $('.skill').focus();
     $('#armorClass').focus();
+    return true;
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
