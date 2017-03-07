@@ -456,7 +456,7 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     var character = {};
-    //$progressBar.show({queue: false});
+    $progressBar.show({queue: false});
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = Number($("#base" + value).val());
       character["magic" + value] = Number($("#magic" + value).val());
@@ -708,7 +708,7 @@ function getCookie(cname) {
 };
 
 (function(window) {
-/*  window.onerror = function(msg, url, lineNo, columnNo, error) {
+  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -725,7 +725,7 @@ function getCookie(cname) {
     };
     return true;
   };
-*/
+
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
