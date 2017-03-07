@@ -509,17 +509,12 @@ $(function() { // --------------------------------------------------------------
         $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
       };*//*
     };*/
-    //CalcMod();
-    //$('.attr.mod').focusout();
     $('[name="Character Level"]').val(file.character.level);
     $('.attr.mod').focus();
-    //$('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
-    //CalcSave();
-    //$('.save.mod').focusout();
-    //CalcSkill();
-    //$('.skill').focusout();
-    //CalcAC();
-    //$('#armorClass').focusout();
+    $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
+    $('.save.mod').focus();
+    $('.skill').focus();
+    $('#armorClass').focus();
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
