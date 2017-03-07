@@ -468,7 +468,7 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     if ( allowCalc ) {
       calcAbilityScores();
-      calculateAll();
+      //calculateAll();
     };
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
