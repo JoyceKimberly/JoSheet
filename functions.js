@@ -300,10 +300,10 @@ $(function() { // --------------------------------------------------------------
         character[key] = Number(event.originalEvent.value);
 
       } else if ( dit.is('#level') ) {
-        $('[name="Character Level"]').val(Number(dit.val()));
+        $('[name="Character Level"]').val(+(Number(dit.val())));
 
       } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
-        dit.val(calcMaxDexToAC());
+        dit.val(+(Number(calcMaxDexToAC())));
 
       } else if ( dit.is('.save.mod') ) {
         CalcSave();
