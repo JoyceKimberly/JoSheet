@@ -201,6 +201,14 @@ app.alert = function() {};
 app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------
+  classes.old.toSource = function() { return $.extend({}, this); };
+  CurrentSpells.toSource = function() { return $.extend({}, this); };
+  CurrentCasters.toSource = function() { return $.extend({}, this); };
+  CurrentSources.toSource = function() { return $.extend({}, this); };
+  CurrentEvals.toSource = function() { return $.extend({}, this); };
+  IsSubclassException.toSource = function() { return $.extend({}, this); };
+  ClassSubList.toSource = function() { return $.extend({}, this); };
+  
   for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
     $('#attackBlock .dropdown-menu').append('<a onclick="FindWeapons(' + i + ')" class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
   };
@@ -212,7 +220,6 @@ $(function() { // --------------------------------------------------------------
       $('#level').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
     };
   };
-
 
 }); // ----------------------------------------------------------------------------------
 /*
