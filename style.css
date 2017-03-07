@@ -17,6 +17,7 @@ a {
 
 .center { text-align: center; }
 .right { text-align: right; }
+.cap { text-transform: capitalize; }
 
 .hidden,
 .display,
@@ -133,7 +134,6 @@ select.display {
   color: black;
   font-size: 14px;
   line-height: 16px;
-  /*text-transform: capitalize;*/
   white-space: nowrap;
   letter-spacing: -0.3px;
   vertical-align: top;
