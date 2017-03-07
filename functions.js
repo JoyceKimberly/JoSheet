@@ -468,7 +468,7 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     if ( allowCalc ) {
       calcAbilityScores();
-      //calculateAll();
+      calculateAll();
     };
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
@@ -503,11 +503,11 @@ $(function() { // --------------------------------------------------------------
     };
     if ( file.character.attack1 ) {
       ApplyWeapon(file.character.attack1, $('#attack1').attr("name"));
-      var nr = Number($(ele).attr('id').substring(6));
+      /*var nr = Number($(ele).attr('id').substring(6));
       var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
       if ( dmgType ) {
         $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
-      };
+      };*/
     };
 
   };
@@ -518,6 +518,7 @@ $(function() { // --------------------------------------------------------------
   CurrentSources.toSource = function() { return $.extend({}, this); };
   CurrentEvals.toSource = function() { return $.extend({}, this); };
   IsSubclassException.toSource = function() { return $.extend({}, this); };
+  ClassSubList.toSource = function() { return $.extend({}, this); };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
