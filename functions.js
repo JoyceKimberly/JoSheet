@@ -486,7 +486,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
-    if ( file.character.class ) {
+    /*if ( file.character.class ) {
       ApplyClasses(file.character.class);
     };
     if ( file.character.race ) {
@@ -507,8 +507,8 @@ $(function() { // --------------------------------------------------------------
       var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
       if ( dmgType ) {
         $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
-      };*/
-    };
+      };*//*
+    };*/
     //CalcMod();
     $('.attr.mod').focusout();
     $('[name="Character Level"]').val(file.character.level);
