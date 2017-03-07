@@ -163,6 +163,9 @@ Value = function(field, FldValue, tooltip) {
   if ( $ele.find('.number') ) {
     $ele.val(+(FldValue));
 
+  } else if ( field === "Character Level" ) {
+    $ele.val(parseInt(FldValue));
+
   } else {
     $ele.val(FldValue);
   };
