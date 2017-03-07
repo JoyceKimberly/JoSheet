@@ -368,7 +368,7 @@ $(function() { // --------------------------------------------------------------
       };
     };
     $('.name').text(file.character.name);
-    console.log(tDoc); // debug
+    //console.log(tDoc); // debug
   };
 
   function resetCharacter() {
@@ -456,7 +456,9 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     var character = {};
-    $progressBar.show({queue: false});
+    $progressBar.show({queue: false}, function() {
+      console.log('progress');
+    });
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = Number($("#base" + value).val());
       character["magic" + value] = Number($("#magic" + value).val());
