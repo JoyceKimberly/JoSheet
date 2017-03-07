@@ -59,11 +59,10 @@ $(function() { // --------------------------------------------------------------
 
   $('.outerPage').on('touchstart mousedown', function() {
     if ( moveEnabled === true ) {
-      $('.outerPage').addClass("grid");
+      $(this).addClass("grid");
     };
-  });
-  $('.outerPage').on('touchend mouseup', function() {
-    $('.outerPage').removeClass("grid");
+  }).on('touchend mouseup', function() {
+    $(this).removeClass("grid");
   });
 
   function moveListener(event) {
@@ -224,8 +223,7 @@ $(function() { // --------------------------------------------------------------
     var edit = $('#edit');
     edit.removeClass('show');
     edit.hide();
-  });
-  $('#edit').on('click', '.pageBtn', function() {
+  }).on('click', '.pageBtn', function() {
     var dit = $(this);
     var source = dit.attr('data-source');
     var parent = $('#' + source);
@@ -239,9 +237,6 @@ $(function() { // --------------------------------------------------------------
     objectToPage(parent, newPage);
     saveCookies();
   });
-
-  $('.display').focusout(setValues);
-  $('.display, .custom-control-input').change(setValues);
 
   function objectToPage(obj, page) {
     var newPage = $('#page' + page + ' .page');
@@ -272,6 +267,7 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
+  $('.display').focusout(setValues);
   function setValues(event) {
     var dit = $(event.target);
     var character = {};
@@ -494,14 +490,6 @@ $(function() { // --------------------------------------------------------------
     $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
   };
-
-  classes.old.toSource = function() { return $.extend({}, this); };
-  CurrentSpells.toSource = function() { return $.extend({}, this); };
-  CurrentCasters.toSource = function() { return $.extend({}, this); };
-  CurrentSources.toSource = function() { return $.extend({}, this); };
-  CurrentEvals.toSource = function() { return $.extend({}, this); };
-  IsSubclassException.toSource = function() { return $.extend({}, this); };
-  ClassSubList.toSource = function() { return $.extend({}, this); };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --
