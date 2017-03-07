@@ -486,9 +486,9 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
-    if ( file.character.class ) {
+    /*if ( file.character.class ) {
       ApplyClasses(file.character.class);
-    };/*
+    };
     if ( file.character.race ) {
       ApplyRace(file.character.race);
     };
@@ -510,7 +510,7 @@ $(function() { // --------------------------------------------------------------
       };*//*
     };*/
     //CalcMod();
-    //$('.attr.mod').focusout();
+    $('.attr.mod').focusout();
     //$('[name="Character Level"]').val(file.character.level);
     //$('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
     //CalcSave();
