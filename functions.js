@@ -509,12 +509,12 @@ $(function() { // --------------------------------------------------------------
         $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
       };*/
     };
-    CalcMod();
+    //CalcMod();
     $('[name="Character Level"]').val(Number(dit.val()));
     $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
-    CalcSave();
-    CalcSkill();
-    CalcAC();
+    //CalcSave();
+    //CalcSkill();
+    //CalcAC();
   };
 
   classes.old.toSource = function() { return $.extend({}, this); };
