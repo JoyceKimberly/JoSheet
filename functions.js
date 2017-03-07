@@ -488,33 +488,10 @@ $(function() { // --------------------------------------------------------------
 
   calculateAll = function() {
     calcAbilityScores();
-    /*if ( file.character.class ) {
-      ApplyClasses(file.character.class);
-    };
-    if ( file.character.race ) {
-      ApplyRace(file.character.race);
-    };
-    if ( file.character.background ) {
-      ApplyBackground(file.character.background);
-    };
-    if ( file.character.armor ) {
-      ApplyArmor(file.character.armor);
-    };
-    if ( file.character.shield ) {
-      ApplyShield(file.character.shield);
-    };
-    if ( file.character.attack1 ) {
-      ApplyWeapon(file.character.attack1, $('#attack1').attr("name"));
-      /*var nr = Number($(ele).attr('id').substring(6));
-      var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
-      if ( dmgType ) {
-        $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
-      };*//*
-    };*/
     $('[name="Character Level"]').val(file.character.level);
-    $('.attr, .save, .skill').focus();
+    $('.attr, .save, .skill, #armor, #shield').focus();
     $('[name="AC Dexterity Modifier"]').val(calcMaxDexToAC());
-    $('#armorClass').focus();
+    $('#armorClass, #class, #race, #background, .attack').focus();
     return true;
   };
 
