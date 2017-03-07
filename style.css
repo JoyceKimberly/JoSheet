@@ -611,6 +611,7 @@ button .fa-stack .fa-stack-2x {
 #hiddenFields div input {
   font-weight: bold;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 /* ----------------------------------------------------------------------------------- */
