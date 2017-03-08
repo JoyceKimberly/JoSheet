@@ -9,8 +9,9 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta name="format-detection" content="telephone=no">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-  <script src="https://unpkg.com/jquery"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
@@ -757,7 +758,7 @@
       </div>
       <div id="profBlock" class="labelBlock2 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="profBonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display number mod center"></div>
+        <input id="profBonus" name="Proficiency Bonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display number mod center form-control" type="text">
         <div class="lbl lbl1">Proficiency Bonus</div>
         <div class="hover"></div>
       </div>
@@ -1589,13 +1590,7 @@
                 <div class="inputBg"></div>
                 <div class="row">
                   <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                    <div class="row btn-group dropdown-toggle-split-parent">
-                      <div class="col"><input id="attack1" name="Attack.1.Weapon Selection" class="attack display form-control" type="text"></div>
-                      <div class="col col-2">
-                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
-                        <div class="dropdown-menu"></div>
-                      </div>
-                    </div>
+                    <input id="attack1" name="Attack.1.Weapon Selection" class="attack display form-control" type="text">
                   </div>
                   <div class="col subCol">
                     <div class="row">
@@ -1685,6 +1680,190 @@
                 </div>
               </div>
             </div>
+            <div class="atk">
+              <div class="row">
+                <div class="col col-6">
+                  <div class="inputBg"></div>
+                  <div class="row">
+                    <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                      <input id="attack3" name="Attack.3.Weapon Selection" class="attack display form-control" type="text">
+                    </div>
+                    <div class="col subCol">
+                      <div class="row">
+                        <div class="col col-3">
+                          <label class="custom-control custom-checkbox">
+                            <span class="checkBall"></span>
+                            <input name="Attack.3.Proficiency" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="col"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack3Range" name="Attack.3.Range" class="display center noTransform form-control" type="text">
+                </div>
+                <div class="col col-1">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack3Type" class="display form-control" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack3Desc" name="Attack.3.Description" class="display noTransform form-control" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="atk">
+              <div class="row">
+                <div class="col col-6">
+                  <div class="inputBg"></div>
+                  <div class="row">
+                    <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                      <input id="attack4" name="Attack.4.Weapon Selection" class="attack display form-control" type="text">
+                    </div>
+                    <div class="col subCol">
+                      <div class="row">
+                        <div class="col col-3">
+                          <label class="custom-control custom-checkbox">
+                            <span class="checkBall"></span>
+                            <input name="Attack.4.Proficiency" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="col"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack4Range" name="Attack.4.Range" class="display center noTransform form-control" type="text">
+                </div>
+                <div class="col col-1">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack4Type" class="display form-control" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack4Desc" name="Attack.4.Description" class="display noTransform form-control" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="atk">
+              <div class="row">
+                <div class="col col-6">
+                  <div class="inputBg"></div>
+                  <div class="row">
+                    <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                      <input id="attack5" name="Attack.5.Weapon Selection" class="attack display form-control" type="text">
+                    </div>
+                    <div class="col subCol">
+                      <div class="row">
+                        <div class="col col-3">
+                          <label class="custom-control custom-checkbox">
+                            <span class="checkBall"></span>
+                            <input name="Attack.5.Proficiency" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="col"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack5Range" name="Attack.5.Range" class="display center noTransform form-control" type="text">
+                </div>
+                <div class="col col-1">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack5Type" class="display form-control" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack5Desc" name="Attack.5.Description" class="display noTransform form-control" type="text">
+                </div>
+              </div>
+            </div>
+            <div class="atk">
+              <div class="row">
+                <div class="col col-6">
+                  <div class="inputBg"></div>
+                  <div class="row">
+                    <div style="flex: 0 0 81%;" class="col col-10 subCol">
+                      <input id="attack6" name="Attack.6.Weapon Selection" class="attack display form-control" type="text">
+                    </div>
+                    <div class="col subCol">
+                      <div class="row">
+                        <div class="col col-3">
+                          <label class="custom-control custom-checkbox">
+                            <span class="checkBall"></span>
+                            <input name="Attack.6.Proficiency" type="checkbox" class="custom-control-input">
+                            <span class="custom-control-indicator"></span>
+                          </label>
+                        </div>
+                        <div class="col"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack6Range" name="Attack.6.Range" class="display center noTransform form-control" type="text">
+                </div>
+                <div class="col col-1">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+
+                </div>
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack6Type" class="display form-control" type="text">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="inputBg"></div>
+                  <input id="attack6Desc" name="Attack.6.Description" class="display noTransform form-control" type="text">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="lbl1 lower">Attacks &amp; Spellcasting</div>
@@ -1733,7 +1912,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Dexterity Modifier" class="display center form-control" type="text">
+                <input id="acDexMod" name="AC Dexterity Modifier" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Dex</div>
@@ -1762,87 +1941,40 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
+                <input name="AC Magic" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Magic</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
+                <input name="AC Misc Mod 1" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input name="AC Misc Mod 1 Description" class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
+                <input name="AC Misc Mod 2" class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-2">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-2">
-                <div class="lbl">Misc</div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-2">
-                <div class="inputBg"></div>
-              </div>
-              <div class="col col-2">
-                <div class="lbl">Misc</div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-2">
-                <div class="inputBg"></div>
-                <div id="miscAc5" class="display center"></div>
-              </div>
-              <div class="col col-2">
-                <div class="lbl">Misc</div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
-              </div>
-            </div>
-            <div class="row">
-              <div class="col col-2">
-                <div class="inputBg"></div>
-                <div id="miscAc6" class="display center"></div>
-              </div>
-              <div class="col col-2">
-                <div class="lbl">Misc</div>
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-
+                <input name="AC Misc Mod 2 Description" class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -1993,6 +2125,7 @@
     <input name="Proficiencies Remember" type="text">
     <input name="SpellSlotsRemember" type="text">
     <input name="Speed Remember" type="text">
+
     <input name="AC Armor Weight" type="text">
     <input name="AC Shield Weight" type="text">
     <input name="AC Stealth Disadvantage" type="text">
@@ -2002,9 +2135,67 @@
     <input name="Background Extra" type="text">
     <input name="Text.SkillsNames" type="text">
     <input name="MoreProficiencies" type="text">
+    <input name="Proficiency Bonus Modifier" type="text">
+    <input name="Proficiency Bonus Dice" type="text">
+    <input name="Passive Perception Bonus" type="text">
+    <input name="Remarkable Athlete" type="text">
+    <input name="Jack of All Trades" type="text">
+    <input name="Saving Throw advantages / disadvantages" type="text">
+    <input name="SkillsClick" type="text">
+    <input name="ShowHide 2nd DC" type="text">
+    <input name="Lifestyle" type="text">
+    <input name="Equipment.menu" type="text">
     <input name="CurrentSpells.Stringified" type="text">
     <input name="CurrentSources.Stringified" type="text">
     <input name="CurrentEvals.Stringified" type="text">
+    <input name="AmmoLeftDisplay.Name" type="text">
+    <input name="AmmoRightDisplay.Name" type="text">
+    <input name="AmmoLeftDisplay.Name" type="text">
+    <input name="Too Prof" type="text">
+    <input name="Too Exp" type="text">
+
+    <input name="Height" type="text">
+    <input name="Weight" type="text">
+    <input name="Age" type="text">
+    <input name="Vision" type="text">
+
+    <input name="Feat Name 1" type="text">
+    <input name="Feat Name 2" type="text">
+    <input name="Feat Name 3" type="text">
+    <input name="Feat Name 4" type="text">
+    <input name="Feat Name 5" type="text">
+    <input name="Feat Name 6" type="text">
+    <input name="Feat Name 7" type="text">
+    <input name="Feat Name 8" type="text">
+    <input name="Feat Name 9" type="text">
+
+    <input name="All Skills Bonus" type="text">
+    <input name="All ST Bonus" type="text">
+    <input name="Str ST Bonus" type="text">
+    <input name="Dex ST Bonus" type="text">
+    <input name="Con ST Bonus" type="text">
+    <input name="Int ST Bonus" type="text">
+    <input name="Wis ST Bonus" type="text">
+    <input name="Cha ST Bonus" type="text">
+
+    <input name="Acr Bonus" type="text">
+    <input name="Ani Bonus" type="text">
+    <input name="Arc Bonus" type="text">
+    <input name="Ath Bonus" type="text">
+    <input name="Dec Bonus" type="text">
+    <input name="His Bonus" type="text">
+    <input name="Ins Bonus" type="text">
+    <input name="Inti Bonus" type="text">
+    <input name="Inv Bonus" type="text">
+    <input name="Med Bonus" type="text">
+    <input name="Nat Bonus" type="text">
+    <input name="Perc Bonus" type="text">
+    <input name="Perf Bonus" type="text">
+    <input name="Pers Bonus" type="text">
+    <input name="Rel Bonus" type="text">
+    <input name="Sle Bonus" type="text">
+    <input name="Ste Bonus" type="text">
+    <input name="Sur Bonus" type="text">
 
     <input name="SpellSlots.CheckboxesSet.lvl1" type="text">
     <input name="SpellSlots.CheckboxesSet.lvl2" type="text">
@@ -2016,16 +2207,24 @@
     <input name="SpellSlots.CheckboxesSet.lvl8" type="text">
     <input name="SpellSlots.CheckboxesSet.lvl9" type="text">
 
+    <input name="Wildshapes.Info.Uses" type="text">
+    <input name="Wildshapes.Info.Limitations" type="text">
+    <input name="Wildshapes.Info.Duration" type="text">
+    <input name="Wildshapes.Settings" type="text">
     <input name="Wildshape.Race.1" type="text">
     <input name="Wildshape.Race.2" type="text">
     <input name="Wildshape.Race.3" type="text">
     <input name="Wildshape.Race.4" type="text">
 
     <input name="Companion.Remember" type="text">
+    <input name="Comp.Race" type="text">
     <input name="Comp.Use.HD.Die" type="text">
     <input name="Comp.Use.HD.Level" type="text">
     <input name="Comp.Use.Ability.Con.Mod" type="text">
     <input name="Comp.Use.HP.Max" type="text">
+    <input name="Comp.Use.Attack.1.Weapon Selection" type="text">
+    <input name="Comp.Use.Attack.2.Weapon Selection" type="text">
+    <input name="Comp.Use.Attack.3.Weapon Selection" type="text">
 
     <input name="Template.extras.WSfront" type="text">
     <input name="Template.extras.AScomp" type="text">

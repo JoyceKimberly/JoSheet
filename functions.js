@@ -195,8 +195,59 @@ $(function() { // --------------------------------------------------------------
   });
 
   // ------------------------------------------------------------------------------------
-  // -- Options Setup --
+  // -- Interact Setup --
   // ------------------------------------------------------------------------------------
+  function setObjects() {
+    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
+      var naam = Object.keys(file.objects)[i];
+      var obj = $("#" + naam);
+      obj.removeAttr("data-x");
+      obj.removeAttr("data-y");
+      obj.removeAttr("style");
+
+      var x = file.objects[naam].x;
+      var y = file.objects[naam].y;
+
+      if ( file.objects[naam].x ) {
+        obj.css("transform", "translate(" + x + "px, " + y + "px)");
+        obj.attr("data-x", x);
+      };
+      if ( file.objects[naam].y ) {
+        obj.css("transform", "translate(" + x + "px, " + y + "px)");
+        obj.attr("data-y", y);
+      };
+      if ( file.objects[naam].width ) {
+        obj.width(file.objects[naam].width);
+      };
+      if ( file.objects[naam].height ) {
+        obj.height(file.objects[naam].height);
+      };
+      if ( file.objects[naam].page ) {
+        objectToPage(obj, file.objects[naam].page);
+      };
+    };
+    overflowHider($('.resizable'));
+  };
+
+  function resetObjects() {
+    file.objects = {};
+    var obj = $('.draggable, .resizable');
+    obj.removeAttr("data-x");
+    obj.removeAttr("data-y");
+    obj.removeAttr("style");
+
+    $.getJSON( "presets/default.json", function(objects) {
+      $.extend(true, file, objects);
+    })
+    .done(function() {
+      setObjects();
+    })
+    .fail(function(jqxhr, textStatus, error) {
+      setAlert( "danger", error );
+    });
+    overflowHider($('.resizable'));
+  };
+
   $('.draggable, .resizable').on('touchstart mouseenter', function() {
     if ( moveEnabled ) {
       var dit = $(this);
@@ -266,6 +317,40 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
+  /*$('#class').on('keypress change', function() {
+    this.style.width = ((this.value.length + 1) * 8) + 'px';
+  });*/
+
+  // ------------------------------------------------------------------------------------
+  // -- Fields Setup --
+  // ------------------------------------------------------------------------------------
+  function resetCharacter() {
+    file.character = {
+      name     : "JoSheet",
+      level    : 1,
+      exp      : 0,
+      baseStr  : 8,
+      baseDex  : 8,
+      baseCon  : 8,
+      baseInt  : 8,
+      baseWis  : 8,
+      baseCha  : 8,
+      magicStr : 0,
+      magicDex : 0,
+      magicCon : 0,
+      magicInt : 0,
+      magicWis : 0,
+      magicCha : 0,
+      extraStr : 0,
+      extraDex : 0,
+      extraCon : 0,
+      extraInt : 0,
+      extraWis : 0,
+      extraCha : 0,
+    };
+    file.notes = {};
+  };
+
   $('.display').focusout(setValues);
   function setValues(event) {
     var $ele = $(event.target);
@@ -299,6 +384,7 @@ $(function() { // --------------------------------------------------------------
 
       } else if ( $ele.is('[name="AC Dexterity Modifier"]') ) {
         $ele.val(parseInt(calcMaxDexToAC()));
+        character[key] = parseInt(calcMaxDexToAC());
 
       } else if ( $ele.is('.save.mod') ) {
         CalcSave();
@@ -306,6 +392,10 @@ $(function() { // --------------------------------------------------------------
 
       } else if ( $ele.is('.skill') ) {
         CalcSkill();
+        character[key] = Number(event.originalEvent.value);
+
+      } else if ( $ele.is('[name="Proficiency Bonus"]') ) {
+        ProfBonus();
         character[key] = Number(event.originalEvent.value);
 
       } else if ( $ele.is('#armorClass') ) {
@@ -340,116 +430,53 @@ $(function() { // --------------------------------------------------------------
 
       if ( allowCalc ) {
         if ( $ele.is('#class') ) {
-          ApplyClasses(file.character[key]);
+          ApplyClasses($ele.val());
 
         } else if ( $ele.is('#race') ) {
-          ApplyRace(file.character[key]);
+          ApplyRace($ele.val());
+
+        } else if ( $ele.is('#background') ) {
+          ApplyBackground($ele.val());
 
         } else if ( $ele.is('#armor') ) {
-          ApplyArmor(file.character[key]);
+          ApplyArmor($ele.val());
 
         } else if ( $ele.is('#shield') ) {
-          ApplyShield(file.character[key]);
+          ApplyShield($ele.val());
 
         } else if ( $ele.is('.attack') ) {
-          ApplyWeapon(file.character[key], $ele.attr("name"));
+          ApplyWeapon($ele.val(), $ele.attr("name"));
           var nr = Number($($ele).attr('id').substring(6));
           var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
           if ( dmgType ) {
             $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
           };
-
-        } else if ( $ele.is('#background') ) {
-          ApplyBackground(file.character[key]);
-
         };
       };
     };
-    $('.name').text(file.character.name);
+    $('.name').text($('#name').val());
     //console.log(tDoc); // debug
-  };
-
-  function resetCharacter() {
-    file.character = {
-      name     : "JoSheet",
-      level    : 1,
-      exp      : 0,
-      baseStr  : 8,
-      baseDex  : 8,
-      baseCon  : 8,
-      baseInt  : 8,
-      baseWis  : 8,
-      baseCha  : 8,
-      magicStr : 0,
-      magicDex : 0,
-      magicCon : 0,
-      magicInt : 0,
-      magicWis : 0,
-      magicCha : 0,
-      extraStr : 0,
-      extraDex : 0,
-      extraCon : 0,
-      extraInt : 0,
-      extraWis : 0,
-      extraCha : 0,
-    };
-    file.notes = {};
-  };
-
-  function setObjects() {
-    for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
-      var naam = Object.keys(file.objects)[i];
-      var obj = $("#" + naam);
-      obj.removeAttr("data-x");
-      obj.removeAttr("data-y");
-      obj.removeAttr("style");
-
-      var x = file.objects[naam].x;
-      var y = file.objects[naam].y;
-
-      if ( file.objects[naam].x ) {
-        obj.css("transform", "translate(" + x + "px, " + y + "px)");
-        obj.attr("data-x", x);
-      };
-      if ( file.objects[naam].y ) {
-        obj.css("transform", "translate(" + x + "px, " + y + "px)");
-        obj.attr("data-y", y);
-      };
-      if ( file.objects[naam].width ) {
-        obj.width(file.objects[naam].width);
-      };
-      if ( file.objects[naam].height ) {
-        obj.height(file.objects[naam].height);
-      };
-      if ( file.objects[naam].page ) {
-        objectToPage(obj, file.objects[naam].page);
-      };
-    };
-    overflowHider($('.resizable'));
-  };
-
-  function resetObjects() {
-    file.objects = {};
-    var obj = $('.draggable, .resizable');
-    obj.removeAttr("data-x");
-    obj.removeAttr("data-y");
-    obj.removeAttr("style");
-
-    $.getJSON( "presets/default.json", function(objects) {
-      $.extend(true, file, objects);
-    })
-    .done(function() {
-      setObjects();
-    })
-    .fail(function(jqxhr, textStatus, error) {
-      setAlert( "danger", error );
-    });
-    overflowHider($('.resizable'));
   };
 
   // ------------------------------------------------------------------------------------
   // -- Calculating Options --
   // ------------------------------------------------------------------------------------
+  calculateAll = function() {
+    calcAbilityScores();
+    ApplyClasses($('#class').val());
+    ApplyRace($('#race').val());
+    ApplyBackground($('#background').val());
+    $('[name="Proficiency Bonus"]').focus();
+    ApplyArmor($('#armor').val());
+    ApplyShield($('#shield').val());
+    $('.attr, .save, .skill').focus();
+    $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
+    $('#armorClass, .attack').focus();
+    ApplyProficiencies(true);
+    $('[name="Character Level"]').val(parseInt(file.character.level));
+    return true;
+  };
+
   $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
@@ -471,6 +498,7 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
+    console.log(tDoc); // debug
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -483,15 +511,6 @@ $(function() { // --------------------------------------------------------------
   }).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
-
-  calculateAll = function() {
-    calcAbilityScores();
-    $('.attr, .save, .skill, #armor, #shield').focus();
-    $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
-    $('#armorClass, #class, #race, #background, .attack').focus();
-    $('[name="Character Level"]').val(parseInt(file.character.level));
-    return true;
-  };
 
   // ------------------------------------------------------------------------------------
   // -- Dropbox --

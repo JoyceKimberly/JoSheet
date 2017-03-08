@@ -14,7 +14,7 @@ initializeLists = function() {
   });
 
   //setListsUnitSystem(false, true);
-  //UAstartupCode();
+  UAstartupCode();
   FindClasses();
   FindRace();
   //FindCompRace();
@@ -26,7 +26,7 @@ initializeLists = function() {
   LoadLevelsonStartup();
   //FindManualOtherWeapons(true);
   ApplyProficiencies(true);
-  //UpdateTooltips();
+  UpdateTooltips();
   //SetRichTextFields();
 
   //console.log(classes);
@@ -117,15 +117,18 @@ calcAbilityScores = function() {
 getField = function(event) {
   var field = {};
   var ele = document.getElementsByName(event)[0];
+  var $ele = $('[name="' + event + '"]');
 
   if ( ele ) {
     field.value = ele.value;
-    //field.submitName = ele.getAttribute('data-submit-name');
-    //field.submitName = ele.dataset.submitName;
-    field.submitName = "";
+    field.submitName = ele.value;
     field.isBoxChecked = function() {
       //console.log(event + " is checked? " + ele.checked);
-      return ele.checked;
+      return Number(ele.checked);
+    };
+    field.buttonGetCaption = function() {};
+    field.setItems = function(value) {
+      $ele.autocomplete({ source: value });
     };
 
   } else {
@@ -133,26 +136,26 @@ getField = function(event) {
     field.submitName = "";
     field.isBoxChecked = function() {};
     field.buttonGetCaption = function() {};
-    //console.log(event);
+    field.setItems = function(value) {
+      console.log(event);
+      console.log(value);
+    };
+    console.log(event);
   };
   field.setAction = function(type, value) {
     if ( type === "Calculate" ) {
       calculateNow(event, value);
     } else {
-      //console.log(type);
-      //console.log(value);
+      console.log(type);
+      console.log(value);
     };
-  };
-  field.setItems = function(value) {
-    //console.log(value);
   };
   field.clearItems = function() {};
   return field;
 };
 
-testSource = function() { return false; };
-
 //Object.prototype.toSource = function() { return $.extend({}, this); };
+testSource = function() { return false; };
 
 app = {};
 app.thermometer = {};
@@ -162,10 +165,6 @@ app.alert = function() {};
 app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------
-  for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
-    $('#attackBlock .dropdown-menu').append('<a onclick="FindWeapons(' + i + ')" class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
-  };
-
   for ( var i = 0; i < levels.length; i++ ) {
     if ( i === 0 ) {
       $('#level').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
@@ -173,8 +172,9 @@ $(function() { // --------------------------------------------------------------
       $('#level').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
     };
   };
-
+  UpdateDropdown();
 }); // ----------------------------------------------------------------------------------
+
 /*
 for ( var key in RaceList ) {
   if ( RaceList.hasOwnProperty(key) ) {
