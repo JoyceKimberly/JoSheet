@@ -6,13 +6,6 @@ bookmarkRoot = {
 };
 resetForm = function() {};
 
-Object.prototype.toSource = function () { return $.extend({}, this); };
-Object.defineProperty(Object, 'toSource', {
-  enumerable: false,
-});
-//console.log(Object.propertyIsEnumerable('toSource'));
-//Object.prototype.toSource.dontEnum = true;
-
 initializeLists = function() {
   //classes.old.toSource = function() { return $.extend({}, this); };
 
@@ -157,43 +150,6 @@ getField = function(event) {
   return field;
 };
 
-Value = function(field, FldValue, tooltip) {
-  //console.log(field + " -> " + JSON.stringify(FldValue) );
-  var ele = document.getElementsByName(field)[0];
-
-  if (!ele) {
-    //console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false;
-  };
-  if ( ele.classList.contains('number') ) {
-    ele.value = +(FldValue);
-
-  } else {
-    ele.value = FldValue;
-  };
-
-  if ( tooltip !== undefined ) {
-    ele.setAttribute('title', tooltip);
-  };
-};
-Checkbox = function(field, FldValue, tooltip) {
-  //console.log(field + " -> " + JSON.stringify(FldValue) );
-  var ele = document.getElementsByName(field)[0];
-
-  if (!ele) {
-    //console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false;
-  };
-  var Checkit = (FldValue === undefined) ? true : FldValue;
-  ele.checked = Checkit;
-
-  if ( tooltip !== undefined ) {
-    ele.setAttribute('title', tooltip);
-  };
-};
-Show = function() {};
-Hide = function() {};
-DontPrint = function() {};
 testSource = function() { return false; };
 
 //Object.prototype.toSource = function() { return $.extend({}, this); };
@@ -206,14 +162,6 @@ app.alert = function() {};
 app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------
-  /*classes.old.toSource = function() { return $.extend({}, this); };
-  CurrentSpells.toSource = function() { return $.extend({}, this); };
-  CurrentCasters.toSource = function() { return $.extend({}, this); };
-  CurrentSources.toSource = function() { return $.extend({}, this); };
-  CurrentEvals.toSource = function() { return $.extend({}, this); };
-  IsSubclassException.toSource = function() { return $.extend({}, this); };
-  ClassSubList.toSource = function() { return $.extend({}, this); };*/
-
   for ( var i = 0; i <= WeaponsList.DropDownList.length; i++ ) {
     $('#attackBlock .dropdown-menu').append('<a onclick="FindWeapons(' + i + ')" class="attack-dropdown dropdown-item">' + WeaponsList.DropDownList[i] + '</a>');
   };
@@ -243,25 +191,4 @@ for ( var key in BackgroundList ) {
     $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
   };
 };
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Functions2.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Lists.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsBackgrounds.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClasses.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsCreatures.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsFeats.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRaces.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSources.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsSpells.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsGear.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsRacesUA.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/Icons.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUAArtificer.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsResources.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsSpells.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/AbilityScores.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/FunctionsImport.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Shutdown.js"></script>
-<script src="https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_functions/Startup.js"></script>
 */

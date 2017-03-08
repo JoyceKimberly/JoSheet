@@ -1,4 +1,3 @@
-var dbx;
 var cWidth = 745;
 var moveEnabled = true;
 window.file = {
@@ -26,7 +25,7 @@ $(function() { // --------------------------------------------------------------
     $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
   }, false);
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
-/*
+
   if ( !!getAccessToken() ) {
     dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
@@ -39,7 +38,7 @@ $(function() { // --------------------------------------------------------------
       window.location = $(this).attr("href");
     });
   };
-*/
+
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
   $('[data-toggle="tooltip"]').tooltip();
@@ -269,47 +268,47 @@ $(function() { // --------------------------------------------------------------
 
   $('.display').focusout(setValues);
   function setValues(event) {
-    var dit = $(event.target);
+    var $ele = $(event.target);
     var character = {};
-    var key = dit.attr('id');
+    var key = $ele.attr('id');
 
-    if ( dit.is('#name') ) {
-      if ( dit.val() !== "" ) {
-        character.name = encodeURIComponent(dit.val());
+    if ( $ele.is('#name') ) {
+      if ( $ele.val() !== "" ) {
+        character.name = encodeURIComponent($ele.val());
       } else {
         character.name = "JoSheet";
       };
 
-    } else if ( dit.is('.number') ) {
-      character[key] = Number(dit.val());
+    } else if ( $ele.is('.number') ) {
+      character[key] = Number($ele.val());
 
-    } else if ( dit.is('input[type=checkbox]') ) {
-      character[key] = dit.prop('checked');
+    } else if ( $ele.is('input[type=checkbox]') ) {
+      character[key] = $ele.prop('checked');
 
     } else {
-      character[key] = dit.val();
+      character[key] = encodeURIComponent($ele.val());
     };
 
     if ( allowCalc ) {
-      if ( dit.is('.attr.mod') ) {
+      if ( $ele.is('.attr.mod') ) {
         CalcMod();
         character[key] = Number(event.originalEvent.value);
 
-      } else if ( dit.is('#level') ) {
-        $('[name="Character Level"]').val(parseInt(dit.val()));
+      } else if ( $ele.is('#level') ) {
+        $('[name="Character Level"]').val(parseInt($ele.val()));
 
-      } else if ( dit.is('[name="AC Dexterity Modifier"]') ) {
-        dit.val(parseInt(calcMaxDexToAC()));
+      } else if ( $ele.is('[name="AC Dexterity Modifier"]') ) {
+        $ele.val(parseInt(calcMaxDexToAC()));
 
-      } else if ( dit.is('.save.mod') ) {
+      } else if ( $ele.is('.save.mod') ) {
         CalcSave();
         character[key] = Number(event.originalEvent.value);
 
-      } else if ( dit.is('.skill') ) {
+      } else if ( $ele.is('.skill') ) {
         CalcSkill();
         character[key] = Number(event.originalEvent.value);
 
-      } else if ( dit.is('#armorClass') ) {
+      } else if ( $ele.is('#armorClass') ) {
         CalcAC();
         character[key] = Number(event.originalEvent.value);
       };
@@ -324,41 +323,43 @@ $(function() { // --------------------------------------------------------------
     $('[name="Character Level"]').val(parseInt(file.character.level));
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
-      var ele = $("#" + key);
+      var $ele = $("#" + key);
 
-      if ( ele.is('.display.number.mod') ) {
-        ele.val((file.character[key]>0?'+':'') + file.character[key]);
+      if ( $ele.is('.display.number.mod') ) {
+        $ele.val((file.character[key]>0?'+':'') + file.character[key]);
 
-      } else if ( ele.is('input[type=checkbox]') ) {
-        ele.prop('checked', file.character[key]);
+      } else if ( $ele.is('.number') ) {
+        $ele.val(file.character[key]);
+
+      } else if ( $ele.is('input[type=checkbox]') ) {
+        $ele.prop('checked', file.character[key]);
 
       } else {
-        ele.val(decodeURIComponent(file.character[key]));
+        $ele.val(decodeURIComponent(file.character[key]));
       };
 
       if ( allowCalc ) {
-        if ( ele.is('#class') ) {
-          //classes.old.toSource = function() { return $.extend({}, this); };
+        if ( $ele.is('#class') ) {
           ApplyClasses(file.character[key]);
 
-        } else if ( ele.is('#race') ) {
+        } else if ( $ele.is('#race') ) {
           ApplyRace(file.character[key]);
 
-        } else if ( ele.is('#armor') ) {
+        } else if ( $ele.is('#armor') ) {
           ApplyArmor(file.character[key]);
 
-        } else if ( ele.is('#shield') ) {
+        } else if ( $ele.is('#shield') ) {
           ApplyShield(file.character[key]);
 
-        } else if ( ele.is('.attack') ) {
-          ApplyWeapon(file.character[key], ele.attr("name"));
-          var nr = Number($(ele).attr('id').substring(6));
+        } else if ( $ele.is('.attack') ) {
+          ApplyWeapon(file.character[key], $ele.attr("name"));
+          var nr = Number($($ele).attr('id').substring(6));
           var dmgType = $('#hiddenFields').find('[name="Attack.' + nr + '.Damage Type"]').val();
           if ( dmgType ) {
             $('#attack' + nr + 'Type').val(Object.keys(DamageTypes)[(dmgType - 1)]);
           };
 
-        } else if ( ele.is('#background') ) {
+        } else if ( $ele.is('#background') ) {
           ApplyBackground(file.character[key]);
 
         };
@@ -496,7 +497,8 @@ $(function() { // --------------------------------------------------------------
   // -- Dropbox --
   // ------------------------------------------------------------------------------------
   function listCharacters() {
-    dbx.filesListFolder({path: ''})
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    dbx.filesListFolder({ path: '' })
       .then(function(response) {
         characterFiles = response.entries;
         $('#saveLink').show();
@@ -524,26 +526,31 @@ $(function() { // --------------------------------------------------------------
         });
       })
       .catch(function(error) {
+        console.error(error);
         setAlert('danger', error);
         setAuthLink();
       });
   };
 
   function saveFile() {
+    console.log(file);
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
     var filename = file.character.name + " (lvl " + file.character.level + " " + file.character.class + ")" + ".txt";
-    dbx.filesSaveUrl({path: '/Apps/JoSheet/' + filename, url: url})
+    dbx.filesSaveUrl({ path: '/Apps/JoSheet/' + filename, url: url })
       .then(function(response) {
         setAlert('success', 'Character saved to your Dropbox.');
         listCharacters();
       })
       .catch(function(error) {
+        console.error(error);
         setAlert('danger', error);
       });
   };
 
   function loadFile(i) {
-    dbx.filesDownload({path: characterFiles[i].path_lower})
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    dbx.filesDownload({ path: characterFiles[i].path_lower })
       .then(function(response) {
         var blob = response.fileBlob;
         var reader = new FileReader();
@@ -560,23 +567,26 @@ $(function() { // --------------------------------------------------------------
         reader.readAsText(blob);
       })
       .catch(function(error) {
+        console.error(error);
         setAlert('danger', error);
       });
   };
 
   function deleteFile(i) {
-    dbx.filesDelete({path: characterFiles[i].path_lower})
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    dbx.filesDelete({ path: characterFiles[i].path_lower })
       .then(function(response) {
         setAlert('success', 'Character deleted from your Dropbox.');
         listCharacters();
       })
       .catch(function(error) {
+        console.error(error);
         setAlert('danger', error);
       });
   };
 
   function setAuthLink() {
-    dbx = new Dropbox({ clientId: CLIENT_ID });
+    var dbx = new Dropbox({ clientId: CLIENT_ID });
     //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
     var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
@@ -615,11 +625,6 @@ function loadCookies() {
   };
 
 }); // ----------------------------------------------------------------------------------
-//ClassSubList.prototype.toSource = function () { return $.extend({}, this); };
-/*Object.prototype.toSource || (Object.prototype.toSource = function() {
-  //return JSON.stringify(this);
-});*/
-
 var CLIENT_ID = 'ztucdd8z8fjuh08';
 
 // Parses the url and gets the access token if it is in the urls hash
@@ -675,7 +680,7 @@ function getCookie(cname) {
 };
 
 (function(window) {
-/*  window.onerror = function(msg, url, lineNo, columnNo, error) {
+  /*window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
