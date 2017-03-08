@@ -321,6 +321,7 @@ $(function() { // --------------------------------------------------------------
   };
 
   function setCharacter() {
+    $('[name="Character Level"]').val(parseInt(file.character.level));
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
       var ele = $("#" + key);
@@ -337,7 +338,7 @@ $(function() { // --------------------------------------------------------------
 
       if ( allowCalc ) {
         if ( ele.is('#class') ) {
-          classes.old.toSource = function() { return $.extend({}, this); };
+          //classes.old.toSource = function() { return $.extend({}, this); };
           ApplyClasses(file.character[key]);
 
         } else if ( ele.is('#race') ) {
@@ -451,7 +452,7 @@ $(function() { // --------------------------------------------------------------
   $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
-    $progressBar.show();        
+    $progressBar.show();
 
   }).on('click', '#calcModalSave', function() {
     var $dit = $(this);
@@ -468,7 +469,7 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     calculateAll();
     $progressBar.hide();
-    $dit.removeClass('btn-primary').addClass('btn-success');        
+    $dit.removeClass('btn-primary').addClass('btn-success');
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -483,11 +484,11 @@ $(function() { // --------------------------------------------------------------
   });
 
   calculateAll = function() {
-    $('[name="Character Level"]').val(parseInt(file.character.level));
     calcAbilityScores();
     $('.attr, .save, .skill, #armor, #shield').focus();
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
     $('#armorClass, #class, #race, #background, .attack').focus();
+    $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
   };
 
@@ -674,7 +675,7 @@ function getCookie(cname) {
 };
 
 (function(window) {
-  window.onerror = function(msg, url, lineNo, columnNo, error) {
+/*  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -690,7 +691,7 @@ function getCookie(cname) {
       console.error(message);
     };
     return true;
-  };
+  };*/
 
   window.utils = {
     parseQueryString: function(str) {
