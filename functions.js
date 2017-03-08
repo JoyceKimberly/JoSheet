@@ -327,32 +327,6 @@ $(function() { // --------------------------------------------------------------
   function resetCharacter() {
     file.character = {
       name     : "JoSheet",
-      level    : 1,
-      exp      : 0,
-      baseStr  : 8,
-      baseDex  : 8,
-      baseCon  : 8,
-      baseInt  : 8,
-      baseWis  : 8,
-      baseCha  : 8,
-      raceStr  : 0,
-      raceDex  : 0,
-      raceCon  : 0,
-      raceInt  : 0,
-      raceWis  : 0,
-      raceCha  : 0,      
-      magicStr : 0,
-      magicDex : 0,
-      magicCon : 0,
-      magicInt : 0,
-      magicWis : 0,
-      magicCha : 0,
-      extraStr : 0,
-      extraDex : 0,
-      extraCon : 0,
-      extraInt : 0,
-      extraWis : 0,
-      extraCha : 0,
     };
     file.notes = {};
   };
