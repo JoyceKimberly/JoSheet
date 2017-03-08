@@ -369,9 +369,9 @@ $(function() { // --------------------------------------------------------------
       character[key] = Number($ele.val());
 
     } else if ( $ele.is('input[type=checkbox]') ) {
-      console.log($ele.attr('name'));
-      console.log($ele.prop('checked'));
-      character[key] = $ele.prop('checked');
+      //console.log($ele.attr('name'));
+      //console.log($ele.prop('checked'));
+      //character[key] = $ele.prop('checked');
 
     } else {
       character[key] = encodeURIComponent($ele.val());
@@ -398,9 +398,9 @@ $(function() { // --------------------------------------------------------------
         character[key] = Number(event.originalEvent.value);
 
       } else if ( $ele.is('.skillProfCheck') ) {
-        console.log(key);
+        console.log($ele.attr('name'));
         console.log($ele.prop('checked'));
-        //AddSkillProf(SkillName, change);
+        //AddSkillProf($ele.attr('name'), $ele.prop('checked'));
 
       } else if ( $ele.is('[name="Proficiency Bonus"]') ) {
         ProfBonus();
