@@ -369,7 +369,7 @@ $(function() { // --------------------------------------------------------------
       character[key] = Number($ele.val());
 
     } else if ( $ele.is('input[type=checkbox]') ) {
-      console.log(key);
+      console.log($ele.attr('name'));
       console.log($ele.prop('checked'));
       character[key] = $ele.prop('checked');
 
