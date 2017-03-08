@@ -351,7 +351,7 @@ $(function() { // --------------------------------------------------------------
     file.notes = {};
   };
 
-  $('.display').on('click change focusout', setValues);
+  $('.display').on('change focusout', setValues);
 
   function setValues(event) {
     var $ele = $(event.target);
