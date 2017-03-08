@@ -335,6 +335,12 @@ $(function() { // --------------------------------------------------------------
       baseInt  : 8,
       baseWis  : 8,
       baseCha  : 8,
+      raceStr  : 0,
+      raceDex  : 0,
+      raceCon  : 0,
+      raceInt  : 0,
+      raceWis  : 0,
+      raceCha  : 0,      
       magicStr : 0,
       magicDex : 0,
       magicCon : 0,
@@ -369,9 +375,7 @@ $(function() { // --------------------------------------------------------------
       character[key] = Number($ele.val());
 
     } else if ( $ele.is('input[type=checkbox]') ) {
-      //console.log($ele.attr('name'));
-      //console.log($ele.prop('checked'));
-      //character[key] = $ele.prop('checked');
+      character[key] = $ele.prop('checked');
 
     } else {
       character[key] = encodeURIComponent($ele.val());
@@ -498,9 +502,10 @@ $(function() { // --------------------------------------------------------------
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = Number($("#base" + value).val());
+      character["race" + value] = Number($("#race" + value).val());
       character["magic" + value] = Number($("#magic" + value).val());
       character["extra" + value] = Number($("#extra" + value).val());
-      Value(value + " Remember", parseInt($("#base" + value).val()) + "," + CurrentRace.scores[key] + "," + parseInt($("#extra" + value).val()) + "," + parseInt($("#magic" + value).val()) + ",0");
+      Value(value + " Remember", parseInt($("#base" + value).val()) + "," + parseInt($("#race" + value).val()) + "," + parseInt($("#extra" + value).val()) + "," + parseInt($("#magic" + value).val()) + ",0");
     });
     $.extend(true, file.character, character);
     setCharacter();
@@ -513,7 +518,7 @@ $(function() { // --------------------------------------------------------------
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
       $("#base" + value).val(file.character["base" + value]);
-      $("#race" + value).text(CurrentRace.scores[key]);
+      $("#race" + value).val(file.character["race" + value]);
       $("#magic" + value).val(file.character["magic" + value]);
       $("#extra" + value).val(file.character["extra" + value]);
     });
