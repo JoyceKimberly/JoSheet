@@ -408,7 +408,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Acr Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAcr" name="Acr Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -416,7 +416,7 @@
                     <input name="Acr Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="acroMod" name="Acr Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAcr" name="Acr Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
                 </div>
@@ -427,7 +427,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ani Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAni" name="Ani Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -435,7 +435,7 @@
                     <input name="Ani Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="animMod" name="Ani Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAni" name="Ani Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
                 </div>
@@ -446,7 +446,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Arc Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profArc" name="Arc Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -454,7 +454,7 @@
                     <input name="Arc Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="arcaMod" name="Arc Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modArc" name="Arc Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Arcana <span>(Int)</span></div>
                 </div>
@@ -465,7 +465,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ath Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAth" name="Ath Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -473,7 +473,7 @@
                     <input name="Ath Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="athlMod" name="Ath Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAth" name="Ath Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Athletics <span>(Str)</span></div>
                 </div>
@@ -484,7 +484,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Dec Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profDec" name="Dec Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -492,7 +492,7 @@
                     <input name="Dec Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="deceMod" name="Dec Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modDec" name="Dec Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Deception <span>(Cha)</span></div>
                 </div>
@@ -503,7 +503,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="His Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profHis" name="His Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -511,7 +511,7 @@
                     <input name="His Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="histMod" name="His Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modHis" name="His Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">History <span>(Int)</span></div>
                 </div>
@@ -522,7 +522,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ins Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profIns" name="Ins Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -530,7 +530,7 @@
                     <input name="Ins Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="insiMod" name="Ins Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modIns" name="Ins Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
                 </div>
@@ -541,7 +541,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Inti Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profInti" name="Inti Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -549,7 +549,7 @@
                     <input name="Inti Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="intiMod" name="Inti Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modInti" name="Inti Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Intimidation <span>(Cha)</span></div>
                 </div>
@@ -560,7 +560,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Inv Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profInv" name="Inv Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -568,7 +568,7 @@
                     <input name="Inv Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="inveMod" name="Inv Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modInv" name="Inv Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
                 </div>
@@ -579,7 +579,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Med Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profMed" name="Med Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -587,7 +587,7 @@
                     <input name="Med Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="mediMod" name="Med Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modMed" name="Med Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Medicine <span>(Wis)</span></div>
                 </div>
@@ -598,7 +598,7 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Nat Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profNat" name="Nat Prof" type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
@@ -606,7 +606,7 @@
                     <input name="Nat Exp" type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="natuMod" name="Nat Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modNat" name="Nat Mod" class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
                 </div>
