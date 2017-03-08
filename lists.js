@@ -154,21 +154,21 @@ getField = function(event) {
 
 Value = function(field, FldValue, tooltip) {
   //console.log(field + " -> " + JSON.stringify(FldValue) );
-  var $ele = $('[name="' + field + '"]');
+  var ele = document.getElementsByName(field)[0];
 
-  if (!$ele) {
+  if (!ele) {
     //console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
-  if ( $ele.find('.number') ) {
-    $ele.val(+(FldValue));
+  if ( ele.classList.contains('number') ) {
+    ele.value = +(FldValue);
 
   } else {
-    $ele.val(FldValue);
+    ele.value = FldValue;
   };
 
   if ( tooltip !== undefined ) {
-    $ele.attr('title', tooltip);
+    ele.setAttribute('title', tooltip);
   };
 };
 Checkbox = function(field, FldValue, tooltip) {
