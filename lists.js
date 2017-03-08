@@ -121,7 +121,8 @@ getField = function(event) {
 
   if ( ele ) {
     field.value = ele.value;
-    field.submitName = ele.value;
+    field.userName = ele.title;
+    field.submitName = ele.title;
     field.isBoxChecked = function() {
       //console.log(event + " is checked? " + ele.checked);
       return Number(ele.checked);
@@ -133,6 +134,7 @@ getField = function(event) {
 
   } else {
     field.value = "";
+    field.userName = "";
     field.submitName = "";
     field.isBoxChecked = function() {};
     field.buttonGetCaption = function() {};

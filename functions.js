@@ -351,7 +351,8 @@ $(function() { // --------------------------------------------------------------
     file.notes = {};
   };
 
-  $('.display').focusout(setValues);
+  $('.display').on('click change focusout', setValues);
+
   function setValues(event) {
     var $ele = $(event.target);
     var character = {};
@@ -368,6 +369,8 @@ $(function() { // --------------------------------------------------------------
       character[key] = Number($ele.val());
 
     } else if ( $ele.is('input[type=checkbox]') ) {
+      console.log(key);
+      console.log($ele.prop('checked'));
       character[key] = $ele.prop('checked');
 
     } else {
@@ -375,7 +378,7 @@ $(function() { // --------------------------------------------------------------
     };
 
     if ( allowCalc ) {
-      if ( $ele.is('.attr.mod') ) {
+      if ( $ele.is('.attr') ) {
         CalcMod();
         character[key] = Number(event.originalEvent.value);
 
@@ -386,13 +389,18 @@ $(function() { // --------------------------------------------------------------
         $ele.val(parseInt(calcMaxDexToAC()));
         character[key] = parseInt(calcMaxDexToAC());
 
-      } else if ( $ele.is('.save.mod') ) {
+      } else if ( $ele.is('.save') ) {
         CalcSave();
         character[key] = Number(event.originalEvent.value);
 
       } else if ( $ele.is('.skill') ) {
         CalcSkill();
         character[key] = Number(event.originalEvent.value);
+
+      } else if ( $ele.is('.skillProfCheck') ) {
+        console.log(key);
+        console.log($ele.prop('checked'));
+        //AddSkillProf(SkillName, change);
 
       } else if ( $ele.is('[name="Proficiency Bonus"]') ) {
         ProfBonus();
@@ -469,8 +477,10 @@ $(function() { // --------------------------------------------------------------
     $('[name="Proficiency Bonus"]').focus();
     ApplyArmor($('#armor').val());
     ApplyShield($('#shield').val());
-    $('.attr, .save, .skill').focus();
+    $('.attr').focus();
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
+    $('.save').focus();
+    $('.skill').focus();
     $('#armorClass, .attack').focus();
     ApplyProficiencies(true);
     $('[name="Character Level"]').val(parseInt(file.character.level));
@@ -498,7 +508,7 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
-    console.log(tDoc); // debug
+    //console.log(tDoc); // debug
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
