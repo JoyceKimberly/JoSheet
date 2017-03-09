@@ -688,7 +688,7 @@ function getCookie(cname) {
 };
 
 (function(window) {
-  /*window.onerror = function(msg, url, lineNo, columnNo, error) {
+  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -704,7 +704,7 @@ function getCookie(cname) {
       console.error(message);
     };
     return true;
-  };*/
+  };
 
   window.utils = {
     parseQueryString: function(str) {
