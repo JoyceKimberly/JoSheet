@@ -17,6 +17,12 @@ a {
 
 .center { text-align: center; }
 .right { text-align: right; }
+select.right {
+    direction: rtl;
+}
+option {
+    direction: ltr;
+}
 
 .hidden,
 .display,
