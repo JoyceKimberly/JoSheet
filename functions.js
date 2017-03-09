@@ -610,7 +610,10 @@ function loadCookies() {
   };
 
   if ( !!getCookie("character") ) {
-    var character = JSON.parse(getCookie("character"));
+    var character = JSON.parse(getCookie("character"), function (key, value) {
+        console.log(value);
+        return value;
+      });
     console.log(character);
     $.extend(true, file.character, character);
   } else {
