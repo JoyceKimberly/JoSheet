@@ -62,7 +62,7 @@ div .bg img {
 .content {
   width: 100%;
   height: 100%;
-  padding: 8px;
+  padding: 9px 9px 16px;
 }
 .alert .content {
   width: initial;
@@ -77,6 +77,9 @@ div .bg img {
 }
 .block7 .content {
   padding: 9px 8px 16px;
+}
+.block8 .underlines {
+  padding: 9px 13px 16px;
 }
 #skillsBlock .content {
   padding-right: 0;
@@ -268,8 +271,8 @@ select.display {
   height: 14px;
   position: relative;
 }
-.block8 .underlines {
-  padding: 9px 13px 16px;
+#bgFeatBlock .content {
+  padding-bottom: 18px;
 }
 
 .labelBlock img {
