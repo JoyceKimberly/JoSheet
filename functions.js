@@ -616,8 +616,6 @@ function loadCookies() {
     } catch(error) {
       console.log(error); // error in the above string (in this case, yes)!
     };
-
-    //character = JSON.parse(getCookie("character"));
     console.log(character);
     $.extend(true, file.character, character);
   } else {
@@ -625,7 +623,13 @@ function loadCookies() {
   };
 
   if ( !!getCookie("notes") ) {
-    $.extend(true, file.notes, JSON.parse(getCookie("notes")));
+    var notes = {};
+    try {
+      notes = JSON.parse(getCookie("notes"));
+    } catch(error) {
+      console.log(error); // error in the above string (in this case, yes)!
+    };
+    $.extend(true, file.notes, notes);
   };
 };
 
