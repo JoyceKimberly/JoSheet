@@ -612,9 +612,9 @@ function loadCookies() {
   if ( !!getCookie("character") ) {
     var character = {};
     try {
-        character = JSON.parse(getCookie("character"));
-    } catch(e) {
-        console.log(e); // error in the above string (in this case, yes)!
+      character = JSON.parse(getCookie("character"));
+    } catch(error) {
+      console.log(error); // error in the above string (in this case, yes)!
     };
 
     //character = JSON.parse(getCookie("character"));
