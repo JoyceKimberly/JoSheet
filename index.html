@@ -786,7 +786,7 @@
       </div>
       <div id="acBlock" class="acBlock cha z2 draggable">
         <div class="bg"><img src="img/ACBlock.svg"></div>
-        <input name="" style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center">
+        <input name="AC" style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center">
         <div class="lbl1 lower">Armor<br>Class</div>
         <div class="hover"></div>
       </div>
@@ -2009,24 +2009,48 @@
     <div class="page">
       <div id="pageHeader2" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader2.svg"></div>
-        <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
-        <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="name display center"></div>
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
-        <div style="top: 48px; left: 324px; width: 22px;" class="display right"></div>
-        <div style="top: 64px; left: 328px;" class="lbl2">Age</div>
-        <div style="top: 82px; left: 328px; width: 140px;"></div>
-        <div style="top: 98px; left: 328px;" class="lbl2">Eyes</div>
-        <input style="top: 82px; left: 474px; width: 140px; height: 18px;" id="alignment" class="display form-control" type="text">
-        <div style="top: 98px; left: 474px;" class="lbl2">Alignment</div>
-        <div style="top: 48px; left: 474px; width: 140px;"></div>
-        <div style="top: 64px; left: 474px;" class="lbl2">Height</div>
-        <div style="top: 82px; left: 474px; width: 140px;" class="display"></div>
-        <div style="top: 98px; left: 474px;" class="lbl2">Skin</div>
-        <div style="top: 48px; left: 620px; width: 90px;" class="display"></div>
-        <div style="top: 64px; left: 620px;" class="lbl2">Weight</div>
-        <div style="top: 82px; left: 620px; width: 90px;" class="display"></div>
-        <div style="top: 98px; left: 620px;" class="lbl2">Hair</div>
+        <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
+        <div class="content">
+          <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
+            <div class="col col-3">
+              <input id="age" name="Age" class="display number form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Age</div>
+            </div>
+            <div class="col col-3">
+              <input id="size" name="Size" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Size</div>
+            </div>
+            <div class="col col-3">
+              <input id="height" name="Height" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Height</div>
+            </div>
+            <div class="col">
+              <input id="weight" name="Weight" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Weight</div>
+            </div>
+          </div>
+          <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
+            <div class="col col-3">
+              <input id="alignment" name="Alignment" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Alignment</div>
+            </div>
+            <div class="col col-3">
+              <input id="hair" name="Hair" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Hair</div>
+            </div>
+            <div class="col col-3">
+              <input id="eyes" name="Eyes" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Eyes</div>
+            </div>
+            <div class="col">
+              <input id="skin" name="Skin" class="display form-control" type="text">
+              <div style="top: 15px;" class="lbl2">Skin</div>
+            </div>
+          </div>
+        </div>
         <div class="hover"></div>
       </div>
       <div id="boxBg2" class="boxBg2 z1 resizable">
@@ -2166,10 +2190,6 @@
     <input name="Too Prof" type="text">
     <input name="Too Exp" type="text">
     <input name="Too Text" type="text">
-
-    <input name="Height" type="text">
-    <input name="Weight" type="text">
-    <input name="Age" type="text">
     <input name="Vision" type="text">
 
     <input name="Feat Name 1" type="text">

@@ -56,6 +56,68 @@ $(function() { // --------------------------------------------------------------
   };
   setBodyTag();
 
+  // ------------------------------------------------------------------------------------
+  // -- Menu --
+  // ------------------------------------------------------------------------------------
+  $('#inputBtn').click(function() {
+    moveEnabled = false;
+    setBodyTag();
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
+    $('#showBtn').trigger('click');
+    $('#edit').removeClass('show').hide();
+    $('#moveResetBtn').hide();
+    $('#inputResetBtn, #calcBtn').show();
+  });
+  $('#moveBtn').click(function() {
+    moveEnabled = true;
+    setBodyTag();
+    $(this).addClass('btn-info active').removeClass('btn-secondary');
+    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
+    $('#inputResetBtn').hide();
+    $('#moveResetBtn').show();
+  });
+
+  $('#hideBtn').click(function() {
+    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').hide();
+    $('#showBtn, .custom-checkbox .checkBall').show();
+  });
+  $('#showBtn').click(function() {
+    setCharacter();
+    $('#showBtn, .custom-checkbox .checkBall').hide();
+    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
+    $('.editable').prop('disabled', false);
+  });
+
+  $('#calcBtn').click(function() {
+    $('#calcModal').modal('show');
+  });
+
+  $('#moveResetBtn').click(function() {
+    resetObjects();
+    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    setObjects();
+  });
+  $('#inputResetBtn').click(function() {
+    resetCharacter();
+    document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    setCharacter();
+    if ( allowCalc ) {
+      initializeLists();
+    };
+  });
+
+  $('#printBtn').click(function() {
+    window.print();
+  });
+  $('#saveLink').click(function() {
+    saveFile();
+  });
+
+  // ------------------------------------------------------------------------------------
+  // -- Objects --
+  // ------------------------------------------------------------------------------------
   $('.outerPage').on('touchstart mousedown', function() {
     if ( moveEnabled === true ) {
       $(this).addClass("grid");
@@ -137,66 +199,6 @@ $(function() { // --------------------------------------------------------------
 
   }).on('resizemove', moveListener);
 
-  // ------------------------------------------------------------------------------------
-  // -- Menu --
-  // ------------------------------------------------------------------------------------
-  $('#inputBtn').click(function() {
-    moveEnabled = false;
-    setBodyTag();
-    $(this).addClass('btn-info active').removeClass('btn-secondary');
-    $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
-    $('#showBtn').trigger('click');
-    $('#edit').removeClass('show').hide();
-    $('#moveResetBtn').hide();
-    $('#inputResetBtn, #calcBtn').show();
-  });
-  $('#moveBtn').click(function() {
-    moveEnabled = true;
-    setBodyTag();
-    $(this).addClass('btn-info active').removeClass('btn-secondary');
-    $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
-    $('#inputResetBtn').hide();
-    $('#moveResetBtn').show();
-  });
-
-  $('#hideBtn').click(function() {
-    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').hide();
-    $('#showBtn, .custom-checkbox .checkBall').show();
-  });
-  $('#showBtn').click(function() {
-    setCharacter();
-    $('#showBtn, .custom-checkbox .checkBall').hide();
-    $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
-    $('.editable').prop('disabled', false);
-  });
-
-  $('#calcBtn').click(function() {
-    $('#calcModal').modal('show');
-  });
-
-  $('#moveResetBtn').click(function() {
-    resetObjects();
-    document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    location.reload();
-  });
-  $('#inputResetBtn').click(function() {
-    resetCharacter();
-    document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    location.reload();
-  });
-
-
-  $('#printBtn').click(function() {
-    window.print();
-  });
-  $('#saveLink').click(function() {
-    saveFile();
-  });
-
-  // ------------------------------------------------------------------------------------
-  // -- Interact Setup --
-  // ------------------------------------------------------------------------------------
   function setObjects() {
     for ( var i = 0; i < Object.keys(file.objects).length; i++ ) {
       var naam = Object.keys(file.objects)[i];
@@ -317,23 +319,17 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
-  /*$('#class').on('keypress change', function() {
-    this.style.width = ((this.value.length + 1) * 8) + 'px';
-  });*/
-
   // ------------------------------------------------------------------------------------
-  // -- Fields Setup --
+  // -- Fields --
   // ------------------------------------------------------------------------------------
   function resetCharacter() {
     file.character = {
-      name     : "JoSheet",
+      name : "JoSheet",
     };
     file.notes = {};
   };
 
-  $('.display').on('change focusout', setValues);
-
-  function setValues(event) {
+  $('.display').change(function() {
     var $ele = $(event.target);
     var character = {};
     var key = $ele.attr('id');
@@ -355,45 +351,10 @@ $(function() { // --------------------------------------------------------------
       character[key] = encodeURIComponent($ele.val());
     };
 
-    if ( allowCalc ) {
-      if ( $ele.is('.attr') ) {
-        CalcMod();
-        character[key] = Number(event.originalEvent.value);
-
-      } else if ( $ele.is('#level') ) {
-        $('[name="Character Level"]').val(parseInt($ele.val()));
-
-      } else if ( $ele.is('[name="AC Dexterity Modifier"]') ) {
-        $ele.val(parseInt(calcMaxDexToAC()));
-        character[key] = parseInt(calcMaxDexToAC());
-
-      } else if ( $ele.is('.save') ) {
-        CalcSave();
-        character[key] = Number(event.originalEvent.value);
-
-      } else if ( $ele.is('.skill') ) {
-        CalcSkill();
-        character[key] = Number(event.originalEvent.value);
-
-      } else if ( $ele.is('.skillProfCheck') ) {
-        console.log($ele.attr('name'));
-        console.log($ele.prop('checked'));
-        //AddSkillProf($ele.attr('name'), $ele.prop('checked'));
-
-      } else if ( $ele.is('[name="Proficiency Bonus"]') ) {
-        ProfBonus();
-        character[key] = Number(event.originalEvent.value);
-
-      } else if ( $ele.is('#armorClass') ) {
-        CalcAC();
-        character[key] = Number(event.originalEvent.value);
-      };
-    };
-
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
-  };
+  });
 
   function setCharacter() {
     $('[name="Character Level"]').val(parseInt(file.character.level));
@@ -445,8 +406,49 @@ $(function() { // --------------------------------------------------------------
   };
 
   // ------------------------------------------------------------------------------------
-  // -- Calculating Options --
+  // -- Calculation --
   // ------------------------------------------------------------------------------------
+  $('#level').focusout(function() { if ( allowCalc ) {
+    $('[name="Character Level"]').val(parseInt($ele.val()));
+  }});
+
+  $('[name="Proficiency Bonus"]').focusout(function() { if ( allowCalc ) {
+    ProfBonus();
+    $(this).val(Number(event.originalEvent.value)).change();
+  }});
+
+  $('[name="AC"]').focusout(function() { if ( allowCalc ) {
+    CalcAC();
+    $(this).val(Number(event.originalEvent.value)).change();
+  }});
+
+  $('.attr').focusout(function() { if ( allowCalc ) {
+    CalcMod();
+    $(this).val(Number(event.originalEvent.value)).change();
+  }});
+
+  $('.save').focusout(function() { if ( allowCalc ) {
+    CalcSave();
+    $(this).val(Number(event.originalEvent.value)).change();
+  }});
+
+  $('.skill').focusout(function() { if ( allowCalc ) {
+    CalcSkill();
+    $(this).val(Number(event.originalEvent.value)).change();
+  }});
+
+  $('[name="AC Dexterity Modifier"]').focusout(function() { if ( allowCalc ) {
+    $(this).val(parseInt(calcMaxDexToAC())).change();
+  }});
+
+/*
+        } else if ( $ele.is('.skillProfCheck') ) {
+          console.log($ele.attr('name'));
+          console.log($ele.prop('checked'));
+          //AddSkillProf($ele.attr('name'), $ele.prop('checked'));
+        };
+      };
+*/
   calculateAll = function() {
     calcAbilityScores();
     ApplyClasses($('#class').val());
@@ -457,9 +459,8 @@ $(function() { // --------------------------------------------------------------
     ApplyShield($('#shield').val());
     $('.attr').focus();
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
-    $('.save').focus();
-    $('.skill').focus();
-    $('#armorClass, .attack').focus();
+    $('.save, .skill, #armorClass').focus();
+    $('.attack').focus();
     ApplyProficiencies(true);
     $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
@@ -487,7 +488,7 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
-    //console.log(tDoc); // debug
+    console.log(tDoc); // debug
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -602,44 +603,47 @@ $(function() { // --------------------------------------------------------------
     $('#authLink').show();
   };
 
-function loadCookies() {
-  if ( !!getCookie("objects") ) {
-    var objects = {};
-    try {
-      objects = JSON.parse(getCookie("objects"));
-    } catch(error) {
-      console.error(error);
-      deleteCookie("objects");
+  // ------------------------------------------------------------------------------------
+  // -- Helpers --
+  // ------------------------------------------------------------------------------------
+  function loadCookies() {
+    if ( !!getCookie("objects") ) {
+      var objects = {};
+      try {
+        objects = JSON.parse(getCookie("objects"));
+      } catch(error) {
+        console.error(error);
+        deleteCookie("objects");
+      };
+      $.extend(true, file.objects, objects);
+    } else {
+      resetObjects();
     };
-    $.extend(true, file.objects, objects);
-  } else {
-    resetObjects();
-  };
 
-  if ( !!getCookie("character") ) {
-    var character = {};
-    try {
-      character = JSON.parse(getCookie("character"));
-    } catch(error) {
-      console.error(error);
-      deleteCookie("character");
+    if ( !!getCookie("character") ) {
+      var character = {};
+      try {
+        character = JSON.parse(getCookie("character"));
+      } catch(error) {
+        console.error(error);
+        deleteCookie("character");
+      };
+      $.extend(true, file.character, character);
+    } else {
+      resetCharacter();
     };
-    $.extend(true, file.character, character);
-  } else {
-    resetCharacter();
-  };
 
-  if ( !!getCookie("notes") ) {
-    var notes = {};
-    try {
-      notes = JSON.parse(getCookie("notes"));
-    } catch(error) {
-      console.error(error);
-      deleteCookie("notes");
+    if ( !!getCookie("notes") ) {
+      var notes = {};
+      try {
+        notes = JSON.parse(getCookie("notes"));
+      } catch(error) {
+        console.error(error);
+        deleteCookie("notes");
+      };
+      $.extend(true, file.notes, notes);
     };
-    $.extend(true, file.notes, notes);
   };
-};
 
   function setAlert(type, msg) {
     var $alert = $('\
@@ -650,7 +654,7 @@ function loadCookies() {
     ').appendTo('#alerts');
     setTimeout(function() {
       $($alert).alert('close');
-    }, 10000);
+    }, (10 * 1000));
   };
 
 }); // ----------------------------------------------------------------------------------
@@ -681,9 +685,6 @@ function isAuthenticated() {
   return !!getAccessTokenFromUrl();
 };
 
-// --------------------------------------------------------------------------------------
-// -- Helpers --
-// --------------------------------------------------------------------------------------
 function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));

@@ -7,12 +7,6 @@ bookmarkRoot = {
 resetForm = function() {};
 
 initializeLists = function() {
-  //classes.old.toSource = function() { return $.extend({}, this); };
-
-  $.each(AbilityScores.abbreviations, function(key, value) {
-    Value(value + " Remember", file.character["base" + value] + ",0,0,0,0");
-  });
-
   //setListsUnitSystem(false, true);
   UAstartupCode();
   FindClasses();
@@ -29,6 +23,17 @@ initializeLists = function() {
   UpdateTooltips();
   //SetRichTextFields();
 
+  $.each(AbilityScores.abbreviations, function(key, value) {
+    var raceValue = 0;
+    if ( file.character["race" + value] ) {
+      raceValue = file.character["race" + value];
+      AbilityScores.current[value] = raceValue;
+    } else if ( file.character.race ) {
+      raceValue = CurrentRace.scores[key];
+      file.character["race" + value] = raceValue;
+    };
+    Value(value + " Remember", file.character["base" + value] + "," + raceValue + ",0,0,0");
+  });
   //console.log(classes);
 };
 
