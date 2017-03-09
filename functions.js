@@ -610,7 +610,9 @@ function loadCookies() {
   };
 
   if ( !!getCookie("character") ) {
-    $.extend(true, file.character, JSON.parse(getCookie("character")));
+    var character = JSON.parse(getCookie("character"));
+    console.log(character);
+    $.extend(true, file.character, character);
   } else {
     resetCharacter();
   };
@@ -687,7 +689,7 @@ function getCookie(cname) {
   return "";
 };
 
-(function(window) {
+(function(window) {/*
   window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
@@ -705,7 +707,7 @@ function getCookie(cname) {
     };
     return true;
   };
-
+*/
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
