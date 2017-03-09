@@ -610,13 +610,14 @@ function loadCookies() {
   };
 
   if ( !!getCookie("character") ) {
-    var character = JSON.parse(getCookie("character"), function (key, value) {
-        if ( value ) {
-          console.log(key + ": " + value);
-          return value;
-        } else {
-        };
-      });
+    var character = {};
+    try {
+        character = JSON.parse(getCookie("character"));
+    } catch(e) {
+        console.log(e); // error in the above string (in this case, yes)!
+    };
+
+    //character = JSON.parse(getCookie("character"));
     console.log(character);
     $.extend(true, file.character, character);
   } else {
