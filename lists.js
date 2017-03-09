@@ -18,6 +18,7 @@ initializeLists = function() {
   FindBackground();
   //FindFeats();
   LoadLevelsonStartup();
+  UpdateLevelFeatures("all");
   //FindManualOtherWeapons(true);
   ApplyProficiencies(true);
   UpdateTooltips();
@@ -27,7 +28,7 @@ initializeLists = function() {
     var raceValue = 0;
     if ( file.character["race" + value] ) {
       raceValue = file.character["race" + value];
-      AbilityScores.current[value] = raceValue;
+      AbilityScores.current[value].race = raceValue;
     } else if ( file.character.race ) {
       raceValue = CurrentRace.scores[key];
       file.character["race" + value] = raceValue;
@@ -120,48 +121,91 @@ calcAbilityScores = function() {
 };
 
 getField = function(event) {
-  var field = {};
   var ele = document.getElementsByName(event)[0];
-  var $ele = $('[name="' + event + '"]');
 
   if ( ele ) {
-    field.value = ele.value;
-    field.userName = ele.title;
-    field.submitName = ele.title;
-    field.isBoxChecked = function() {
+    ele.userName = ele.title;
+    ele.submitName = ele.title;
+    ele.isBoxChecked = function() {
       //console.log(event + " is checked? " + ele.checked);
       return Number(ele.checked);
     };
-    field.buttonGetCaption = function() {};
-    field.setItems = function(value) {
-      $ele.autocomplete({ source: value });
+    ele.buttonGetCaption = function() {};
+    ele.setItems = function(value) {
+      $(ele).autocomplete({ source: value });
     };
 
   } else {
-    field.value = "";
-    field.userName = "";
-    field.submitName = "";
-    field.isBoxChecked = function() {};
-    field.buttonGetCaption = function() {};
-    field.setItems = function(value) {
-      console.log(event);
+    ele = {};
+    ele.value = "";
+    ele.userName = "";
+    ele.submitName = "";
+    ele.isBoxChecked = function() {
+      console.log(event + " is checked? " + ele.checked);
+    };
+    ele.buttonGetCaption = function() {};
+    ele.setItems = function(value) {
       console.log(value);
     };
     console.log(event);
   };
-  field.setAction = function(type, value) {
+  ele.setAction = function(type, value) {
     if ( type === "Calculate" ) {
       calculateNow(event, value);
+      console.log(type);
+      console.log(value);
     } else {
       console.log(type);
       console.log(value);
     };
   };
-  field.clearItems = function() {};
-  return field;
+  ele.clearItems = function() {};
+  //console.log(event);
+  //console.log(ele);
+  return ele;
+};
+
+function Value(field, FldValue, tooltip) {
+  var ele = document.getElementsByName(field)[0];
+
+  if (!ele) {
+    console.log(field + " -> " + JSON.stringify(FldValue) );
+    return false;
+  };
+  if ( ele.classList.contains('number') ) {
+    ele.value = +(FldValue);
+
+  } else if ( ele.classList.contains('custom-select') ) {
+    ele.selectedIndex = FldValue;
+
+  } else {
+    ele.value = FldValue;
+  };
+
+  if ( tooltip !== undefined ) {
+    ele.setAttribute('title', tooltip);
+  };
+};
+
+function Checkbox(field, FldValue, tooltip) {
+  var ele = document.getElementsByName(field)[0];
+
+  if (!ele) {
+    console.log(field + " -> " + JSON.stringify(FldValue) );
+    return false;
+  };
+  var Checkit = (FldValue === undefined) ? true : FldValue;
+  ele.checked = Checkit;
+
+  if ( tooltip !== undefined ) {
+    ele.setAttribute('title', tooltip);
+  };
 };
 
 //Object.prototype.toSource = function() { return $.extend({}, this); };
+Hide = function() {};
+DontPrint = function() {};
+Show = function() {};
 testSource = function() { return false; };
 
 app = {};
@@ -172,6 +216,14 @@ app.alert = function() {};
 app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------
+  $.each(AbilityScores.abbreviations, function(key, value) {
+    $('.abiDrop').append('<option value="' + value + ' Mod">' + value + '</option>');
+  });
+
+  $.each(DamageTypes, function(key, value) {
+    $('.dmgDrop').append('<option value="' + key + '">' + key + '</option>');
+  });
+
   for ( var i = 0; i < levels.length; i++ ) {
     if ( i === 0 ) {
       $('#level').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');

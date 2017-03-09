@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-  <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
+  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
   <link rel="stylesheet" href="style.css"/>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions2.js"></script>
@@ -764,7 +764,7 @@
       </div>
       <div id="inspBlock" class="labelBlock1 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <div id="inspiration" style="width: 30px; height: 30px; top: 4px; left: 3px;" class="display number center"></div>
+        <input id="inspiration" style="width: 30px; height: 30px; top: 4px; left: 3px;" class="display center number form-control" type="text">
         <div class="lbl lbl1">Inspiration</div>
         <div class="hover"></div>
       </div>
@@ -851,7 +851,7 @@
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD1 Die" class="display noTransform center form-control" type="text">
+              <input name="HD1 Die" class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
@@ -865,7 +865,7 @@
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD2 Die" class="display noTransform center form-control" type="text">
+              <input name="HD2 Die" class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
@@ -879,7 +879,7 @@
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD3 Die" class="display noTransform center form-control" type="text">
+              <input name="HD3 Die" class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
@@ -1613,7 +1613,9 @@
                           <span class="custom-control-indicator"></span>
                         </label>
                       </div>
-                      <div class="col"></div>
+                      <div class="col" style="margin: 0;">
+                        <select id="attack1Ability" name="Attack.1.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1624,15 +1626,15 @@
               </div>
               <div class="col col-1">
                 <div class="inputBg"></div>
-
+                <input id="attack1ToHit" name="Attack.1.To Hit" class="display center noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-
+                <input id="attack1Dmg" name="Attack.1.Damage" class="display center noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="attack1Type" class="display form-control" type="text">
+                <select id="attack1Type" name="Attack.1.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
               </div>
             </div>
             <div class="row">
@@ -1663,7 +1665,9 @@
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
-                        <div class="col"></div>
+                        <div class="col" style="margin: 0;">
+                          <select id="attack2Ability" name="Attack.2.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1674,15 +1678,15 @@
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-
+                  <input id="attack2ToHit" name="Attack.2.To Hit" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack2Dmg" name="Attack.2.Damage" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack2Type" class="display form-control" type="text">
+                  <select id="attack2Type" name="Attack.2.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
@@ -1709,7 +1713,9 @@
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
-                        <div class="col"></div>
+                        <div class="col" style="margin: 0;">
+                          <select id="attack3Ability" name="Attack.3.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1720,15 +1726,15 @@
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-
+                  <input id="attack3ToHit" name="Attack.3.To Hit" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack3Dmg" name="Attack.3.Damage" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack3Type" class="display form-control" type="text">
+                  <select id="attack3Type" name="Attack.3.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
@@ -1755,7 +1761,9 @@
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
-                        <div class="col"></div>
+                        <div class="col" style="margin: 0;">
+                          <select id="attack4Ability" name="Attack.4.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1766,15 +1774,15 @@
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-
+                  <input id="attack4ToHit" name="Attack.4.To Hit" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack4Dmg" name="Attack.4.Damage" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack4Type" class="display form-control" type="text">
+                  <select id="attack4Type" name="Attack.4.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
@@ -1801,7 +1809,9 @@
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
-                        <div class="col"></div>
+                        <div class="col" style="margin: 0;">
+                          <select id="attack5Ability" name="Attack.5.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1812,15 +1822,15 @@
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-
+                  <input id="attack5ToHit" name="Attack.5.To Hit" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack5Dmg" name="Attack.5.Damage" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack5Type" class="display form-control" type="text">
+                  <select id="attack5Type" name="Attack.5.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
@@ -1847,7 +1857,9 @@
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
-                        <div class="col"></div>
+                        <div class="col" style="margin: 0;">
+                          <select id="attack6Ability" name="Attack.6.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1858,15 +1870,15 @@
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-
+                  <input id="attack6ToHit" name="Attack.6.To Hit" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-
+                  <input id="attack6Dmg" name="Attack.6.Damage" class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack6Type" class="display form-control" type="text">
+                  <select id="attack6Type" name="Attack.6.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
@@ -2101,7 +2113,7 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat1Desc" name="Feat Note 1" style="top: 24px;" class="display notes"></textarea>
+          <textarea id="feat1Desc" name="Feat Description 1" style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="col">
@@ -2116,7 +2128,7 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat9Desc" name="Feat Note 9" style="top: 24px;" class="display notes"></textarea>
+          <textarea id="feat9Desc" name="Feat Description 9" style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="col">
@@ -2212,7 +2224,7 @@
     <input name="Background Extra" type="text">
     <input name="MoreProficiencies" type="text">
     <input name="Proficiency Bonus Modifier" type="text">
-    <input name="Proficiency Bonus Dice" type="text">
+    <input name="Proficiency Bonus Dice" type="checkbox">
     <input name="Passive Perception Bonus" type="text">
     <input name="Remarkable Athlete" type="text">
     <input name="Jack of All Trades" type="text">
@@ -2220,6 +2232,7 @@
     <input name="SkillsClick" type="text">
     <input name="ShowHide 2nd DC" type="text">
     <input name="Lifestyle" type="text">
+    <input name="Lifestyle daily cost" type="text">
     <input name="Equipment.menu" type="text">
     <input name="CurrentSpells.Stringified" type="text">
     <input name="CurrentSources.Stringified" type="text">
@@ -2233,7 +2246,10 @@
     <input name="Too Text" type="text">
     <input name="Vision" type="text">
 
+    <input name="Feat Note 1" type="text">
     <input name="Feat Name 2" type="text">
+    <input name="Feat Note 2" type="text">
+    <input name="Feat Description 2" type="text">
     <input name="Feat Name 3" type="text">
     <input name="Feat Name 4" type="text">
     <input name="Feat Name 5" type="text">
@@ -2310,8 +2326,6 @@
     <input name="Manual Race Remember" value="No" type="text">
 
     <input name="Attack.1.Weapon" type="text">
-    <input name="Attack.1.Mod" type="text">
-    <input name="Attack.1.Damage Type" type="text">
     <input name="Attack.1.Description Tooltip" type="text">
     <input name="BlueText.Attack.1.To Hit Bonus" type="text">
     <input name="BlueText.Attack.1.Damage Bonus" type="text">
@@ -2319,8 +2333,6 @@
     <input name="BlueText.Attack.1.Weight" type="text">
 
     <input name="Attack.2.Weapon" type="text">
-    <input name="Attack.2.Mod" type="text">
-    <input name="Attack.2.Damage Type" type="text">
     <input name="Attack.2.Description Tooltip" type="text">
     <input name="BlueText.Attack.2.To Hit Bonus" type="text">
     <input name="BlueText.Attack.2.Damage Bonus" type="text">
@@ -2328,8 +2340,6 @@
     <input name="BlueText.Attack.2.Weight" type="text">
 
     <input name="Attack.3.Weapon" type="text">
-    <input name="Attack.3.Mod" type="text">
-    <input name="Attack.3.Damage Type" type="text">
     <input name="Attack.3.Description Tooltip" type="text">
     <input name="BlueText.Attack.3.To Hit Bonus" type="text">
     <input name="BlueText.Attack.3.Damage Bonus" type="text">
@@ -2337,8 +2347,6 @@
     <input name="BlueText.Attack.3.Weight" type="text">
 
     <input name="Attack.4.Weapon" type="text">
-    <input name="Attack.4.Mod" type="text">
-    <input name="Attack.4.Damage Type" type="text">
     <input name="Attack.4.Description Tooltip" type="text">
     <input name="BlueText.Attack.4.To Hit Bonus" type="text">
     <input name="BlueText.Attack.4.Damage Bonus" type="text">
@@ -2346,8 +2354,6 @@
     <input name="BlueText.Attack.4.Weight" type="text">
 
     <input name="Attack.5.Weapon" type="text">
-    <input name="Attack.5.Mod" type="text">
-    <input name="Attack.5.Damage Type" type="text">
     <input name="Attack.5.Description Tooltip" type="text">
     <input name="BlueText.Attack.5.To Hit Bonus" type="text">
     <input name="BlueText.Attack.5.Damage Bonus" type="text">
@@ -2355,8 +2361,6 @@
     <input name="BlueText.Attack.5.Weight" type="text">
 
     <input name="Attack.6.Weapon" type="text">
-    <input name="Attack.6.Mod" type="text">
-    <input name="Attack.6.Damage Type" type="text">
     <input name="Attack.6.Description Tooltip" type="text">
     <input name="BlueText.Attack.6.To Hit Bonus" type="text">
     <input name="BlueText.Attack.6.Damage Bonus" type="text">
