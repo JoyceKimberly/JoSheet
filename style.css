@@ -321,7 +321,7 @@ select.display {
 .content .lbl,
 .content .display,
 .content input {
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
 }
 .content .atk {
@@ -339,7 +339,6 @@ select.display {
 }
 .content .display.notes {
   background-color: transparent;
-  font-size: 11px;
   line-height: 14px;
   text-transform: none;
   white-space: pre-line;
