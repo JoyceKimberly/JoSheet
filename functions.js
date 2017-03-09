@@ -650,7 +650,7 @@ function loadCookies() {
     ').appendTo('#alerts');
     setTimeout(function() {
       $($alert).alert('close');
-    }, 5000);
+    }, 10000);
   };
 
 }); // ----------------------------------------------------------------------------------
