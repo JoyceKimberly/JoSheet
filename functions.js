@@ -604,7 +604,14 @@ $(function() { // --------------------------------------------------------------
 
 function loadCookies() {
   if ( !!getCookie("objects") ) {
-    $.extend(true, file.objects, JSON.parse(getCookie("objects")));
+    var objects = {};
+    try {
+      objects = JSON.parse(getCookie("objects"));
+    } catch(error) {
+      console.error(error);
+      deleteCookie("objects");
+    };
+    $.extend(true, file.objects, objects);
   } else {
     resetObjects();
   };
@@ -614,9 +621,9 @@ function loadCookies() {
     try {
       character = JSON.parse(getCookie("character"));
     } catch(error) {
-      console.log(error); // error in the above string (in this case, yes)!
+      console.error(error);
+      deleteCookie("character");
     };
-    console.log(character);
     $.extend(true, file.character, character);
   } else {
     resetCharacter();
@@ -627,7 +634,8 @@ function loadCookies() {
     try {
       notes = JSON.parse(getCookie("notes"));
     } catch(error) {
-      console.log(error); // error in the above string (in this case, yes)!
+      console.error(error);
+      deleteCookie("notes");
     };
     $.extend(true, file.notes, notes);
   };
@@ -698,6 +706,10 @@ function getCookie(cname) {
     };
   };
   return "";
+};
+
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 };
 
 (function(window) {/*
