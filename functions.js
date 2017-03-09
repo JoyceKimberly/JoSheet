@@ -551,9 +551,8 @@ $(function() { // --------------------------------------------------------------
         listCharacters();
       })
       .catch(function(error) {
-        console.log(error);
         console.error(error);
-        setAlert('danger', error);
+        setAlert('danger', error.error);
       });
   };
 
