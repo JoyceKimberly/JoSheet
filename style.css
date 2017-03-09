@@ -102,6 +102,11 @@ div .bg img {
 .lbl3 {
   font-size: 7.5px;
 }
+.outerPage .content .lbl4 {
+  font-size: 10px;
+  line-height: 18px;
+  color: #9D9FA2 !important;
+}
 .lbl1.lower {
   line-height: 8px;
   width: 100%;
@@ -258,9 +263,6 @@ select.display {
   top: 0;
   left: 0;
   padding: 9px 9px 16px;
-}
-.underlines {
-  z-index: 2;
 }
 .content .underlines * {
   height: 14px;
