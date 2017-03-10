@@ -38,14 +38,6 @@ initializeLists = function() {
   //console.log(classes);
 };
 
-calculateNow = function(event, value) {
-/*  if ( event ) {
-    console.log(event);
-    //console.log(value);
-    //$('[name="' + event + '"]').focusout();
-  };*/
-};
-
 calcAbilityScores = function() {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
     var AbiI = i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i];
@@ -55,6 +47,7 @@ calcAbilityScores = function() {
     AbilityScores.current[AbiI].extra = tempArray[2] ? tempArray[2] : "0";
     AbilityScores.current[AbiI].magic = tempArray[3] ? tempArray[3] : "0";
     AbilityScores.current[AbiI].extra2 = tempArray[4] ? tempArray[4] : "0";
+    AbilityScores.current[AbiI].feat = tempArray[5] ? tempArray[5] : "0";
   };
 
   var scores = {
@@ -100,6 +93,13 @@ calcAbilityScores = function() {
     "mWis" : AbilityScores.current.Wis.magic,
     "mCha" : AbilityScores.current.Cha.magic,
     //"mHoS" : AbilityScores.current.HoS.magic,
+		"fStr" : AbilityScores.current.Str.feat,
+		"fDex" : AbilityScores.current.Dex.feat,
+		"fCon" : AbilityScores.current.Con.feat,
+		"fInt" : AbilityScores.current.Int.feat,
+		"fWis" : AbilityScores.current.Wis.feat,
+		"fCha" : AbilityScores.current.Cha.feat,
+		//"fHoS" : AbilityScores.current.HoS.feat,
   };
 
   var totals = {
@@ -123,47 +123,55 @@ calcAbilityScores = function() {
 getField = function(event) {
   var ele = document.getElementsByName(event)[0];
 
-  if ( ele ) {
-    ele.userName = ele.title;
-    ele.submitName = ele.title;
-    ele.isBoxChecked = function() {
-      //console.log(event + " is checked? " + ele.checked);
-      return Number(ele.checked);
-    };
-    ele.buttonGetCaption = function() {};
-    ele.setItems = function(value) {
-      $(ele).autocomplete({ source: value });
-    };
+  if ( !ele ) {
+    console.log("getField: " + event);
+    return false;
+  };
 
+  if ( ele.userName === undefined ) {
+    ele.userName = ele.title;
   } else {
-    ele = {};
-    ele.value = "";
-    ele.userName = "";
-    ele.submitName = "";
-    ele.isBoxChecked = function() {
-      console.log(event + " is checked? " + ele.checked);
-    };
-    ele.buttonGetCaption = function() {};
-    ele.setItems = function(value) {
-      console.log(value);
-    };
-    console.log(event);
+    ele.title = ele.userName;
+  };
+
+  if ( ele.submitName === undefined ) {
+    ele.submitName = ele.getAttribute("data-subname");
+  } else {
+    ele.setAttribute("data-subname", ele.submitName);
+  };
+
+  ele.isBoxChecked = function() {
+    return Number(ele.checked);
+  };
+  ele.checkThisBox = function(box, value) {
+    ele.checked = value;
+  };
+  ele.buttonGetCaption = function() {};
+  ele.setItems = function(value) {
+    $(ele).autocomplete({ source: value });
   };
   ele.setAction = function(type, value) {
     if ( type === "Calculate" ) {
       calculateNow(event, value);
-      console.log(type);
-      console.log(value);
     } else {
-      console.log(type);
-      console.log(value);
+      console.log("setAction " + type + ": " + event + " -> " + value);
     };
   };
   ele.clearItems = function() {};
+
   //console.log(event);
   //console.log(ele);
   return ele;
 };
+
+function What(field) {
+  if ( field === "HD1 Die" ) {
+    var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
+    return value.split("+")[0].replace("d", "");
+  } else {
+    return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  };
+}
 
 function Value(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
@@ -187,18 +195,11 @@ function Value(field, FldValue, tooltip) {
   };
 };
 
-function Checkbox(field, FldValue, tooltip) {
-  var ele = document.getElementsByName(field)[0];
-
-  if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false;
-  };
-  var Checkit = (FldValue === undefined) ? true : FldValue;
-  ele.checked = Checkit;
-
-  if ( tooltip !== undefined ) {
-    ele.setAttribute('title', tooltip);
+calculateNow = function(event, value) {
+  if ( event === "AC Armor Bonus" ) {
+    $('[name="AC"]').trigger('calculate');
+  } else {
+    console.log("Calculate: " + event + " -> " + value);
   };
 };
 

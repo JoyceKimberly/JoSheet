@@ -330,7 +330,7 @@ $(function() { // --------------------------------------------------------------
     file.notes = {};
   };
 
-  $('.display').change(function() {
+  $('.display').on('focusout', function() {
     var $ele = $(event.target);
     var character = {};
     var key = $ele.attr('id');
@@ -356,6 +356,16 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     setCharacter();
   });
+
+  function setValue($ele, newVal) {
+    if ( $ele.is('.display.number.mod') ) {
+      $ele.val((newVal>0?'+':'') + newVal);
+    } else {
+      $ele.val(newVal);
+    };
+    file.character[$ele.attr('id')] = newVal;
+    saveCookies();
+  };
 
   function setCharacter() {
     $('[name="Character Level"]').val(parseInt(file.character.level));
@@ -383,86 +393,112 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
-  $('[name="Class and Levels"]').focusout(function() { if ( allowCalc ) {
+  $('[name="Class and Levels"]').on('change', function() { if ( allowCalc ) {
     ApplyClasses($(this).val());
   }});
 
-  $('[name="Race"]').focusout(function() { if ( allowCalc ) {
+  $('[name="Race"]').on('change', function() { if ( allowCalc ) {
     ApplyRace($(this).val());
   }});
 
-  $('[name="Background"]').focusout(function() { if ( allowCalc ) {
+  $('[name="Background"]').on('change', function() { if ( allowCalc ) {
     ApplyBackground($(this).val());
   }});
 
-  $('#level').focusout(function() { if ( allowCalc ) {
+  $('#level').on('change', function() { if ( allowCalc ) {
     $('[name="Character Level"]').val(parseInt($ele.val()));
   }});
 
-  $('[name="Proficiency Bonus"]').focusout(function() { if ( allowCalc ) {
-    ProfBonus();
-    $(this).val(Number(event.value)).change();
-  }});
-
-  $('.attr').focusout(function() { if ( allowCalc ) {
-    CalcMod();
-    $(this).val(Number(event.value)).change();
-  }});
-
-  $('.save').focusout(function() { if ( allowCalc ) {
-    CalcSave();
-    $(this).val(Number(event.value)).change();
-  }});
-
-  $('.skill').focusout(function() { if ( allowCalc ) {
-    CalcSkill();
-    $(this).val(Number(event.value)).change();
-  }});
-  $('.skillProfCheck').change(function() { if ( allowCalc ) {
-    $(this).parents('.savesSkill').find('.skill').focus().focusout();
-  }});
-
-  $('[name="AC"]').focusout(function() { if ( allowCalc ) {
-    CalcAC();
-    $(this).val(Number(event.value)).change();
-  }});
-  $('[name="AC Dexterity Modifier"]').focusout(function() { if ( allowCalc ) {
-    $(this).val(parseInt(calcMaxDexToAC())).change();
-  }});
-  $('[name="AC Armor Description"]').focusout(function() { if ( allowCalc ) {
-    ApplyArmor($(this).val());
-    $('[name="AC"]').focus();
-  }});
-  $('[name="AC Shield Bonus Description"]').focusout(function() { if ( allowCalc ) {
-    ApplyShield($(this).val());
-    $('[name="AC"]').focus();
-  }});
-
-  $('.attack').focusout(function() { if ( allowCalc ) {
+  $('[name="Proficiency Bonus"]').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
+    event.target.name = $dit.attr("name");
+    ProfBonus();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }});
+
+  $('.attr').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event.target.name = $dit.attr("name");
+    CalcMod();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }});
+
+  $('.save').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event.target.name = $dit.attr("name");
+    CalcSave();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }});
+
+  $('.skill').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event.target.name = $dit.attr("name");
+    CalcSkill();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }});
+
+  $('.skillProfCheck').change(function() { if ( allowCalc ) {
+    $(this).parents('.savesSkill').find('.skill').trigger('change');
+  }});
+
+  $('[name="AC"]').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    CalcAC();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }});
+
+  $('[name="AC Dexterity Modifier"]').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    var newVal = parseInt(calcMaxDexToAC());
+    setValue($dit, newVal);
+  }});
+
+  $('[name="AC Armor Description"]').on('change', function() { if ( allowCalc ) {
+    ApplyArmor($(this).val());
+    $('[name="AC"]').trigger('change');
+  }});
+
+  $('[name="AC Shield Bonus Description"]').on('change', function() { if ( allowCalc ) {
+    ApplyShield($(this).val());
+    $('[name="AC"]').trigger('change');
+  }});
+
+  $('.attack').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event.target.name = $dit.attr("name");
     ApplyWeapon($dit.val(), $dit.attr("name"));
     CalcAttackDmgHit();
   }});
 
-  $('.hitDie').focusout(function() { if ( allowCalc ) {
-    event.value = event.target.value.split("+")[0].replace("d", "");
+  $('.hitDie').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event.value = $dit.val().split("+")[0].replace("d", "");
     FormatHD();
-    $(this).val(event.value).change();
+    var newVal = event.value;
+    setValue($dit, newVal);
   }});
 
+  $('[name="HP Max"]').on('change', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    SetHPTooltip();
+    setValue($dit, $dit.val());
+  }});
+
+
   calculateAll = function() {
+    $('[name="Character Level"]').val(parseInt(file.character.level));
     calcAbilityScores();
-    ApplyClasses($('#class').val());
-    ApplyRace($('#race').val());
-    ApplyBackground($('#background').val());
-    $('#profBonus, .attr').focus();
+    $('[name="Race"], [name="Class and Levels"], [name="Background"], #profBonus, .attr').trigger('change');
     ApplyArmor($('#armor').val());
     ApplyShield($('#shield').val());
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
-    $('.save, .skill, #armorClass, .hitDie').focus();
-    $('.attack').focus();
+    $('.save, .skill, [name="AC"], .hitDie, .attack, [name="HP Max"]').trigger('change');
     ApplyProficiencies(true);
-    $('[name="Character Level"]').val(parseInt(file.character.level));
     return true;
   };
 

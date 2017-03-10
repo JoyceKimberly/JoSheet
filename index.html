@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
+  <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions2.js"></script>
@@ -205,7 +205,7 @@
           <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col">
               <select style="left: -2px; width: 20px; height: 18px;" id="level" class="display right number custom-select form-control"></select>
-              <input style="left: 20px;" id="class" name="Class and Levels" class="display noTransform form-control" type="text">
+              <input style="left: 20px;" id="class" name="Class and Levels" data-subname class="display noTransform form-control" type="text">
               <div style="top: 15px;" class="lbl2">Level &amp; Class</div>
             </div>
             <div class="col col-3">
@@ -215,15 +215,15 @@
           </div>
           <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col">
-              <input id="background" name="Background" class="display form-control" type="text">
+              <input id="background" name="Background" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Background</div>
             </div>
             <div class="col col-4">
-              <input id="race" name="Race" class="display form-control" type="text">
+              <input id="race" name="Race" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Race</div>
             </div>
             <div class="col col-3">
-              <input id="exp" name="Total Experience" class="display number form-control" type="text">
+              <input id="exp" name="Total Experience" data-subname class="display number form-control" type="text">
               <div style="top: 15px;" class="lbl2">Experience Points</div>
             </div>
           </div>
@@ -236,43 +236,43 @@
       </div>
       <div id="strBlock" class="attrBlock str z2 draggable">
         <div class="bg"><img src="img/AttrBlock1.svg"></div>
-        <input id="strMod" name="Str Mod" class="display number attr mod center form-control" type="text">
-        <input id="strAttr" name="Str" class="display number center form-control" type="text">
+        <input id="strMod" name="Str Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="strAttr" name="Str" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Strength</div>
         <div class="hover"></div>
       </div>
       <div id="dexBlock" class="attrBlock dex z2 draggable">
         <div class="bg"><img src="img/AttrBlock2.svg"></div>
-        <input id="dexMod" name="Dex Mod" class="display number attr mod center form-control" type="text">
-        <input id="dexAttr" name="Dex" class="display number center form-control" type="text">
+        <input id="dexMod" name="Dex Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="dexAttr" name="Dex" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Dexterity</div>
         <div class="hover"></div>
       </div>
       <div id="conBlock" class="attrBlock con z2 draggable">
         <div class="bg"><img src="img/AttrBlock3.svg"></div>
-        <input id="conMod" data-submit-name="" name="Con Mod" class="display number attr mod center form-control" type="text">
-        <input id="conAttr" name="Con" class="display number center form-control" type="text">
+        <input id="conMod" name="Con Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="conAttr" name="Con" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Constitution</div>
         <div class="hover"></div>
       </div>
       <div id="intBlock" class="attrBlock int z2 draggable">
         <div class="bg"><img src="img/AttrBlock4.svg"></div>
-        <input id="intMod" name="Int Mod" class="display number attr mod center form-control" type="text">
-        <input id="intAttr" name="Int" class="display number center form-control" type="text">
+        <input id="intMod" name="Int Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="intAttr" name="Int" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Intelligence</div>
         <div class="hover"></div>
       </div>
       <div id="wisBlock" class="attrBlock wis z2 draggable">
         <div class="bg"><img src="img/AttrBlock5.svg"></div>
-        <input id="wisMod" name="Wis Mod" class="display number attr mod center form-control" type="text">
-        <input id="wisAttr" name="Wis" class="display number center form-control" type="text">
+        <input id="wisMod" name="Wis Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="wisAttr" name="Wis" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Wisdom</div>
         <div class="hover"></div>
       </div>
       <div id="chaBlock" class="attrBlock cha z2 draggable">
         <div class="bg"><img src="img/AttrBlock6.svg"></div>
-        <input id="chaMod" name="Cha Mod" class="display number attr mod center form-control" type="text">
-        <input id="chaAttr" name="Cha" class="display number center form-control" type="text">
+        <input id="chaMod" name="Cha Mod" data-subname class="display number attr mod center form-control" type="text">
+        <input id="chaAttr" name="Cha" data-subname class="display number center form-control" type="text">
         <div class="attrTxt lbl1">Charisma</div>
         <div class="hover"></div>
       </div>
@@ -286,10 +286,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profStr" name="Str ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profStr" name="Str ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveStr" name="Str ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveStr" name="Str ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Str</div>
                   </div>
@@ -300,10 +300,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profInt" name="Int ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profInt" name="Int ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveInt" name="Int ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveInt" name="Int ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Int</div>
                   </div>
@@ -316,10 +316,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profDex" name="Dex ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profDex" name="Dex ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveDex" name="Dex ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveDex" name="Dex ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Dex</div>
                   </div>
@@ -330,10 +330,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profWis" name="Wis ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profWis" name="Wis ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveWis" name="Wis ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveWis" name="Wis ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Wis</div>
                   </div>
@@ -346,10 +346,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profCon" name="Con ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profCon" name="Con ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveCon" name="Con ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveCon" name="Con ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Con</div>
                   </div>
@@ -360,10 +360,10 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input id="profCha" name="Cha ST Prof" type="checkbox" class="custom-control-input">
+                      <input id="profCha" name="Cha ST Prof" data-subname type="checkbox" class="custom-control-input">
                       <span class="custom-control-indicator"></span>
                     </label>
-                    <input id="saveCha" name="Cha ST Mod" class="display number save mod center form-control" type="text">
+                    <input id="saveCha" name="Cha ST Mod" data-subname class="display number save mod center form-control" type="text">
                     <div class="underline mod"></div>
                     <div class="lbl mod">Cha</div>
                   </div>
@@ -379,31 +379,31 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="resist1" name="Resistance Damage Type 1" class="display form-control" type="text">
+                <input id="resist1" name="Resistance Damage Type 1" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="resist4" name="Resistance Damage Type 4" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="resist2" name="Resistance Damage Type 2" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="resist5" name="Resistance Damage Type 5" class="display form-control" type="text">
+                <input id="resist4" name="Resistance Damage Type 4" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="resist3" name="Resistance Damage Type 3" class="display form-control" type="text">
+                <input id="resist2" name="Resistance Damage Type 2" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="resist6" name="Resistance Damage Type 6" class="display form-control" type="text">
+                <input id="resist5" name="Resistance Damage Type 5" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="resist3" name="Resistance Damage Type 3" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="resist6" name="Resistance Damage Type 6" data-subname class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -420,15 +420,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profAcr" name="Acr Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAcr" name="Acr Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Acr Exp" type="checkbox" class="custom-control-input">
+                    <input name="Acr Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modAcr" name="Acr Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAcr" name="Acr Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Acrobatics <span>(Dex)</span></div>
                 </div>
@@ -439,15 +439,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profAni" name="Ani Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAni" name="Ani Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ani Exp" type="checkbox" class="custom-control-input">
+                    <input name="Ani Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modAni" name="Ani Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAni" name="Ani Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Animal Handling <span>(Wis)</span></div>
                 </div>
@@ -458,15 +458,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profArc" name="Arc Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profArc" name="Arc Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Arc Exp" type="checkbox" class="custom-control-input">
+                    <input name="Arc Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modArc" name="Arc Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modArc" name="Arc Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Arcana <span>(Int)</span></div>
                 </div>
@@ -477,15 +477,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profAth" name="Ath Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profAth" name="Ath Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ath Exp" type="checkbox" class="custom-control-input">
+                    <input name="Ath Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modAth" name="Ath Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modAth" name="Ath Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Athletics <span>(Str)</span></div>
                 </div>
@@ -496,15 +496,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profDec" name="Dec Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profDec" name="Dec Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Dec Exp" type="checkbox" class="custom-control-input">
+                    <input name="Dec Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modDec" name="Dec Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modDec" name="Dec Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Deception <span>(Cha)</span></div>
                 </div>
@@ -515,15 +515,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profHis" name="His Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profHis" name="His Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="His Exp" type="checkbox" class="custom-control-input">
+                    <input name="His Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modHis" name="His Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modHis" name="His Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">History <span>(Int)</span></div>
                 </div>
@@ -534,15 +534,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profIns" name="Ins Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profIns" name="Ins Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ins Exp" type="checkbox" class="custom-control-input">
+                    <input name="Ins Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modIns" name="Ins Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modIns" name="Ins Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Insight <span>(Wis)</span></div>
                 </div>
@@ -553,15 +553,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profInti" name="Inti Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profInti" name="Inti Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Inti Exp" type="checkbox" class="custom-control-input">
+                    <input name="Inti Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modInti" name="Inti Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modInti" name="Inti Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Intimidation <span>(Cha)</span></div>
                 </div>
@@ -572,15 +572,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profInv" name="Inv Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profInv" name="Inv Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Inv Exp" type="checkbox" class="custom-control-input">
+                    <input name="Inv Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modInv" name="Inv Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modInv" name="Inv Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Investigation <span>(Int)</span></div>
                 </div>
@@ -591,15 +591,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profMed" name="Med Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profMed" name="Med Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Med Exp" type="checkbox" class="custom-control-input">
+                    <input name="Med Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modMed" name="Med Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modMed" name="Med Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Medicine <span>(Wis)</span></div>
                 </div>
@@ -610,15 +610,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profNat" name="Nat Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profNat" name="Nat Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Nat Exp" type="checkbox" class="custom-control-input">
+                    <input name="Nat Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modNat" name="Nat Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modNat" name="Nat Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Nature <span>(Int)</span></div>
                 </div>
@@ -629,15 +629,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profPerc" name="Perc Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profPerc" name="Perc Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Perc Exp" type="checkbox" class="custom-control-input">
+                    <input name="Perc Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modPerc" name="Perc Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modPerc" name="Perc Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Perception <span>(Wis)</span></div>
                 </div>
@@ -648,15 +648,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profPerf" name="Perf Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profPerf" name="Perf Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Perf Exp" type="checkbox" class="custom-control-input">
+                    <input name="Perf Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modPerf" name="Perf Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modPerf" name="Perf Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Performance <span>(Cha)</span></div>
                 </div>
@@ -667,15 +667,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profPers" name="Pers Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profPers" name="Pers Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Pers Exp" type="checkbox" class="custom-control-input">
+                    <input name="Pers Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modPers" name="Pers Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modPers" name="Pers Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Persuasion <span>(Cha)</span></div>
                 </div>
@@ -686,15 +686,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profRel" name="Rel Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profRel" name="Rel Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Rel Exp" type="checkbox" class="custom-control-input">
+                    <input name="Rel Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modRel" name="Rel Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modRel" name="Rel Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Religion <span>(Int)</span></div>
                 </div>
@@ -705,15 +705,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profSle" name="Sle Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profSle" name="Sle Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Sle Exp" type="checkbox" class="custom-control-input">
+                    <input name="Sle Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modSle" name="Sle Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modSle" name="Sle Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Sleight of Hand <span>(Dex)</span></div>
                 </div>
@@ -724,15 +724,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profSte" name="Ste Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profSte" name="Ste Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Ste Exp" type="checkbox" class="custom-control-input">
+                    <input name="Ste Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modSte" name="Ste Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modSte" name="Ste Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Stealth <span>(Dex)</span></div>
                 </div>
@@ -743,15 +743,15 @@
                 <div class="savesSkill">
                   <label class="custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input id="profSur" name="Sur Prof" type="checkbox" class="display skillProfCheck custom-control-input">
+                    <input id="profSur" name="Sur Prof" data-subname type="checkbox" class="display skillProfCheck custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
                   <label class="expertise custom-control custom-checkbox">
                     <span class="checkBall"></span>
-                    <input name="Sur Exp" type="checkbox" class="custom-control-input">
+                    <input name="Sur Exp" data-subname type="checkbox" class="custom-control-input">
                     <span class="custom-control-indicator"></span>
                   </label>
-                  <input id="modSur" name="Sur Mod" class="display number skill mod center form-control" type="text">
+                  <input id="modSur" name="Sur Mod" data-subname class="display number skill mod center form-control" type="text">
                   <div class="underline mod"></div>
                   <div class="lbl mod">Survival <span>(Wis)</span></div>
                 </div>
@@ -770,13 +770,13 @@
       </div>
       <div id="profBlock" class="labelBlock2 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <input id="profBonus" name="Proficiency Bonus" style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display number mod center form-control" type="text">
+        <input id="profBonus" name="Proficiency Bonus" data-subname style="width: 30px; height: 30px; top: 10px; left: 5px;" class="display number mod center form-control" type="text">
         <div class="lbl lbl1">Proficiency Bonus</div>
         <div class="hover"></div>
       </div>
       <div id="percBlock" class="labelBlock3 labelBlock z2 resizable resizableX">
         <div class="bg"></div>
-        <input id="passivePerc" name="Passive Perception" style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display number skill center form-control" type="text">
+        <input id="passivePerc" name="Passive Perception" data-subname style="width: 30px; height: 30px; top: 5px; left: 5px;" class="display number skill center form-control" type="text">
         <div class="lbl lbl1">Passive Wisdom (Perception)</div>
         <div class="hover"></div>
       </div>
@@ -786,19 +786,19 @@
       </div>
       <div id="acBlock" class="acBlock cha z2 draggable">
         <div class="bg"><img src="img/ACBlock.svg"></div>
-        <input name="AC" style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center">
+        <input name="AC" data-subname style="width: 44px; font-size: 28px; line-height: 30px; top: 20px; left: 12px;" id="armorClass" class="display number center">
         <div class="lbl1 lower">Armor<br>Class</div>
         <div class="hover"></div>
       </div>
       <div id="maxHpBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <input name="HP Max" data-submit-name="" style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="maxHp" class="display number center form-control" type="text">
+        <input name="HP Max" data-subname="0,0,0,average" style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="maxHp" class="display number center form-control" type="text">
         <div class="lbl1 lower">Maximum<br>Hit Points</div>
         <div class="hover"></div>
       </div>
       <div id="initBlock" class="block1 z2 resizable">
         <div class="bg"></div>
-        <input name="" style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="initiative" class="display number mod center">
+        <input name="Initiative" data-subname style="width: 53px; font-size: 28px; line-height: 30px; top: 20px; left: 10px;" id="initiative" class="display skill number mod center">
         <div class="lbl1 lower">Initiative</div>
         <div class="hover"></div>
       </div>
@@ -813,7 +813,7 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="Speed encumbered" class="display noTransform center form-control" type="text">
+              <input name="Speed encumbered" data-subname class="display noTransform center form-control" type="text">
             </div>
           </div>
           <div class="row">
@@ -847,43 +847,43 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD1 Level" class="display noTransform center form-control" type="text">
+              <input name="HD1 Level" data-subname class="display noTransform center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD1 Die" class="display hitDie noTransform center form-control" type="text">
+              <input name="HD1 Die" data-subname class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD1 Used" class="display noTransform center form-control" type="text">
+              <input name="HD1 Used" data-subname class="display noTransform center form-control" type="text">
             </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD2 Level" class="display noTransform center form-control" type="text">
+              <input name="HD2 Level" data-subname class="display noTransform center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD2 Die" class="display hitDie noTransform center form-control" type="text">
+              <input name="HD2 Die" data-subname class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD2 Used" class="display noTransform center form-control" type="text">
+              <input name="HD2 Used" data-subname class="display noTransform center form-control" type="text">
             </div>
           </div>
           <div class="row hidden">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD3 Level" class="display noTransform center form-control" type="text">
+              <input name="HD3 Level" data-subname class="display noTransform center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
-              <input name="HD3 Die" class="display hitDie noTransform center form-control" type="text">
+              <input name="HD3 Die" data-subname class="display hitDie noTransform center form-control" type="text">
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD3 Used" class="display noTransform center form-control" type="text">
+              <input name="HD3 Used" data-subname class="display noTransform center form-control" type="text">
             </div>
           </div>
         </div>
@@ -908,7 +908,7 @@
               <div style="flex: 0 0 20%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="lightProf" name="Proficiency Armor Light" type="checkbox" class="custom-control-input">
+                  <input id="lightProf" name="Proficiency Armor Light" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Light</span>
                 </label>
@@ -916,7 +916,7 @@
               <div style="flex: 0 0 27%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="mediumProf" name="Proficiency Armor Medium" type="checkbox" class="custom-control-input">
+                  <input id="mediumProf" name="Proficiency Armor Medium" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Medium</span>
                 </label>
@@ -924,7 +924,7 @@
               <div style="flex: 0 0 22%;" class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="heavyProf" name="Proficiency Armor Heavy" type="checkbox" class="custom-control-input">
+                  <input id="heavyProf" name="Proficiency Armor Heavy" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Heavy</span>
                 </label>
@@ -932,7 +932,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="shieldProf" name="Proficiency Shields" type="checkbox" class="custom-control-input">
+                  <input id="shieldProf" name="Proficiency Shields" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Shields</span>
                 </label>
@@ -948,7 +948,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="simpleProf" name="Proficiency Weapon Simple" type="checkbox" class="custom-control-input">
+                  <input id="simpleProf" name="Proficiency Weapon Simple" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Simple</span>
                 </label>
@@ -956,7 +956,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="martialProf" name="Proficiency Weapon Martial" type="checkbox" class="custom-control-input">
+                  <input id="martialProf" name="Proficiency Weapon Martial" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Martial</span>
                 </label>
@@ -964,7 +964,7 @@
               <div class="col">
                 <label class="custom-control custom-checkbox">
                   <span class="checkBall"></span>
-                  <input id="otherProf" name="Proficiency Weapon Other" type="checkbox" class="custom-control-input">
+                  <input id="otherProf" name="Proficiency Weapon Other" data-subname type="checkbox" class="custom-control-input">
                   <span class="custom-control-indicator"></span>
                   <span class="lbl lblInline custom-control-description">Other:</span>
                 </label>
@@ -973,7 +973,7 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input name="Proficiency Weapon Other Description" class="display form-control" type="text">
+                <input name="Proficiency Weapon Other Description" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row spacerRow"></div>
@@ -988,81 +988,81 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language1" name="Language 1" class="display form-control" type="text">
+                <input id="language1" name="Language 1" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool1" name="Tool 1" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language2" name="Language 2" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool2" name="Tool 2" class="display form-control" type="text">
+                <input id="tool1" name="Tool 1" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language3" name="Language 3" class="display form-control" type="text">
+                <input id="language2" name="Language 2" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool3" name="Tool 3" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language4" name="Language 4" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool4" name="Tool 4" class="display form-control" type="text">
+                <input id="tool2" name="Tool 2" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language5" name="Language 5" class="display form-control" type="text">
+                <input id="language3" name="Language 3" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool5" name="Tool 5" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language6" name="Language 6" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool6" name="Tool 6" class="display form-control" type="text">
+                <input id="tool3" name="Tool 3" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language7" name="Language 7" class="display form-control" type="text">
+                <input id="language4" name="Language 4" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool7" name="Tool 7" class="display form-control" type="text">
+                <input id="tool4" name="Tool 4" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language8" name="Language 8" class="display form-control" type="text">
+                <input id="language5" name="Language 5" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool8" name="Tool 8" class="display form-control" type="text">
+                <input id="tool5" name="Tool 5" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language6" name="Language 6" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool6" name="Tool 6" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language7" name="Language 7" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool7" name="Tool 7" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language8" name="Language 8" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool8" name="Tool 8" data-subname class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -1091,289 +1091,289 @@
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat1" name="Limited Feature 1" class="display form-control" type="text">
+                <input id="ltdFeat1" name="Limited Feature 1" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax1" name="Limited Feature Max Usages 1" class="display center form-control" type="text">
+                <input id="ltdFeatMax1" name="Limited Feature Max Usages 1" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec1" name="Limited Feature Recovery 1" class="display center form-control" type="text">
+                <input id="ltdFeatRec1" name="Limited Feature Recovery 1" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed1" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed1" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat2" name="Limited Feature 2" class="display form-control" type="text">
+                <input id="ltdFeat2" name="Limited Feature 2" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax2" name="Limited Feature Max Usages 2" class="display center form-control" type="text">
+                <input id="ltdFeatMax2" name="Limited Feature Max Usages 2" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec2" name="Limited Feature Recovery 2" class="display center form-control" type="text">
+                <input id="ltdFeatRec2" name="Limited Feature Recovery 2" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed2" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed2" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat3" name="Limited Feature 3" class="display form-control" type="text">
+                <input id="ltdFeat3" name="Limited Feature 3" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax3" name="Limited Feature Max Usages 3" class="display center form-control" type="text">
+                <input id="ltdFeatMax3" name="Limited Feature Max Usages 3" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec3" name="Limited Feature Recovery 3" class="display center form-control" type="text">
+                <input id="ltdFeatRec3" name="Limited Feature Recovery 3" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed3" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed3" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat4" name="Limited Feature 4" class="display form-control" type="text">
+                <input id="ltdFeat4" name="Limited Feature 4" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax4" name="Limited Feature Max Usages 4" class="display center form-control" type="text">
+                <input id="ltdFeatMax4" name="Limited Feature Max Usages 4" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec4" name="Limited Feature Recovery 4" class="display center form-control" type="text">
+                <input id="ltdFeatRec4" name="Limited Feature Recovery 4" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed4" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed4" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat5" name="Limited Feature 5" class="display form-control" type="text">
+                <input id="ltdFeat5" name="Limited Feature 5" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax5" name="Limited Feature Max Usages 5" class="display center form-control" type="text">
+                <input id="ltdFeatMax5" name="Limited Feature Max Usages 5" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec5" name="Limited Feature Recovery 5" class="display center form-control" type="text">
+                <input id="ltdFeatRec5" name="Limited Feature Recovery 5" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed5" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed5" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat6" name="Limited Feature 6" class="display form-control" type="text">
+                <input id="ltdFeat6" name="Limited Feature 6" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax6" name="Limited Feature Max Usages 6" class="display center form-control" type="text">
+                <input id="ltdFeatMax6" name="Limited Feature Max Usages 6" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec6" name="Limited Feature Recovery 6" class="display center form-control" type="text">
+                <input id="ltdFeatRec6" name="Limited Feature Recovery 6" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed6" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed6" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat7" name="Limited Feature 7" class="display form-control" type="text">
+                <input id="ltdFeat7" name="Limited Feature 7" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax7" name="Limited Feature Max Usages 7" class="display center form-control" type="text">
+                <input id="ltdFeatMax7" name="Limited Feature Max Usages 7" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec7" name="Limited Feature Recovery 7" class="display center form-control" type="text">
+                <input id="ltdFeatRec7" name="Limited Feature Recovery 7" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed7" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed7" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat8" name="Limited Feature 8" class="display form-control" type="text">
+                <input id="ltdFeat8" name="Limited Feature 8" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax8" name="Limited Feature Max Usages 8" class="display center form-control" type="text">
+                <input id="ltdFeatMax8" name="Limited Feature Max Usages 8" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec8" name="Limited Feature Recovery 8" class="display center form-control" type="text">
+                <input id="ltdFeatRec8" name="Limited Feature Recovery 8" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed8" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed8" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat9" name="Limited Feature 9" class="display form-control" type="text">
+                <input id="ltdFeat9" name="Limited Feature 9" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax9" name="Limited Feature Max Usages 9" class="display center form-control" type="text">
+                <input id="ltdFeatMax9" name="Limited Feature Max Usages 9" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec9" name="Limited Feature Recovery 9" class="display center form-control" type="text">
+                <input id="ltdFeatRec9" name="Limited Feature Recovery 9" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed9" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed9" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat10" name="Limited Feature 10" class="display form-control" type="text">
+                <input id="ltdFeat10" name="Limited Feature 10" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax10" name="Limited Feature Max Usages 10" class="display center form-control" type="text">
+                <input id="ltdFeatMax10" name="Limited Feature Max Usages 10" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec10" name="Limited Feature Recovery 10" class="display center form-control" type="text">
+                <input id="ltdFeatRec10" name="Limited Feature Recovery 10" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed10" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed10" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat11" name="Limited Feature 11" class="display form-control" type="text">
+                <input id="ltdFeat11" name="Limited Feature 11" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax11" name="Limited Feature Max Usages 11" class="display center form-control" type="text">
+                <input id="ltdFeatMax11" name="Limited Feature Max Usages 11" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec11" name="Limited Feature Recovery 11" class="display center form-control" type="text">
+                <input id="ltdFeatRec11" name="Limited Feature Recovery 11" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed11" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed11" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat12" name="Limited Feature 12" class="display form-control" type="text">
+                <input id="ltdFeat12" name="Limited Feature 12" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax12" name="Limited Feature Max Usages 12" class="display center form-control" type="text">
+                <input id="ltdFeatMax12" name="Limited Feature Max Usages 12" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec12" name="Limited Feature Recovery 12" class="display center form-control" type="text">
+                <input id="ltdFeatRec12" name="Limited Feature Recovery 12" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed12" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed12" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat13" name="Limited Feature 13" class="display form-control" type="text">
+                <input id="ltdFeat13" name="Limited Feature 13" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax13" name="Limited Feature Max Usages 13" class="display center form-control" type="text">
+                <input id="ltdFeatMax13" name="Limited Feature Max Usages 13" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec13" name="Limited Feature Recovery 13" class="display center form-control" type="text">
+                <input id="ltdFeatRec13" name="Limited Feature Recovery 13" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed13" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed13" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat14" name="Limited Feature 14" class="display form-control" type="text">
+                <input id="ltdFeat14" name="Limited Feature 14" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax14" name="Limited Feature Max Usages 14" class="display center form-control" type="text">
+                <input id="ltdFeatMax14" name="Limited Feature Max Usages 14" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec14" name="Limited Feature Recovery 14" class="display center form-control" type="text">
+                <input id="ltdFeatRec14" name="Limited Feature Recovery 14" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed14" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed14" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat15" name="Limited Feature 15" class="display form-control" type="text">
+                <input id="ltdFeat15" name="Limited Feature 15" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax15" name="Limited Feature Max Usages 15" class="display center form-control" type="text">
+                <input id="ltdFeatMax15" name="Limited Feature Max Usages 15" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec15" name="Limited Feature Recovery 15" class="display center form-control" type="text">
+                <input id="ltdFeatRec15" name="Limited Feature Recovery 15" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed15" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed15" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-7">
                 <div class="inputBg"></div>
-                <input id="ltdFeat16" name="Limited Feature 16" class="display form-control" type="text">
+                <input id="ltdFeat16" name="Limited Feature 16" data-subname class="display noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatMax16" name="Limited Feature Max Usages 16" class="display center form-control" type="text">
+                <input id="ltdFeatMax16" name="Limited Feature Max Usages 16" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatRec16" name="Limited Feature Recovery 16" class="display center form-control" type="text">
+                <input id="ltdFeatRec16" name="Limited Feature Recovery 16" data-subname class="display center form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed16" name="" class="display center form-control" type="text">
+                <input id="ltdFeatUsed16" name="" data-subname class="display center form-control" type="text">
               </div>
             </div>
           </div>
@@ -1399,169 +1399,169 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action1" name="Action 1" class="display form-control" type="text">
+                <input id="action1" name="Action 1" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction1" name="Bonus Action 1" class="display form-control" type="text">
+                <input id="bonusAction1" name="Bonus Action 1" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction1" name="Reaction 1" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="action2" name="Action 2" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="bonusAction2" name="Bonus Action 2" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="reaction2" name="Reaction 2" class="display form-control" type="text">
+                <input id="reaction1" name="Reaction 1" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action3" name="Action 3" class="display form-control" type="text">
+                <input id="action2" name="Action 2" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction3" name="Bonus Action 3" class="display form-control" type="text">
+                <input id="bonusAction2" name="Bonus Action 2" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction3" name="Reaction 3" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="action4" name="Action 4" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="bonusAction4" name="Bonus Action 4" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="reaction4" name="Reaction 4" class="display form-control" type="text">
+                <input id="reaction2" name="Reaction 2" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action5" name="Action 5" class="display form-control" type="text">
+                <input id="action3" name="Action 3" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction5" name="Bonus Action 5" class="display form-control" type="text">
+                <input id="bonusAction3" name="Bonus Action 3" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction5" name="Reaction 5" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="action6" name="Action 6" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="bonusAction6" name="Bonus Action 6" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="reaction6" name="Reaction 6" class="display form-control" type="text">
+                <input id="reaction3" name="Reaction 3" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action7" name="Action 7" class="display form-control" type="text">
+                <input id="action4" name="Action 4" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction7" name="Bonus Action 7" class="display form-control" type="text">
+                <input id="bonusAction4" name="Bonus Action 4" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction7" name="Reaction 7" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="action8" name="Action 8" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="bonusAction8" name="Bonus Action 8" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="reaction8" name="Reaction 8" class="display form-control" type="text">
+                <input id="reaction4" name="Reaction 4" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action9" name="Action 9" class="display form-control" type="text">
+                <input id="action5" name="Action 5" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction9" name="Bonus Action 9" class="display form-control" type="text">
+                <input id="bonusAction5" name="Bonus Action 5" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction9" name="Reaction 9" class="display form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="action10" name="Action 10" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="bonusAction10" name="Bonus Action 10" class="display form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="reaction10" name="Reaction 10" class="display form-control" type="text">
+                <input id="reaction5" name="Reaction 5" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action11" name="Action 11" class="display form-control" type="text">
+                <input id="action6" name="Action 6" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction11" name="Bonus Action 11" class="display form-control" type="text">
+                <input id="bonusAction6" name="Bonus Action 6" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction11" name="Reaction 11" class="display form-control" type="text">
+                <input id="reaction6" name="Reaction 6" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="action12" name="Action 12" class="display form-control" type="text">
+                <input id="action7" name="Action 7" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="bonusAction12" name="Bonus Action 12" class="display form-control" type="text">
+                <input id="bonusAction7" name="Bonus Action 7" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="reaction12" name="Reaction 12" class="display form-control" type="text">
+                <input id="reaction7" name="Reaction 7" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action8" name="Action 8" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction8" name="Bonus Action 8" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction8" name="Reaction 8" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action9" name="Action 9" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction9" name="Bonus Action 9" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction9" name="Reaction 9" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action10" name="Action 10" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction10" name="Bonus Action 10" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction10" name="Reaction 10" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action11" name="Action 11" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction11" name="Bonus Action 11" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction11" name="Reaction 11" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="action12" name="Action 12" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="bonusAction12" name="Bonus Action 12" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="reaction12" name="Reaction 12" data-subname class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -1602,19 +1602,19 @@
                 <div class="inputBg"></div>
                 <div class="row">
                   <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                    <input id="attack1" name="Attack.1.Weapon Selection" class="attack display form-control" type="text">
+                    <input id="attack1" name="Attack.1.Weapon Selection" data-subname class="attack display form-control" type="text">
                   </div>
                   <div class="col subCol">
                     <div class="row">
                       <div class="col col-3">
                         <label class="custom-control custom-checkbox">
                           <span class="checkBall"></span>
-                          <input name="Attack.1.Proficiency" type="checkbox" class="custom-control-input">
+                          <input name="Attack.1.Proficiency" data-subname type="checkbox" class="custom-control-input">
                           <span class="custom-control-indicator"></span>
                         </label>
                       </div>
                       <div class="col" style="margin: 0;">
-                        <select id="attack1Ability" name="Attack.1.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                        <select id="attack1Ability" name="Attack.1.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                       </div>
                     </div>
                   </div>
@@ -1622,25 +1622,25 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="attack1Range" name="Attack.1.Range" class="display center noTransform form-control" type="text">
+                <input id="attack1Range" name="Attack.1.Range" data-subname class="display center noTransform form-control" type="text">
               </div>
               <div class="col col-1">
                 <div class="inputBg"></div>
-                <input id="attack1ToHit" name="Attack.1.To Hit" class="display center noTransform form-control" type="text">
+                <input id="attack1ToHit" name="Attack.1.To Hit" data-subname class="display center noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="attack1Dmg" name="Attack.1.Damage" class="display center noTransform form-control" type="text">
+                <input id="attack1Dmg" name="Attack.1.Damage" data-subname class="display center noTransform form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <select id="attack1Type" name="Attack.1.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                <select id="attack1Type" name="Attack.1.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="attack1Desc" name="Attack.1.Description" class="display noTransform form-control" type="text">
+                <input id="attack1Desc" name="Attack.1.Description" data-subname class="display noTransform form-control" type="text">
               </div>
             </div>
             <div class="row lblRow">
@@ -1654,19 +1654,19 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                      <input id="attack2" name="Attack.2.Weapon Selection" class="attack display form-control" type="text">
+                      <input id="attack2" name="Attack.2.Weapon Selection" data-subname class="attack display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
                         <div class="col col-3">
                           <label class="custom-control custom-checkbox">
                             <span class="checkBall"></span>
-                            <input name="Attack.2.Proficiency" type="checkbox" class="custom-control-input">
+                            <input name="Attack.2.Proficiency" data-subname type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
                         <div class="col" style="margin: 0;">
-                          <select id="attack2Ability" name="Attack.2.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                          <select id="attack2Ability" name="Attack.2.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                         </div>
                       </div>
                     </div>
@@ -1674,25 +1674,25 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack2Range" name="Attack.2.Range" class="display center noTransform form-control" type="text">
+                  <input id="attack2Range" name="Attack.2.Range" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack2ToHit" name="Attack.2.To Hit" class="display center noTransform form-control" type="text">
+                  <input id="attack2ToHit" name="Attack.2.To Hit" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack2Dmg" name="Attack.2.Damage" class="display center noTransform form-control" type="text">
+                  <input id="attack2Dmg" name="Attack.2.Damage" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <select id="attack2Type" name="Attack.2.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                  <select id="attack2Type" name="Attack.2.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack2Desc" name="Attack.2.Description" class="display noTransform form-control" type="text">
+                  <input id="attack2Desc" name="Attack.2.Description" data-subname class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1702,19 +1702,19 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                      <input id="attack3" name="Attack.3.Weapon Selection" class="attack display form-control" type="text">
+                      <input id="attack3" name="Attack.3.Weapon Selection" data-subname class="attack display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
                         <div class="col col-3">
                           <label class="custom-control custom-checkbox">
                             <span class="checkBall"></span>
-                            <input name="Attack.3.Proficiency" type="checkbox" class="custom-control-input">
+                            <input name="Attack.3.Proficiency" data-subname type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
                         <div class="col" style="margin: 0;">
-                          <select id="attack3Ability" name="Attack.3.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                          <select id="attack3Ability" name="Attack.3.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                         </div>
                       </div>
                     </div>
@@ -1722,25 +1722,25 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack3Range" name="Attack.3.Range" class="display center noTransform form-control" type="text">
+                  <input id="attack3Range" name="Attack.3.Range" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack3ToHit" name="Attack.3.To Hit" class="display center noTransform form-control" type="text">
+                  <input id="attack3ToHit" name="Attack.3.To Hit" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack3Dmg" name="Attack.3.Damage" class="display center noTransform form-control" type="text">
+                  <input id="attack3Dmg" name="Attack.3.Damage" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <select id="attack3Type" name="Attack.3.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                  <select id="attack3Type" name="Attack.3.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack3Desc" name="Attack.3.Description" class="display noTransform form-control" type="text">
+                  <input id="attack3Desc" name="Attack.3.Description" data-subname class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1750,19 +1750,19 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                      <input id="attack4" name="Attack.4.Weapon Selection" class="attack display form-control" type="text">
+                      <input id="attack4" name="Attack.4.Weapon Selection" data-subname class="attack display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
                         <div class="col col-3">
                           <label class="custom-control custom-checkbox">
                             <span class="checkBall"></span>
-                            <input name="Attack.4.Proficiency" type="checkbox" class="custom-control-input">
+                            <input name="Attack.4.Proficiency" data-subname type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
                         <div class="col" style="margin: 0;">
-                          <select id="attack4Ability" name="Attack.4.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                          <select id="attack4Ability" name="Attack.4.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                         </div>
                       </div>
                     </div>
@@ -1770,25 +1770,25 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack4Range" name="Attack.4.Range" class="display center noTransform form-control" type="text">
+                  <input id="attack4Range" name="Attack.4.Range" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack4ToHit" name="Attack.4.To Hit" class="display center noTransform form-control" type="text">
+                  <input id="attack4ToHit" name="Attack.4.To Hit" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack4Dmg" name="Attack.4.Damage" class="display center noTransform form-control" type="text">
+                  <input id="attack4Dmg" name="Attack.4.Damage" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <select id="attack4Type" name="Attack.4.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                  <select id="attack4Type" name="Attack.4.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack4Desc" name="Attack.4.Description" class="display noTransform form-control" type="text">
+                  <input id="attack4Desc" name="Attack.4.Description" data-subname class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1798,19 +1798,19 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                      <input id="attack5" name="Attack.5.Weapon Selection" class="attack display form-control" type="text">
+                      <input id="attack5" name="Attack.5.Weapon Selection" data-subname class="attack display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
                         <div class="col col-3">
                           <label class="custom-control custom-checkbox">
                             <span class="checkBall"></span>
-                            <input name="Attack.5.Proficiency" type="checkbox" class="custom-control-input">
+                            <input name="Attack.5.Proficiency" data-subname type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
                         <div class="col" style="margin: 0;">
-                          <select id="attack5Ability" name="Attack.5.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                          <select id="attack5Ability" name="Attack.5.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                         </div>
                       </div>
                     </div>
@@ -1818,25 +1818,25 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack5Range" name="Attack.5.Range" class="display center noTransform form-control" type="text">
+                  <input id="attack5Range" name="Attack.5.Range" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack5ToHit" name="Attack.5.To Hit" class="display center noTransform form-control" type="text">
+                  <input id="attack5ToHit" name="Attack.5.To Hit" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack5Dmg" name="Attack.5.Damage" class="display center noTransform form-control" type="text">
+                  <input id="attack5Dmg" name="Attack.5.Damage" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <select id="attack5Type" name="Attack.5.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                  <select id="attack5Type" name="Attack.5.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack5Desc" name="Attack.5.Description" class="display noTransform form-control" type="text">
+                  <input id="attack5Desc" name="Attack.5.Description" data-subname class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1846,19 +1846,19 @@
                   <div class="inputBg"></div>
                   <div class="row">
                     <div style="flex: 0 0 81%;" class="col col-10 subCol">
-                      <input id="attack6" name="Attack.6.Weapon Selection" class="attack display form-control" type="text">
+                      <input id="attack6" name="Attack.6.Weapon Selection" data-subname class="attack display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
                         <div class="col col-3">
                           <label class="custom-control custom-checkbox">
                             <span class="checkBall"></span>
-                            <input name="Attack.6.Proficiency" type="checkbox" class="custom-control-input">
+                            <input name="Attack.6.Proficiency" data-subname type="checkbox" class="custom-control-input">
                             <span class="custom-control-indicator"></span>
                           </label>
                         </div>
                         <div class="col" style="margin: 0;">
-                          <select id="attack6Ability" name="Attack.6.Mod" style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
+                          <select id="attack6Ability" name="Attack.6.Mod" data-subname style="left: 3px;" class="display abiDrop custom-select"><option value="0" selected></option></select>
                         </div>
                       </div>
                     </div>
@@ -1866,25 +1866,25 @@
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack6Range" name="Attack.6.Range" class="display center noTransform form-control" type="text">
+                  <input id="attack6Range" name="Attack.6.Range" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack6ToHit" name="Attack.6.To Hit" class="display center noTransform form-control" type="text">
+                  <input id="attack6ToHit" name="Attack.6.To Hit" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack6Dmg" name="Attack.6.Damage" class="display center noTransform form-control" type="text">
+                  <input id="attack6Dmg" name="Attack.6.Damage" data-subname class="display center noTransform form-control" type="text">
                 </div>
                 <div class="col">
                   <div class="inputBg"></div>
-                  <select id="attack6Type" name="Attack.6.Damage Type" class="display dmgDrop custom-select"><option value="0" selected></option></select>
+                  <select id="attack6Type" name="Attack.6.Damage Type" data-subname class="display dmgDrop custom-select"><option value="0" selected></option></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack6Desc" name="Attack.6.Description" class="display noTransform form-control" type="text">
+                  <input id="attack6Desc" name="Attack.6.Description" data-subname class="display noTransform form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1910,33 +1910,33 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Armor Bonus" class="display center form-control" type="text">
+                <input name="AC Armor Bonus" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Armor</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="armor" name="AC Armor Description" class="display form-control" type="text">
+                <input id="armor" name="AC Armor Description" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Shield Bonus" class="display center form-control" type="text">
+                <input name="AC Shield Bonus" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Shield</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="shield" name="AC Shield Bonus Description" class="display form-control" type="text">
+                <input id="shield" name="AC Shield Bonus Description" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input id="acDexMod" name="AC Dexterity Modifier" class="display center form-control" type="text">
+                <input id="acDexMod" name="AC Dexterity Modifier" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Dex</div>
@@ -1946,7 +1946,7 @@
                   <div class="col col-6">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input name="Medium Armor" type="checkbox" class="custom-control-input" disabled>
+                      <input name="Medium Armor" data-subname type="checkbox" class="custom-control-input" disabled>
                       <span class="custom-control-indicator"></span>
                       <span class="lbl lblInline custom-control-description">Medium</span>
                     </label>
@@ -1954,7 +1954,7 @@
                   <div class="col">
                     <label class="custom-control custom-checkbox">
                       <span class="checkBall"></span>
-                      <input name="Heavy Armor" type="checkbox" class="custom-control-input" disabled>
+                      <input name="Heavy Armor" data-subname type="checkbox" class="custom-control-input" disabled>
                       <span class="custom-control-indicator"></span>
                       <span class="lbl lblInline custom-control-description">Heavy</span>
                     </label>
@@ -1965,7 +1965,7 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Magic" class="display center form-control" type="text">
+                <input name="AC Magic" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Magic</div>
@@ -1978,27 +1978,27 @@
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Misc Mod 1" class="display center form-control" type="text">
+                <input name="AC Misc Mod 1" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input name="AC Misc Mod 1 Description" class="display form-control" type="text">
+                <input name="AC Misc Mod 1 Description" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input name="AC Misc Mod 2" class="display center form-control" type="text">
+                <input name="AC Misc Mod 2" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-2">
                 <div class="lbl">Misc</div>
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input name="AC Misc Mod 2 Description" class="display form-control" type="text">
+                <input name="AC Misc Mod 2 Description" data-subname class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -2010,7 +2010,7 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines"><div class="line"></div></div>
-          <textarea name="Racial Traits" class="display notes"></textarea>
+          <textarea name="Racial Traits" data-subname class="display notes"></textarea>
         </div>
         <div class="lbl1 lower">Racial Traits</div>
         <div class="hover"></div>
@@ -2028,37 +2028,37 @@
         <div class="content">
           <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col col-3">
-              <input id="age" name="Age" class="display number form-control" type="text">
+              <input id="age" name="Age" data-subname class="display number form-control" type="text">
               <div style="top: 15px;" class="lbl2">Age</div>
             </div>
             <div class="col col-3">
-              <input id="size" name="Size" class="display form-control" type="text">
+              <input id="size" name="Size" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Size</div>
             </div>
             <div class="col col-3">
-              <input id="height" name="Height" class="display form-control" type="text">
+              <input id="height" name="Height" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Height</div>
             </div>
             <div class="col">
-              <input id="weight" name="Weight" class="display form-control" type="text">
+              <input id="weight" name="Weight" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Weight</div>
             </div>
           </div>
           <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col col-3">
-              <input id="alignment" name="Alignment" class="display form-control" type="text">
+              <input id="alignment" name="Alignment" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Alignment</div>
             </div>
             <div class="col col-3">
-              <input id="hair" name="Hair" class="display form-control" type="text">
+              <input id="hair" name="Hair" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Hair</div>
             </div>
             <div class="col col-3">
-              <input id="eyes" name="Eyes" class="display form-control" type="text">
+              <input id="eyes" name="Eyes" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Eyes</div>
             </div>
             <div class="col">
-              <input id="skin" name="Skin" class="display form-control" type="text">
+              <input id="skin" name="Skin" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Skin</div>
             </div>
           </div>
@@ -2097,12 +2097,12 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="bgFeatDesc" name="" style="top: 24px;" class="display notes"></textarea>
+          <textarea id="bgFeatDesc" name="" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="col">
               <div class="inputBg"></div>
-              <input id="bgFeat" name="Background Feature" class="display noTransform form-control" type="text">
+              <input id="bgFeat" name="Background Feature" data-subname class="display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2113,12 +2113,12 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat1Desc" name="Feat Description 1" style="top: 24px;" class="display notes"></textarea>
+          <textarea id="feat1Desc" name="Feat Description 1" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="col">
               <div class="inputBg"></div>
-              <input id="feat1" name="Feat Name 1" class="display noTransform form-control" type="text">
+              <input id="feat1" name="Feat Name 1" data-subname class="display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2128,12 +2128,12 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat9Desc" name="Feat Description 9" style="top: 24px;" class="display notes"></textarea>
+          <textarea id="feat9Desc" name="Feat Description 9" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="col">
               <div class="inputBg"></div>
-              <input id="feat9" name="Feat Name 9" class="display noTransform form-control" type="text">
+              <input id="feat9" name="Feat Name 9" data-subname class="display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2143,7 +2143,7 @@
         <div class="bg"></div>
         <div class="content">
           <div class="underlines"><div class="line"></div></div>
-          <textarea name="Class Features" class="display notes"></textarea>
+          <textarea name="Class Features" data-subname class="display notes"></textarea>
         </div>
         <div class="lbl1 lower">Features &amp; Traits</div>
         <div class="hover"></div>
@@ -2186,7 +2186,7 @@
         <div class="bg"><img src="img/PageHeader3.svg"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center"></div>
         <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
-        <input name="Spell DC 1 Mod" class="display number center form-control" type="text">
+        <input name="Spell DC 1 Mod" data-subname class="display number center form-control" type="text">
         <div class="hover"></div>
       </div>
     </div>
@@ -2199,173 +2199,175 @@
     <div class="dropdown-menu"></div>
   </div>
   <div id="hiddenFields" class="noPrint">
-    <input name="Highlighting" type="text">
-    <input name="Unit System" value="imperial" type="text">
-    <input name="Str Remember" type="text">
-    <input name="Dex Remember" type="text">
-    <input name="Con Remember" type="text">
-    <input name="Int Remember" type="text">
-    <input name="Wis Remember" type="text">
-    <input name="Cha Remember" type="text">
-    <input name="Race Remember" type="text">
-    <input name="Class Features Remember" type="text">
-    <input name="SubClass Remember" type="text">
-    <input name="Character Level" type="text">
-    <input name="Proficiencies Remember" type="text">
-    <input name="SpellSlotsRemember" type="text">
-    <input name="Speed Remember" type="text">
+    <input name="Highlighting" data-subname type="text">
+    <input name="Unit System" value="imperial" data-subname type="text">
+    <input name="Str Remember" data-subname type="text">
+    <input name="Dex Remember" data-subname type="text">
+    <input name="Con Remember" data-subname type="text">
+    <input name="Int Remember" data-subname type="text">
+    <input name="Wis Remember" data-subname type="text">
+    <input name="Cha Remember" data-subname type="text">
+    <input name="Race Remember" data-subname type="text">
+    <input name="Class Features Remember" data-subname type="text">
+    <input name="SubClass Remember" data-subname type="text">
+    <input name="Character Level" data-subname class="number" type="text">
+    <input name="Proficiencies Remember" data-subname type="text">
+    <input name="SpellSlotsRemember" data-subname type="text">
+    <input name="Speed Remember" data-subname type="text">
 
-    <input name="AC Armor Weight" type="text">
-    <input name="AC Shield Weight" type="text">
-    <input name="AC Stealth Disadvantage" type="text">
-    <input name="HoS Remember" type="text">
-    <input name="HoSRememberState" type="text">
-    <input name="Size Category" type="text">
-    <input name="Background Extra" type="text">
-    <input name="MoreProficiencies" type="text">
-    <input name="Proficiency Bonus Modifier" type="text">
-    <input name="Proficiency Bonus Dice" type="checkbox">
-    <input name="Passive Perception Bonus" type="text">
-    <input name="Remarkable Athlete" type="text">
-    <input name="Jack of All Trades" type="text">
-    <input name="Saving Throw advantages / disadvantages" type="text">
-    <input name="SkillsClick" type="text">
-    <input name="ShowHide 2nd DC" type="text">
-    <input name="Lifestyle" type="text">
-    <input name="Lifestyle daily cost" type="text">
-    <input name="Equipment.menu" type="text">
-    <input name="CurrentSpells.Stringified" type="text">
-    <input name="CurrentSources.Stringified" type="text">
-    <input name="CurrentEvals.Stringified" type="text">
-    <input name="AmmoLeftDisplay.Name" type="text">
-    <input name="AmmoRightDisplay.Name" type="text">
-    <input name="AmmoLeftDisplay.Name" type="text">
-    <input name="Too" type="text">
-    <input name="Too Prof" type="text">
-    <input name="Too Exp" type="text">
-    <input name="Too Text" type="text">
-    <input name="Vision" type="text">
+    <input name="AC Armor Weight" data-subname type="text">
+    <input name="AC Shield Weight" data-subname type="text">
+    <input name="AC Stealth Disadvantage" data-subname type="text">
+    <input name="HoS Remember" data-subname type="text">
+    <input name="HoSRememberState" data-subname type="text">
+    <input name="Size Category" data-subname type="text">
+    <input name="Background Extra" data-subname type="text">
+    <input name="MoreProficiencies" data-subname type="text">
+    <input name="Proficiency Bonus Modifier" data-subname type="text">
+    <input name="Proficiency Bonus Dice" data-subname type="checkbox">
+    <input name="Passive Perception Bonus" data-subname type="text">
+    <input name="Remarkable Athlete" data-subname type="text">
+    <input name="Jack of All Trades" data-subname type="text">
+    <input name="Saving Throw advantages / disadvantages" data-subname type="text">
+    <input name="SkillsClick" data-subname type="text">
+    <input name="ShowHide 2nd DC" data-subname type="text">
+    <input name="Lifestyle" data-subname type="text">
+    <input name="Lifestyle daily cost" data-subname type="text">
+    <input name="Equipment.menu" data-subname type="text">
+    <input name="CurrentSpells.Stringified" data-subname type="text">
+    <input name="CurrentSources.Stringified" data-subname type="text">
+    <input name="CurrentEvals.Stringified" data-subname type="text">
+    <input name="AmmoLeftDisplay.Name" data-subname type="text">
+    <input name="AmmoRightDisplay.Name" data-subname type="text">
+    <input name="AmmoLeftDisplay.Name" data-subname type="text">
+    <input name="Init Prof" data-subname type="text">
+    <input name="Init Bonus" data-subname type="text">
+    <input name="Too" data-subname type="text">
+    <input name="Too Prof" data-subname type="text">
+    <input name="Too Exp" data-subname type="text">
+    <input name="Too Text" data-subname type="text">
+    <input name="Vision" data-subname type="text">
 
-    <input name="Feat Note 1" type="text">
-    <input name="Feat Name 2" type="text">
-    <input name="Feat Note 2" type="text">
-    <input name="Feat Description 2" type="text">
-    <input name="Feat Name 3" type="text">
-    <input name="Feat Name 4" type="text">
-    <input name="Feat Name 5" type="text">
-    <input name="Feat Name 6" type="text">
-    <input name="Feat Name 7" type="text">
-    <input name="Feat Name 8" type="text">
+    <input name="Feat Note 1" data-subname type="text">
+    <input name="Feat Name 2" data-subname type="text">
+    <input name="Feat Note 2" data-subname type="text">
+    <input name="Feat Description 2" data-subname type="text">
+    <input name="Feat Name 3" data-subname type="text">
+    <input name="Feat Name 4" data-subname type="text">
+    <input name="Feat Name 5" data-subname type="text">
+    <input name="Feat Name 6" data-subname type="text">
+    <input name="Feat Name 7" data-subname type="text">
+    <input name="Feat Name 8" data-subname type="text">
 
-    <input name="All Skills Bonus" type="text">
-    <input name="All ST Bonus" type="text">
-    <input name="Str ST Bonus" type="text">
-    <input name="Dex ST Bonus" type="text">
-    <input name="Con ST Bonus" type="text">
-    <input name="Int ST Bonus" type="text">
-    <input name="Wis ST Bonus" type="text">
-    <input name="Cha ST Bonus" type="text">
+    <input name="All Skills Bonus" data-subname type="text">
+    <input name="All ST Bonus" data-subname type="text">
+    <input name="Str ST Bonus" data-subname type="text">
+    <input name="Dex ST Bonus" data-subname type="text">
+    <input name="Con ST Bonus" data-subname type="text">
+    <input name="Int ST Bonus" data-subname type="text">
+    <input name="Wis ST Bonus" data-subname type="text">
+    <input name="Cha ST Bonus" data-subname type="text">
 
-    <input name="Acr Bonus" type="text">
-    <input name="Ani Bonus" type="text">
-    <input name="Arc Bonus" type="text">
-    <input name="Ath Bonus" type="text">
-    <input name="Dec Bonus" type="text">
-    <input name="His Bonus" type="text">
-    <input name="Ins Bonus" type="text">
-    <input name="Inti Bonus" type="text">
-    <input name="Inv Bonus" type="text">
-    <input name="Med Bonus" type="text">
-    <input name="Nat Bonus" type="text">
-    <input name="Perc Bonus" type="text">
-    <input name="Perf Bonus" type="text">
-    <input name="Pers Bonus" type="text">
-    <input name="Rel Bonus" type="text">
-    <input name="Sle Bonus" type="text">
-    <input name="Ste Bonus" type="text">
-    <input name="Sur Bonus" type="text">
+    <input name="Acr Bonus" data-subname type="text">
+    <input name="Ani Bonus" data-subname type="text">
+    <input name="Arc Bonus" data-subname type="text">
+    <input name="Ath Bonus" data-subname type="text">
+    <input name="Dec Bonus" data-subname type="text">
+    <input name="His Bonus" data-subname type="text">
+    <input name="Ins Bonus" data-subname type="text">
+    <input name="Inti Bonus" data-subname type="text">
+    <input name="Inv Bonus" data-subname type="text">
+    <input name="Med Bonus" data-subname type="text">
+    <input name="Nat Bonus" data-subname type="text">
+    <input name="Perc Bonus" data-subname type="text">
+    <input name="Perf Bonus" data-subname type="text">
+    <input name="Pers Bonus" data-subname type="text">
+    <input name="Rel Bonus" data-subname type="text">
+    <input name="Sle Bonus" data-subname type="text">
+    <input name="Ste Bonus" data-subname type="text">
+    <input name="Sur Bonus" data-subname type="text">
 
-    <input name="SpellSlots.CheckboxesSet.lvl1" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl2" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl3" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl4" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl5" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl6" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl7" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl8" type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl9" type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl1" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl2" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl3" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl4" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl5" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl6" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl7" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl8" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl9" data-subname type="text">
 
-    <input name="Wildshapes.Info.Uses" type="text">
-    <input name="Wildshapes.Info.Limitations" type="text">
-    <input name="Wildshapes.Info.Duration" type="text">
-    <input name="Wildshapes.Settings" type="text">
-    <input name="Wildshape.Race.1" type="text">
-    <input name="Wildshape.Race.2" type="text">
-    <input name="Wildshape.Race.3" type="text">
-    <input name="Wildshape.Race.4" type="text">
+    <input name="Wildshapes.Info.Uses" data-subname type="text">
+    <input name="Wildshapes.Info.Limitations" data-subname type="text">
+    <input name="Wildshapes.Info.Duration" data-subname type="text">
+    <input name="Wildshapes.Settings" data-subname type="text">
+    <input name="Wildshape.Race.1" data-subname type="text">
+    <input name="Wildshape.Race.2" data-subname type="text">
+    <input name="Wildshape.Race.3" data-subname type="text">
+    <input name="Wildshape.Race.4" data-subname type="text">
 
-    <input name="Companion.Remember" type="text">
-    <input name="Comp.Race" type="text">
-    <input name="Comp.Use.HD.Die" type="text">
-    <input name="Comp.Use.HD.Level" type="text">
-    <input name="Comp.Use.Ability.Con.Mod" type="text">
-    <input name="Comp.Use.HP.Max" type="text">
-    <input name="Comp.Use.Attack.1.Weapon Selection" type="text">
-    <input name="Comp.Use.Attack.2.Weapon Selection" type="text">
-    <input name="Comp.Use.Attack.3.Weapon Selection" type="text">
+    <input name="Companion.Remember" data-subname type="text">
+    <input name="Comp.Race" data-subname type="text">
+    <input name="Comp.Use.HD.Die" data-subname type="text">
+    <input name="Comp.Use.HD.Level" data-subname type="text">
+    <input name="Comp.Use.Ability.Con.Mod" data-subname type="text">
+    <input name="Comp.Use.HP.Max" data-subname type="text">
+    <input name="Comp.Use.Attack.1.Weapon Selection" data-subname type="text">
+    <input name="Comp.Use.Attack.2.Weapon Selection" data-subname type="text">
+    <input name="Comp.Use.Attack.3.Weapon Selection" data-subname type="text">
 
-    <input name="Template.extras.WSfront" type="text">
-    <input name="Template.extras.AScomp" type="text">
+    <input name="Template.extras.WSfront" data-subname type="text">
+    <input name="Template.extras.AScomp" data-subname type="text">
 
-    <input name="Text.SkillsNames" title="alphabeta" type="text">
-    <input name="Decimal Separator" value="," type="text">
-    <input name="Manual Attack Remember" value="No" type="text">
-    <input name="Manual Background Remember" value="No" type="text">
-    <input name="Manual Class Remember" value="No" type="text">
-    <input name="Manual Feat Remember" value="No" type="text">
-    <input name="Manual Race Remember" value="No" type="text">
+    <input name="Text.SkillsNames" title="alphabeta" data-subname type="text">
+    <input name="Decimal Separator" value="," data-subname type="text">
+    <input name="Manual Attack Remember" value="No" data-subname type="text">
+    <input name="Manual Background Remember" value="No" data-subname type="text">
+    <input name="Manual Class Remember" value="No" data-subname type="text">
+    <input name="Manual Feat Remember" value="No" data-subname type="text">
+    <input name="Manual Race Remember" value="No" data-subname type="text">
 
-    <input name="Attack.1.Weapon" type="text">
-    <input name="Attack.1.Description Tooltip" type="text">
-    <input name="BlueText.Attack.1.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.1.Damage Bonus" type="text">
-    <input name="BlueText.Attack.1.Damage Die" type="text">
-    <input name="BlueText.Attack.1.Weight" type="text">
+    <input name="Attack.1.Weapon" data-subname type="text">
+    <input name="Attack.1.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.1.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.1.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.1.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.1.Weight" data-subname type="text">
 
-    <input name="Attack.2.Weapon" type="text">
-    <input name="Attack.2.Description Tooltip" type="text">
-    <input name="BlueText.Attack.2.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.2.Damage Bonus" type="text">
-    <input name="BlueText.Attack.2.Damage Die" type="text">
-    <input name="BlueText.Attack.2.Weight" type="text">
+    <input name="Attack.2.Weapon" data-subname type="text">
+    <input name="Attack.2.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.2.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.2.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.2.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.2.Weight" data-subname type="text">
 
-    <input name="Attack.3.Weapon" type="text">
-    <input name="Attack.3.Description Tooltip" type="text">
-    <input name="BlueText.Attack.3.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.3.Damage Bonus" type="text">
-    <input name="BlueText.Attack.3.Damage Die" type="text">
-    <input name="BlueText.Attack.3.Weight" type="text">
+    <input name="Attack.3.Weapon" data-subname type="text">
+    <input name="Attack.3.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.3.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.3.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.3.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.3.Weight" data-subname type="text">
 
-    <input name="Attack.4.Weapon" type="text">
-    <input name="Attack.4.Description Tooltip" type="text">
-    <input name="BlueText.Attack.4.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.4.Damage Bonus" type="text">
-    <input name="BlueText.Attack.4.Damage Die" type="text">
-    <input name="BlueText.Attack.4.Weight" type="text">
+    <input name="Attack.4.Weapon" data-subname type="text">
+    <input name="Attack.4.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.4.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.4.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.4.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.4.Weight" data-subname type="text">
 
-    <input name="Attack.5.Weapon" type="text">
-    <input name="Attack.5.Description Tooltip" type="text">
-    <input name="BlueText.Attack.5.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.5.Damage Bonus" type="text">
-    <input name="BlueText.Attack.5.Damage Die" type="text">
-    <input name="BlueText.Attack.5.Weight" type="text">
+    <input name="Attack.5.Weapon" data-subname type="text">
+    <input name="Attack.5.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.5.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.5.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.5.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.5.Weight" data-subname type="text">
 
-    <input name="Attack.6.Weapon" type="text">
-    <input name="Attack.6.Description Tooltip" type="text">
-    <input name="BlueText.Attack.6.To Hit Bonus" type="text">
-    <input name="BlueText.Attack.6.Damage Bonus" type="text">
-    <input name="BlueText.Attack.6.Damage Die" type="text">
-    <input name="BlueText.Attack.6.Weight" type="text">
+    <input name="Attack.6.Weapon" data-subname type="text">
+    <input name="Attack.6.Description Tooltip" data-subname type="text">
+    <input name="BlueText.Attack.6.To Hit Bonus" data-subname type="text">
+    <input name="BlueText.Attack.6.Damage Bonus" data-subname type="text">
+    <input name="BlueText.Attack.6.Damage Die" data-subname type="text">
+    <input name="BlueText.Attack.6.Weight" data-subname type="text">
   </div>
 
   <style>
