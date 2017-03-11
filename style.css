@@ -631,14 +631,10 @@ button .fa-stack .fa-stack-2x {
   background-color: #f7f7f9;
 }
 
-.confBtn {
-  position: absolute;
-}
-.moveMode .confBtn {
-  display: none;
-}
-.inputMode .confBtn {
-  display: inline-block;
+#calcModal .col-2 {
+  padding: 0;
+  flex: 0 0 15%;
+  text-align: left;
 }
 
 #hiddenFields * {

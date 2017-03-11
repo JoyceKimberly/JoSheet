@@ -25,16 +25,14 @@ initializeLists = function() {
   //SetRichTextFields();
 
   $.each(AbilityScores.abbreviations, function(key, value) {
-    var raceValue = 0;
-    if ( file.character["race" + value] ) {
-      raceValue = file.character["race" + value];
-      AbilityScores.current[value].race = raceValue;
-    } else if ( file.character.race ) {
-      raceValue = CurrentRace.scores[key];
-      file.character["race" + value] = raceValue;
-    };
-    Value(value + " Remember", file.character["base" + value] + "," + raceValue + ",0,0,0");
+    var base = file.character["base" + value] ? file.character["base" + value] : "8";
+    var race = file.character["race" + value] ? file.character["race" + value] : "0";
+    var feat = file.character["feat" + value] ? file.character["feat" + value] : "0";
+    var magic = file.character["magic" + value] ? file.character["magic" + value] : "0";
+    var extra = file.character["extra" + value] ? file.character["extra" + value] : "0";
+    Value(value + " Remember", base + "," + race + "," + extra + ",0," + magic + "," + feat);
   });
+  calcAbilityScores();
   //console.log(classes);
 };
 

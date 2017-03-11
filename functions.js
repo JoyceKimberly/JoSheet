@@ -514,9 +514,10 @@ $(function() { // --------------------------------------------------------------
     $.each(AbilityScores.abbreviations, function(key, value) {
       character["base" + value] = Number($("#base" + value).val());
       character["race" + value] = Number($("#race" + value).val());
+      character["feat" + value] = Number($("#feat" + value).val());
       character["magic" + value] = Number($("#magic" + value).val());
       character["extra" + value] = Number($("#extra" + value).val());
-      Value(value + " Remember", parseInt($("#base" + value).val()) + "," + parseInt($("#race" + value).val()) + "," + parseInt($("#extra" + value).val()) + "," + parseInt($("#magic" + value).val()) + ",0");
+      Value(value + " Remember", character["base" + value] + "," + character["race" + value] + "," + character["extra" + value] + ",0," + character["magic" + value] + "," + character["feat" + value]);
     });
     $.extend(true, file.character, character);
     setCharacter();
