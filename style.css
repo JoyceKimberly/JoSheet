@@ -631,13 +631,13 @@ button .fa-stack .fa-stack-2x {
   background-color: #f7f7f9;
 }
 
-.configs {
+.confBtn {
   position: absolute;
 }
-.moveMode .configs {
+.moveMode .confBtn {
   display: none;
 }
-.inputMode .configs {
+.inputMode .confBtn {
   display: inline-block;
 }
 
