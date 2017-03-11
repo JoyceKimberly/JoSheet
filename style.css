@@ -631,6 +631,10 @@ button .fa-stack .fa-stack-2x {
   background-color: #f7f7f9;
 }
 
+.configBtn {
+  position: absolute;
+}
+
 #hiddenFields * {
   color: white;
   background-color: transparent;
