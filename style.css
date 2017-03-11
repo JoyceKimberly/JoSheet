@@ -634,6 +634,12 @@ button .fa-stack .fa-stack-2x {
 .confBtn {
   position: absolute;
 }
+.moveMode .confBtn {
+  display: none;
+}
+.inputMode .confBtn {
+  display: inline-block;
+}
 
 #hiddenFields * {
   color: white;
