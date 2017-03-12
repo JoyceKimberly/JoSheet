@@ -403,14 +403,15 @@ $(function() { // --------------------------------------------------------------
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
     ApplyBackground($(this).val());
+    $('#persTraitsConfig').html('');
     MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(i, value) {
       console.log(value);
-      $('#persTraitsConfig').html('\
+      $('#persTraitsConfig').append('\
 <label class="custom-control custom-checkbox">\
   <input type="checkbox" class="custom-control-input">\
   <span class="custom-control-indicator"></span>\
-  <span class="custom-control-description form-control-sm">' + value[i].cName + '</span>\
+  <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
 </label>\
       ');
     });
