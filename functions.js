@@ -525,6 +525,10 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
+
+    MakeClassMenu();
+    MakeRaceMenu();
+    MakeBackgroundMenu();
     console.log(Menus); // debug
 
   }).on('show.bs.modal', function() {
