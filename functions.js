@@ -403,9 +403,9 @@ $(function() { // --------------------------------------------------------------
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
     ApplyBackground($(this).val());
+    MakeBackgroundMenu();
     var $menu = $('#persTraitsConfig');
     $menu.html('');
-    MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(i, value) {
       $menu.append('\
 <label class="custom-control custom-checkbox">\
@@ -421,6 +421,28 @@ $(function() { // --------------------------------------------------------------
       $menu.append('\
 <label class="custom-control custom-radio">\
   <input data-index="' + i + '" name="idealsConfig" type="radio" class="custom-control-input">\
+  <span class="custom-control-indicator"></span>\
+  <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
+</label>\
+      ');
+    });
+    $menu = $('#bondsConfig');
+    $menu.html('');
+    $.each(Menus.background[2].oSubMenu, function(i, value) {    
+      $menu.append('\
+<label class="custom-control custom-radio">\
+  <input data-index="' + i + '" name="bondsConfig" type="radio" class="custom-control-input">\
+  <span class="custom-control-indicator"></span>\
+  <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
+</label>\
+      ');
+    });
+    $menu = $('#flawsConfig');
+    $menu.html('');
+    $.each(Menus.background[3].oSubMenu, function(i, value) {    
+      $menu.append('\
+<label class="custom-control custom-radio">\
+  <input data-index="' + i + '" name="flawsConfig" type="radio" class="custom-control-input">\
   <span class="custom-control-indicator"></span>\
   <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
 </label>\
