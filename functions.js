@@ -406,6 +406,7 @@ $(function() { // --------------------------------------------------------------
     MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(index, value) {
       console.log(value);
+      $('#persTraitsConfig')
     });
   }});
 
