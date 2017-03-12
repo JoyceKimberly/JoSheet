@@ -403,6 +403,10 @@ $(function() { // --------------------------------------------------------------
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
     ApplyBackground($(this).val());
+    MakeBackgroundMenu();
+    $.each(Menus.background[0].oSubMenu, function(index, value) {
+      console.log(value);
+    });
   }});
 
   $('#level').on('change', function() { if ( allowCalc ) {
@@ -528,7 +532,6 @@ $(function() { // --------------------------------------------------------------
 
     MakeClassMenu();
     MakeRaceMenu();
-    MakeBackgroundMenu();
     console.log(Menus); // debug
 
   }).on('show.bs.modal', function() {
