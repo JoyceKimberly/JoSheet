@@ -406,7 +406,13 @@ $(function() { // --------------------------------------------------------------
     MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(index, value) {
       console.log(value);
-      $('#persTraitsConfig')
+      $('#persTraitsConfig').html('\
+<label class="custom-control custom-checkbox">\
+  <input type="checkbox" class="custom-control-input">\
+  <span class="custom-control-indicator"></span>\
+  <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
+</label>\
+      ');
     });
   }});
 
