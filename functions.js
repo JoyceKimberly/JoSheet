@@ -407,7 +407,6 @@ $(function() { // --------------------------------------------------------------
     $menu.html('');
     MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(i, value) {
-      console.log(value);
       $menu.append('\
 <label class="custom-control custom-checkbox">\
   <input data-index="' + i + '" type="checkbox" class="custom-control-input">\
@@ -416,6 +415,18 @@ $(function() { // --------------------------------------------------------------
 </label>\
       ');
     });
+
+    $menu = $('#idealsConfig');
+    $.each(Menus.background[1].oSubMenu, function(i, value) {    
+      $menu.append('\
+  <label class="custom-control custom-radio">\
+    <input data-index="' + i + '" type="radio" class="custom-control-input">\
+    <span class="custom-control-indicator"></span>\
+    <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
+  </label>\
+      ');
+    });
+    console.log(Menus);
   }});
 
   $('#level').on('change', function() { if ( allowCalc ) {
