@@ -403,11 +403,12 @@ $(function() { // --------------------------------------------------------------
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
     ApplyBackground($(this).val());
-    $('#persTraitsConfig').html('');
+    var $menu = $('#persTraitsConfig');
+    $menu.html('');
     MakeBackgroundMenu();
     $.each(Menus.background[0].oSubMenu, function(i, value) {
       console.log(value);
-      $('#persTraitsConfig').append('\
+      $menu.append('\
 <label class="custom-control custom-checkbox">\
   <input data-index="' + i + '" type="checkbox" class="custom-control-input">\
   <span class="custom-control-indicator"></span>\
