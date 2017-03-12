@@ -409,7 +409,7 @@ $(function() { // --------------------------------------------------------------
       console.log(value);
       $('#persTraitsConfig').append('\
 <label class="custom-control custom-checkbox">\
-  <input type="checkbox" class="custom-control-input">\
+  <input data-index="' + i + '" type="checkbox" class="custom-control-input">\
   <span class="custom-control-indicator"></span>\
   <span class="custom-control-description form-control-sm">' + value.cName + '</span>\
 </label>\
