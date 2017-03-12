@@ -631,10 +631,8 @@ button .fa-stack .fa-stack-2x {
   background-color: #f7f7f9;
 }
 
-#calcModal .col-2 {
-  padding: 0;
-  flex: 0 0 15%;
-  text-align: left;
+#calcModal .col {
+  padding-right: 0;
 }
 
 #hiddenFields * {
