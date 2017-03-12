@@ -397,9 +397,9 @@ $(function() { // --------------------------------------------------------------
     ApplyClasses($(this).val());
     MakeClassMenu();
     var $menu = $('#classConfig');
-    $menu.html('<option selected></option>');
+    $menu.html('');
     $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {    
-      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      $menu.append('<label for="classSubMenu' + i + '" class="form-label form-label-sm">' + value.cName + '</label>');
     });
   }});
 
