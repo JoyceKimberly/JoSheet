@@ -634,6 +634,9 @@ button .fa-stack .fa-stack-2x {
 #calcModal .col {
   padding-right: 0;
 }
+#calcModal select {
+  width: 100%;
+}
 
 #hiddenFields * {
   color: white;
