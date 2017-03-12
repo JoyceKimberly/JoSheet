@@ -57,7 +57,7 @@
       </div>
       <button id="hideBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Hide"><i class="fa fa-eye-slash fa-fw"></i></button>
       <button id="showBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Show"><i class="fa fa-eye fa-fw"></i></button>
-      <button id="calcBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Calculate"><i class="fa fa-address-card fa-fw"></i></button>
+      <button id="calcBtn" type="button" class="hidden btn mr-2 btn-secondary btn-sm" title="Options"><i class="fa fa-address-card fa-fw"></i></button>
       <button id="moveResetBtn" type="button" class="resetBtn btn mr-2 btn-secondary btn-sm" title="Reset">
         <span class="fa-stack fa-fw">
           <i class="fa fa-arrows fa-stack-1x"></i>
@@ -79,7 +79,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="calcModalLabel">Soon&trade;...</h5>
+          <h5 class="modal-title" id="calcModalLabel">Options</h5>
           <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
@@ -88,109 +88,109 @@
           <div class="form-group row">
             <label for="baseStr" class="col col-form-label col-form-label-sm">Strength</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseStr">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseStr">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceStr">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceStr">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featStr">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featStr">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicStr">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicStr">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraStr">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraStr">
             </div>
           </div>
           <div class="form-group row">
             <label for="baseDex" class="col col-form-label col-form-label-sm">Dexterity</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseDex">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseDex">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceDex">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceDex">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featDex">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featDex">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicDex">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicDex">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraDex">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraDex">
             </div>
           </div>
           <div class="form-group row">
             <label for="baseCon" class="col col-form-label col-form-label-sm">Constitution</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseCon">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseCon">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceCon">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceCon">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featCon">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featCon">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicCon">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicCon">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraCon">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraCon">
             </div>
           </div>
           <div class="form-group row">
             <label for="baseInt" class="col col-form-label col-form-label-sm">Intelligence</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseInt">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseInt">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceInt">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceInt">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featInt">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featInt">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicInt">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicInt">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraInt">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraInt">
             </div>
           </div>
           <div class="form-group row">
             <label for="baseWis" class="col col-form-label col-form-label-sm">Wisdom</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseWis">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseWis">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceWis">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceWis">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featWis">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featWis">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicWis">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicWis">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraWis">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraWis">
             </div>
           </div>
           <div class="form-group row">
             <label for="baseCha" class="col col-form-label col-form-label-sm">Charisma</label>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="baseCha">
+              <input class="attrInput form-control form-control-sm" value="8" type="number" id="baseCha">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="raceCha">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="raceCha">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="featCha">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="featCha">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="magicCha">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="magicCha">
             </div>
             <div class="col col-2">
-              <input class="attrInput form-control form-control-sm" type="number" id="extraCha">
+              <input class="attrInput form-control form-control-sm" value="0" type="number" id="extraCha">
             </div>
           </div>
           <div class="row">
