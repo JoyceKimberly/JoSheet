@@ -415,8 +415,8 @@ $(function() { // --------------------------------------------------------------
 </label>\
       ');
     });
-
     $menu = $('#idealsConfig');
+    $menu.html('');
     $.each(Menus.background[1].oSubMenu, function(i, value) {    
       $menu.append('\
 <label class="custom-control custom-radio">\
