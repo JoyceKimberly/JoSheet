@@ -405,7 +405,7 @@ $(function() { // --------------------------------------------------------------
     ApplyBackground($(this).val());
     MakeBackgroundMenu();
     var $menu = $('#persTraitsConfig');
-    $menu.html('<option selected></option>');
+    $menu.html('');
     $.each(Menus.background[0].oSubMenu, function(i, value) {
       $menu.append('<option value="' + i + '">' + value.cName + '</option>');
     });
