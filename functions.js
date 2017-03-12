@@ -395,10 +395,17 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   $('[name="Class and Levels"]').on('change', function() { if ( allowCalc ) {
     ApplyClasses($(this).val());
+    MakeClassMenu();
+    var $menu = $('#classConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {    
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+    });
   }});
 
   $('[name="Race"]').on('change', function() { if ( allowCalc ) {
     ApplyRace($(this).val());
+    MakeRaceMenu();
   }});
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
@@ -547,9 +554,6 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
-
-    MakeClassMenu();
-    MakeRaceMenu();
     console.log(Menus); // debug
 
   }).on('show.bs.modal', function() {
