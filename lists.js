@@ -92,13 +92,13 @@ calcAbilityScores = function() {
     "mWis" : AbilityScores.current.Wis.magic,
     "mCha" : AbilityScores.current.Cha.magic,
     //"mHoS" : AbilityScores.current.HoS.magic,
-		"fStr" : AbilityScores.current.Str.feat,
-		"fDex" : AbilityScores.current.Dex.feat,
-		"fCon" : AbilityScores.current.Con.feat,
-		"fInt" : AbilityScores.current.Int.feat,
-		"fWis" : AbilityScores.current.Wis.feat,
-		"fCha" : AbilityScores.current.Cha.feat,
-		//"fHoS" : AbilityScores.current.HoS.feat,
+    "fStr" : AbilityScores.current.Str.feat,
+    "fDex" : AbilityScores.current.Dex.feat,
+    "fCon" : AbilityScores.current.Con.feat,
+    "fInt" : AbilityScores.current.Int.feat,
+    "fWis" : AbilityScores.current.Wis.feat,
+    "fCha" : AbilityScores.current.Cha.feat,
+    //"fHoS" : AbilityScores.current.HoS.feat,
   };
 
   var totals = {
@@ -232,10 +232,6 @@ $(function() { // --------------------------------------------------------------
     };
   };
   UpdateDropdown();
-
-  MakeClassMenu();
-  MakeRaceMenu();
-  MakeBackgroundMenu();
 }); // ----------------------------------------------------------------------------------
 
 /*
