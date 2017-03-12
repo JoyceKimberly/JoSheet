@@ -8,6 +8,7 @@ resetForm = function() {};
 
 initializeLists = function() {
   //setListsUnitSystem(false, true);
+  setListsUnitSystem("imperial");
   UAstartupCode();
   FindClasses();
   FindRace();
