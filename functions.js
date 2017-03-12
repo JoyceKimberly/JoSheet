@@ -399,7 +399,16 @@ $(function() { // --------------------------------------------------------------
     var $menu = $('#classConfig');
     $menu.html('');
     $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {    
-      $menu.append('<label for="classSubMenu' + i + '" class="form-label form-label-sm">' + value.cName + '</label>');
+      $menu.append('\
+          <div class="form-group">\
+            <label for="classSubMenu' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
+            <select id="classSubMenu' + i + '" class="custom-select"></select>\
+          </div>\
+      ');
+      var $subMenu = $('#classSubMenu' + i);
+      $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(i2, value2) {
+        $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
+      });
     });
   }});
 
