@@ -402,7 +402,7 @@ $(function() { // --------------------------------------------------------------
       $menu.append('\
           <div class="form-group">\
             <label for="classSubMenu' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
-            <select id="classSubMenu' + i + '" class="custom-select"></select>\
+            <select multiple id="classSubMenu' + i + '" class="custom-select"></select>\
           </div>\
       ');
       var $subMenu = $('#classSubMenu' + i);
