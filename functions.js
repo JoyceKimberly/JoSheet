@@ -502,8 +502,7 @@ $(function() { // --------------------------------------------------------------
 
   $('.skillProfCheck').change(function() { if ( allowCalc ) {
     var $dit = $(this);
-    var key = $dit.attr('id');
-    file.character[key] = $dit.prop('checked');
+    file.character[$dit.attr('id')] = $dit.prop('checked');
     saveCookies();
     setCharacter();
     $(this).parents('.savesSkill').find('.skill').trigger('change');
