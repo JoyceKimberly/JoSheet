@@ -15,7 +15,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.8/interact.min.js"></script>
+  <script src="https://unpkg.com/interact.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
   <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
@@ -2114,25 +2114,33 @@
       </div>
       <div id="persTraits" class="block3 block z2 resizable">
         <div class="bg"></div>
-        <input name="Personality Trait" data-subname class="display form-control" type="text">
+        <div class="content">
+          <textarea name="Personality Trait" data-subname class="display notes"></textarea>
+        </div>
         <div class="lbl3 lower">Personality Traits</div>
         <div class="hover"></div>
       </div>
       <div id="ideals" class="block4 block z2 resizable">
         <div class="bg"></div>
-        <input name="Ideal" data-subname class="display form-control" type="text">
+        <div class="content">
+          <textarea name="Ideal" data-subname class="display notes"></textarea>
+        </div>
         <div class="lbl3 lower">Ideals</div>
         <div class="hover"></div>
       </div>
       <div id="bonds" class="block4 block z2 resizable">
         <div class="bg"></div>
-        <input name="Bond" data-subname class="display form-control" type="text">
+        <div class="content">
+          <textarea name="Bond" data-subname class="display notes"></textarea>
+        </div>
         <div class="lbl3 lower">Bonds</div>
         <div class="hover"></div>
       </div>
       <div id="flaws" class="block5 block z2 resizable">
         <div class="bg"></div>
-        <input name="Flaw" data-subname class="display form-control" type="text">
+        <div class="content">
+          <textarea name="Flaw" data-subname class="display notes"></textarea>
+        </div>
         <div class="lbl3 lower">Flaws</div>
         <div class="hover"></div>
       </div>
@@ -2256,6 +2264,7 @@
     <input name="Cha Remember" value="8,0,0,0,0,0" data-subname type="text">
     <input name="Race Remember" data-subname type="text">
     <input name="Class Features Remember" data-subname type="text">
+    <input name="Extra Class Feature Remember" data-subname type="text">
     <input name="SubClass Remember" data-subname type="text">
     <input name="Character Level" data-subname class="number" type="text">
     <input name="Proficiencies Remember" data-subname type="text">
@@ -2295,7 +2304,7 @@
     <input name="Too Text" data-subname type="text">
     <input name="Vision" data-subname type="text">
     <input name="Extra.Notes" data-subname type="text">
-    
+
     <input name="Feat Note 1" data-subname type="text">
     <input name="Feat Name 2" data-subname type="text">
     <input name="Feat Note 2" data-subname type="text">

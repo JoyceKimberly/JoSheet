@@ -7,7 +7,7 @@ bookmarkRoot = {
 resetForm = function() {};
 
 initializeLists = function() {
-  //setListsUnitSystem(false, true);
+  SetStringifieds();
   setListsUnitSystem("imperial");
   UAstartupCode();
   FindClasses();
@@ -198,8 +198,21 @@ calculateNow = function(event, value) {
   if ( event === "AC Armor Bonus" ) {
     $('[name="AC"]').trigger('calculate');
   } else {
-    console.log("Calculate: " + event + " -> " + value);
+    //console.log("Calculate: " + event + " -> " + value);
   };
+};
+
+getMenu = function(menuname) {
+	try {
+		var temp = app.popUpMenuEx.apply(app, Menus[menuname]);
+	} catch (err) {
+		var temp = null;
+	}
+	temp = temp === null ? "nothing#toreport" : temp;
+	temp = temp.toLowerCase();
+	temp = temp.split("#");
+  console.log(temp);
+	return temp;
 };
 
 //Object.prototype.toSource = function() { return $.extend({}, this); };
@@ -212,7 +225,18 @@ app = {};
 app.thermometer = {};
 app.thermometer.begin = function() {},
 app.thermometer.end = function() {},
-app.alert = function() {};
+app.alert = function(alert) {
+  var type = "info";
+  var $alert = $('\
+    <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+      <div class="content"><h6>' + alert.cTitle + '</h6>' + alert.cMsg.replace(/\n/g, "<br>") + '</div>\
+    </div>\
+  ').appendTo('#alerts');
+  setTimeout(function() {
+    $($alert).alert('close');
+  }, (10 * 1000));
+};
 app.execDialog = function() {};
 
 $(function() { // -----------------------------------------------------------------------

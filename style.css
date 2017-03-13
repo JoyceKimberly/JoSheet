@@ -48,6 +48,10 @@ div .bg img {
   height: 100%;
 }
 
+h6 {
+  font-weight: bold;
+}
+
 .outerPage div,
 .outerPage input {
   color: black !important;

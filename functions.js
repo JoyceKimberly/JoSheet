@@ -398,14 +398,14 @@ $(function() { // --------------------------------------------------------------
     MakeClassMenu();
     var $menu = $('#classConfig');
     $menu.html('');
-    $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {    
+    $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {
       $menu.append('\
-          <div class="form-group">\
-            <label for="classSubMenu' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
-            <select multiple id="classSubMenu' + i + '" class="custom-select"></select>\
-          </div>\
+        <div class="form-group">\
+          <label for="classFeat' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
+          <select multiple id="classFeat' + i + '" data-class-feat="' + i + '" class="custom-select"><option></option></select>\
+        </div>\
       ');
-      var $subMenu = $('#classSubMenu' + i);
+      var $subMenu = $('#classFeat' + i);
       $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(i2, value2) {
         $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
       });
@@ -421,26 +421,25 @@ $(function() { // --------------------------------------------------------------
     ApplyBackground($(this).val());
     MakeBackgroundMenu();
     var $menu = $('#persTraitsConfig');
-    $menu.html('');
+    $menu.html('<option></option>');
     $.each(Menus.background[0].oSubMenu, function(i, value) {
       $menu.append('<option value="' + i + '">' + value.cName + '</option>');
     });
     $menu = $('#idealsConfig');
     $menu.html('<option selected></option>');
-    $.each(Menus.background[1].oSubMenu, function(i, value) {    
+    $.each(Menus.background[1].oSubMenu, function(i, value) {
       $menu.append('<option value="' + i + '">' + value.cName + '</option>');
     });
     $menu = $('#bondsConfig');
     $menu.html('<option selected></option>');
-    $.each(Menus.background[2].oSubMenu, function(i, value) {    
+    $.each(Menus.background[2].oSubMenu, function(i, value) {
       $menu.append('<option value="' + i + '">' + value.cName + '</option>');
     });
     $menu = $('#flawsConfig');
     $menu.html('<option selected></option>');
-    $.each(Menus.background[3].oSubMenu, function(i, value) {    
+    $.each(Menus.background[3].oSubMenu, function(i, value) {
       $menu.append('<option value="' + i + '">' + value.cName + '</option>');
     });
-    console.log(Menus);
   }});
 
   $('#level').on('change', function() { if ( allowCalc ) {
@@ -527,7 +526,6 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, $dit.val());
   }});
 
-
   calculateAll = function() {
     $('[name="Character Level"]').val(parseInt(file.character.level));
     calcAbilityScores();
@@ -547,6 +545,7 @@ $(function() { // --------------------------------------------------------------
 
   }).on('click', '#calcModalSave', function() {
     var $dit = $(this);
+    var $calcModal = $('#calcModal');
     var $progressBar = $dit.siblings('.progress');
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -557,13 +556,59 @@ $(function() { // --------------------------------------------------------------
       character["extra" + value] = Number($("#extra" + value).val());
       Value(value + " Remember", character["base" + value] + "," + character["race" + value] + "," + character["extra" + value] + ",0," + character["magic" + value] + "," + character["feat" + value]);
     });
+    $calcModal.find('select').each(function(i, ele) {
+      character[$(ele).attr("id")] = $(ele).val();
+      if ( $(ele).attr("data-class-feat") !== undefined ) {
+        $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
+            var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+            ClassFeatureOptions(newReturn, "add");
+          } else {
+            var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
+            var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+            //ClassFeatureOptions(newReturn, "remove");
+          };
+        });
+      };
+      if ( $(ele).is('#persTraitsConfig') ) {
+        $.each(Menus.background[0].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Menus.background[0].oSubMenu[key].bMarked = true;
+            AddString("Personality Trait", CurrentBackground.trait[key], " ");
+          } else {
+            Menus.background[0].oSubMenu[key].bMarked = false;
+          };
+        });
+      };
+      if ( $(ele).is('#idealsConfig') ) {
+        $.each(Menus.background[1].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Ideal", CurrentBackground.ideal[key][1]);
+          };
+        });
+      };
+      if ( $(ele).is('#bondsConfig') ) {
+        $.each(Menus.background[2].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Bond", CurrentBackground.bond[key]);
+          };
+        });
+      };
+      if ( $(ele).is('#flawsConfig') ) {
+        $.each(Menus.background[3].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Flaw", CurrentBackground.flaw[key]);
+          };
+        });
+      };
+    });
     $.extend(true, file.character, character);
     setCharacter();
     saveCookies();
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
-    console.log(Menus); // debug
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -571,6 +616,9 @@ $(function() { // --------------------------------------------------------------
       $("#race" + value).val(file.character["race" + value]);
       $("#magic" + value).val(file.character["magic" + value]);
       $("#extra" + value).val(file.character["extra" + value]);
+    });
+    $('#calcModal').find('select').each(function(i, ele) {
+      $(ele).val(file.character[$(ele).attr("id")]);
     });
 
   }).on('hidden.bs.modal', function() {
