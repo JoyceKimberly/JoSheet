@@ -331,7 +331,7 @@ $(function() { // --------------------------------------------------------------
   };
 
   $('.display').on('change', function() {
-    var $ele = $(event.target);
+    var $ele = $(this);
     var character = {};
     var key = $ele.attr('id');
 
