@@ -330,7 +330,7 @@ $(function() { // --------------------------------------------------------------
     file.notes = {};
   };
 
-  $('.display').on('change focusout', function() {
+  $('.display').on('change', function() {
     var $ele = $(event.target);
     var character = {};
     var key = $ele.attr('id');
@@ -397,7 +397,7 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
-  $('[name="Class and Levels"]').on('change', function() { if ( allowCalc ) {
+  $('[name="Class and Levels"]').on('focusout', function() { if ( allowCalc ) {
     ApplyClasses($(this).val());
     MakeClassMenu();
     var $menu = $('#classConfig');
@@ -416,12 +416,12 @@ $(function() { // --------------------------------------------------------------
     });
   }});
 
-  $('[name="Race"]').on('change', function() { if ( allowCalc ) {
+  $('[name="Race"]').on('focusout', function() { if ( allowCalc ) {
     ApplyRace($(this).val());
     MakeRaceMenu();
   }});
 
-  $('[name="Background"]').on('change', function() { if ( allowCalc ) {
+  $('[name="Background"]').on('focusout', function() { if ( allowCalc ) {
     if ( file.character.background ) {
       ApplyBackground($(this).val());
       MakeBackgroundMenu();
@@ -448,11 +448,11 @@ $(function() { // --------------------------------------------------------------
     };
   }});
 
-  $('#level').on('change', function() { if ( allowCalc ) {
+  $('#level').on('focusout', function() { if ( allowCalc ) {
     $('[name="Character Level"]').val(parseInt($(this).val()));
   }});
 
-  $('[name="Proficiency Bonus"]').on('change', function() { if ( allowCalc ) {
+  $('[name="Proficiency Bonus"]').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
       target: {
@@ -464,7 +464,7 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('.attr').on('change', function() { if ( allowCalc ) {
+  $('.attr').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
       target: {
@@ -476,7 +476,7 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('.save').on('change', function() { if ( allowCalc ) {
+  $('.save').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
       target: {
@@ -488,7 +488,7 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('.skill').on('change', function() { if ( allowCalc ) {
+  $('.skill').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
       target: {
@@ -500,38 +500,38 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('.skillProfCheck').change(function() { if ( allowCalc ) {
+  $('.skillProfCheck').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     file.character[$dit.attr('id')] = $dit.prop('checked');
     saveCookies();
     setCharacter();
-    $(this).parents('.savesSkill').find('.skill').trigger('change');
+    $(this).parents('.savesSkill').find('.skill').trigger('focusout');
   }});
 
-  $('[name="AC"]').on('change', function() { if ( allowCalc ) {
+  $('[name="AC"]').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     CalcAC();
     var newVal = Number(event.value);
     setValue($dit, newVal);
   }});
 
-  $('[name="AC Dexterity Modifier"]').on('change', function() { if ( allowCalc ) {
+  $('[name="AC Dexterity Modifier"]').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     var newVal = parseInt(calcMaxDexToAC());
     setValue($dit, newVal);
   }});
 
-  $('[name="AC Armor Description"]').on('change', function() { if ( allowCalc ) {
+  $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
     ApplyArmor($(this).val());
-    $('[name="AC"]').trigger('change');
+    $('[name="AC"]').trigger('focusout');
   }});
 
-  $('[name="AC Shield Bonus Description"]').on('change', function() { if ( allowCalc ) {
+  $('[name="AC Shield Bonus Description"]').on('focusout', function() { if ( allowCalc ) {
     ApplyShield($(this).val());
-    $('[name="AC"]').trigger('change');
+    $('[name="AC"]').trigger('focusout');
   }});
 
-  $('.attack').on('change', function() { if ( allowCalc ) {
+  $('.attack').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
       target: {
@@ -542,7 +542,7 @@ $(function() { // --------------------------------------------------------------
     CalcAttackDmgHit();
   }});
 
-  $('.hitDie').on('change', function() { if ( allowCalc ) {
+  $('.hitDie').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event.value = $dit.val().split("+")[0].replace("d", "");
     FormatHD();
@@ -550,7 +550,7 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('[name="HP Max"]').on('change', function() { if ( allowCalc ) {
+  $('[name="HP Max"]').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     SetHPTooltip();
     setValue($dit, $dit.val());
@@ -559,11 +559,11 @@ $(function() { // --------------------------------------------------------------
   calculateAll = function() {
     $('[name="Character Level"]').val(parseInt(file.character.level));
     calcAbilityScores();
-    $('[name="Race"], [name="Class and Levels"], [name="Background"], #profBonus, .attr').trigger('change');
+    $('[name="Race"], [name="Class and Levels"], [name="Background"], #profBonus, .attr').trigger('focusout');
     ApplyArmor($('#armor').val());
     ApplyShield($('#shield').val());
     $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
-    $('.save, .skill, [name="AC"], .hitDie, .attack, [name="HP Max"]').trigger('change');
+    $('.save, .skill, [name="AC"], .hitDie, .attack, [name="HP Max"]').trigger('focusout');
     ApplyProficiencies(true);
     return true;
   };
