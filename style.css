@@ -641,6 +641,9 @@ button .fa-stack .fa-stack-2x {
 #calcModal select {
   width: 100%;
 }
+#calcModal select[multiple] {
+  height: 6rem;
+}
 
 #hiddenFields * {
   color: white;

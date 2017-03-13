@@ -226,7 +226,7 @@ app.thermometer = {};
 app.thermometer.begin = function() {},
 app.thermometer.end = function() {},
 app.alert = function(alert) {
-  var type = "info";
+  /*var type = "info";
   var $alert = $('\
     <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
@@ -235,7 +235,7 @@ app.alert = function(alert) {
   ').appendTo('#alerts');
   setTimeout(function() {
     $($alert).alert('close');
-  }, (10 * 1000));
+  }, (10 * 1000));*/
 };
 app.execDialog = function() {};
 

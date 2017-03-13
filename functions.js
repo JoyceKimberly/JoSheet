@@ -360,6 +360,10 @@ $(function() { // --------------------------------------------------------------
   function setValue($ele, newVal) {
     if ( $ele.is('.display.number.mod') ) {
       $ele.val((newVal>0?'+':'') + newVal);
+
+    } else if ( $ele.is('input[type=checkbox]') ) {
+      $ele.prop('checked') = newVal;
+
     } else {
       $ele.val(newVal);
     };
@@ -402,7 +406,7 @@ $(function() { // --------------------------------------------------------------
       $menu.append('\
         <div class="form-group">\
           <label for="classFeat' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
-          <select multiple id="classFeat' + i + '" data-class-feat="' + i + '" class="custom-select"><option></option></select>\
+          <select multiple id="classFeat' + i + '" data-class-feat="' + i + '" class="custom-select"></select>\
         </div>\
       ');
       var $subMenu = $('#classFeat' + i);
@@ -418,37 +422,43 @@ $(function() { // --------------------------------------------------------------
   }});
 
   $('[name="Background"]').on('change', function() { if ( allowCalc ) {
-    ApplyBackground($(this).val());
-    MakeBackgroundMenu();
-    var $menu = $('#persTraitsConfig');
-    $menu.html('<option></option>');
-    $.each(Menus.background[0].oSubMenu, function(i, value) {
-      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-    });
-    $menu = $('#idealsConfig');
-    $menu.html('<option selected></option>');
-    $.each(Menus.background[1].oSubMenu, function(i, value) {
-      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-    });
-    $menu = $('#bondsConfig');
-    $menu.html('<option selected></option>');
-    $.each(Menus.background[2].oSubMenu, function(i, value) {
-      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-    });
-    $menu = $('#flawsConfig');
-    $menu.html('<option selected></option>');
-    $.each(Menus.background[3].oSubMenu, function(i, value) {
-      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-    });
+    if ( file.character.background ) {
+      ApplyBackground($(this).val());
+      MakeBackgroundMenu();
+      var $menu = $('#persTraitsConfig');
+      $menu.html('');
+      $.each(Menus.background[0].oSubMenu, function(i, value) {
+        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      });
+      $menu = $('#idealsConfig');
+      $menu.html('<option selected></option>');
+      $.each(Menus.background[1].oSubMenu, function(i, value) {
+        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      });
+      $menu = $('#bondsConfig');
+      $menu.html('<option selected></option>');
+      $.each(Menus.background[2].oSubMenu, function(i, value) {
+        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      });
+      $menu = $('#flawsConfig');
+      $menu.html('<option selected></option>');
+      $.each(Menus.background[3].oSubMenu, function(i, value) {
+        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      });
+    };
   }});
 
   $('#level').on('change', function() { if ( allowCalc ) {
-    $('[name="Character Level"]').val(parseInt($ele.val()));
+    $('[name="Character Level"]').val(parseInt($(this).val()));
   }});
 
   $('[name="Proficiency Bonus"]').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
-    event.target.name = $dit.attr("name");
+    event = Object.create(event, {
+      target: {
+        value: $dit.get(0)
+      }
+    });
     ProfBonus();
     var newVal = Number(event.value);
     setValue($dit, newVal);
@@ -456,7 +466,11 @@ $(function() { // --------------------------------------------------------------
 
   $('.attr').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
-    event.target.name = $dit.attr("name");
+    event = Object.create(event, {
+      target: {
+        value: $dit.get(0)
+      }
+    });
     CalcMod();
     var newVal = Number(event.value);
     setValue($dit, newVal);
@@ -464,7 +478,11 @@ $(function() { // --------------------------------------------------------------
 
   $('.save').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
-    event.target.name = $dit.attr("name");
+    event = Object.create(event, {
+      target: {
+        value: $dit.get(0)
+      }
+    });
     CalcSave();
     var newVal = Number(event.value);
     setValue($dit, newVal);
@@ -472,13 +490,22 @@ $(function() { // --------------------------------------------------------------
 
   $('.skill').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
-    event.target.name = $dit.attr("name");
+    event = Object.create(event, {
+      target: {
+        value: $dit.get(0)
+      }
+    });
     CalcSkill();
     var newVal = Number(event.value);
     setValue($dit, newVal);
   }});
 
   $('.skillProfCheck').change(function() { if ( allowCalc ) {
+    var $dit = $(this);
+    var key = $dit.attr('id');
+    file.character[key] = $dit.prop('checked');
+    saveCookies();
+    setCharacter();
     $(this).parents('.savesSkill').find('.skill').trigger('change');
   }});
 
@@ -507,7 +534,11 @@ $(function() { // --------------------------------------------------------------
 
   $('.attack').on('change', function() { if ( allowCalc ) {
     var $dit = $(this);
-    event.target.name = $dit.attr("name");
+    event = Object.create(event, {
+      target: {
+        value: $dit.get(0)
+      }
+    });
     ApplyWeapon($dit.val(), $dit.attr("name"));
     CalcAttackDmgHit();
   }});
