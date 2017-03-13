@@ -330,7 +330,7 @@ $(function() { // --------------------------------------------------------------
     file.notes = {};
   };
 
-  $('.display').on('focusout', function() {
+  $('.display').on('change focusout', function() {
     var $ele = $(event.target);
     var character = {};
     var key = $ele.attr('id');
