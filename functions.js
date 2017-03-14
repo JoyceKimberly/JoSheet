@@ -371,7 +371,6 @@ $(function() { // --------------------------------------------------------------
   };
 
   function setCharacter() {
-    $('[name="Character Level"]').val(parseInt(file.character["Level"]));
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
       var $ele = $('[name="' + key + '"]');
@@ -462,7 +461,7 @@ $(function() { // --------------------------------------------------------------
 
   $('[name="Level"]').on('focusout', setJoLevel);
   function setJoLevel() { if ( allowCalc ) {
-    $('[name="Character Level"]').val(parseInt(file.character["Level"]));
+    $('[name="Character Level"]').val(parseInt(file.character["Level"]).trigger('change');
   }};
 
   $('[name="Proficiency Bonus"]').on('focusout', setJoProfBonus);
