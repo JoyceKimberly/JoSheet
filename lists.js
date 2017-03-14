@@ -33,19 +33,19 @@ initializeLists = function() {
     var extra = file.character["extra" + value] ? file.character["extra" + value] : "0";
     Value(value + " Remember", base + "," + race + "," + extra + ",0," + magic + "," + feat);
   });
-  calcAbilityScores();
+  setJoAbilityScores();
   //console.log(classes);
 };
 
-calcAbilityScores = function() {
+setJoAbilityScores = function() {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
     var AbiI = i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i];
     var tempArray = What(AbiI + " Remember").split(",");
     AbilityScores.current[AbiI].base = tempArray[0];
     AbilityScores.current[AbiI].race = tempArray[1] ? tempArray[1] : "0";
     AbilityScores.current[AbiI].extra = tempArray[2] ? tempArray[2] : "0";
-    AbilityScores.current[AbiI].magic = tempArray[3] ? tempArray[3] : "0";
-    AbilityScores.current[AbiI].extra2 = tempArray[4] ? tempArray[4] : "0";
+    AbilityScores.current[AbiI].extra2 = tempArray[3] ? tempArray[3] : "0";
+    AbilityScores.current[AbiI].magic = tempArray[4] ? tempArray[4] : "0";
     AbilityScores.current[AbiI].feat = tempArray[5] ? tempArray[5] : "0";
   };
 
@@ -123,6 +123,9 @@ getField = function(event) {
   var ele = document.getElementsByName(event)[0];
 
   if ( !ele ) {
+    if ( event === "Highlighting" ) {
+      return "";
+    };
     console.log("getField: " + event);
     return false;
   };

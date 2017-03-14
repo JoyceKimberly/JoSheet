@@ -315,7 +315,7 @@ $(function() { // --------------------------------------------------------------
       var nrLines = (visibleHeight / lineHeight)-1;
       underlines.find('.line').remove();
       for ( var i = 0; i < nrLines; i++ ) {
-        underlines.append('<div class="line"></div>');
+        //underlines.append('<div class="line"></div>');
       };
     });
   };
@@ -397,10 +397,11 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
-  $('[name="Class and Levels"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyClasses($(this).val());
+  $('[name="Class and Levels"]').on('focusout', setJoClass);
+  function setJoClass() { if ( allowCalc ) {
+    ApplyClasses($('[name="Class and Levels"]').val());
     MakeClassMenu();
-    var $menu = $('#classConfig');
+    var $menu = $('#classConfig .card-block');
     $menu.html('');
     $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {
       $menu.append('\
@@ -414,62 +415,105 @@ $(function() { // --------------------------------------------------------------
         $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
       });
     });
-  }});
+  }};
 
-  $('[name="Race"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyRace($(this).val());
+  $('[name="Race"]').on('focusout', setJoRace);
+  function setJoRace() { if ( allowCalc ) {
+    ApplyRace($('[name="Race"]').val());
     MakeRaceMenu();
-  }});
+  }};
 
-  $('[name="Background"]').on('focusout', function() { if ( allowCalc ) {
-    if ( file.character.background ) {
-      ApplyBackground($(this).val());
-      MakeBackgroundMenu();
-      var $menu = $('#persTraitsConfig');
-      $menu.html('');
-      $.each(Menus.background[0].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-      });
-      $menu = $('#idealsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[1].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-      });
-      $menu = $('#bondsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[2].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-      });
-      $menu = $('#flawsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[3].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-      });
-    };
-  }});
+  $('[name="Background"]').on('focusout', setJoBackground);
+  function setJoBackground() { if ( allowCalc && file.character.background ) {
+    ApplyBackground($('[name="Background"]').val());
+    MakeBackgroundMenu();
+    var $menu = $('#persTraitsConfig');
+    $menu.html('');
+    $.each(Menus.background[0].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.persTraitsConfig) !== -1 ) {
+        AddString("Personality Trait", CurrentBackground.trait[i], " ");
+      };
+    });
+    $menu = $('#idealsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[1].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + CurrentBackground.ideal[i][1] + '</option>');
+      if ( $.inArray(i.toString(), file.character.idealsConfig) !== -1 ) {
+        Value("Ideal", CurrentBackground.ideal[i][1]);
+      };
+    });
+    $menu = $('#bondsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[2].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.bondsConfig) !== -1 ) {
+        Value("Bond", CurrentBackground.bond[i]);
+      };
+    });
+    $menu = $('#flawsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[3].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.flawsConfig) !== -1 ) {
+        Value("Flaw", CurrentBackground.flaw[i]);
+      };
+    });
+  }};
 
-  $('#level').on('focusout', function() { if ( allowCalc ) {
-    $('[name="Character Level"]').val(parseInt($(this).val()));
-  }});
+  $('#level').on('focusout', setJoLevel);
+  function setJoLevel() { if ( allowCalc ) {
+    $('[name="Character Level"]').val(parseInt($('#level').val()));
+  }};
 
-  $('[name="Proficiency Bonus"]').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
+  $('[name="Proficiency Bonus"]').on('focusout', setJoProfBonus);
+  function setJoProfBonus() { if ( allowCalc ) {
+    var $dit = $('[name="Proficiency Bonus"]');
     event = Object.create(event, {
-      target: {
-        value: $dit.get(0)
-      }
+      target: { value: $dit.get(0) }
     });
     ProfBonus();
     var newVal = Number(event.value);
     setValue($dit, newVal);
+  }};
+
+  $('[name="AC"]').on('focusout', setJoAc);
+  function setJoAc() { if ( allowCalc ) {
+    var $dit = $('[name="AC"]');
+    event = Object.create(event);
+    CalcAC();
+    var newVal = Number(event.value);
+    setValue($dit, newVal);
+  }};
+
+  $('[name="AC Dexterity Modifier"]').on('focusout', setJoAcDex);
+  function setJoAcDex() { if ( allowCalc ) {
+    var $dit = $('[name="AC Dexterity Modifier"]');
+    var newVal = parseInt(calcMaxDexToAC());
+    setValue($dit, newVal);
+  }};
+
+  $('[name="HP Max"]').on('focusout', setJoHp);
+  function setJoHp() { if ( allowCalc ) {
+    var $dit = $('[name="HP Max"]');
+    SetHPTooltip();
+    setValue($dit, $dit.val());
+  }};
+
+  $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
+    ApplyArmor($(this).val());
+    setJoAc();
+  }});
+
+  $('[name="AC Shield Bonus Description"]').on('focusout', function() { if ( allowCalc ) {
+    ApplyShield($(this).val());
+    setJoAc();
   }});
 
   $('.attr').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
-      target: {
-        value: $dit.get(0)
-      }
+      target: { value: $dit.get(0) }
     });
     CalcMod();
     var newVal = Number(event.value);
@@ -479,9 +523,7 @@ $(function() { // --------------------------------------------------------------
   $('.save').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
-      target: {
-        value: $dit.get(0)
-      }
+      target: { value: $dit.get(0) }
     });
     CalcSave();
     var newVal = Number(event.value);
@@ -491,9 +533,7 @@ $(function() { // --------------------------------------------------------------
   $('.skill').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
-      target: {
-        value: $dit.get(0)
-      }
+      target: { value: $dit.get(0) }
     });
     CalcSkill();
     var newVal = Number(event.value);
@@ -505,38 +545,13 @@ $(function() { // --------------------------------------------------------------
     file.character[$dit.attr('id')] = $dit.prop('checked');
     saveCookies();
     setCharacter();
-    $(this).parents('.savesSkill').find('.skill').trigger('focusout');
-  }});
-
-  $('[name="AC"]').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    CalcAC();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
-  }});
-
-  $('[name="AC Dexterity Modifier"]').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    var newVal = parseInt(calcMaxDexToAC());
-    setValue($dit, newVal);
-  }});
-
-  $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyArmor($(this).val());
-    $('[name="AC"]').trigger('focusout');
-  }});
-
-  $('[name="AC Shield Bonus Description"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyShield($(this).val());
-    $('[name="AC"]').trigger('focusout');
+    $dit.parents('.savesSkill').find('.skill').trigger('focusout');
   }});
 
   $('.attack').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
     event = Object.create(event, {
-      target: {
-        value: $dit.get(0)
-      }
+      target: { value: $dit.get(0) }
     });
     ApplyWeapon($dit.val(), $dit.attr("name"));
     CalcAttackDmgHit();
@@ -550,20 +565,20 @@ $(function() { // --------------------------------------------------------------
     setValue($dit, newVal);
   }});
 
-  $('[name="HP Max"]').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    SetHPTooltip();
-    setValue($dit, $dit.val());
-  }});
-
   calculateAll = function() {
-    $('[name="Character Level"]').val(parseInt(file.character.level));
-    calcAbilityScores();
-    $('[name="Race"], [name="Class and Levels"], [name="Background"], #profBonus, .attr').trigger('focusout');
+    setJoLevel();
+    setJoAbilityScores();
+    setJoRace();
+    setJoClass();
+    setJoBackground();
+    setJoProfBonus();
+    $('.attr').trigger('focusout');
     ApplyArmor($('#armor').val());
     ApplyShield($('#shield').val());
-    $('[name="AC Dexterity Modifier"]').val(parseInt(calcMaxDexToAC()));
-    $('.save, .skill, [name="AC"], .hitDie, .attack, [name="HP Max"]').trigger('focusout');
+    setJoAcDex();
+    setJoHp();
+    $('.save, .skill, .hitDie, .attack').trigger('focusout');
+    setJoAc();
     ApplyProficiencies(true);
     return true;
   };
@@ -642,10 +657,12 @@ $(function() { // --------------------------------------------------------------
 
   }).on('show.bs.modal', function() {
     $.each(AbilityScores.abbreviations, function(key, value) {
-      $("#base" + value).val(file.character["base" + value]);
-      $("#race" + value).val(file.character["race" + value]);
-      $("#magic" + value).val(file.character["magic" + value]);
-      $("#extra" + value).val(file.character["extra" + value]);
+      var scores = $('[name="' + value + ' Remember"]').val().split(",");
+      $("#base" + value).val(scores[0]);
+      $("#race" + value).val(scores[1]);
+      $("#extra" + value).val(scores[2]);
+      $("#magic" + value).val(scores[4]);
+      $("#feat" + value).val(scores[5]);
     });
     $('#calcModal').find('select').each(function(i, ele) {
       $(ele).val(file.character[$(ele).attr("id")]);
@@ -723,7 +740,6 @@ $(function() { // --------------------------------------------------------------
           setObjects();
           setCharacter();
           saveCookies();
-          location.reload();
           setAlert('success', 'Character loaded.');
         }
         reader.readAsText(blob);

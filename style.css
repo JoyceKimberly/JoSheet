@@ -33,7 +33,12 @@ option {
 html {
   overflow-y: scroll;
 }
-body, button, optgroup, select, input, textarea {
+.outerPage ,
+.outerPage button,
+.outerPage optgroup,
+.outerPage select,
+.outerPage input,
+.outerPage textarea {
   font-family: 'scaly_sans';
 }
 /*.display { border: 1px solid red; } /* debug */
@@ -82,6 +87,7 @@ h6 {
 .block7 .content {
   padding: 9px 8px 16px;
 }
+.block8 .content .display.notes,
 .block8 .underlines {
   padding: 9px 13px 16px;
 }
@@ -373,9 +379,6 @@ select.display {
 #armorBlock .col-2:first-child {
   flex: 0 0 10%;
 }
-#attackBlock .col-6:first-child {
-  flex: 0 0 48%;
-}
 #ltdFeatsBlock .col-7 {
   flex: 0 0 54%;
 }
@@ -643,6 +646,7 @@ button .fa-stack .fa-stack-2x {
 }
 #calcModal select[multiple] {
   height: 6rem;
+  background: none;
 }
 
 #hiddenFields * {
