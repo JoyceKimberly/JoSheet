@@ -328,6 +328,7 @@ $(function() { // --------------------------------------------------------------
       "Name" : "JoSheet",
     };
     file.notes = {};
+    $('[name]').val('');
   };
 
   $('body').on('change', '[name]', function() {
