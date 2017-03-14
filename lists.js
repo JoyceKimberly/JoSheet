@@ -192,7 +192,7 @@ function Value(field, FldValue, tooltip) {
 
 calculateNow = function(event, value) {
   if ( event === "AC Armor Bonus" ) {
-    $('[name="AC"]').trigger('calculate');
+    $('[name="AC"]').trigger('focusout');
   } else {
     //console.log("Calculate: " + event + " -> " + value);
   };
