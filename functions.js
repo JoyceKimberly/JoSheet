@@ -471,8 +471,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     ProfBonus();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
+    $dit.val(Number(event.value)).trigger('change');
   }};
 
   $('[name="AC"]').on('focusout', setJoAc);
@@ -480,8 +479,7 @@ $(function() { // --------------------------------------------------------------
     var $dit = $('[name="AC"]');
     event = Object.create(event);
     CalcAC();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
+    $dit.val(Number(event.value)).trigger('change');
   }};
 
   $('[name="AC Dexterity Modifier"]').on('focusout', setJoAcDex);
@@ -514,8 +512,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcMod();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
+    $dit.val(Number(event.value)).trigger('change');
   }});
 
   $('.save').on('focusout', function() { if ( allowCalc ) {
@@ -524,8 +521,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcSave();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
+    $dit.val(Number(event.value)).trigger('change');
   }});
 
   $('.skill').on('focusout', function() { if ( allowCalc ) {
@@ -534,8 +530,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcSkill();
-    var newVal = Number(event.value);
-    setValue($dit, newVal);
+    $dit.val(Number(event.value)).trigger('change');
   }});
 
   $('.skillProfCheck').on('focusout', function() { if ( allowCalc ) {
