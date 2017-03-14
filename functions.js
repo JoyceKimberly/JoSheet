@@ -325,21 +325,21 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   function resetCharacter() {
     file.character = {
-      name : "JoSheet",
+      "Name" : "JoSheet",
     };
     file.notes = {};
   };
 
-  $('.display').on('change', function() {
+  $('body').on('change', '[name]', function() {
     var $ele = $(this);
     var character = {};
-    var key = $ele.attr('id');
+    var key = $ele.attr('name');
 
-    if ( $ele.is('#name') ) {
+    if ( $ele.is('[name="Name"]') ) {
       if ( $ele.val() !== "" ) {
-        character.name = encodeURIComponent($ele.val());
+        character["Name"] = encodeURIComponent($ele.val());
       } else {
-        character.name = "JoSheet";
+        character["Name"] = "JoSheet";
       };
 
     } else if ( $ele.is('.number') ) {
@@ -351,7 +351,6 @@ $(function() { // --------------------------------------------------------------
     } else {
       character[key] = encodeURIComponent($ele.val());
     };
-
     $.extend(true, file.character, character);
     saveCookies();
     setCharacter();
@@ -367,15 +366,15 @@ $(function() { // --------------------------------------------------------------
     } else {
       $ele.val(newVal);
     };
-    file.character[$ele.attr('id')] = newVal;
+    file.character[$ele.attr('name')] = newVal;
     saveCookies();
   };
 
   function setCharacter() {
-    $('[name="Character Level"]').val(parseInt(file.character.level));
+    $('[name="Character Level"]').val(parseInt(file.character["Level"]));
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
       var key = Object.keys(file.character)[i];
-      var $ele = $("#" + key);
+      var $ele = $('[name="' + key + '"]');
 
       if ( $ele.is('.display.number.mod') ) {
         $ele.val((file.character[key]>0?'+':'') + file.character[key]);
@@ -424,7 +423,7 @@ $(function() { // --------------------------------------------------------------
   }};
 
   $('[name="Background"]').on('focusout', setJoBackground);
-  function setJoBackground() { if ( allowCalc && file.character.background ) {
+  function setJoBackground() { if ( allowCalc && file.character["Background"] ) {
     ApplyBackground($('[name="Background"]').val());
     MakeBackgroundMenu();
     var $menu = $('#persTraitsConfig');
@@ -594,12 +593,7 @@ $(function() { // --------------------------------------------------------------
     var $progressBar = $dit.siblings('.progress');
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
-      character["base" + value] = Number($("#base" + value).val());
-      character["race" + value] = Number($("#race" + value).val());
-      character["feat" + value] = Number($("#feat" + value).val());
-      character["magic" + value] = Number($("#magic" + value).val());
-      character["extra" + value] = Number($("#extra" + value).val());
-      Value(value + " Remember", character["base" + value] + "," + character["race" + value] + "," + character["extra" + value] + ",0," + character["magic" + value] + "," + character["feat" + value]);
+      Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
     });
     $calcModal.find('select').each(function(i, ele) {
       character[$(ele).attr("id")] = $(ele).val();

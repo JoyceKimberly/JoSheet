@@ -24,15 +24,6 @@ initializeLists = function() {
   ApplyProficiencies(true);
   UpdateTooltips();
   //SetRichTextFields();
-
-  $.each(AbilityScores.abbreviations, function(key, value) {
-    var base = file.character["base" + value] ? file.character["base" + value] : "8";
-    var race = file.character["race" + value] ? file.character["race" + value] : "0";
-    var feat = file.character["feat" + value] ? file.character["feat" + value] : "0";
-    var magic = file.character["magic" + value] ? file.character["magic" + value] : "0";
-    var extra = file.character["extra" + value] ? file.character["extra" + value] : "0";
-    Value(value + " Remember", base + "," + race + "," + extra + ",0," + magic + "," + feat);
-  });
   setJoAbilityScores();
   //console.log(classes);
 };
@@ -195,6 +186,8 @@ function Value(field, FldValue, tooltip) {
   if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
   };
+
+  $(ele).trigger('change');
 };
 
 calculateNow = function(event, value) {
