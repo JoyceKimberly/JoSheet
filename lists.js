@@ -246,9 +246,9 @@ $(function() { // --------------------------------------------------------------
 
   for ( var i = 0; i < levels.length; i++ ) {
     if ( i === 0 ) {
-      $('#level').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
+      $('[name="Level"]').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
     } else {
-      $('#level').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
+      $('[name="Level"]').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
     };
   };
   UpdateDropdown();
