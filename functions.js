@@ -870,7 +870,7 @@ function deleteCookie(name) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 };
 
-(function(window) {/*
+(function(window) {
   window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
@@ -888,7 +888,7 @@ function deleteCookie(name) {
     };
     return true;
   };
-*/
+
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
