@@ -460,9 +460,9 @@ $(function() { // --------------------------------------------------------------
     });
   }};
 
-  $('#level').on('focusout', setJoLevel);
+  $('[name="Level"]').on('focusout', setJoLevel);
   function setJoLevel() { if ( allowCalc ) {
-    $('[name="Character Level"]').val(parseInt($('#level').val()));
+    $('[name="Character Level"]').val(parseInt($('[name="Level"]').val()));
   }};
 
   $('[name="Proficiency Bonus"]').on('focusout', setJoProfBonus);
