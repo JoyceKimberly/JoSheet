@@ -28,7 +28,7 @@ $(function() { // --------------------------------------------------------------
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
   if ( !!getAccessToken() ) {
-    if ( Dropbox === undefined ) {
+    if ( !!Dropbox ) {
       $('#fileMenu').hide();
       setAlert('warning', 'Dropbox features are currently unavailable.');
       return;
