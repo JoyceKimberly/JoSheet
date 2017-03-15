@@ -556,10 +556,10 @@ $(function() { // --------------------------------------------------------------
 
   calculateAll = function() {
     setJoLevel();
-    setJoAbilityScores();
     setJoRace();
     setJoClass();
     setJoBackground();
+    setJoAbilityScores();
     setJoProfBonus();
     $('.attr').trigger('focusout');
     ApplyArmor($('#armor').val());
