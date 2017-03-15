@@ -168,6 +168,8 @@ function What(field) {
 
 function Value(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
+  var oldValue = ele.value;
+  var newValue = FldValue;
 
   if (!ele) {
     console.log(field + " -> " + JSON.stringify(FldValue) );
@@ -181,13 +183,15 @@ function Value(field, FldValue, tooltip) {
 
   } else {
     ele.value = FldValue;
+    if ( oldValue !== newValue ) {
+      console.log("saving field");
+      $(ele).trigger('change');
+    };
   };
 
   if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
   };
-
-  //$(ele).trigger('change');
 };
 
 calculateNow = function(event, value) {
