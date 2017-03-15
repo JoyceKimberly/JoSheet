@@ -85,7 +85,7 @@ $(function() { // --------------------------------------------------------------
   });
   $('#showBtn').click(function() {
     setCharacter();
-    //calculateAll();
+    calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
