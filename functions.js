@@ -42,8 +42,7 @@ $(function() { // --------------------------------------------------------------
 
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
-  $('[data-toggle="tooltip"]').tooltip();
-  $('#hiddenFields input').wrap("<div></div>").before(function() {
+  $('#hiddenFields input, #hiddenFields select').wrap("<div></div>").before(function() {
     return "<label>" + $(this).attr("name") + ": </label>";
   });
 
@@ -151,7 +150,6 @@ $(function() { // --------------------------------------------------------------
       x += event.deltaRect.left;
       y += event.deltaRect.top;
     };
-
     target.style.webkitTransform = target.style.transform =
       'translate(' + x + 'px, ' + y + 'px)';
 
@@ -320,6 +318,16 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
+	$('select.data-list-input').focus(function() {
+		$(this).siblings('input.data-list-input').focus();
+	});
+	$('select.data-list-input').change(function() {
+		$(this).siblings('input.data-list-input').val($(this).val());
+	});
+	$('input.data-list-input').change(function() {
+		$(this).siblings('select.data-list-input').val('');
+	});
+
   // ------------------------------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------
@@ -331,7 +339,7 @@ $(function() { // --------------------------------------------------------------
     $('[name]').val('');
   };
 
-  $('body').on('change', '[name]', function() {
+  $('body').on('change focusout', '[name]', function() {
     var $ele = $(this);
     var character = {};
     var key = $ele.attr('name');
@@ -349,6 +357,9 @@ $(function() { // --------------------------------------------------------------
     } else if ( $ele.is('input[type=checkbox]') ) {
       character[key] = $ele.prop('checked');
 
+    } else if ( $ele.val() === "" ) {
+      delete file.character[key];
+
     } else {
       character[key] = encodeURIComponent($ele.val());
     };
@@ -356,20 +367,6 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     setCharacter();
   });
-
-  function setValue($ele, newVal) {
-    if ( $ele.is('.display.number.mod') ) {
-      $ele.val((newVal>0?'+':'') + newVal);
-
-    } else if ( $ele.is('input[type=checkbox]') ) {
-      $ele.prop('checked') = newVal;
-
-    } else {
-      $ele.val(newVal);
-    };
-    file.character[$ele.attr('name')] = newVal;
-    saveCookies();
-  };
 
   function setCharacter() {
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
@@ -389,7 +386,7 @@ $(function() { // --------------------------------------------------------------
         $ele.val(decodeURIComponent(file.character[key]));
       };
     };
-    $('.name').text($('#name').val());
+    $('.name').text(decodeURIComponent(file.character["Name"]));
     //console.log(tDoc); // debug
   };
 
@@ -486,15 +483,14 @@ $(function() { // --------------------------------------------------------------
   $('[name="AC Dexterity Modifier"]').on('focusout', setJoAcDex);
   function setJoAcDex() { if ( allowCalc ) {
     var $dit = $('[name="AC Dexterity Modifier"]');
-    var newVal = parseInt(calcMaxDexToAC());
-    setValue($dit, newVal);
+    $dit.val(parseInt(calcMaxDexToAC())).trigger('change');
   }};
 
   $('[name="HP Max"]').on('focusout', setJoHp);
   function setJoHp() { if ( allowCalc ) {
     var $dit = $('[name="HP Max"]');
     SetHPTooltip();
-    setValue($dit, $dit.val());
+    $dit.val($dit.val()).trigger('change');
   }};
 
   $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
@@ -555,8 +551,7 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     event.value = $dit.val().split("+")[0].replace("d", "");
     FormatHD();
-    var newVal = event.value;
-    setValue($dit, newVal);
+    $dit.val(event.value).trigger('change');
   }});
 
   calculateAll = function() {
@@ -574,7 +569,7 @@ $(function() { // --------------------------------------------------------------
     $('.save, .skill, .hitDie, .attack').trigger('focusout');
     setJoAc();
     ApplyProficiencies(true);
-    return true;
+    setJoSpells();
   };
 
   $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
@@ -589,6 +584,7 @@ $(function() { // --------------------------------------------------------------
     var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
       Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
+      $('[name="' + value + ' Remember"]').trigger('change');
     });
     $calcModal.find('select').each(function(i, ele) {
       character[$(ele).attr("id")] = $(ele).val();

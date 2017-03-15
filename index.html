@@ -29,7 +29,6 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <meta name="format-detection" content="telephone=no">
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -308,12 +307,14 @@
             </div>
           </div>
           <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
-            <div class="col">
-              <input name="Background" data-subname class="display form-control" type="text">
+            <div class="data-list-input col">
+              <select name="Background" data-subname class="data-list-input custom-select"></select>
+              <input name="Background" data-subname class="data-list-input display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Background</div>
             </div>
-            <div class="col col-4">
-              <input name="Race" data-subname class="display form-control" type="text">
+            <div class="data-list-input col col-4">
+              <select name="Race" data-subname class="data-list-input custom-select"></select>
+              <input name="Race Remember" data-subname class="display data-list-input form-control" type="text">
               <div style="top: 15px;" class="lbl2">Race</div>
             </div>
             <div class="col col-3">
@@ -472,31 +473,31 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input id="resist1" name="Resistance Damage Type 1" data-subname class="display form-control" type="text">
+              <select id="resist1" name="Resistance Damage Type 1" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input id="resist4" name="Resistance Damage Type 4" data-subname class="display form-control" type="text">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="inputBg"></div>
-              <input id="resist2" name="Resistance Damage Type 2" data-subname class="display form-control" type="text">
-            </div>
-            <div class="col">
-              <div class="inputBg"></div>
-              <input id="resist5" name="Resistance Damage Type 5" data-subname class="display form-control" type="text">
+              <select id="resist4" name="Resistance Damage Type 4" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input id="resist3" name="Resistance Damage Type 3" data-subname class="display form-control" type="text">
+              <select id="resist2" name="Resistance Damage Type 2" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input id="resist6" name="Resistance Damage Type 6" data-subname class="display form-control" type="text">
+              <select id="resist5" name="Resistance Damage Type 5" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="inputBg"></div>
+              <select id="resist3" name="Resistance Damage Type 3" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+            </div>
+            <div class="col">
+              <div class="inputBg"></div>
+              <select id="resist6" name="Resistance Damage Type 6" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
             </div>
           </div>
           <div style="height: 100%;" class="row">
@@ -922,6 +923,14 @@
       </div>
       <div id="hpBlock" class="block4 z2 resizable">
         <div class="bg"></div>
+        <div style="padding: 4px 8px;" class="content">
+          <div class="row" style="background-color: white;">
+            <div style="height: 16px; line-height: 16px;" class="col col-8 lbl4">Temporary Hit Points:</div>
+            <div style="height: 16px;" class="col">
+              <div class="inputBg"></div>
+            </div>
+          </div>
+        </div>
         <div class="lbl1 lower">Current Hit Points</div>
         <div class="hover"></div>
       </div>
@@ -987,6 +996,16 @@
       </div>
       <div id="deathBlock" class="block1 z2 resizable">
         <div class="bg"></div>
+        <div class="content">
+          <div class="row">
+            <div class="col col-5"><div style="line-height: 22px; color: black !important;" class="hlbl center">Successes</div></div>
+            <div class="col"><img src="img/DeathSaves.svg"></div>
+          </div>
+          <div class="row">
+            <div class="col col-5"><div style="line-height: 22px; color: black !important;" class="hlbl center">Failures</div></div>
+            <div class="col"><img src="img/DeathSaves.svg"></div>
+          </div>
+        </div>
         <div class="lbl1 lower">Death Saves</div>
         <div class="hover"></div>
       </div>
@@ -1198,7 +1217,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed1" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed1" name="Limited Feature Used 1" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1216,7 +1235,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed2" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed2" name="Limited Feature Used 2" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1234,7 +1253,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed3" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed3" name="Limited Feature Used 3" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1252,7 +1271,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed4" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed4" name="Limited Feature Used 4" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1270,7 +1289,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed5" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed5" name="Limited Feature Used 5" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1288,7 +1307,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed6" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed6" name="Limited Feature Used 6" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1306,7 +1325,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed7" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed7" name="Limited Feature Used 7" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1324,7 +1343,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed8" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed8" name="Limited Feature Used 8" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1342,7 +1361,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed9" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed9" name="Limited Feature Used 9" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1360,7 +1379,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed10" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed10" name="Limited Feature Used 10" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1378,7 +1397,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed11" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed11" name="Limited Feature Used 11" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1396,7 +1415,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed12" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed12" name="Limited Feature Used 12" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1414,7 +1433,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed13" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed13" name="Limited Feature Used 13" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1432,7 +1451,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed14" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed14" name="Limited Feature Used 14" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1450,7 +1469,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed15" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed15" name="Limited Feature Used 15" data-subname class="display center form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -1468,7 +1487,7 @@
               </div>
               <div style="flex: 0 0 10%;" class="col col-2">
                 <div class="inputBg"></div>
-                <input id="ltdFeatUsed16" name="" data-subname class="display center form-control" type="text">
+                <input id="ltdFeatUsed16" name="Limited Feature Used 16" data-subname class="display center form-control" type="text">
               </div>
             </div>
           </div>
@@ -1696,8 +1715,9 @@
               <div class="col">
                 <div class="inputBg"></div>
                 <div class="row">
-                  <div class="col col-10 subCol">
-                    <input id="attack1" name="Attack.1.Weapon Selection" data-subname class="attack display form-control" type="text">
+                  <div class="data-list-input col col-10 subCol">
+                    <select name="Attack.1.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                    <input id="attack1" name="Attack.1.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                   </div>
                   <div class="col subCol">
                     <div class="row">
@@ -1748,8 +1768,9 @@
                 <div class="col">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col col-10 subCol">
-                      <input id="attack2" name="Attack.2.Weapon Selection" data-subname class="attack display form-control" type="text">
+                    <div class="data-list-input col col-10 subCol">
+                      <select name="Attack.2.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                      <input id="attack2" name="Attack.2.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
@@ -1796,8 +1817,9 @@
                 <div class="col">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col col-10 subCol">
-                      <input id="attack3" name="Attack.3.Weapon Selection" data-subname class="attack display form-control" type="text">
+                    <div class="data-list-input col col-10 subCol">
+                      <select name="Attack.3.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                      <input id="attack3" name="Attack.3.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
@@ -1844,8 +1866,9 @@
                 <div class="col">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col col-10 subCol">
-                      <input id="attack4" name="Attack.4.Weapon Selection" data-subname class="attack display form-control" type="text">
+                    <div class="data-list-input col col-10 subCol">
+                      <select name="Attack.4.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                      <input id="attack4" name="Attack.4.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
@@ -1892,8 +1915,9 @@
                 <div class="col">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col col-10 subCol">
-                      <input id="attack5" name="Attack.5.Weapon Selection" data-subname class="attack display form-control" type="text">
+                    <div class="data-list-input col col-10 subCol">
+                      <select name="Attack.5.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                      <input id="attack5" name="Attack.5.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
@@ -1940,8 +1964,9 @@
                 <div class="col">
                   <div class="inputBg"></div>
                   <div class="row">
-                    <div class="col col-10 subCol">
-                      <input id="attack6" name="Attack.6.Weapon Selection" data-subname class="attack display form-control" type="text">
+                    <div class="data-list-input col col-10 subCol">
+                      <select name="Attack.6.Weapon Selection" data-subname class="data-list-input custom-select"></select>
+                      <input id="attack6" name="Attack.6.Weapon" data-subname class="attack data-list-input display form-control" type="text">
                     </div>
                     <div class="col subCol">
                       <div class="row">
@@ -2010,9 +2035,10 @@
               <div class="col col-2">
                 <div class="lbl">Armor</div>
               </div>
-              <div class="col">
+              <div class="data-list-input col">
                 <div class="inputBg"></div>
-                <input id="armor" name="AC Armor Description" data-subname class="display form-control" type="text">
+                <select name="AC Armor Description" data-subname class="data-list-input custom-select"></select>
+                <input id="armor" name="AC Armor Description" data-subname class="data-list-input display form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -2207,9 +2233,10 @@
           <textarea id="bgFeatDesc" name="" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
-            <div class="col">
+            <div class="data-list-input col">
               <div class="inputBg"></div>
-              <input id="bgFeat" name="Background Feature" data-subname class="display noTransform form-control" type="text">
+              <select name="Background Feature" data-subname class="data-list-input custom-select"></select>
+              <input id="bgFeat" name="Background Feature" data-subname class="data-list-input display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2223,9 +2250,10 @@
           <textarea id="feat1Desc" name="Feat Description 1" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
-            <div class="col">
+            <div class="data-list-input col">
               <div class="inputBg"></div>
-              <input id="feat1" name="Feat Name 1" data-subname class="display noTransform form-control" type="text">
+              <select name="Feat Name 1" data-subname class="data-list-input custom-select"></select>
+              <input id="feat1" name="Feat Name 1" data-subname class="data-list-input display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2238,9 +2266,10 @@
           <textarea id="feat9Desc" name="Feat Description 9" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
-            <div class="col">
+            <div class="data-list-input col">
               <div class="inputBg"></div>
-              <input id="feat9" name="Feat Name 9" data-subname class="display noTransform form-control" type="text">
+              <select name="Feat Name 9" data-subname class="data-list-input custom-select"></select>
+              <input id="feat9" name="Feat Name 9" data-subname class="data-list-input display noTransform form-control" type="text">
             </div>
           </div>
         </div>
@@ -2293,8 +2322,10 @@
         <div class="bg"><img src="img/PageHeader3.svg"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center"></div>
         <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
-        <input name="Spell DC 1 Mod" data-subname class="display number center form-control" type="text">
         <div class="hover"></div>
+      </div>
+      <div id="spellsBlock" class="spells">
+        <div class="content"></div>
       </div>
     </div>
   </div>
@@ -2305,7 +2336,7 @@
     <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
     <div class="dropdown-menu"></div>
   </div>
-  <div id="hiddenFields" class="noPrint">
+  <div id="hiddenFields" class="noPrint hidden">
     <input name="Highlighting" data-subname type="text">
     <input name="Unit System" value="imperial" data-subname type="text">
     <input name="Str Remember" value="8,0,0,0,0,0" data-subname type="text">
@@ -2314,22 +2345,20 @@
     <input name="Int Remember" value="8,0,0,0,0,0" data-subname type="text">
     <input name="Wis Remember" value="8,0,0,0,0,0" data-subname type="text">
     <input name="Cha Remember" value="8,0,0,0,0,0" data-subname type="text">
-    <input name="Race Remember" data-subname type="text">
     <input name="Class Features Remember" data-subname type="text">
     <input name="Extra Class Feature Remember" data-subname type="text">
     <input name="SubClass Remember" data-subname type="text">
     <input name="Character Level" data-subname class="number" type="text">
     <input name="Proficiencies Remember" data-subname type="text">
-    <input name="SpellSlotsRemember" data-subname type="text">
     <input name="Speed Remember" data-subname type="text">
 
+    <select name="Background Extra" data-subname></select>
     <input name="AC Armor Weight" data-subname type="text">
     <input name="AC Shield Weight" data-subname type="text">
     <input name="AC Stealth Disadvantage" data-subname type="text">
     <input name="HoS Remember" data-subname type="text">
     <input name="HoSRememberState" data-subname type="text">
     <input name="Size Category" data-subname type="text">
-    <input name="Background Extra" data-subname type="text">
     <input name="MoreProficiencies" data-subname type="text">
     <input name="Proficiency Bonus Modifier" data-subname type="text">
     <input name="Proficiency Bonus Dice" data-subname type="checkbox">
@@ -2344,9 +2373,8 @@
     <input name="CurrentSpells.Stringified" data-subname type="text">
     <input name="CurrentSources.Stringified" data-subname type="text">
     <input name="CurrentEvals.Stringified" data-subname type="text">
-    <input name="AmmoLeftDisplay.Name" data-subname type="text">
-    <input name="AmmoRightDisplay.Name" data-subname type="text">
-    <input name="AmmoLeftDisplay.Name" data-subname type="text">
+    <select name="AmmoLeftDisplay.Name" data-subname></select>
+    <select name="AmmoRightDisplay.Name" data-subname></select>
     <input name="Init Prof" data-subname type="text">
     <input name="Init Bonus" data-subname type="text">
     <input name="Too" data-subname type="text">
@@ -2355,17 +2383,28 @@
     <input name="Too Text" data-subname type="text">
     <input name="Vision" data-subname type="text">
     <input name="Extra.Notes" data-subname type="text">
+    <input name="MakeMobileReady Remember" data-subname type="text">
+    <input name="Notes.Left" data-subname type="text">
+    <input name="Template.extras.ASnotes" data-subname type="text">
+    <input name="Comp.Desc.Name" data-subname type="text">
+    <input name="Sex" data-subname type="text">
+    <input name="Template.extras.ASbackgr" data-subname type="text">
+    <input name="Extra.Magic Item 6" data-subname type="text">
+    <input name="Template.extras.ASoverflow" data-subname type="text">
+    <input name="Template.extras.ASfront" data-subname type="text">
+    <input name="Template.extras.AScomp" data-subname type="text">
+    <input name="BlueTextRemember" data-subname type="text">
 
     <input name="Feat Note 1" data-subname type="text">
-    <input name="Feat Name 2" data-subname type="text">
+    <select name="Feat Name 2" data-subname></select>
     <input name="Feat Note 2" data-subname type="text">
     <input name="Feat Description 2" data-subname type="text">
-    <input name="Feat Name 3" data-subname type="text">
-    <input name="Feat Name 4" data-subname type="text">
-    <input name="Feat Name 5" data-subname type="text">
-    <input name="Feat Name 6" data-subname type="text">
-    <input name="Feat Name 7" data-subname type="text">
-    <input name="Feat Name 8" data-subname type="text">
+    <select name="Feat Name 3" data-subname></select>
+    <select name="Feat Name 4" data-subname></select>
+    <select name="Feat Name 5" data-subname></select>
+    <select name="Feat Name 6" data-subname></select>
+    <select name="Feat Name 7" data-subname></select>
+    <select name="Feat Name 8" data-subname></select>
 
     <input name="All Skills Bonus" data-subname type="text">
     <input name="All ST Bonus" data-subname type="text">
@@ -2395,37 +2434,25 @@
     <input name="Ste Bonus" data-subname type="text">
     <input name="Sur Bonus" data-subname type="text">
 
-    <input name="SpellSlots.CheckboxesSet.lvl1" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl2" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl3" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl4" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl5" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl6" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl7" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl8" data-subname type="text">
-    <input name="SpellSlots.CheckboxesSet.lvl9" data-subname type="text">
-
     <input name="Wildshapes.Info.Uses" data-subname type="text">
     <input name="Wildshapes.Info.Limitations" data-subname type="text">
     <input name="Wildshapes.Info.Duration" data-subname type="text">
     <input name="Wildshapes.Settings" data-subname type="text">
-    <input name="Wildshape.Race.1" data-subname type="text">
-    <input name="Wildshape.Race.2" data-subname type="text">
-    <input name="Wildshape.Race.3" data-subname type="text">
-    <input name="Wildshape.Race.4" data-subname type="text">
+    <select name="Wildshape.Race.1" data-subname></select>
+    <select name="Wildshape.Race.2" data-subname></select>
+    <select name="Wildshape.Race.3" data-subname></select>
+    <select name="Wildshape.Race.4" data-subname></select>
+    <input name="Template.extras.WSfront" data-subname type="text">
 
     <input name="Companion.Remember" data-subname type="text">
-    <input name="Comp.Race" data-subname type="text">
+    <select name="Comp.Race" data-subname></select>
     <input name="Comp.Use.HD.Die" data-subname type="text">
     <input name="Comp.Use.HD.Level" data-subname type="text">
     <input name="Comp.Use.Ability.Con.Mod" data-subname type="text">
     <input name="Comp.Use.HP.Max" data-subname type="text">
-    <input name="Comp.Use.Attack.1.Weapon Selection" data-subname type="text">
-    <input name="Comp.Use.Attack.2.Weapon Selection" data-subname type="text">
-    <input name="Comp.Use.Attack.3.Weapon Selection" data-subname type="text">
-
-    <input name="Template.extras.WSfront" data-subname type="text">
-    <input name="Template.extras.AScomp" data-subname type="text">
+    <select name="Comp.Use.Attack.1.Weapon Selection" data-subname></select>
+    <select name="Comp.Use.Attack.2.Weapon Selection" data-subname></select>
+    <select name="Comp.Use.Attack.3.Weapon Selection" data-subname></select>
 
     <input name="Text.SkillsNames" title="alphabeta" data-subname type="text">
     <input name="Decimal Separator" value="comma" data-subname type="text">
@@ -2435,47 +2462,57 @@
     <input name="Manual Feat Remember" value="No" data-subname type="text">
     <input name="Manual Race Remember" value="No" data-subname type="text">
 
-    <input name="Attack.1.Weapon" data-subname type="text">
     <input name="Attack.1.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.1.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.1.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.1.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.1.Weight" data-subname type="text">
 
-    <input name="Attack.2.Weapon" data-subname type="text">
     <input name="Attack.2.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.2.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.2.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.2.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.2.Weight" data-subname type="text">
 
-    <input name="Attack.3.Weapon" data-subname type="text">
     <input name="Attack.3.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.3.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.3.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.3.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.3.Weight" data-subname type="text">
 
-    <input name="Attack.4.Weapon" data-subname type="text">
     <input name="Attack.4.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.4.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.4.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.4.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.4.Weight" data-subname type="text">
 
-    <input name="Attack.5.Weapon" data-subname type="text">
     <input name="Attack.5.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.5.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.5.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.5.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.5.Weight" data-subname type="text">
 
-    <input name="Attack.6.Weapon" data-subname type="text">
     <input name="Attack.6.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.6.To Hit Bonus" data-subname type="text">
     <input name="BlueText.Attack.6.Damage Bonus" data-subname type="text">
     <input name="BlueText.Attack.6.Damage Die" data-subname type="text">
     <input name="BlueText.Attack.6.Weight" data-subname type="text">
+
+    <input name="Spell DC 1 Mod" data-subname type="text">
+    <input name="Spell DC 2 Mod" data-subname type="text">
+    <input name="SpellSlotsRemember" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl1" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl2" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl3" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl4" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl5" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl6" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl7" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl8" data-subname type="text">
+    <input name="SpellSlots.CheckboxesSet.lvl9" data-subname type="text">
+    <input name="Template.extras.SSfront" data-subname type="text">
+    <input name="Template.extras.SSmore" data-subname type="text">
+    <input name="spells.name.0" data-subname type="text">
   </div>
 
   <style>

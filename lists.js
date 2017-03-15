@@ -17,7 +17,7 @@ initializeLists = function() {
   //FindCompWeapons();
   FindArmor();
   FindBackground();
-  //FindFeats();
+  FindFeats();
   LoadLevelsonStartup();
   UpdateLevelFeatures("all");
   //FindManualOtherWeapons(true);
@@ -110,14 +110,80 @@ setJoAbilityScores = function() {
   saveCookies();
 };
 
-getField = function(event) {
-  var ele = document.getElementsByName(event)[0];
+setJoSpells = function() {
+  var $spellsBlock = $('#hiddenFields')
+  for ( var i = 1; i <= 8; i++ ) {
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
+
+    for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
+    };
+  };
+  if ( classes.primary !== "" ) {
+    GenerateCompleteSpellSheet(classes.primary, true);
+  };
+};
+
+function AddResistance(Input, tooltiptext, replaceThis) {
+	var useful = 0;
+	var tooltipString = Input;
+	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
+		for (var key in DamageTypes) {
+			if (Input.toLowerCase().indexOf(key) !== -1) {
+				useful = DamageTypes[key].index;
+				tooltipString = key.capitalize();
+				break;
+			}
+		}
+	};
+	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
+	var doReplace = false;
+	for (var n = 1; n <= 2; n++) {
+		for (var k = 1; k < 7; k++) {
+			var next = tDoc.getField("Resistance Damage Type " + k);
+			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
+				k = 7;
+				n = 3;
+			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
+				doReplace = true;
+			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
+        console.log(Input);
+        PickDropdown("Resistance Damage Type " + k, Input);
+				if (!doReplace) next.userName = tempString;
+				k = 7;
+			}
+		}
+	}
+};
+
+getField = function(field) {
+  var ele = document.getElementsByName(field)[0];
 
   if ( !ele ) {
-    if ( event === "Highlighting" ) {
+    if ( field === "Highlighting" ) {
       return "";
     };
-    console.log("getField: " + event);
+    console.log("getField: " + field);
     return false;
   };
 
@@ -126,13 +192,21 @@ getField = function(event) {
   } else {
     ele.title = ele.userName;
   };
-
   if ( ele.submitName === undefined ) {
     ele.submitName = ele.getAttribute("data-subname");
   } else {
     ele.setAttribute("data-subname", ele.submitName);
   };
-
+  if ( ele.currentValueIndices === undefined ) {
+    ele.currentValueIndices = ele.selectedIndex;
+  } else if ( ele.currentValueIndices < 1 ) {
+    //console.log(field + " -> " + ele.currentValueIndices);
+  } else {
+    //if ( field === "Resistance Damage Type 1" ) {
+      console.log(field + " -> " + ele.currentValueIndices);
+    //};
+    //ele.selectedIndex = ele.currentValueIndices;
+  };
   ele.isBoxChecked = function() {
     return Number(ele.checked);
   };
@@ -140,19 +214,26 @@ getField = function(event) {
     ele.checked = value;
   };
   ele.buttonGetCaption = function() {};
+  ele.buttonSetCaption = function() {};
   ele.setItems = function(value) {
-    $(ele).autocomplete({ source: value });
+    $(ele).html('');
+    $.each(value, function(i, val) {
+      $(ele).append('<option value="' + val + '">' + val + '</option>');
+    });
   };
   ele.setAction = function(type, value) {
     if ( type === "Calculate" ) {
-      calculateNow(event, value);
+      calculateNow(field, value);
     } else {
-      console.log("setAction " + type + ": " + event + " -> " + value);
+      console.log("setAction " + type + ": " + field + " -> " + value);
     };
   };
+  ele.setFocus = function() {};
   ele.clearItems = function() {};
+  ele.rect = "";
+  ele.page = 0;
 
-  //console.log(event);
+  //console.log(field);
   //console.log(ele);
   return ele;
 };
@@ -196,24 +277,21 @@ calculateNow = function(event, value) {
   };
 };
 
-getMenu = function(menuname) {
-	try {
-		var temp = app.popUpMenuEx.apply(app, Menus[menuname]);
-	} catch (err) {
-		var temp = null;
-	}
-	temp = temp === null ? "nothing#toreport" : temp;
-	temp = temp.toLowerCase();
-	temp = temp.split("#");
-  console.log(temp);
-	return temp;
-};
-
-//Object.prototype.toSource = function() { return $.extend({}, this); };
 Hide = function() {};
 DontPrint = function() {};
 Show = function() {};
+amendBookmarks = function() {};
 testSource = function() { return false; };
+getTemplate = function(value) {
+  var temp = {};
+  temp.spawn = function(pageNr, bool1, bool2) {
+    //console.log(pageNr);
+  };
+  return temp;
+};
+deletePages = function(page) {
+  //console.log(page);
+};
 
 app = {};
 app.thermometer = {};
@@ -229,7 +307,7 @@ app.alert = function(alert) {
   ').appendTo('#alerts');
   setTimeout(function() {
     $($alert).alert('close');
-  }, (10 * 1000));*/
+  }, (5 * 1000));*/
 };
 app.execDialog = function() {};
 
@@ -251,21 +329,3 @@ $(function() { // --------------------------------------------------------------
   };
   UpdateDropdown();
 }); // ----------------------------------------------------------------------------------
-
-/*
-for ( var key in RaceList ) {
-  if ( RaceList.hasOwnProperty(key) ) {
-    $('#race').append('<option value="' + key + '">' + RaceList[key].name + '</option>');
-  };
-};
-for ( var key in ClassList ) {
-  if ( ClassList.hasOwnProperty(key) ) {
-    $('#class').append('<option value="' + key + '">' + ClassList[key].name + '</option>');
-  };
-};
-for ( var key in BackgroundList ) {
-  if ( BackgroundList.hasOwnProperty(key) ) {
-    $('#background').append('<option value="' + key + '">' + BackgroundList[key].name + '</option>');
-  };
-};
-*/
