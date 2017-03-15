@@ -29,6 +29,10 @@ var listsVariables = [
   listsUrl + "_variables/ListsClassesUA.js",
 ];
 
+for ( var i = 0; i < listsFunctions.length; i++ ) {
+  console.log(listsFunctions[i]);
+};
+
 /*
 $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
   .done(function( script, textStatus ) {
