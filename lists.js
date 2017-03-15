@@ -6,6 +6,50 @@ bookmarkRoot = {
 };
 resetForm = function() {};
 
+var listsUrl = "https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/";
+var listsFunctions = [
+  listsUrl + "_functions/Functions.js",
+  listsUrl + "_functions/Functions2.js",
+  listsUrl + "_functions/FunctionsResources.js",
+  listsUrl + "_functions/FunctionsSpells.js",
+  listsUrl + "_functions/AbilityScores.js",
+];
+var listsVariables = [
+  listsUrl + "_variables/Lists.js",
+  listsUrl + "_variables/ListsSources.js",
+  listsUrl + "_variables/ListsRaces.js",
+  listsUrl + "_variables/ListsRacesUA.js",
+  listsUrl + "_variables/ListsClasses.js",
+  listsUrl + "_variables/ListsClassesUAArtificer.js",
+  listsUrl + "_variables/ListsBackgrounds.js",
+  listsUrl + "_variables/ListsFeats.js",
+  listsUrl + "_variables/ListsSpells.js",
+  listsUrl + "_variables/ListsGear.js",
+  listsUrl + "_variables/ListsCreatures.js",
+  listsUrl + "_variables/ListsClassesUA.js",
+];
+
+/*
+$.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
+  .done(function( script, textStatus ) {
+    $('#alerts').append('\
+      <div class="alert alert-success alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">' + textStatus + '</div>\
+      </div>\
+    ');
+    debug(ClassList.rogue.subclasses);
+  })
+  .fail(function( jqxhr, settings, exception ) {
+    $('#alerts').append('\
+      <div class="alert alert-warning alert-dismissible fade show boxShadow" role="alert">\
+        <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+        <div class="content">Triggered ajaxError handler.</div>\
+      </div>\
+    ');
+  });
+*/
+
 initializeLists = function() {
   SetStringifieds();
   setListsUnitSystem("imperial");
