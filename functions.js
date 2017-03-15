@@ -28,12 +28,12 @@ $(function() { // --------------------------------------------------------------
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
   if ( !!getAccessToken() ) {
-    if ( !!Dropbox ) {
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    if ( dbx === undefined ) {
       $('#fileMenu').hide();
       setAlert('warning', 'Dropbox features are currently unavailable.');
       return;
     };
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
     listCharacters();
     //setAlert('success', 'Success! You have connected to Dropbox.');
