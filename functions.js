@@ -85,7 +85,7 @@ $(function() { // --------------------------------------------------------------
   });
   $('#showBtn').click(function() {
     setCharacter();
-    calculateAll();
+    //calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
@@ -872,24 +872,6 @@ function deleteCookie(name) {
 };
 
 (function(window) {
-  window.onerror = function(msg, url, lineNo, columnNo, error) {
-    var string = msg.toLowerCase();
-    var substring = "script error";
-    if (string.indexOf(substring) > -1){
-      console.error('Script Error: See Browser Console for Detail');
-    } else {
-      var message = [
-        'Message: ' + msg,
-        'URL: ' + url,
-        'Line: ' + lineNo,
-        'Column: ' + columnNo,
-        'Error object: ' + JSON.stringify(error)
-      ].join(' - ');
-      console.error(message);
-    };
-    return true;
-  };
-
   window.utils = {
     parseQueryString: function(str) {
       var ret = Object.create(null);
