@@ -29,7 +29,7 @@ $(function() { // --------------------------------------------------------------
 
   if ( !!getAccessToken() ) {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    if ( dbx === undefined ) {
+    if ( !dbx ) {
       $('#fileMenu').hide();
       setAlert('warning', 'Dropbox features are currently unavailable.');
       return;
