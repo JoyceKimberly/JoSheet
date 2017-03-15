@@ -187,7 +187,7 @@ function Value(field, FldValue, tooltip) {
     ele.setAttribute('title', tooltip);
   };
 
-  $(ele).trigger('change');
+  //$(ele).trigger('change');
 };
 
 calculateNow = function(event, value) {
