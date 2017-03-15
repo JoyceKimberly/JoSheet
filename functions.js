@@ -28,7 +28,11 @@ $(function() { // --------------------------------------------------------------
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
 
   if ( !!getAccessToken() ) {
-    dbx = new Dropbox({ accessToken: getAccessToken() });
+    if ( Dropbox === undefined ) {
+      setAlert('warning', 'Dropbox features are currently unavailable.');
+      return;
+    };
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
     $('#authLink').hide();
     listCharacters();
     //setAlert('success', 'Success! You have connected to Dropbox.');
