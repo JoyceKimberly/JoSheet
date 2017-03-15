@@ -18,14 +18,16 @@ var listsVariables = [
   listsUrl + "_variables/Lists.js",
   listsUrl + "_variables/ListsSources.js",
   listsUrl + "_variables/ListsRaces.js",
-  listsUrl + "_variables/ListsRacesUA.js",
   listsUrl + "_variables/ListsClasses.js",
-  listsUrl + "_variables/ListsClassesUAArtificer.js",
   listsUrl + "_variables/ListsBackgrounds.js",
   listsUrl + "_variables/ListsFeats.js",
   listsUrl + "_variables/ListsSpells.js",
   listsUrl + "_variables/ListsGear.js",
   listsUrl + "_variables/ListsCreatures.js",
+];
+var listsVariablesExtra = [
+  listsUrl + "_variables/ListsRacesUA.js",
+  listsUrl + "_variables/ListsClassesUAArtificer.js",
   listsUrl + "_variables/ListsClassesUA.js",
 ];
 
