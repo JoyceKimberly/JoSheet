@@ -29,11 +29,6 @@ $(function() { // --------------------------------------------------------------
 
   if ( !!getAccessToken() ) {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    if ( !dbx ) {
-      $('#fileMenu').hide();
-      setAlert('warning', 'Dropbox features are currently unavailable.');
-      return;
-    };
     $('#authLink').hide();
     listCharacters();
     //setAlert('success', 'Success! You have connected to Dropbox.');
