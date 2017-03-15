@@ -27,8 +27,8 @@ var listsVariables = [
 ];
 var listsVariablesExtra = [
   listsUrl + "_variables/ListsRacesUA.js",
-  listsUrl + "_variables/ListsClassesUAArtificer.js",
   listsUrl + "_variables/ListsClassesUA.js",
+  listsUrl + "_variables/ListsClassesUAArtificer.js",
 ];
 
 for ( var i = 0; i < listsFunctions.length; i++ ) {
