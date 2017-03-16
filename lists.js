@@ -83,6 +83,8 @@ Value = function(field, FldValue, tooltip) {
     ele.value = +(FldValue);
   } else if ( ele.classList.contains('custom-select') ) {
     ele.selectedIndex = FldValue;
+  } else if ( FldValue === "Short Rest" ) {
+    ele.value = "SR";
   } else {
     ele.value = FldValue;
   };
