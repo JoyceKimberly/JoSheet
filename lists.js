@@ -7,23 +7,217 @@ tDoc.bookmarkRoot = {
   }],
 };
 
-app = {};
-app.thermometer = {};
-app.thermometer.begin = function() {},
-app.thermometer.end = function() {},
-app.alert = function(alert) {
-  /*var type = "info";
-  var $alert = $('\
-    <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
-      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
-      <div class="content"><h6>' + alert.cTitle + '</h6>' + alert.cMsg.replace(/\n/g, "<br>") + '</div>\
-    </div>\
-  ').appendTo('#alerts');
-  setTimeout(function() {
-    $($alert).alert('close');
-  }, (5 * 1000));*/
-};
-app.execDialog = function() {};
+var listsUrl = "https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/";
+var lists = [
+  listsUrl + "_functions/Functions.js",
+  listsUrl + "_functions/Functions2.js",
+  listsUrl + "_functions/FunctionsResources.js",
+  listsUrl + "_functions/FunctionsSpells.js",
+  listsUrl + "_functions/AbilityScores.js",
+  listsUrl + "_variables/Lists.js",
+  listsUrl + "_variables/ListsSources.js",
+  listsUrl + "_variables/ListsRaces.js",
+  listsUrl + "_variables/ListsClasses.js",
+  listsUrl + "_variables/ListsBackgrounds.js",
+  listsUrl + "_variables/ListsFeats.js",
+  listsUrl + "_variables/ListsSpells.js",
+  listsUrl + "_variables/ListsGear.js",
+  listsUrl + "_variables/ListsCreatures.js",
+  listsUrl + "_variables/ListsRacesUA.js",
+  listsUrl + "_variables/ListsClassesUA.js",
+  listsUrl + "_variables/ListsClassesUAArtificer.js",
+];
+
+$.ajax({ async: false, url: listsUrl + "_functions/Functions.js" });
+$.ajax({ async: false, url: listsUrl + "_functions/Functions2.js" });
+$.ajax({ async: false, url: listsUrl + "_functions/FunctionsResources.js" });
+$.ajax({ async: false, url: listsUrl + "_functions/FunctionsSpells.js" });
+$.ajax({ async: false, url: listsUrl + "_functions/AbilityScores.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/Lists.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsSources.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsRaces.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsClasses.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsBackgrounds.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsFeats.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsSpells.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsGear.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsCreatures.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsRacesUA.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsClassesUA.js" });
+$.ajax({ async: false, url: listsUrl + "_variables/ListsClassesUAArtificer.js" })
+.done(function() {
+  allowCalc = true;
+});
+
+initializeLists = function() { if ( allowCalc ) {
+  SetStringifieds();
+  setListsUnitSystem("imperial");
+  UAstartupCode();
+  FindClasses();
+  FindRace();
+  //FindCompRace();
+  FindWeapons();
+  //FindCompWeapons();
+  FindArmor();
+  FindBackground();
+  FindFeats();
+  LoadLevelsonStartup();
+  UpdateLevelFeatures("all");
+  //FindManualOtherWeapons(true);
+  ApplyProficiencies(true);
+  UpdateTooltips();
+  //SetRichTextFields();
+  setJoAbilityScores();
+  //console.log(classes);
+}};
+
+setJoAbilityScores = function() { if ( allowCalc ) {
+  for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
+    var AbiI = i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i];
+    var tempArray = What(AbiI + " Remember").split(",");
+    AbilityScores.current[AbiI].base = tempArray[0];
+    AbilityScores.current[AbiI].race = tempArray[1] ? tempArray[1] : "0";
+    AbilityScores.current[AbiI].extra = tempArray[2] ? tempArray[2] : "0";
+    AbilityScores.current[AbiI].extra2 = tempArray[3] ? tempArray[3] : "0";
+    AbilityScores.current[AbiI].magic = tempArray[4] ? tempArray[4] : "0";
+    AbilityScores.current[AbiI].feat = tempArray[5] ? tempArray[5] : "0";
+  };
+
+  var scores = {
+    "oStr" : ASround(What("Str")),
+    "oDex" : ASround(What("Dex")),
+    "oCon" : ASround(What("Con")),
+    "oInt" : ASround(What("Int")),
+    "oWis" : ASround(What("Wis")),
+    "oCha" : ASround(What("Cha")),
+    //"oHoS" : ASround(What("HoS")),
+    "bStr" : AbilityScores.current.Str.base,
+    "bDex" : AbilityScores.current.Dex.base,
+    "bCon" : AbilityScores.current.Con.base,
+    "bInt" : AbilityScores.current.Int.base,
+    "bWis" : AbilityScores.current.Wis.base,
+    "bCha" : AbilityScores.current.Cha.base,
+    //"bHoS" : AbilityScores.current.HoS.base,
+    "rStr" : AbilityScores.current.Str.race,
+    "rDex" : AbilityScores.current.Dex.race,
+    "rCon" : AbilityScores.current.Con.race,
+    "rInt" : AbilityScores.current.Int.race,
+    "rWis" : AbilityScores.current.Wis.race,
+    "rCha" : AbilityScores.current.Cha.race,
+    //"rHoS" : AbilityScores.current.HoS.race,
+    "eStr" : AbilityScores.current.Str.extra,
+    "eDex" : AbilityScores.current.Dex.extra,
+    "eCon" : AbilityScores.current.Con.extra,
+    "eInt" : AbilityScores.current.Int.extra,
+    "eWis" : AbilityScores.current.Wis.extra,
+    "eCha" : AbilityScores.current.Cha.extra,
+    //"eHoS" : AbilityScores.current.HoS.extra,
+    "EStr" : AbilityScores.current.Str.extra2,
+    "EDex" : AbilityScores.current.Dex.extra2,
+    "ECon" : AbilityScores.current.Con.extra2,
+    "EInt" : AbilityScores.current.Int.extra2,
+    "EWis" : AbilityScores.current.Wis.extra2,
+    "ECha" : AbilityScores.current.Cha.extra2,
+    //"EHoS" : AbilityScores.current.HoS.extra2,
+    "mStr" : AbilityScores.current.Str.magic,
+    "mDex" : AbilityScores.current.Dex.magic,
+    "mCon" : AbilityScores.current.Con.magic,
+    "mInt" : AbilityScores.current.Int.magic,
+    "mWis" : AbilityScores.current.Wis.magic,
+    "mCha" : AbilityScores.current.Cha.magic,
+    //"mHoS" : AbilityScores.current.HoS.magic,
+    "fStr" : AbilityScores.current.Str.feat,
+    "fDex" : AbilityScores.current.Dex.feat,
+    "fCon" : AbilityScores.current.Con.feat,
+    "fInt" : AbilityScores.current.Int.feat,
+    "fWis" : AbilityScores.current.Wis.feat,
+    "fCha" : AbilityScores.current.Cha.feat,
+    //"fHoS" : AbilityScores.current.HoS.feat,
+  };
+
+  var totals = {
+    "tStr" : ASCalcTotal(scores, "Str"),
+    "tDex" : ASCalcTotal(scores, "Dex"),
+    "tCon" : ASCalcTotal(scores, "Con"),
+    "tInt" : ASCalcTotal(scores, "Int"),
+    "tWis" : ASCalcTotal(scores, "Wis"),
+    "tCha" : ASCalcTotal(scores, "Cha"),
+    //"tHoS" : ASCalcTotal(scores, "HoS"),
+  };
+
+  $.each(AbilityScores.abbreviations, function(key, value) {
+    var total = Number(totals['t' + value]);
+    $('#' + value.toLowerCase() + 'Attr').val(total);
+    file.character[value.toLowerCase() + 'Attr'] = total;
+  });
+  saveCookies();
+}};
+
+setJoSpells = function() { if ( allowCalc ) {
+  var $spellsBlock = $('#hiddenFields')
+  for ( var i = 1; i <= 8; i++ ) {
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
+
+    for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
+    };
+  };
+  if ( classes.primary !== "" ) {
+    GenerateCompleteSpellSheet(classes.primary, true);
+  };
+}};
+
+AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
+	var useful = 0;
+	var tooltipString = Input;
+	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
+		for (var key in DamageTypes) {
+			if (Input.toLowerCase().indexOf(key) !== -1) {
+				useful = DamageTypes[key].index;
+				tooltipString = key.capitalize();
+				break;
+			}
+		}
+	};
+	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
+	var doReplace = false;
+	for (var n = 1; n <= 2; n++) {
+		for (var k = 1; k < 7; k++) {
+			var next = tDoc.getField("Resistance Damage Type " + k);
+			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
+				k = 7;
+				n = 3;
+			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
+				doReplace = true;
+			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
+        console.log(Input);
+        PickDropdown("Resistance Damage Type " + k, Input);
+				if (!doReplace) next.userName = tempString;
+				k = 7;
+			}
+		}
+	}
+}};
 
 tDoc.getField = function(field) {
   var ele = document.getElementsByName(field)[0];
@@ -87,263 +281,82 @@ tDoc.getField = function(field) {
   return ele;
 };
 
-var listsUrl = "https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/";
-var lists = [
-  listsUrl + "_functions/Functions.js",
-  listsUrl + "_functions/Functions2.js",
-  listsUrl + "_functions/FunctionsResources.js",
-  listsUrl + "_functions/FunctionsSpells.js",
-  listsUrl + "_functions/AbilityScores.js",
-  listsUrl + "_variables/Lists.js",
-  listsUrl + "_variables/ListsSources.js",
-  listsUrl + "_variables/ListsRaces.js",
-  listsUrl + "_variables/ListsClasses.js",
-  listsUrl + "_variables/ListsBackgrounds.js",
-  listsUrl + "_variables/ListsFeats.js",
-  listsUrl + "_variables/ListsSpells.js",
-  listsUrl + "_variables/ListsGear.js",
-  listsUrl + "_variables/ListsCreatures.js",
-  listsUrl + "_variables/ListsRacesUA.js",
-  listsUrl + "_variables/ListsClassesUA.js",
-  listsUrl + "_variables/ListsClassesUAArtificer.js",
-];
+function What(field) {
+  if ( field === "HD1 Die" ) {
+    var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
+    return value.split("+")[0].replace("d", "");
+  } else {
+    return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  };
+}
 
-var loadLists = lists.map(function(url) {
-  return $.getScript(url);
-});
-$.when.apply($, loadLists).then(function() {
-  console.log(arguments); // logs all results, arguments is the results here
-  return [].slice.call(arguments);
-}).then(function(arr) {
-  allowCalc = true;
+function Value(field, FldValue, tooltip) {
+  var ele = document.getElementsByName(field)[0];
 
-  function What(field) {
-    if ( field === "HD1 Die" ) {
-      var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
-      return value.split("+")[0].replace("d", "");
-    } else {
-      return tDoc.getField(field) ? tDoc.getField(field).value : "";
-    };
-  }
+  if (!ele) {
+    console.log(field + " -> " + JSON.stringify(FldValue) );
+    return false;
+  };
+  if ( ele.classList.contains('number') ) {
+    ele.value = +(FldValue);
 
-  function Value(field, FldValue, tooltip) {
-    var ele = document.getElementsByName(field)[0];
+  } else if ( ele.classList.contains('custom-select') ) {
+    ele.selectedIndex = FldValue;
 
-    if (!ele) {
-      console.log(field + " -> " + JSON.stringify(FldValue) );
-      return false;
-    };
-    if ( ele.classList.contains('number') ) {
-      ele.value = +(FldValue);
-
-    } else if ( ele.classList.contains('custom-select') ) {
-      ele.selectedIndex = FldValue;
-
-    } else {
-      ele.value = FldValue;
-    };
-
-    if ( tooltip !== undefined ) {
-      ele.setAttribute('title', tooltip);
-    };
+  } else {
+    ele.value = FldValue;
   };
 
-  initializeLists = function() {
-    SetStringifieds();
-    setListsUnitSystem("imperial");
-    UAstartupCode();
-    FindClasses();
-    FindRace();
-    //FindCompRace();
-    FindWeapons();
-    //FindCompWeapons();
-    FindArmor();
-    FindBackground();
-    FindFeats();
-    LoadLevelsonStartup();
-    UpdateLevelFeatures("all");
-    //FindManualOtherWeapons(true);
-    ApplyProficiencies(true);
-    UpdateTooltips();
-    //SetRichTextFields();
-    setJoAbilityScores();
-    //console.log(classes);
+  if ( tooltip !== undefined ) {
+    ele.setAttribute('title', tooltip);
   };
+};
 
-  setJoAbilityScores = function() {
-    for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
-      var AbiI = i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i];
-      var tempArray = What(AbiI + " Remember").split(",");
-      AbilityScores.current[AbiI].base = tempArray[0];
-      AbilityScores.current[AbiI].race = tempArray[1] ? tempArray[1] : "0";
-      AbilityScores.current[AbiI].extra = tempArray[2] ? tempArray[2] : "0";
-      AbilityScores.current[AbiI].extra2 = tempArray[3] ? tempArray[3] : "0";
-      AbilityScores.current[AbiI].magic = tempArray[4] ? tempArray[4] : "0";
-      AbilityScores.current[AbiI].feat = tempArray[5] ? tempArray[5] : "0";
-    };
-
-    var scores = {
-      "oStr" : ASround(What("Str")),
-      "oDex" : ASround(What("Dex")),
-      "oCon" : ASround(What("Con")),
-      "oInt" : ASround(What("Int")),
-      "oWis" : ASround(What("Wis")),
-      "oCha" : ASround(What("Cha")),
-      //"oHoS" : ASround(What("HoS")),
-      "bStr" : AbilityScores.current.Str.base,
-      "bDex" : AbilityScores.current.Dex.base,
-      "bCon" : AbilityScores.current.Con.base,
-      "bInt" : AbilityScores.current.Int.base,
-      "bWis" : AbilityScores.current.Wis.base,
-      "bCha" : AbilityScores.current.Cha.base,
-      //"bHoS" : AbilityScores.current.HoS.base,
-      "rStr" : AbilityScores.current.Str.race,
-      "rDex" : AbilityScores.current.Dex.race,
-      "rCon" : AbilityScores.current.Con.race,
-      "rInt" : AbilityScores.current.Int.race,
-      "rWis" : AbilityScores.current.Wis.race,
-      "rCha" : AbilityScores.current.Cha.race,
-      //"rHoS" : AbilityScores.current.HoS.race,
-      "eStr" : AbilityScores.current.Str.extra,
-      "eDex" : AbilityScores.current.Dex.extra,
-      "eCon" : AbilityScores.current.Con.extra,
-      "eInt" : AbilityScores.current.Int.extra,
-      "eWis" : AbilityScores.current.Wis.extra,
-      "eCha" : AbilityScores.current.Cha.extra,
-      //"eHoS" : AbilityScores.current.HoS.extra,
-      "EStr" : AbilityScores.current.Str.extra2,
-      "EDex" : AbilityScores.current.Dex.extra2,
-      "ECon" : AbilityScores.current.Con.extra2,
-      "EInt" : AbilityScores.current.Int.extra2,
-      "EWis" : AbilityScores.current.Wis.extra2,
-      "ECha" : AbilityScores.current.Cha.extra2,
-      //"EHoS" : AbilityScores.current.HoS.extra2,
-      "mStr" : AbilityScores.current.Str.magic,
-      "mDex" : AbilityScores.current.Dex.magic,
-      "mCon" : AbilityScores.current.Con.magic,
-      "mInt" : AbilityScores.current.Int.magic,
-      "mWis" : AbilityScores.current.Wis.magic,
-      "mCha" : AbilityScores.current.Cha.magic,
-      //"mHoS" : AbilityScores.current.HoS.magic,
-      "fStr" : AbilityScores.current.Str.feat,
-      "fDex" : AbilityScores.current.Dex.feat,
-      "fCon" : AbilityScores.current.Con.feat,
-      "fInt" : AbilityScores.current.Int.feat,
-      "fWis" : AbilityScores.current.Wis.feat,
-      "fCha" : AbilityScores.current.Cha.feat,
-      //"fHoS" : AbilityScores.current.HoS.feat,
-    };
-
-    var totals = {
-      "tStr" : ASCalcTotal(scores, "Str"),
-      "tDex" : ASCalcTotal(scores, "Dex"),
-      "tCon" : ASCalcTotal(scores, "Con"),
-      "tInt" : ASCalcTotal(scores, "Int"),
-      "tWis" : ASCalcTotal(scores, "Wis"),
-      "tCha" : ASCalcTotal(scores, "Cha"),
-      //"tHoS" : ASCalcTotal(scores, "HoS"),
-    };
-
-    $.each(AbilityScores.abbreviations, function(key, value) {
-      var total = Number(totals['t' + value]);
-      $('#' + value.toLowerCase() + 'Attr').val(total);
-      file.character[value.toLowerCase() + 'Attr'] = total;
-    });
-    saveCookies();
+calculateNow = function(event, value) {
+  if ( event === "AC Armor Bonus" ) {
+    $('[name="AC"]').trigger('focusout');
+  } else {
+    //console.log("Calculate: " + event + " -> " + value);
   };
+};
 
-  setJoSpells = function() {
-    var $spellsBlock = $('#hiddenFields')
-    for ( var i = 1; i <= 8; i++ ) {
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
-
-      for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
-        $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
-        $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
-      };
-    };
-    if ( classes.primary !== "" ) {
-      GenerateCompleteSpellSheet(classes.primary, true);
-    };
+Hide = function() {};
+DontPrint = function() {};
+Show = function() {};
+resetForm = function() {};
+amendBookmarks = function() {};
+testSource = function() { return false; };
+getTemplate = function(value) {
+  var temp = {};
+  temp.spawn = function(pageNr, bool1, bool2) {
+    //console.log(pageNr);
   };
+  return temp;
+};
+deletePages = function(page) {
+  //console.log(page);
+};
 
-  function AddResistance(Input, tooltiptext, replaceThis) {
-  	var useful = 0;
-  	var tooltipString = Input;
-  	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
-  		for (var key in DamageTypes) {
-  			if (Input.toLowerCase().indexOf(key) !== -1) {
-  				useful = DamageTypes[key].index;
-  				tooltipString = key.capitalize();
-  				break;
-  			}
-  		}
-  	};
-  	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
-  	var doReplace = false;
-  	for (var n = 1; n <= 2; n++) {
-  		for (var k = 1; k < 7; k++) {
-  			var next = tDoc.getField("Resistance Damage Type " + k);
-  			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
-  				k = 7;
-  				n = 3;
-  			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
-  				doReplace = true;
-  			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
-          console.log(Input);
-          PickDropdown("Resistance Damage Type " + k, Input);
-  				if (!doReplace) next.userName = tempString;
-  				k = 7;
-  			}
-  		}
-  	}
-  };
+app = {};
+app.thermometer = {};
+app.thermometer.begin = function() {},
+app.thermometer.end = function() {},
+app.execDialog = function() {};
+app.alert = function(alert) {
+  /*var type = "info";
+  var $alert = $('\
+    <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
+      <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
+      <div class="content"><h6>' + alert.cTitle + '</h6>' + alert.cMsg.replace(/\n/g, "<br>") + '</div>\
+    </div>\
+  ').appendTo('#alerts');
+  setTimeout(function() {
+    $($alert).alert('close');
+  }, (5 * 1000));*/
+};
 
-  calculateNow = function(event, value) {
-    if ( event === "AC Armor Bonus" ) {
-      $('[name="AC"]').trigger('focusout');
-    } else {
-      //console.log("Calculate: " + event + " -> " + value);
-    };
-  };
-
-  Hide = function() {};
-  DontPrint = function() {};
-  Show = function() {};
-  resetForm = function() {};
-  amendBookmarks = function() {};
-  testSource = function() { return false; };
-  getTemplate = function(value) {
-    var temp = {};
-    temp.spawn = function(pageNr, bool1, bool2) {
-      //console.log(pageNr);
-    };
-    return temp;
-  };
-  deletePages = function(page) {
-    //console.log(page);
-  };
-
-  $(function() { // -----------------------------------------------------------------------
+$(function() { // -----------------------------------------------------------------------
+  if ( allowCalc ) {
     $.each(AbilityScores.abbreviations, function(key, value) {
       $('.abiDrop').append('<option value="' + value + ' Mod">' + value + '</option>');
     });
@@ -360,5 +373,5 @@ $.when.apply($, loadLists).then(function() {
       };
     };
     UpdateDropdown();
-  }); // ----------------------------------------------------------------------------------
-});
+  };
+}); // ----------------------------------------------------------------------------------
