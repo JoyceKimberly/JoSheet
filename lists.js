@@ -7,6 +7,7 @@ tDoc.bookmarkRoot = {
 };
 
 tDoc.getField = function(field) {
+  event = Object.create(event);
   var ele = document.getElementsByName(field)[0];
   var $ele = $(ele);
   
