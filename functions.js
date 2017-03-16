@@ -496,7 +496,7 @@ $(function() { // --------------------------------------------------------------
   function setJoHp() { if ( allowCalc ) {
     var $dit = $('[name="HP Max"]');
     SetHPTooltip();
-    $dit.val($dit.val()).trigger('change');
+    $dit.trigger('change');
   }};
 
   $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
@@ -560,6 +560,19 @@ $(function() { // --------------------------------------------------------------
     $dit.val(event.value).trigger('change');
   }});
 
+  $('.feat').on('focusout', function() { if ( allowCalc ) {
+    var $dit = $(this);
+    event = Object.create(event);
+    ApplyFeat($dit.val(), $dit.attr('name').slice(-1));
+  }});
+
+  $('[name="Background Feature"]').on('focusout', setJoBgF);
+  function setJoBgF() { if ( allowCalc ) {
+    var $dit = $('[name="Background Feature"]');
+    event = Object.create(event);
+    ApplyBackgroundFeature($dit.val());
+  }};
+
   calculateAll = function() { if ( allowCalc ) {
     setJoLevel();
     setJoRace();
@@ -572,7 +585,8 @@ $(function() { // --------------------------------------------------------------
     ApplyShield($('#shield').val());
     setJoAcDex();
     setJoHp();
-    $('.save, .skill, .hitDie, .attack').trigger('focusout');
+    $('.save, .skill, .hitDie, .attack, .feat').trigger('focusout');
+    setJoBgF();
     setJoAc();
     ApplyProficiencies(true);
     setJoSpells();

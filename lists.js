@@ -113,13 +113,13 @@ initializeLists = function() { if ( allowCalc ) {
   //console.log(classes);
 }};
 
-calculateNow = function(event, value) {
+calculateNow = function(event, value) { if ( allowCalc ) {
   if ( event === "AC Armor Bonus" ) {
     $('[name="AC"]').trigger('focusout');
   } else {
     //console.log("Calculate: " + event + " -> " + value);
   };
-};
+}};
 
 setJoAbilityScores = function() { if ( allowCalc ) {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
