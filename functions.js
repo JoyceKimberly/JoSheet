@@ -724,11 +724,18 @@ $(function() { // --------------------------------------------------------------
       });
   };
 
+  isInWebAppiOS = (window.navigator.standalone == true);
+  isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
+  
   function saveFile() {
     console.log(file);
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-    window.open(url, '_blank');
+    
+    if ( !isInWebAppiOS && !isInWebAppChrome ) {
+      window.open(url, '_blank');
+    }; 
+    
     var filename = file.character["Name"] + ".txt";
     dbx.filesSaveUrl({ path: '/Apps/JoSheet/' + filename, url: url })
       .then(function(response) {
