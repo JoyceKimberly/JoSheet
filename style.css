@@ -627,6 +627,7 @@ button .fa-stack .fa-stack-2x {
   display: inline-block;
 }
 select.data-list-input {
+  display: none;
   color: rgba(0, 0, 0, 0);
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -641,7 +642,10 @@ select.data-list-input {
 input.data-list-input {
   width: calc(100% - 20px) !important;
 }
-div.data-list-input:hover select.data-list-input {
+div.data-list-input:hover select.data-list-input,
+div.data-list-input:focus select.data-list-input,
+div.data-list-input:active select.data-list-input {
+  display: inline-block;
   color: rgba(105, 20, 229, 0);
   border: 1px solid rgba(77, 15, 167, 0.2);
   background-color: rgba(105, 20, 229, 0.2);
