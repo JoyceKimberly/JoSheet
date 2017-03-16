@@ -624,7 +624,7 @@ button .fa-stack .fa-stack-2x {
   display: none;
 }
 .inputMode select.data-list-input {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 select.data-list-input {
   display: none;
