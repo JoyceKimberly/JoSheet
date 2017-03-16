@@ -9,6 +9,7 @@ tDoc.bookmarkRoot = {
 tDoc.getField = function(field) {
   var ele = document.getElementsByName(field)[0];
   var $ele = $(ele);
+  
   if ( !ele ) {
     if ( field === "Highlighting" ) {
       return "";
@@ -59,6 +60,10 @@ tDoc.getField = function(field) {
   ele.clearItems = function() {};
   ele.rect = "";
   ele.page = 0;
+  
+  if ( ele.value === "Short Rest" ) {
+    ele.value = "SR";
+  };
   //console.log(field);
   //console.log(ele);
   return ele;
@@ -75,19 +80,22 @@ What = function(field) {
 
 Value = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
+  
   if (!ele) {
     console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
+  
   if ( ele.classList.contains('number') ) {
     ele.value = +(FldValue);
+    
   } else if ( ele.classList.contains('custom-select') ) {
     ele.selectedIndex = FldValue;
-  } else if ( FldValue === "Short Rest" ) {
-    ele.value = "SR";
+    
   } else {
     ele.value = FldValue;
   };
+  
   if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
   };
