@@ -554,7 +554,7 @@ $(function() { // --------------------------------------------------------------
     $dit.val(event.value).trigger('change');
   }});
 
-  calculateAll = function() {
+  calculateAll = function() { if ( allowCalc ) {
     setJoLevel();
     setJoRace();
     setJoClass();
@@ -570,14 +570,14 @@ $(function() { // --------------------------------------------------------------
     setJoAc();
     ApplyProficiencies(true);
     setJoSpells();
-  };
+  }};
 
   $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     $progressBar.show();
 
-  }).on('click', '#calcModalSave', function() {
+  }).on('click', '#calcModalSave', function() { if ( allowCalc ) {
     var $dit = $(this);
     var $calcModal = $('#calcModal');
     var $progressBar = $dit.siblings('.progress');
@@ -640,7 +640,7 @@ $(function() { // --------------------------------------------------------------
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
 
-  }).on('show.bs.modal', function() {
+  }}).on('show.bs.modal', function() { if ( allowCalc ) {
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -653,7 +653,7 @@ $(function() { // --------------------------------------------------------------
       $(ele).val(file.character[$(ele).attr("id")]);
     });
 
-  }).on('hidden.bs.modal', function() {
+  }}).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 

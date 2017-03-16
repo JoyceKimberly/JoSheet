@@ -28,26 +28,12 @@ var lists = [
   listsUrl + "_variables/ListsClassesUAArtificer.js",
 ];
 
-$.ajax({ async: false, url: listsUrl + "_functions/Functions.js" });
-$.ajax({ async: false, url: listsUrl + "_functions/Functions2.js" });
-$.ajax({ async: false, url: listsUrl + "_functions/FunctionsResources.js" });
-$.ajax({ async: false, url: listsUrl + "_functions/FunctionsSpells.js" });
-$.ajax({ async: false, url: listsUrl + "_functions/AbilityScores.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/Lists.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsSources.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsRaces.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsClasses.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsBackgrounds.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsFeats.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsSpells.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsGear.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsCreatures.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsRacesUA.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsClassesUA.js" });
-$.ajax({ async: false, url: listsUrl + "_variables/ListsClassesUAArtificer.js" })
-.done(function() {
-  allowCalc = true;
-});
+for ( var i = 0; i < lists.length; i++ ) {
+  $('head').append('<script type="text/javascript" src="' + lists[i] + '"></script>');
+  if ( i === lists.length ) {
+    allowCalc = true;
+  };
+};
 
 initializeLists = function() { if ( allowCalc ) {
   SetStringifieds();
