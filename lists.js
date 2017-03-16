@@ -6,6 +6,91 @@ tDoc.bookmarkRoot = {
   }],
 };
 
+tDoc.getField = function(field) {
+  var ele = document.getElementsByName(field)[0];
+  var $ele = $(ele);
+  if ( !ele ) {
+    if ( field === "Highlighting" ) {
+      return "";
+    };
+    console.log("getField: " + field);
+    return false;
+  };
+  if ( ele.userName === undefined ) {
+    ele.userName = ele.title;
+  } else {
+    ele.title = ele.userName;
+  };
+  if ( ele.submitName === undefined ) {
+    ele.submitName = ele.getAttribute("data-subname");
+  } else {
+    ele.setAttribute("data-subname", ele.submitName);
+  };
+  if ( ele.currentValueIndices === undefined ) {
+    ele.currentValueIndices = ele.selectedIndex;
+  } else if ( ele.currentValueIndices < 1 ) {
+    //console.log(field + " -> " + ele.currentValueIndices);
+  } else {
+    console.log(field + " -> " + ele.currentValueIndices);
+    //ele.selectedIndex = ele.currentValueIndices;
+  };
+  ele.isBoxChecked = function() {
+    return Number($ele.prop('checked'));
+  };
+  ele.checkThisBox = function(box, value) {
+    $ele.prop('checked', value);
+  };
+  ele.buttonGetCaption = function() {};
+  ele.buttonSetCaption = function() {};
+  ele.setItems = function(value) {
+    $ele.html('');
+    $.each(value, function(i, val) {
+      $ele.append('<option value="' + val + '">' + val + '</option>');
+    });
+  };
+  ele.setAction = function(type, value) {
+    if ( type === "Calculate" ) {
+      calculateNow(field, value);
+    } else {
+      console.log("setAction " + type + ": " + field + " -> " + value);
+    };
+  };
+  ele.setFocus = function() {};
+  ele.clearItems = function() {};
+  ele.rect = "";
+  ele.page = 0;
+  //console.log(field);
+  //console.log(ele);
+  return ele;
+};
+
+What = function(field) {
+  if ( field === "HD1 Die" ) {
+    var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
+    return value.split("+")[0].replace("d", "");
+  } else {
+    return tDoc.getField(field) ? tDoc.getField(field).value : "";
+  };
+}
+
+Value = function(field, FldValue, tooltip) {
+  var ele = document.getElementsByName(field)[0];
+  if (!ele) {
+    console.log(field + " -> " + JSON.stringify(FldValue) );
+    return false;
+  };
+  if ( ele.classList.contains('number') ) {
+    ele.value = +(FldValue);
+  } else if ( ele.classList.contains('custom-select') ) {
+    ele.selectedIndex = FldValue;
+  } else {
+    ele.value = FldValue;
+  };
+  if ( tooltip !== undefined ) {
+    ele.setAttribute('title', tooltip);
+  };
+};
+
 initializeLists = function() { if ( allowCalc ) {
   SetStringifieds();
   setListsUnitSystem("imperial");
@@ -28,6 +113,14 @@ initializeLists = function() { if ( allowCalc ) {
   //console.log(classes);
 }};
 
+calculateNow = function(event, value) {
+  if ( event === "AC Armor Bonus" ) {
+    $('[name="AC"]').trigger('focusout');
+  } else {
+    //console.log("Calculate: " + event + " -> " + value);
+  };
+};
+
 setJoAbilityScores = function() { if ( allowCalc ) {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
     var AbiI = i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i];
@@ -39,7 +132,6 @@ setJoAbilityScores = function() { if ( allowCalc ) {
     AbilityScores.current[AbiI].magic = tempArray[4] ? tempArray[4] : "0";
     AbilityScores.current[AbiI].feat = tempArray[5] ? tempArray[5] : "0";
   };
-
   var scores = {
     "oStr" : ASround(What("Str")),
     "oDex" : ASround(What("Dex")),
@@ -47,51 +139,50 @@ setJoAbilityScores = function() { if ( allowCalc ) {
     "oInt" : ASround(What("Int")),
     "oWis" : ASround(What("Wis")),
     "oCha" : ASround(What("Cha")),
-    //"oHoS" : ASround(What("HoS")),
+    "oHoS" : ASround(What("HoS")),
     "bStr" : AbilityScores.current.Str.base,
     "bDex" : AbilityScores.current.Dex.base,
     "bCon" : AbilityScores.current.Con.base,
     "bInt" : AbilityScores.current.Int.base,
     "bWis" : AbilityScores.current.Wis.base,
     "bCha" : AbilityScores.current.Cha.base,
-    //"bHoS" : AbilityScores.current.HoS.base,
+    "bHoS" : AbilityScores.current.HoS.base,
     "rStr" : AbilityScores.current.Str.race,
     "rDex" : AbilityScores.current.Dex.race,
     "rCon" : AbilityScores.current.Con.race,
     "rInt" : AbilityScores.current.Int.race,
     "rWis" : AbilityScores.current.Wis.race,
     "rCha" : AbilityScores.current.Cha.race,
-    //"rHoS" : AbilityScores.current.HoS.race,
+    "rHoS" : AbilityScores.current.HoS.race,
     "eStr" : AbilityScores.current.Str.extra,
     "eDex" : AbilityScores.current.Dex.extra,
     "eCon" : AbilityScores.current.Con.extra,
     "eInt" : AbilityScores.current.Int.extra,
     "eWis" : AbilityScores.current.Wis.extra,
     "eCha" : AbilityScores.current.Cha.extra,
-    //"eHoS" : AbilityScores.current.HoS.extra,
+    "eHoS" : AbilityScores.current.HoS.extra,
     "EStr" : AbilityScores.current.Str.extra2,
     "EDex" : AbilityScores.current.Dex.extra2,
     "ECon" : AbilityScores.current.Con.extra2,
     "EInt" : AbilityScores.current.Int.extra2,
     "EWis" : AbilityScores.current.Wis.extra2,
     "ECha" : AbilityScores.current.Cha.extra2,
-    //"EHoS" : AbilityScores.current.HoS.extra2,
+    "EHoS" : AbilityScores.current.HoS.extra2,
     "mStr" : AbilityScores.current.Str.magic,
     "mDex" : AbilityScores.current.Dex.magic,
     "mCon" : AbilityScores.current.Con.magic,
     "mInt" : AbilityScores.current.Int.magic,
     "mWis" : AbilityScores.current.Wis.magic,
     "mCha" : AbilityScores.current.Cha.magic,
-    //"mHoS" : AbilityScores.current.HoS.magic,
+    "mHoS" : AbilityScores.current.HoS.magic,
     "fStr" : AbilityScores.current.Str.feat,
     "fDex" : AbilityScores.current.Dex.feat,
     "fCon" : AbilityScores.current.Con.feat,
     "fInt" : AbilityScores.current.Int.feat,
     "fWis" : AbilityScores.current.Wis.feat,
     "fCha" : AbilityScores.current.Cha.feat,
-    //"fHoS" : AbilityScores.current.HoS.feat,
+    "fHoS" : AbilityScores.current.HoS.feat,
   };
-
   var totals = {
     "tStr" : ASCalcTotal(scores, "Str"),
     "tDex" : ASCalcTotal(scores, "Dex"),
@@ -99,13 +190,12 @@ setJoAbilityScores = function() { if ( allowCalc ) {
     "tInt" : ASCalcTotal(scores, "Int"),
     "tWis" : ASCalcTotal(scores, "Wis"),
     "tCha" : ASCalcTotal(scores, "Cha"),
-    //"tHoS" : ASCalcTotal(scores, "HoS"),
+    "tHoS" : ASCalcTotal(scores, "HoS"),
   };
-
   $.each(AbilityScores.abbreviations, function(key, value) {
     var total = Number(totals['t' + value]);
-    $('#' + value.toLowerCase() + 'Attr').val(total);
-    file.character[value.toLowerCase() + 'Attr'] = total;
+    $('[name="' + value + '"]').val(total);
+    file.character[value] = total;
   });
   saveCookies();
 }};
@@ -133,7 +223,6 @@ setJoSpells = function() { if ( allowCalc ) {
     $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
     $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
     $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
-
     for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
       $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
       $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
@@ -143,108 +232,6 @@ setJoSpells = function() { if ( allowCalc ) {
     GenerateCompleteSpellSheet(classes.primary, true);
   };
 }};
-
-tDoc.getField = function(field) {
-  var ele = document.getElementsByName(field)[0];
-
-  if ( !ele ) {
-    if ( field === "Highlighting" ) {
-      return "";
-    };
-    console.log("getField: " + field);
-    return false;
-  };
-
-  if ( ele.userName === undefined ) {
-    ele.userName = ele.title;
-  } else {
-    ele.title = ele.userName;
-  };
-  if ( ele.submitName === undefined ) {
-    ele.submitName = ele.getAttribute("data-subname");
-  } else {
-    ele.setAttribute("data-subname", ele.submitName);
-  };
-  if ( ele.currentValueIndices === undefined ) {
-    ele.currentValueIndices = ele.selectedIndex;
-  } else if ( ele.currentValueIndices < 1 ) {
-    //console.log(field + " -> " + ele.currentValueIndices);
-  } else {
-    //if ( field === "Resistance Damage Type 1" ) {
-      console.log(field + " -> " + ele.currentValueIndices);
-    //};
-    //ele.selectedIndex = ele.currentValueIndices;
-  };
-  ele.isBoxChecked = function() {
-    return Number(ele.checked);
-  };
-  ele.checkThisBox = function(box, value) {
-    ele.checked = value;
-  };
-  ele.buttonGetCaption = function() {};
-  ele.buttonSetCaption = function() {};
-  ele.setItems = function(value) {
-    $(ele).html('');
-    $.each(value, function(i, val) {
-      $(ele).append('<option value="' + val + '">' + val + '</option>');
-    });
-  };
-  ele.setAction = function(type, value) {
-    if ( type === "Calculate" ) {
-      calculateNow(field, value);
-    } else {
-      console.log("setAction " + type + ": " + field + " -> " + value);
-    };
-  };
-  ele.setFocus = function() {};
-  ele.clearItems = function() {};
-  ele.rect = "";
-  ele.page = 0;
-  ele.type = false;
-
-  //console.log(field);
-  //console.log(ele);
-  return ele;
-};
-
-What = function(field) {
-  if ( field === "HD1 Die" ) {
-    var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
-    return value.split("+")[0].replace("d", "");
-  } else {
-    return tDoc.getField(field) ? tDoc.getField(field).value : "";
-  };
-}
-
-Value = function(field, FldValue, tooltip) {
-  var ele = document.getElementsByName(field)[0];
-
-  if (!ele) {
-    console.log(field + " -> " + JSON.stringify(FldValue) );
-    return false;
-  };
-  if ( ele.classList.contains('number') ) {
-    ele.value = +(FldValue);
-
-  } else if ( ele.classList.contains('custom-select') ) {
-    ele.selectedIndex = FldValue;
-
-  } else {
-    ele.value = FldValue;
-  };
-
-  if ( tooltip !== undefined ) {
-    ele.setAttribute('title', tooltip);
-  };
-};
-
-calculateNow = function(event, value) {
-  if ( event === "AC Armor Bonus" ) {
-    $('[name="AC"]').trigger('focusout');
-  } else {
-    //console.log("Calculate: " + event + " -> " + value);
-  };
-};
 
 AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
 	var useful = 0;
