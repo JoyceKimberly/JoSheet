@@ -754,7 +754,6 @@ $(function() { // --------------------------------------------------------------
           setObjects();
           setCharacter();
           saveCookies();
-          calculateAll();
           setAlert('success', 'Character loaded.');
         }
         reader.readAsText(blob);
