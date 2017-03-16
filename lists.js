@@ -18,16 +18,19 @@ tDoc.getField = function(field) {
     console.log("getField: " + field);
     return false;
   };
+  
   if ( ele.userName === undefined ) {
     ele.userName = ele.title;
   } else {
     ele.title = ele.userName;
   };
+  
   if ( ele.submitName === undefined ) {
     ele.submitName = ele.getAttribute("data-subname");
   } else {
     ele.setAttribute("data-subname", ele.submitName);
   };
+  
   if ( ele.currentValueIndices === undefined ) {
     ele.currentValueIndices = ele.selectedIndex;
   } else if ( ele.currentValueIndices < 1 ) {
@@ -36,6 +39,7 @@ tDoc.getField = function(field) {
     console.log(field + " -> " + ele.currentValueIndices);
     //ele.selectedIndex = ele.currentValueIndices;
   };
+  
   ele.isBoxChecked = function() {
     return Number($ele.prop('checked'));
   };
@@ -62,9 +66,6 @@ tDoc.getField = function(field) {
   ele.rect = "";
   ele.page = 0;
   
-  if ( ele.value === "Short Rest" ) {
-    ele.value = "SR";
-  };
   //console.log(field);
   //console.log(ele);
   return ele;
