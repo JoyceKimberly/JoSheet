@@ -620,6 +620,12 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
+.moveMode select.data-list-input {
+  display: none;
+}
+.inputMode select.data-list-input {
+  display: inline-block;
+}
 select.data-list-input {
   color: rgba(0, 0, 0, 0);
   border-radius: 0;
