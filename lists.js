@@ -31,10 +31,67 @@ var listsVariablesExtra = [
   listsUrl + "_variables/ListsClassesUAArtificer.js",
 ];
 
-for ( var i = 0; i < listsFunctions.length; i++ ) {
-  console.log(listsFunctions[i]);
+var loadFunctions = new Promise(function(resolve, reject) {
+
+  for ( var i = 0; i < listsFunctions.length; i++ ) {
+    $.ajax({
+      async: false,
+      url: listsFunctions[i],
+      dataType: "script",
+    })
+    .done(function() {
+      resolve('Success!');
+    })
+    .fail(function() {
+      reject('Failure!');
+    });
+  };
+});
+
+loadFunctions.then(function() {
+	/* do something with the result */
+}).catch(function() {
+	/* error :( */
+});
+
+
+for ( var i = 0; i < listsVariables.length; i++ ) {
+  $.ajax({
+    async: false,
+    url: listsVariables[i],
+    dataType: "script",
+  })
+  .done(function() {
+    console.log("success");
+  });
 };
 
+/*
+for ( var i = 0; i < listsFunctions.length; i++ ) {
+  $.getScript(listsFunctions[i])
+    .done(function(script, textStatus) {
+      console.log(textStatus);
+    })
+    .fail(function(jqxhr, settings, exception) {
+      console.error(exception);
+    });
+};
+
+for ( var i = 0; i < listsVariables.length; i++ ) {
+  $.getScript(listsVariables[i])
+    .done(function(script, textStatus) {
+      console.log(textStatus);
+    })
+    .fail(function(jqxhr, settings, exception) {
+      console.error(exception);
+    });
+};
+
+if ( allowCalc ) {
+  //$('input').attr("disabled", true);
+  initializeLists();
+};
+*/
 /*
 $.getScript( "https://github.com/morepurplemorebetter/MPMBs-Character-Record-Sheet/raw/master/_variables/ListsClassesUA.js" )
   .done(function( script, textStatus ) {
