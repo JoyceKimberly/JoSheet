@@ -753,8 +753,8 @@ $(function() { // --------------------------------------------------------------
           $.extend(true, file, JSON.parse(reader.result));
           setObjects();
           setCharacter();
-          calculateAll();
           saveCookies();
+          initializeLists();
           setAlert('success', 'Character loaded.');
         }
         reader.readAsText(blob);
