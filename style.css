@@ -621,11 +621,10 @@ button .fa-stack .fa-stack-2x {
 }
 
 select.data-list-input {
-  display: none;
-  color: rgba(105, 20, 229, 0);
+  color: rgba(0, 0, 0, 0);
   border-radius: 0;
-  border: 1px solid rgba(77, 15, 167, 0.2);
-  background-color: rgba(105, 20, 229, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   background-position: right 5px center;
   width: 20px;
   height: 100%;
@@ -637,7 +636,9 @@ input.data-list-input {
   width: calc(100% - 20px) !important;
 }
 div.data-list-input:hover select.data-list-input {
-  display: inline-block;
+  color: rgba(105, 20, 229, 0);
+  border: 1px solid rgba(77, 15, 167, 0.2);
+  background-color: rgba(105, 20, 229, 0.2);
 }
 
 .ui-autocomplete {
