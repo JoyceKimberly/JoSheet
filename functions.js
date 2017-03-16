@@ -355,9 +355,6 @@ $(function() { // --------------------------------------------------------------
     } else if ( $ele.is('input[type=checkbox]') ) {
       character[key] = $ele.prop('checked');
 
-    } else if ( $ele.val() === "Short Rest" ) {
-      character[key] = "SR";
-
     } else if ( $ele.val() === "" ) {
       delete file.character[key];
 
