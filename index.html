@@ -315,7 +315,7 @@
             </div>
             <div class="data-list-input col col-4">
               <select name="Race" data-subname class="data-list-input custom-select"></select>
-              <input name="Race Display" data-subname class="display data-list-input form-control" type="text">
+              <input name="Race Remember" data-subname class="display data-list-input form-control" type="text">
               <div style="top: 15px;" class="lbl2">Race</div>
             </div>
             <div class="col col-3">
@@ -2150,44 +2150,37 @@
         <div class="content">
           <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col col-3">
-              <input name="Age" data-subname class="display number form-control" type="text">
+              <input id="age" name="Age" data-subname class="display number form-control" type="text">
               <div style="top: 15px;" class="lbl2">Age</div>
             </div>
             <div class="col col-3">
-              <select name="Size Category" data-subname class="display custom-select">
-                <option selected></option>
-                <option value="1">Huge</option>
-                <option value="2">Large</option>
-                <option value="3">Medium</option>
-                <option value="4">Small</option>
-                <option value="5">Tiny</option>
-              </select>
+              <input id="size" name="Size" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Size</div>
             </div>
             <div class="col col-3">
-              <input name="Height" data-subname class="display form-control" type="text">
+              <input id="height" name="Height" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Height</div>
             </div>
             <div class="col">
-              <input name="Weight" data-subname class="display form-control" type="text">
+              <input id="weight" name="Weight" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Weight</div>
             </div>
           </div>
           <div style="top: 53px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col col-3">
-              <input name="Alignment" data-subname class="display form-control" type="text">
+              <input id="alignment" name="Alignment" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Alignment</div>
             </div>
             <div class="col col-3">
-              <input name="Hair" data-subname class="display form-control" type="text">
+              <input id="hair" name="Hair" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Hair</div>
             </div>
             <div class="col col-3">
-              <input name="Eyes" data-subname class="display form-control" type="text">
+              <input id="eyes" name="Eyes" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Eyes</div>
             </div>
             <div class="col">
-              <input name="Skin" data-subname class="display form-control" type="text">
+              <input id="skin" name="Skin" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Skin</div>
             </div>
           </div>
@@ -2344,7 +2337,7 @@
     <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
     <div class="dropdown-menu"></div>
   </div>
-  <div id="hiddenFields" class="noPrint">
+  <div id="hiddenFields" class="noPrint hidden">
     <input name="Highlighting" data-subname type="text">
     <input name="Unit System" value="imperial" data-subname type="text">
     <input name="Str Remember" value="8,0,0,0,0,0" data-subname type="text">
@@ -2353,7 +2346,6 @@
     <input name="Int Remember" value="8,0,0,0,0,0" data-subname type="text">
     <input name="Wis Remember" value="8,0,0,0,0,0" data-subname type="text">
     <input name="Cha Remember" value="8,0,0,0,0,0" data-subname type="text">
-    <input name="Race Remember" data-subname type="text">
     <input name="Class Features Remember" data-subname type="text">
     <input name="Extra Class Feature Remember" data-subname type="text">
     <input name="SubClass Remember" data-subname type="text">

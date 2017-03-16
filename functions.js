@@ -11,6 +11,7 @@ var characterFiles = [];
 $(function() { // -----------------------------------------------------------------------
   loadCookies();
   setObjects();
+  initializeLists();
   setCharacter();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
@@ -102,7 +103,9 @@ $(function() { // --------------------------------------------------------------
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     setCharacter();
-    initializeLists();
+    if ( allowCalc ) {
+      initializeLists();
+    };
   });
 
   $('#printBtn').click(function() {
@@ -315,15 +318,15 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
-  $('select.data-list-input').focus(function() {
-    $(this).siblings('input.data-list-input').focus();
-  });
-  $('select.data-list-input').change(function() {
-    $(this).siblings('input.data-list-input').val($(this).val());
-  });
-  $('input.data-list-input').change(function() {
-    $(this).siblings('select.data-list-input').val('');
-  });
+	$('select.data-list-input').focus(function() {
+		$(this).siblings('input.data-list-input').focus();
+	});
+	$('select.data-list-input').change(function() {
+		$(this).siblings('input.data-list-input').val($(this).val());
+	});
+	$('input.data-list-input').change(function() {
+		$(this).siblings('select.data-list-input').val('');
+	});
 
   // ------------------------------------------------------------------------------------
   // -- Fields --
@@ -334,10 +337,9 @@ $(function() { // --------------------------------------------------------------
     };
     file.notes = {};
     $('[name]').val('');
-    $('input[type=checkbox]').prop('checked', false);
   };
 
-  $('body').on('change', '[name]', function() {
+  $('body').on('change focusout', '[name]', function() {
     var $ele = $(this);
     var character = {};
     var key = $ele.attr('name');
@@ -394,73 +396,65 @@ $(function() { // --------------------------------------------------------------
   $('[name="Class and Levels"]').on('focusout', setJoClass);
   function setJoClass() { if ( allowCalc ) {
     ApplyClasses($('[name="Class and Levels"]').val());
-    $.each(AbilityScores.abbreviations, function(key, value) {
-      file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
-    });
     MakeClassMenu();
-    if ( Menus.classfeatures[0].oSubMenu ) {
-      var $menu = $('#classConfig .card-block');
-      $menu.html('');
-      $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {
-        $menu.append('\
-          <div class="form-group">\
-            <label for="classFeat' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
-            <select multiple id="classFeat' + i + '" data-class-feat="' + i + '" class="custom-select"></select>\
-          </div>\
-        ');
-        var $subMenu = $('#classFeat' + i);
-        $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(i2, value2) {
-          $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
-        });
+    var $menu = $('#classConfig .card-block');
+    $menu.html('');
+    $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {
+      $menu.append('\
+        <div class="form-group">\
+          <label for="classFeat' + i + '" class="form-label form-label-sm">' + value.cName + '</label>\
+          <select multiple id="classFeat' + i + '" data-class-feat="' + i + '" class="custom-select"></select>\
+        </div>\
+      ');
+      var $subMenu = $('#classFeat' + i);
+      $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(i2, value2) {
+        $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
       });
-    };
+    });
   }};
 
   $('[name="Race"]').on('focusout', setJoRace);
-  $('[name="Race Display"]').on('focusout', setJoRace);
   function setJoRace() { if ( allowCalc ) {
-    ApplyRace($('[name="Race Display"]').val());
+    ApplyRace($('[name="Race"]').val());
     MakeRaceMenu();
   }};
 
   $('[name="Background"]').on('focusout', setJoBackground);
-  function setJoBackground() { if ( allowCalc ) {
+  function setJoBackground() { if ( allowCalc && file.character["Background"] ) {
     ApplyBackground($('[name="Background"]').val());
     MakeBackgroundMenu();
-    if ( Menus.background[3] ) {
-      var $menu = $('#persTraitsConfig');
-      $menu.html('');
-      $.each(Menus.background[0].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-        if ( $.inArray(i.toString(), file.character.persTraitsConfig) !== -1 ) {
-          AddString("Personality Trait", CurrentBackground.trait[i], " ");
-        };
-      });
-      $menu = $('#idealsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[1].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + CurrentBackground.ideal[i][1] + '</option>');
-        if ( $.inArray(i.toString(), file.character.idealsConfig) !== -1 ) {
-          Value("Ideal", CurrentBackground.ideal[i][1]);
-        };
-      });
-      $menu = $('#bondsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[2].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-        if ( $.inArray(i.toString(), file.character.bondsConfig) !== -1 ) {
-          Value("Bond", CurrentBackground.bond[i]);
-        };
-      });
-      $menu = $('#flawsConfig');
-      $menu.html('<option selected></option>');
-      $.each(Menus.background[3].oSubMenu, function(i, value) {
-        $menu.append('<option value="' + i + '">' + value.cName + '</option>');
-        if ( $.inArray(i.toString(), file.character.flawsConfig) !== -1 ) {
-          Value("Flaw", CurrentBackground.flaw[i]);
-        };
-      });
-    };
+    var $menu = $('#persTraitsConfig');
+    $menu.html('');
+    $.each(Menus.background[0].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.persTraitsConfig) !== -1 ) {
+        AddString("Personality Trait", CurrentBackground.trait[i], " ");
+      };
+    });
+    $menu = $('#idealsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[1].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + CurrentBackground.ideal[i][1] + '</option>');
+      if ( $.inArray(i.toString(), file.character.idealsConfig) !== -1 ) {
+        Value("Ideal", CurrentBackground.ideal[i][1]);
+      };
+    });
+    $menu = $('#bondsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[2].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.bondsConfig) !== -1 ) {
+        Value("Bond", CurrentBackground.bond[i]);
+      };
+    });
+    $menu = $('#flawsConfig');
+    $menu.html('<option selected></option>');
+    $.each(Menus.background[3].oSubMenu, function(i, value) {
+      $menu.append('<option value="' + i + '">' + value.cName + '</option>');
+      if ( $.inArray(i.toString(), file.character.flawsConfig) !== -1 ) {
+        Value("Flaw", CurrentBackground.flaw[i]);
+      };
+    });
   }};
 
   $('[name="Level"]').on('focusout', setJoLevel);
@@ -578,21 +572,7 @@ $(function() { // --------------------------------------------------------------
     setJoSpells();
   }};
 
-  $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
-    initializeLists();
-    $.each(AbilityScores.abbreviations, function(key, value) {
-      var scores = $('[name="' + value + ' Remember"]').val().split(",");
-      $("#base" + value).val(scores[0]);
-      $("#race" + value).val(scores[1]);
-      $("#extra" + value).val(scores[2]);
-      $("#magic" + value).val(scores[4]);
-      $("#feat" + value).val(scores[5]);
-    });
-    $('#calcModal').find('select').each(function(i, ele) {
-      $(ele).val(file.character[$(ele).attr("id")]);
-    });
-
-  }}).on('touchstart mousedown', '#calcModalSave', function() {
+  $('#calcModal').on('touchstart mousedown', '#calcModalSave', function() {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     $progressBar.show();
@@ -608,53 +588,49 @@ $(function() { // --------------------------------------------------------------
     });
     $calcModal.find('select').each(function(i, ele) {
       character[$(ele).attr("id")] = $(ele).val();
-      if ( Menus.classfeatures[0].oSubMenu ) {
-        if ( $(ele).attr("data-class-feat") !== undefined ) {
-          $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
-              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
-              ClassFeatureOptions(newReturn, "add");
-            } else {
-              var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
-              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
-              //ClassFeatureOptions(newReturn, "remove");
-            };
-          });
-        };
+      if ( $(ele).attr("data-class-feat") !== undefined ) {
+        $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
+            var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+            ClassFeatureOptions(newReturn, "add");
+          } else {
+            var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
+            var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+            //ClassFeatureOptions(newReturn, "remove");
+          };
+        });
       };
-      if ( Menus.background[3] ) {
-        if ( $(ele).is('#persTraitsConfig') ) {
-          $.each(Menus.background[0].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Menus.background[0].oSubMenu[key].bMarked = true;
-              AddString("Personality Trait", CurrentBackground.trait[key], " ");
-            } else {
-              Menus.background[0].oSubMenu[key].bMarked = false;
-            };
-          });
-        };
-        if ( $(ele).is('#idealsConfig') ) {
-          $.each(Menus.background[1].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Ideal", CurrentBackground.ideal[key][1]);
-            };
-          });
-        };
-        if ( $(ele).is('#bondsConfig') ) {
-          $.each(Menus.background[2].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Bond", CurrentBackground.bond[key]);
-            };
-          });
-        };
-        if ( $(ele).is('#flawsConfig') ) {
-          $.each(Menus.background[3].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Flaw", CurrentBackground.flaw[key]);
-            };
-          });
-        };
+      if ( $(ele).is('#persTraitsConfig') ) {
+        $.each(Menus.background[0].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Menus.background[0].oSubMenu[key].bMarked = true;
+            AddString("Personality Trait", CurrentBackground.trait[key], " ");
+          } else {
+            Menus.background[0].oSubMenu[key].bMarked = false;
+          };
+        });
+      };
+      if ( $(ele).is('#idealsConfig') ) {
+        $.each(Menus.background[1].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Ideal", CurrentBackground.ideal[key][1]);
+          };
+        });
+      };
+      if ( $(ele).is('#bondsConfig') ) {
+        $.each(Menus.background[2].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Bond", CurrentBackground.bond[key]);
+          };
+        });
+      };
+      if ( $(ele).is('#flawsConfig') ) {
+        $.each(Menus.background[3].oSubMenu, function(key, value) {
+          if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
+            Value("Flaw", CurrentBackground.flaw[key]);
+          };
+        });
       };
     });
     $.extend(true, file.character, character);
@@ -663,6 +639,19 @@ $(function() { // --------------------------------------------------------------
     calculateAll();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
+
+  }}).on('show.bs.modal', function() { if ( allowCalc ) {
+    $.each(AbilityScores.abbreviations, function(key, value) {
+      var scores = $('[name="' + value + ' Remember"]').val().split(",");
+      $("#base" + value).val(scores[0]);
+      $("#race" + value).val(scores[1]);
+      $("#extra" + value).val(scores[2]);
+      $("#magic" + value).val(scores[4]);
+      $("#feat" + value).val(scores[5]);
+    });
+    $('#calcModal').find('select').each(function(i, ele) {
+      $(ele).val(file.character[$(ele).attr("id")]);
+    });
 
   }}).on('hidden.bs.modal', function() {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
