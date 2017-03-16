@@ -5,13 +5,16 @@ window.file = {
   character : {},
   notes     : {},
 };
-window.allowCalc = true;
 var pages = 3;
 var characterFiles = [];
 
 $(function() { // -----------------------------------------------------------------------
   loadCookies();
   setObjects();
+  if ( allowCalc ) {
+    //$('input').attr("disabled", true);
+    initializeLists();
+  };
   setCharacter();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
