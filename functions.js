@@ -728,6 +728,7 @@ $(function() { // --------------------------------------------------------------
     console.log(file);
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
+    window.open(url, '_blank');
     var filename = file.character["Name"] + ".txt";
     dbx.filesSaveUrl({ path: '/Apps/JoSheet/' + filename, url: url })
       .then(function(response) {
