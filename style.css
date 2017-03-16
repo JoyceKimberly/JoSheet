@@ -76,6 +76,8 @@ h6 {
   padding: 9px 9px 16px;
 }
 .alert .content {
+  font-size: 0.9rem;
+  line-height: 1rem;
   width: initial;
   margin: 0;
   padding: 0;

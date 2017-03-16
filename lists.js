@@ -144,38 +144,6 @@ setJoSpells = function() { if ( allowCalc ) {
   };
 }};
 
-AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
-	var useful = 0;
-	var tooltipString = Input;
-	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
-		for (var key in DamageTypes) {
-			if (Input.toLowerCase().indexOf(key) !== -1) {
-				useful = DamageTypes[key].index;
-				tooltipString = key.capitalize();
-				break;
-			}
-		}
-	};
-	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
-	var doReplace = false;
-	for (var n = 1; n <= 2; n++) {
-		for (var k = 1; k < 7; k++) {
-			var next = tDoc.getField("Resistance Damage Type " + k);
-			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
-				k = 7;
-				n = 3;
-			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
-				doReplace = true;
-			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
-        console.log(Input);
-        PickDropdown("Resistance Damage Type " + k, Input);
-				if (!doReplace) next.userName = tempString;
-				k = 7;
-			}
-		}
-	}
-}};
-
 tDoc.getField = function(field) {
   var ele = document.getElementsByName(field)[0];
 
@@ -232,13 +200,14 @@ tDoc.getField = function(field) {
   ele.clearItems = function() {};
   ele.rect = "";
   ele.page = 0;
+  ele.type = false;
 
   //console.log(field);
   //console.log(ele);
   return ele;
 };
 
-function What(field) {
+What = function(field) {
   if ( field === "HD1 Die" ) {
     var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
     return value.split("+")[0].replace("d", "");
@@ -247,7 +216,7 @@ function What(field) {
   };
 }
 
-function Value(field, FldValue, tooltip) {
+Value = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
 
   if (!ele) {
@@ -277,6 +246,37 @@ calculateNow = function(event, value) {
   };
 };
 
+AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
+	var useful = 0;
+	var tooltipString = Input;
+	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
+		for (var key in DamageTypes) {
+			if (Input.toLowerCase().indexOf(key) !== -1) {
+				useful = DamageTypes[key].index;
+				tooltipString = key.capitalize();
+				break;
+			}
+		}
+	};
+	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
+	var doReplace = false;
+	for (var n = 1; n <= 2; n++) {
+		for (var k = 1; k < 7; k++) {
+			var next = tDoc.getField("Resistance Damage Type " + k);
+			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
+				k = 7;
+				n = 3;
+			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
+				doReplace = true;
+			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
+        PickDropdown("Resistance Damage Type " + k, useful);
+				if (!doReplace) next.userName = tempString;
+				k = 7;
+			}
+		}
+	}
+}};
+
 Hide = function() {};
 DontPrint = function() {};
 Show = function() {};
@@ -300,7 +300,8 @@ app.thermometer.begin = function() {},
 app.thermometer.end = function() {},
 app.execDialog = function() {};
 app.alert = function(alert) {
-  /*var type = "info";
+  console.log(alert.cMsg);
+  var type = "info";
   var $alert = $('\
     <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
@@ -309,12 +310,13 @@ app.alert = function(alert) {
   ').appendTo('#alerts');
   setTimeout(function() {
     $($alert).alert('close');
-  }, (5 * 1000));*/
+  }, (5 * 1000));
 };
 
 $(function() { // -----------------------------------------------------------------------
   if ( AbilityScores !== undefined ) {
     allowCalc = true;
+    console.log(tDoc);
   };
 
   if ( allowCalc ) {
