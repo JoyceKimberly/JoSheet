@@ -1,38 +1,9 @@
 window.allowCalc = false;
-tDoc = window;
 tDoc.info = { SheetType : "JoSheet - a4 - printer friendly" };
 tDoc.bookmarkRoot = {
   children : [{
     children : [],
   }],
-};
-
-var listsUrl = "https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/";
-var lists = [
-  listsUrl + "_functions/Functions.js",
-  listsUrl + "_functions/Functions2.js",
-  listsUrl + "_functions/FunctionsResources.js",
-  listsUrl + "_functions/FunctionsSpells.js",
-  listsUrl + "_functions/AbilityScores.js",
-  listsUrl + "_variables/Lists.js",
-  listsUrl + "_variables/ListsSources.js",
-  listsUrl + "_variables/ListsRaces.js",
-  listsUrl + "_variables/ListsClasses.js",
-  listsUrl + "_variables/ListsBackgrounds.js",
-  listsUrl + "_variables/ListsFeats.js",
-  listsUrl + "_variables/ListsSpells.js",
-  listsUrl + "_variables/ListsGear.js",
-  listsUrl + "_variables/ListsCreatures.js",
-  listsUrl + "_variables/ListsRacesUA.js",
-  listsUrl + "_variables/ListsClassesUA.js",
-  listsUrl + "_variables/ListsClassesUAArtificer.js",
-];
-
-for ( var i = 0; i < lists.length; i++ ) {
-  $('head').append('<script type="text/javascript" src="' + lists[i] + '"></script>');
-  if ( i === lists.length ) {
-    allowCalc = true;
-  };
 };
 
 initializeLists = function() { if ( allowCalc ) {
@@ -342,6 +313,10 @@ app.alert = function(alert) {
 };
 
 $(function() { // -----------------------------------------------------------------------
+  if ( AbilityScores !== undefined ) {
+    allowCalc = true;
+  };
+
   if ( allowCalc ) {
     $.each(AbilityScores.abbreviations, function(key, value) {
       $('.abiDrop').append('<option value="' + value + ' Mod">' + value + '</option>');
