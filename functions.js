@@ -380,6 +380,9 @@ $(function() { // --------------------------------------------------------------
       } else if ( $ele.is('input[type=checkbox]') ) {
         $ele.prop('checked', file.character[key]);
 
+      } else if ( $ele.val() === "Short Rest" ) {
+        $ele.val("SR");
+
       } else {
         $ele.val(decodeURIComponent(file.character[key]));
       };
