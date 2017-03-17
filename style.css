@@ -645,13 +645,13 @@ button .fa-stack .fa-stack-2x {
   text-align: center;
   flex: 0 0 2.9%;
 }
-.spells .spellsList td {
-  font-size: 9px;
-}
-.spells .spellsList .lblRow {
+.spells .spellsList th {
   font-size: 8px;
   font-weight: bold;
   text-transform: uppercase;
+}
+.spells .spellsList td {
+  font-size: 9px;
 }
 .spells .spellsList * {
   border: none;
