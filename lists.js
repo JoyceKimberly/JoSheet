@@ -229,7 +229,7 @@ for ( var i = 0; i < 9; i++ ) {
       <td>' + SpellsList[key].components + '</td>\
       <td>' + SpellsList[key].duration + '</td>\
       <td>' + SpellsList[key].source[0] + '</td>\
-      <td>' + SpellsList[key].source[1] + '</td>\
+      <td class="right">' + SpellsList[key].source[1] + '</td>\
     </tr>\
         ');
       };
