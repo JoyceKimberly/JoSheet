@@ -12,7 +12,6 @@ $(function() { // --------------------------------------------------------------
   loadCookies();
   setObjects();
   setCharacter();
-  initializeLists();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -103,7 +102,6 @@ $(function() { // --------------------------------------------------------------
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     setCharacter();
-    initializeLists();
   });
 
   $('#printBtn').click(function() {
@@ -597,6 +595,7 @@ $(function() { // --------------------------------------------------------------
   }};
 
   $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
+    initializeLists();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);

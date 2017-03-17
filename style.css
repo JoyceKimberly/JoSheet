@@ -620,6 +620,40 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
+.spells .content {
+  padding: 0 15px;
+}
+.spells .spellsHeader,
+.spells .spellsList {
+  position: relative;
+  width: 100%;
+}
+.spells .spellsHeader {
+  height: 55px;
+}
+.spells .spellsList {
+  height: calc(100% - 50px);
+  margin-top: -5px;
+}
+.spells .spellsHeader .row .col {
+  line-height: 53px;
+  height: auto;
+}
+.spells .spellsHeader .row .col-1 {
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  flex: 0 0 2.9%;
+}
+.spells .spellsList .lblRow {
+  font-size: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.spells .spellsList .lblRow * {
+  margin: 0;
+}
+
 .moveMode select.data-list-input {
   display: none;
 }

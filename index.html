@@ -2331,8 +2331,57 @@
         <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
         <div class="hover"></div>
       </div>
-      <div id="spellsBlock" class="spells">
-        <div class="content"></div>
+      <div id="cantripsBlock" class="spells block z2 resizable">
+        <div class="content">
+          <div class="labelBlock4 spellsHeader">
+            <div class="bg"></div>
+            <div class="row">
+              <div class="col col-1">0</div>
+              <div class="col lbl lbl1">Cantrips</div>
+            </div>
+          </div>
+          <div class="spellsList">
+            <div class="row lblRow">
+              <div class="col col-2">
+                <div class="row">
+                  <div class="col col-2"></div>
+                  <div class="col">Spell</div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col">Description</div>
+                </div>
+              </div>
+              <div class="col col-4">
+                <div class="row">
+                  <div class="col col-1">Save</div>
+                  <div class="col col-2">School</div>
+                  <div class="col col-1">Time</div>
+                  <div class="col col-2">Range</div>
+                  <div class="col col-2">Comp</div>
+                  <div class="col">Duration</div>
+                  <div style="flex: 0 0 4%;" class="col col-1">B</div>
+                  <div class="col col-1 right">PG.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hover"></div>
+      </div>
+      <div id="spells1Block" class="spells block z2 resizable">
+        <div class="content">
+          <div class="labelBlock5 spellsHeader">
+            <div class="bg"></div>
+            <div class="row">
+              <div class="col col-1">1</div>
+              <div class="col lbl lbl1"></div>
+            </div>
+          </div>
+          <div class="spellsList"></div>
+        </div>
+        <div class="hover"></div>
       </div>
     </div>
   </div>
@@ -2458,13 +2507,22 @@
         <div style="bottom: 16px;" class="lbl1 lower">Character Portrait</div>
         <div class="hover"></div>
       </div>
+      <div id="senseBlock" class="block1 z2 resizable">
+        <div class="bg"></div>
+        <div class="content">
+          <div class="underlines"><div class="line"></div></div>
+          <textarea name="Vision" data-subname class="display notes"></textarea>
+        </div>
+        <div class="lbl1 lower">Senses</div>
+        <div class="hover"></div>
+      </div>
     </div>
   </div>
   <div id="edit" class="noPrint dropdown" data-source="">
     <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
     <div class="dropdown-menu"></div>
   </div>
-  <div id="hiddenFields" class="noPrint hidden">
+  <div id="hiddenFields" class="noPrint">
     <input name="Highlighting" data-subname type="text">
     <input name="Unit System" value="imperial" data-subname type="text">
     <input name="Str Remember" value="8,0,0,0,0,0" data-subname type="text">
@@ -2511,7 +2569,6 @@
     <input name="Too Prof" data-subname type="text">
     <input name="Too Exp" data-subname type="text">
     <input name="Too Text" data-subname type="text">
-    <input name="Vision" data-subname type="text">
     <input name="Extra.Notes" data-subname type="text">
     <input name="MakeMobileReady Remember" data-subname type="text">
     <input name="Notes.Left" data-subname type="text">
