@@ -654,7 +654,9 @@ button .fa-stack .fa-stack-2x {
   text-transform: uppercase;
 }
 .spells .spellsList table * {
+  border: none;
   margin: 0;
+  padding: 0;
 }
 
 .moveMode select.data-list-input {
