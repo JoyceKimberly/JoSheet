@@ -658,6 +658,9 @@ button .fa-stack .fa-stack-2x {
   margin: 0;
   padding: 1px;
 }
+.spells .spellsList td:nth-child(2) {
+  width: 105px;
+}
 
 .moveMode select.data-list-input {
   display: none;
