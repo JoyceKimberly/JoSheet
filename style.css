@@ -645,7 +645,7 @@ button .fa-stack .fa-stack-2x {
   text-align: center;
   flex: 0 0 2.9%;
 }
-.spells .spellsList .row {
+.spells .spellsList td {
   font-size: 9px;
 }
 .spells .spellsList .lblRow {
@@ -653,7 +653,7 @@ button .fa-stack .fa-stack-2x {
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells .spellsList .row * {
+.spells .spellsList table * {
   margin: 0;
 }
 
