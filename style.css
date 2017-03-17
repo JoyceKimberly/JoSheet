@@ -656,7 +656,7 @@ button .fa-stack .fa-stack-2x {
 .spells .spellsList * {
   border: none;
   margin: 0;
-  padding: 1px;
+  padding: 2px;
 }
 
 .moveMode select.data-list-input {
