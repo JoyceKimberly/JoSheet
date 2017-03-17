@@ -238,7 +238,7 @@ for ( var i = 0; i < 9; i++ ) {
       <div class="col col-2">' + SpellsList[key].range + '</div>\
       <div class="col col-2">' + SpellsList[key].components + '</div>\
       <div class="col">' + SpellsList[key].duration + '</div>\
-      <div class="col col-2">' + SpellsList[key].source[0] + ' ' + SpellsList[key].source[1] + '</div>\
+      <div class="col col-1">' + SpellsList[key].source[0] + ' ' + SpellsList[key].source[1] + '</div>\
     </div>\
   </div>\
 </div>\
