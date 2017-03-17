@@ -215,7 +215,7 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 setJoSpells = function() { if ( allowCalc ) {
 for ( var i = 0; i < 9; i++ ) {
   if ( classes.primary !== "" ) {
-    $.each(SpellsList.get().reverse(), function(key, value) {
+    $.each(SpellsList, function(key, value) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
         $('#spellsBlock' + i + ' .spellsList .lblRow').after(SpellsList[key].name);
       };
