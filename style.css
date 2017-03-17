@@ -826,11 +826,6 @@ div.data-list-input:active select.data-list-input {
 }
 .block15 .bg {
   border-image-source: url("img/Block15.svg");
-  border-image-slice: 28 115 fill;
-  border-image-width: 28px 115px;
-}
-.block15Var .bg {
-  border-image-source: url("img/Block15.svg");
   border-image-slice: 28 34 fill;
   border-image-width: 28px 34px;
 }

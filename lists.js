@@ -10,7 +10,7 @@ tDoc.getField = function(field) {
   //event = Object.create(event);
   var ele = document.getElementsByName(field)[0];
   var $ele = $(ele);
-  
+
   if ( !ele ) {
     if ( field === "Highlighting" ) {
       return "";
@@ -18,19 +18,19 @@ tDoc.getField = function(field) {
     console.log("getField: " + field);
     return false;
   };
-  
+
   if ( ele.userName === undefined ) {
     ele.userName = ele.title;
   } else {
     ele.title = ele.userName;
   };
-  
+
   if ( ele.submitName === undefined ) {
     ele.submitName = ele.getAttribute("data-subname");
   } else {
     ele.setAttribute("data-subname", ele.submitName);
   };
-  
+
   if ( ele.currentValueIndices === undefined ) {
     ele.currentValueIndices = ele.selectedIndex;
   } else if ( ele.currentValueIndices < 1 ) {
@@ -39,7 +39,7 @@ tDoc.getField = function(field) {
     console.log(field + " -> " + ele.currentValueIndices);
     //ele.selectedIndex = ele.currentValueIndices;
   };
-  
+
   ele.isBoxChecked = function() {
     return Number($ele.prop('checked'));
   };
@@ -65,7 +65,7 @@ tDoc.getField = function(field) {
   ele.clearItems = function() {};
   ele.rect = "";
   ele.page = 0;
-  
+
   //console.log(field);
   //console.log(ele);
   return ele;
@@ -82,22 +82,22 @@ What = function(field) {
 
 Value = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
-  
+
   if (!ele) {
     console.log(field + " -> " + JSON.stringify(FldValue) );
     return false;
   };
-  
+
   if ( ele.classList.contains('number') ) {
     ele.value = +(FldValue);
-    
+
   } else if ( ele.classList.contains('custom-select') ) {
     ele.selectedIndex = FldValue;
-    
+
   } else {
     ele.value = FldValue;
   };
-  
+
   if ( tooltip !== undefined ) {
     ele.setAttribute('title', tooltip);
   };
@@ -246,34 +246,34 @@ setJoSpells = function() { if ( allowCalc ) {
 }};
 
 AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
-	var useful = 0;
-	var tooltipString = Input;
-	if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
-		for (var key in DamageTypes) {
-			if (Input.toLowerCase().indexOf(key) !== -1) {
-				useful = DamageTypes[key].index;
-				tooltipString = key.capitalize();
-				break;
-			}
-		}
-	};
-	var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
-	var doReplace = false;
-	for (var n = 1; n <= 2; n++) {
-		for (var k = 1; k < 7; k++) {
-			var next = tDoc.getField("Resistance Damage Type " + k);
-			if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
-				k = 7;
-				n = 3;
-			} else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
-				doReplace = true;
-			} else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
+  var useful = 0;
+  var tooltipString = Input;
+  if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
+    for (var key in DamageTypes) {
+      if (Input.toLowerCase().indexOf(key) !== -1) {
+        useful = DamageTypes[key].index;
+        tooltipString = key.capitalize();
+        break;
+      }
+    }
+  };
+  var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
+  var doReplace = false;
+  for (var n = 1; n <= 2; n++) {
+    for (var k = 1; k < 7; k++) {
+      var next = tDoc.getField("Resistance Damage Type " + k);
+      if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
+        k = 7;
+        n = 3;
+      } else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
+        doReplace = true;
+      } else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
         PickDropdown("Resistance Damage Type " + k, useful);
-				if (!doReplace) next.userName = tempString;
-				k = 7;
-			}
-		}
-	}
+        if (!doReplace) next.userName = tempString;
+        k = 7;
+      }
+    }
+  }
 }};
 
 Hide = function() {};

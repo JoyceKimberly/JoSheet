@@ -12,6 +12,7 @@ $(function() { // --------------------------------------------------------------
   loadCookies();
   setObjects();
   setCharacter();
+  initializeLists();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
@@ -596,7 +597,6 @@ $(function() { // --------------------------------------------------------------
   }};
 
   $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
-    initializeLists();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -724,18 +724,15 @@ $(function() { // --------------------------------------------------------------
       });
   };
 
-  isInWebAppiOS = (window.navigator.standalone == true);
-  isInWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
-  
   function saveFile() {
     console.log(file);
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-    
-    if ( !isInWebAppiOS && !isInWebAppChrome ) {
+
+    if ( !isWebAppiOS && !isWebAppChrome ) {
       window.open(url, '_blank');
-    }; 
-    
+    };
+
     var filename = file.character["Name"] + ".txt";
     dbx.filesSaveUrl({ path: '/Apps/JoSheet/' + filename, url: url })
       .then(function(response) {
@@ -761,6 +758,7 @@ $(function() { // --------------------------------------------------------------
           setObjects();
           setCharacter();
           saveCookies();
+          initializeLists();
           setAlert('success', 'Character loaded.');
         }
         reader.readAsText(blob);
@@ -796,6 +794,9 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Helpers --
   // ------------------------------------------------------------------------------------
+  isWebAppiOS = (window.navigator.standalone == true);
+  isWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
+
   function loadCookies() {
     if ( !!getCookie("objects") ) {
       var objects = {};
