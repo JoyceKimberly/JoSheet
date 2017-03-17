@@ -645,12 +645,15 @@ button .fa-stack .fa-stack-2x {
   text-align: center;
   flex: 0 0 2.9%;
 }
+.spells .spellsList .row {
+  font-size: 9px;
+}
 .spells .spellsList .lblRow {
   font-size: 8px;
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells .spellsList .lblRow * {
+.spells .spellsList .row * {
   margin: 0;
 }
 
