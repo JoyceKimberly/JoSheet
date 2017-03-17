@@ -213,35 +213,12 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 }};
 
 setJoSpells = function() { if ( allowCalc ) {
-  var $spellsBlock = $('#hiddenFields')
-  for ( var i = 1; i <= 8; i++ ) {
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
-    $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
-    for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
-      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
-      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
-    };
-  };
   if ( classes.primary !== "" ) {
-    GenerateCompleteSpellSheet(classes.primary, true);
+    $.each(SpellsList, function(key, value) {
+      if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 ) {
+        console.log(key);
+      };
+    });
   };
 }};
 
