@@ -219,10 +219,10 @@ for ( var i = 0; i < 9; i++ ) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
         $('#spellsBlock' + i + ' .spellsList .lastRow').before('\
     <tr>\
-      <td></td>\
+      <td>&nbsp;</td>\
       <td>' + SpellsList[key].name + '</td>\
       <td>' + SpellsList[key].description + '</td>\
-      <td></td>\
+      <td>&nbsp;</td>\
       <td>' + SpellsList[key].school + '</td>\
       <td>' + SpellsList[key].time + '</td>\
       <td>' + SpellsList[key].range + '</td>\
