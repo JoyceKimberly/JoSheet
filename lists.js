@@ -217,7 +217,7 @@ for ( var i = 0; i < 9; i++ ) {
   if ( classes.primary !== "" ) {
     $.each(SpellsList, function(key, value) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
-        $('#spellsBlock' + i + ' .spellsList .lastRow').before('<div class="row">' + SpellsList[key].name + '</div>');
+        $('#spellsBlock' + i + ' .spellsList .lastRow').before('<div class="row"><div class="col">' + SpellsList[key].name + '</div></div>');
       };
     });
   };
