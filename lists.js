@@ -213,13 +213,15 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 }};
 
 setJoSpells = function() { if ( allowCalc ) {
+for ( var i = 0; i < 9; i++ ) {
   if ( classes.primary !== "" ) {
     $.each(SpellsList, function(key, value) {
-      if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 ) {
+      if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
         console.log(key);
       };
     });
   };
+};
 }};
 
 AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
