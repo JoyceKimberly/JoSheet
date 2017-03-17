@@ -653,7 +653,7 @@ button .fa-stack .fa-stack-2x {
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells .spellsList table * {
+.spells .spellsList * {
   border: none;
   margin: 0;
   padding: 0;
