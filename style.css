@@ -620,13 +620,11 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
-.spells .spellsHeader,
-.spells .spellsList {
-  position: relative;
-  width: 100%;
-}
 .spells .spellsHeader {
   height: 55px;
+}
+.spells .spellsHeader .content {
+  position: relative;
 }
 .spells .spellsHeader .row .col {
   line-height: 53px;
