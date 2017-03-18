@@ -223,7 +223,7 @@ for ( var i = 0; i < 9; i++ ) {
       <td>&nbsp;</td>\
       <td>' + SpellsList[key].name + '</td>\
       <td>' + SpellsList[key].description + '</td>\
-      <td>' + SpellsList[key].save + '</td>\
+      <td>' + SpellsList[key].save ? SpellsList[key].save : '' + '</td>\
       <td>' + SpellsList[key].school + '</td>\
       <td>' + SpellsList[key].time + '</td>\
       <td>' + SpellsList[key].range + '</td>\
