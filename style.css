@@ -620,9 +620,6 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
-.spells .content {
-  padding: 0 15px;
-}
 .spells .spellsHeader,
 .spells .spellsList {
   position: relative;
@@ -630,10 +627,6 @@ button .fa-stack .fa-stack-2x {
 }
 .spells .spellsHeader {
   height: 55px;
-}
-.spells .spellsList {
-  height: calc(100% - 50px);
-  margin-top: -5px;
 }
 .spells .spellsHeader .row .col {
   line-height: 53px;
@@ -645,21 +638,18 @@ button .fa-stack .fa-stack-2x {
   text-align: center;
   flex: 0 0 2.9%;
 }
-.spells .spellsList th {
+.spells th {
   font-size: 7px;
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells .spellsList td {
+.spells td {
   font-size: 9px;
 }
-.spells .spellsList * {
+.spells * {
   border: none;
   margin: 0;
   padding: 1px;
-}
-.spells .spellsList td:nth-child(2) {
-  width: 105px;
 }
 
 .moveMode select.data-list-input {
