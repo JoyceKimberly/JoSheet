@@ -214,12 +214,13 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 
 setJoSpells = function() { if ( allowCalc ) {
 for ( var i = 0; i < 9; i++ ) {
-  $('#spellsBlock' + i + ' .spellsList tbody').html('<tr class="lastRow"></tr>');
+  //$('#spellsBlock' + i + ' .spellsList tbody').html('<tr class="lastRow"></tr>');
   if ( classes.primary !== "" ) {
     $.each(SpellsList, function(key, value) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
-        $('#spellsBlock' + i + ' .spellsList .lastRow').before('\
+        $('#spellsBlock' + i + ' .lastRow').before('\
     <tr>\
+      <td>&nbsp;</td>\
       <td>&nbsp;</td>\
       <td>' + SpellsList[key].name + '</td>\
       <td>' + SpellsList[key].description + '</td>\
@@ -231,6 +232,7 @@ for ( var i = 0; i < 9; i++ ) {
       <td>' + SpellsList[key].duration + '</td>\
       <td>' + SpellsList[key].source[0] + '</td>\
       <td class="right">' + SpellsList[key].source[1] + '</td>\
+      <td>&nbsp;</td>\
     </tr>\
         ');
       };
