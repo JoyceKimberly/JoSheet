@@ -623,7 +623,7 @@ button .fa-stack .fa-stack-2x {
 .spells {
   width: calc(100% - 30px);
   position: relative;
-  top: 200px;
+  top: 180px;
   left: 15px;
 }
 .spells .spellsHeader {
