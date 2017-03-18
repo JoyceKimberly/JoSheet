@@ -221,7 +221,6 @@ for ( var i = 0; i < 9; i++ ) {
         $('#spellsBlock' + i + ' .lastRow').before('\
     <tr>\
       <td>&nbsp;</td>\
-      <td>&nbsp;</td>\
       <td>' + SpellsList[key].name + '</td>\
       <td>' + SpellsList[key].description + '</td>\
       <td>&nbsp;</td>\
@@ -232,7 +231,6 @@ for ( var i = 0; i < 9; i++ ) {
       <td>' + SpellsList[key].duration + '</td>\
       <td>' + SpellsList[key].source[0] + '</td>\
       <td class="right">' + SpellsList[key].source[1] + '</td>\
-      <td>&nbsp;</td>\
     </tr>\
         ');
       };
