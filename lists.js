@@ -217,6 +217,7 @@ setJoSpells = function() { if ( allowCalc ) {
   for ( var i = 0; i < 9; i++ ) {
     var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
     var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
+    var $config = $('#spellsConfig' + i);
     $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
     if ( slots > 0 ) {
       $spellSlots.html('');
@@ -249,7 +250,8 @@ setJoSpells = function() { if ( allowCalc ) {
               <td class="right">' + SpellsList[key].source[1] + '</td>\
             </tr>\
           ');
-          var $config = $('#spellsConfig .card-block');
+          $config.after('\
+          ');
         };
       });
     };
