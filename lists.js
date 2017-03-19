@@ -257,6 +257,7 @@ setJoSpells = function() { if ( allowCalc ) {
             </tr>\
           ');
           $config.find('select#spellsSelect' + i).append('<option value="spell' + spell + '">' + SpellsList[key].name + '</option>');
+console.log($config);
         };
       });
     };
