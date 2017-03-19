@@ -633,8 +633,8 @@ button .fa-stack .fa-stack-2x {
   position: relative;
 }
 .spells .spellsHeader .row .col {
-  line-height: 55px;
-  height: auto;
+  line-height: 21px;
+  top: 17px;
 }
 .spells .spellsHeader .row .col-1 {
   font-size: 13px;
@@ -681,6 +681,7 @@ button .fa-stack .fa-stack-2x {
 .spells thead * {
   padding: 0;
 }
+.spells thead .lblRow,
 .spells tbody * {
   letter-spacing: -0.3px;
   padding: 1px;
