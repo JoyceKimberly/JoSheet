@@ -656,6 +656,9 @@ button .fa-stack .fa-stack-2x {
   margin: 0;
   padding: 1px;
 }
+.spells .custom-checkbox {
+  top: 0;
+}
 
 .moveMode select.data-list-input {
   display: none;
