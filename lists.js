@@ -232,12 +232,12 @@ setJoSpells = function() { if ( allowCalc ) {
         ');
       };
     };
-    if ( i === 0 ) {
-      for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
-          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select"><option selected></option></select>');
-      };
-    };
     if ( classes.primary !== "" ) {
+      if ( i === 0 ) {
+        for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
+          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select"><option selected></option></select>');
+        };
+      };
       $.each(SpellsList, function(key, value) {
         if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
           spell++;
@@ -256,8 +256,7 @@ setJoSpells = function() { if ( allowCalc ) {
               <td class="right">' + SpellsList[key].source[1] + '</td>\
             </tr>\
           ');
-          $config.append('\
-          ');
+          $config.find('select#spellsSelect' + i).append('<option value="spell' + spell + '">' + SpellsList[key].name + '</option>');
         };
       });
     };
