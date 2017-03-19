@@ -221,7 +221,7 @@ for ( var i = 0; i < 9; i++ ) {
         $('#spellsBlock' + i + ' .lastRow').before('\
     <tr>\
       <td>\
-        <label class="custom-control custom-checkbox">\
+        <label style="width: 10px;" class="custom-control custom-checkbox">\
           <span class="checkBall"></span>\
           <input name="" data-subname type="checkbox" class="custom-control-input">\
           <span class="custom-control-indicator"></span>\
