@@ -251,6 +251,7 @@ for ( var i = 0; i < 9; i++ ) {
             <td>' + SpellsList[key].duration + '</td>\
             <td>' + SpellsList[key].source[0] + '</td>\
             <td class="right">' + SpellsList[key].source[1] + '</td>\
+            <th>&nbsp;</th>\
           </tr>\
         ');
       };

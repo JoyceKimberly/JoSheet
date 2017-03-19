@@ -621,19 +621,22 @@ button .fa-stack .fa-stack-2x {
 }
 
 .spells {
-  width: calc(100% - 30px);
+  width: calc(100% - 15px);
   position: relative;
   top: 160px;
   left: 15px;
 }
 .spells .spellsHeader {
+  height: 50px;
+}
+.spells .spellsHeader .bg {
   height: 55px;
 }
 .spells .spellsHeader .content {
   position: relative;
 }
 .spells .spellsHeader .row .col {
-  line-height: 21px;
+  line-height: 22px;
   top: 17px;
 }
 .spells .spellsHeader .row .col-1 {
@@ -646,7 +649,7 @@ button .fa-stack .fa-stack-2x {
   flex: 0 0 9%;
 }
 .spells .spellsHeader .spellSlots .custom-checkbox {
-  top: 3px;
+  top: 2px;
   left: 2px;
 }
 .spells .spellsHeader .spellSlots .custom-checkbox,
@@ -659,16 +662,17 @@ button .fa-stack .fa-stack-2x {
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells th:nth-of-type(1) { width: 13px; }
-.spells th:nth-of-type(2) { width: 114px; } /* Spell */
-.spells th:nth-of-type(4) { width: 17px; } /* Save */
-.spells th:nth-of-type(5) { width: 27px; } /* School */
-.spells th:nth-of-type(6) { width: 24px; } /* Time */
-.spells th:nth-of-type(7) { width: 41px; } /* Range */
-.spells th:nth-of-type(8) { width: 24px; } /* Comp */
-.spells th:nth-of-type(9) { width: 53px; } /* Duration */
-.spells th:nth-of-type(10) { width: 7px; } /* B */
-.spells th:nth-of-type(11) { width: 18px; } /* Page */
+.spells .lblRow th:nth-of-type(1) { width: 13px; }
+.spells .lblRow th:nth-of-type(2) { width: 114px; } /* Spell */
+.spells .lblRow th:nth-of-type(4) { width: 17px; } /* Save */
+.spells .lblRow th:nth-of-type(5) { width: 27px; } /* School */
+.spells .lblRow th:nth-of-type(6) { width: 24px; } /* Time */
+.spells .lblRow th:nth-of-type(7) { width: 41px; } /* Range */
+.spells .lblRow th:nth-of-type(8) { width: 24px; } /* Comp */
+.spells .lblRow th:nth-of-type(9) { width: 53px; } /* Duration */
+.spells .lblRow th:nth-of-type(10) { width: 7px; } /* B */
+.spells .lblRow th:nth-of-type(11) { width: 18px; } /* Page */
+.spells .lblRow th:nth-of-type(12) { width: 15px; }
 .spells td {
   font-size: 9px;
   white-space: nowrap;
