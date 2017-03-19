@@ -633,17 +633,17 @@ button .fa-stack .fa-stack-2x {
   position: relative;
 }
 .spells .spellsHeader .row .col {
-  line-height: 53px;
+  line-height: 54px;
   height: auto;
 }
 .spells .spellsHeader .row .col-1 {
   font-size: 13px;
   font-weight: bold;
   text-align: center;
-  flex: 0 0 2.8%;
+  flex: 0 0 3.4%;
 }
 .spells .spellsHeader .spellSlots {
-  flex: 0 0 8%;
+  flex: 0 0 9%;
 }
 .spells .spellsHeader .spellSlots .custom-checkbox {
   top: 3px;
@@ -673,10 +673,16 @@ button .fa-stack .fa-stack-2x {
   font-size: 9px;
   white-space: nowrap;
 }
-.spells * {
-  letter-spacing: -0.3px;
+.spells thead *,
+.spells tbody * {
   border: none;
-  margin: 0;
+  margin: 0 !important;
+}
+.spells thead * {
+  padding: 0;
+}
+.spells tbody * {
+  letter-spacing: -0.3px;
   padding: 1px;
 }
 .spells .custom-checkbox {
