@@ -235,7 +235,7 @@ setJoSpells = function() { if ( allowCalc ) {
     if ( classes.primary !== "" ) {
       if ( i === 0 ) {
         for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
-          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select"><option selected></option></select>');
+          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select mb-2"><option selected></option></select>');
         };
       };
       $.each(SpellsList, function(key, value) {
