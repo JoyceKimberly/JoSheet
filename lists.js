@@ -234,7 +234,7 @@ setJoSpells = function() { if ( allowCalc ) {
     };
     if ( i === 0 ) {
       for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
-        console.log(i3);
+          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select"></select>');
       };
     };
     if ( classes.primary !== "" ) {
