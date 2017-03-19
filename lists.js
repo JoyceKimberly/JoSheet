@@ -220,8 +220,8 @@ for ( var i = 0; i < 9; i++ ) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
         $('#spellsBlock' + i + ' .lastRow').before('\
     <tr>\
-      <td>\
-        <label style="width: 10px;" class="custom-control custom-checkbox">\
+      <td style="width: 10px;">\
+        <label class="custom-control custom-checkbox">\
           <span class="checkBall"></span>\
           <input name="" data-subname type="checkbox" class="custom-control-input">\
           <span class="custom-control-indicator"></span>\
