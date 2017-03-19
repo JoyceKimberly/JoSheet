@@ -218,6 +218,7 @@ setJoSpells = function() { if ( allowCalc ) {
     var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
     var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
     var $config = $('#spellsConfig' + i);
+    $config.html('');
     $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
     if ( slots > 0 ) {
       $spellSlots.html('');
@@ -250,7 +251,7 @@ setJoSpells = function() { if ( allowCalc ) {
               <td class="right">' + SpellsList[key].source[1] + '</td>\
             </tr>\
           ');
-          $config.after('\
+          $config.append('\
           ');
         };
       });
