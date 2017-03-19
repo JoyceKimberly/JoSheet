@@ -647,6 +647,16 @@ button .fa-stack .fa-stack-2x {
   font-weight: bold;
   text-transform: uppercase;
 }
+.spells th:nth-of-type(1) { width: 13px; }
+.spells th:nth-of-type(2) { width: 114px; }
+.spells th:nth-of-type(4) { width: 16px; }
+.spells th:nth-of-type(5) { width: 29px; }
+.spells th:nth-of-type(6) { width: 24px; }
+.spells th:nth-of-type(7) { width: 34px; }
+.spells th:nth-of-type(8) { width: 23px; }
+.spells th:nth-of-type(9) { width: 53px; }
+.spells th:nth-of-type(10) { width: 7px; }
+.spells th:nth-of-type(11) { width: 18px; }
 .spells td {
   font-size: 9px;
 }
@@ -657,8 +667,12 @@ button .fa-stack .fa-stack-2x {
   padding: 1px;
 }
 .spells .custom-checkbox {
+  min-height: 10px;
+  width: 10px;
+  height: 10px;
+  padding: 0;
   position: relative;
-  top: 2px;
+  top: 0;
 }
 
 .moveMode select.data-list-input {
