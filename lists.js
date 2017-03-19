@@ -214,7 +214,21 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 
 setJoSpells = function() { if ( allowCalc ) {
 for ( var i = 0; i < 9; i++ ) {
+  var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
+  var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
   $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
+  if ( slots > 0 ) {
+    $spellSlots.html('');
+    for ( var i2 = 0; i2 < slots; i2++ ) {
+      $spellSlots.append('\
+        <label class="custom-control custom-checkbox">\
+          <span class="checkBall"></span>\
+          <input name="" data-subname type="checkbox" class="custom-control-input">\
+          <span class="custom-control-indicator"></span>\
+        </label>\
+      ');
+    };
+  };
   if ( classes.primary !== "" ) {
     $.each(SpellsList, function(key, value) {
       if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {

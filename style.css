@@ -642,23 +642,36 @@ button .fa-stack .fa-stack-2x {
   text-align: center;
   flex: 0 0 2.9%;
 }
+.spells .spellsHeader .spellSlots {
+  flex: 0 0 8%;
+}
+.spells .spellsHeader .spellSlots .custom-checkbox {
+  top: 2px;
+  left: 2px;
+}
+.spells .spellsHeader .spellSlots .custom-checkbox,
+.spells .spellsHeader .spellSlots .custom-checkbox * {
+  width: 12px;
+  height: 12px;
+}
 .spells th {
   font-size: 7px;
   font-weight: bold;
   text-transform: uppercase;
 }
 .spells th:nth-of-type(1) { width: 13px; }
-.spells th:nth-of-type(2) { width: 114px; }
-.spells th:nth-of-type(4) { width: 16px; }
-.spells th:nth-of-type(5) { width: 29px; }
-.spells th:nth-of-type(6) { width: 24px; }
-.spells th:nth-of-type(7) { width: 34px; }
-.spells th:nth-of-type(8) { width: 23px; }
-.spells th:nth-of-type(9) { width: 53px; }
-.spells th:nth-of-type(10) { width: 7px; }
-.spells th:nth-of-type(11) { width: 18px; }
+.spells th:nth-of-type(2) { width: 114px; } /* Spell */
+.spells th:nth-of-type(4) { width: 17px; } /* Save */
+.spells th:nth-of-type(5) { width: 27px; } /* School */
+.spells th:nth-of-type(6) { width: 24px; } /* Time */
+.spells th:nth-of-type(7) { width: 41px; } /* Range */
+.spells th:nth-of-type(8) { width: 24px; } /* Comp */
+.spells th:nth-of-type(9) { width: 53px; } /* Duration */
+.spells th:nth-of-type(10) { width: 7px; } /* B */
+.spells th:nth-of-type(11) { width: 18px; } /* Page */
 .spells td {
   font-size: 9px;
+  white-space: nowrap;
 }
 .spells * {
   letter-spacing: -0.3px;
