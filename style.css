@@ -621,7 +621,7 @@ button .fa-stack .fa-stack-2x {
 }
 
 .spells {
-  width: calc(100% - 15px);
+  width: calc(100% - 30px);
   position: relative;
   top: 160px;
   left: 15px;
@@ -672,7 +672,6 @@ button .fa-stack .fa-stack-2x {
 .spells .lblRow th:nth-of-type(9) { width: 53px; } /* Duration */
 .spells .lblRow th:nth-of-type(10) { width: 7px; } /* B */
 .spells .lblRow th:nth-of-type(11) { width: 18px; } /* Page */
-.spells .lblRow th:nth-of-type(12) { width: 15px; }
 .spells td {
   font-size: 9px;
   white-space: nowrap;

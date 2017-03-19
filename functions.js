@@ -401,6 +401,7 @@ $(function() { // --------------------------------------------------------------
     });
     MakeClassMenu();
     if ( Menus.classfeatures[0].oSubMenu ) {
+      $('#classConfig').show();
       var $menu = $('#classConfig .card-block');
       $menu.html('');
       $.each(Menus.classfeatures[0].oSubMenu, function(i, value) {
@@ -430,6 +431,7 @@ $(function() { // --------------------------------------------------------------
     ApplyBackground($('[name="Background"]').val());
     MakeBackgroundMenu();
     if ( Menus.background[3] ) {
+      $('#backgroundConfig').show();
       var $menu = $('#persTraitsConfig');
       $menu.html('');
       $.each(Menus.background[0].oSubMenu, function(i, value) {

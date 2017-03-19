@@ -213,51 +213,47 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 }};
 
 setJoSpells = function() { if ( allowCalc ) {
-for ( var i = 0; i < 9; i++ ) {
-  var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
-  var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
-  $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
-  if ( slots > 0 ) {
-    $spellSlots.html('');
-    for ( var i2 = 0; i2 < slots; i2++ ) {
-      $spellSlots.append('\
-        <label class="custom-control custom-checkbox">\
-          <span class="checkBall"></span>\
-          <input name="" data-subname type="checkbox" class="custom-control-input">\
-          <span class="custom-control-indicator"></span>\
-        </label>\
-      ');
-    };
-  };
-  if ( classes.primary !== "" ) {
-    $.each(SpellsList, function(key, value) {
-      if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
-        $('#spellsBlock' + i + ' .lastRow').before('\
-          <tr>\
-            <td>\
-              <label class="custom-control custom-checkbox">\
-                <span class="checkBall"></span>\
-                <input name="" data-subname type="checkbox" class="custom-control-input">\
-                <span class="custom-control-indicator"></span>\
-              </label>\
-            </td>\
-            <td>' + SpellsList[key].name + '</td>\
-            <td>' + SpellsList[key].description + '</td>\
-            <td>' + (SpellsList[key].save ? SpellsList[key].save : '&mdash;') + '</td>\
-            <td>' + SpellsList[key].school + '</td>\
-            <td>' + SpellsList[key].time + '</td>\
-            <td>' + SpellsList[key].range + '</td>\
-            <td>' + SpellsList[key].components + '</td>\
-            <td>' + SpellsList[key].duration + '</td>\
-            <td>' + SpellsList[key].source[0] + '</td>\
-            <td class="right">' + SpellsList[key].source[1] + '</td>\
-            <th>&nbsp;</th>\
-          </tr>\
+  var spell = 0;
+  for ( var i = 0; i < 9; i++ ) {
+    var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
+    var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
+    $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
+    if ( slots > 0 ) {
+      $spellSlots.html('');
+      for ( var i2 = 0; i2 < slots; i2++ ) {
+        $spellSlots.append('\
+          <label class="custom-control custom-checkbox">\
+            <span class="checkBall"></span>\
+            <input name="" data-subname type="checkbox" class="custom-control-input">\
+            <span class="custom-control-indicator"></span>\
+          </label>\
         ');
       };
-    });
+    };
+    if ( classes.primary !== "" ) {
+      $.each(SpellsList, function(key, value) {
+        if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
+          spell++;
+          $('#spellsBlock' + i + ' .lastRow').before('\
+            <tr id="spell' + spell + '">\
+              <td>&nbsp;</td>\
+              <td title="' + SpellsList[key].name + '">' + (SpellsList[key].nameShort ? SpellsList[key].nameShort : SpellsList[key].name) + '</td>\
+              <td title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].description + '</td>\
+              <td>' + (SpellsList[key].save ? SpellsList[key].save : '&mdash;') + '</td>\
+              <td>' + SpellsList[key].school + '</td>\
+              <td>' + SpellsList[key].time + '</td>\
+              <td>' + SpellsList[key].range + '</td>\
+              <td title="' + SpellsList[key].compMaterial + '">' + SpellsList[key].components + '</td>\
+              <td>' + SpellsList[key].duration + '</td>\
+              <td>' + SpellsList[key].source[0] + '</td>\
+              <td class="right">' + SpellsList[key].source[1] + '</td>\
+            </tr>\
+          ');
+          var $config = $('#spellsConfig .card-block');
+        };
+      });
+    };
   };
-};
 }};
 
 AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
