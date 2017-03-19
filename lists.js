@@ -232,6 +232,11 @@ setJoSpells = function() { if ( allowCalc ) {
         ');
       };
     };
+    if ( i === 0 ) {
+      for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
+        console.log(i3);
+      };
+    };
     if ( classes.primary !== "" ) {
       $.each(SpellsList, function(key, value) {
         if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
