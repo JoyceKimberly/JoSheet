@@ -640,13 +640,13 @@ button .fa-stack .fa-stack-2x {
   font-size: 13px;
   font-weight: bold;
   text-align: center;
-  flex: 0 0 2.9%;
+  flex: 0 0 2.8%;
 }
 .spells .spellsHeader .spellSlots {
   flex: 0 0 8%;
 }
 .spells .spellsHeader .spellSlots .custom-checkbox {
-  top: 2px;
+  top: 3px;
   left: 2px;
 }
 .spells .spellsHeader .spellSlots .custom-checkbox,
