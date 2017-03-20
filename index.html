@@ -274,7 +274,7 @@
                 </div>
               </div>
             </div>
-            <div id="spellsConfig" class="card">
+            <div id="spellsConfig" class="card hidden">
               <div class="card-header" role="tab" id="headingFour">
                 <h5 class="mb-0">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
@@ -2344,8 +2344,14 @@
     <div class="page">
       <div id="pageHeader3" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader3.svg"></div>
-        <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center"></div>
+        <input name="Spellcasting Class" style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center" type="text">
         <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
+        <input name="Spellcasting Ability" style="top: 48px; left: 341px; width: 89px; height: 38px;" class="display center" type="text">
+        <div style="top: 91px; left: 356px;" class="lbl2 center">Spellcasting<br>Ability</div>
+        <input name="Spell Save DC" style="top: 48px; left: 470px; width: 89px; height: 38px;" class="display center" type="text">
+        <div style="top: 91px; left: 484px;" class="lbl2 center">Spell Save DC</div>
+        <input name="Spell Attack Bonus" style="top: 48px; left: 603px; width: 89px; height: 38px;" class="display center" type="text">
+        <div style="top: 91px; left: 619px;" class="lbl2 center">Spell Attack<br>Bonus</div>
         <div class="hover"></div>
       </div>
       <table class="spells block">
@@ -2378,7 +2384,7 @@
         <tbody id="spellsBlock0">
           <tr class="lastRow"></tr>
         </tbody>
-        <thead id="spellsHeader1">
+        <thead id="spellsHeader1" class="hidden">
           <tr>
             <th class="spellsHeader" colspan="11">
               <div class="labelBlock5 content">
@@ -2405,9 +2411,249 @@
             <th class="right">PG.</th>
           </tr>
         </thead>
-        <tbody id="spellsBlock1">
+        <tbody id="spellsBlock1" class="hidden">
           <tr class="lastRow"></tr>
-        <tbody>
+        </tbody>
+        <thead id="spellsHeader2" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 2</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock2" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader3" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 3</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock3" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader4" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 4</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock4" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader5" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 5</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock5" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader6" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 6</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock6" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader7" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 7</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock7" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader8" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 8</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock8" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader9" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 9</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock9" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
       </table>
     </div>
   </div>

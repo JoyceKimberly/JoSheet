@@ -467,7 +467,9 @@ $(function() { // --------------------------------------------------------------
     };
   }};
 
-  $('[name="Level"]').on('focusout', setJoLevel);
+  $('[name="Level"]').on('focusout', function() {
+    calculateAll();
+  });
   function setJoLevel() { if ( allowCalc ) {
     $('[name="Character Level"]').val(parseInt($('[name="Level"]').val())).trigger('change');
   }};
@@ -596,6 +598,11 @@ $(function() { // --------------------------------------------------------------
     setJoSpells();
   }};
 
+  $('#calcModal').on('change focusout', 'select', function() {
+    var $dit = $(this);
+    file.character[$dit.attr("id")] = $dit.val();
+  });
+
   $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
     initializeLists();
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -619,13 +626,11 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     var $calcModal = $('#calcModal');
     var $progressBar = $dit.siblings('.progress');
-    var character = {};
     $.each(AbilityScores.abbreviations, function(key, value) {
       Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
       $('[name="' + value + ' Remember"]').trigger('change');
     });
     $calcModal.find('select').each(function(i, ele) {
-      character[$(ele).attr("id")] = $(ele).val();
       if ( Menus.classfeatures[0].oSubMenu ) {
         if ( $(ele).attr("data-class-feat") !== undefined ) {
           $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
@@ -675,7 +680,6 @@ $(function() { // --------------------------------------------------------------
         };
       };
     });
-    $.extend(true, file.character, character);
     setCharacter();
     saveCookies();
     calculateAll();
