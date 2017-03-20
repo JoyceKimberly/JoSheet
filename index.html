@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <script type="text/javascript">
-  tDoc = window;
+  tDoc = window;/*
   window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
@@ -18,7 +18,7 @@
       console.error(message);
     };
     return true;
-  };
+  };*/
 </script>
 <head>
   <meta charset="utf-8">
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://unpkg.com/interact.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
+  <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions2.js"></script>
@@ -286,24 +286,8 @@
                 <div class="card-block">
                   <h6>Cantrips</h6>
                   <div id="spellsConfigLvl0"></div>
-                  <h6>Level 1</h6>
+                  <h6>Spellbook</h6>
                   <div id="spellsConfigLvl1"></div>
-                  <h6>Level 2</h6>
-                  <div id="spellsConfigLvl2"></div>
-                  <h6>Level 3</h6>
-                  <div id="spellsConfigLvl3"></div>
-                  <h6>Level 4</h6>
-                  <div id="spellsConfigLvl4"></div>
-                  <h6>Level 5</h6>
-                  <div id="spellsConfigLvl5"></div>
-                  <h6>Level 6</h6>
-                  <div id="spellsConfigLvl6"></div>
-                  <h6>Level 7</h6>
-                  <div id="spellsConfigLvl7"></div>
-                  <h6>Level 8</h6>
-                  <div id="spellsConfigLvl8"></div>
-                  <h6>Level 9</h6>
-                  <div id="spellsConfigLvl9"></div>
                 </div>
               </div>
             </div>
@@ -2401,7 +2385,7 @@
                 <div class="bg"></div>
                 <div class="row">
                   <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2"></div>
+                  <div class="spellSlots col col-2 center"></div>
                   <div class="col lbl lbl1">Level 1</div>
                 </div>
               </div>

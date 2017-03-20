@@ -213,29 +213,43 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 }};
 
 setJoSpells = function() { if ( allowCalc ) {
-  var spell = 0;
-  for ( var i = 0; i < 9; i++ ) {
-    var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
-    var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
-    var $config = $('#spellsConfigLvl' + i);
-    $config.html('');
-    $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
-    if ( slots > 0 ) {
-      $spellSlots.html('');
-      for ( var i2 = 0; i2 < slots; i2++ ) {
-        $spellSlots.append('\
-          <label class="custom-control custom-checkbox">\
-            <span class="checkBall"></span>\
-            <input name="" data-subname type="checkbox" class="custom-control-input">\
-            <span class="custom-control-indicator"></span>\
-          </label>\
-        ');
+  var isCaster = CurrentSpells[classes.primary] !== undefined ? true : false;
+  if ( isCaster ) {
+    var spellCastLvl = Number(CurrentSpells[classes.primary].level);
+    var spellCastAbi = CurrentSpells[classes.primary].ability;
+    var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi - 1] + " Mod"));
+    var isPrepared = CurrentSpells[classes.primary].known.prepared;
+    var cantrips = CurrentSpells[classes.primary].known.cantrips[spellCastLvl];
+    var prepared = spellCastLvl + spellCastAbiMod;
+    var spell = 0;
+    var $config0 = $('#spellsConfigLvl0');
+    var $configS = $('#spellsConfigLvl1');
+    $config0.html('');
+    $configS.html('');
+    if ( cantrips > 0 ) {
+      for ( var i = 0; i < cantrips; i++ ) {
+        $config0.append('<select id="spellsSelect' + i + '" class="custom-select form-control-sm mb-2"><option selected></option></select>');
       };
     };
-    if ( classes.primary !== "" ) {
-      if ( i === 0 ) {
-        for ( var i3 = 0; i3 < ClassList[classes.primary].spellcastingKnown.cantrips[classes.spellcastlvl.default]; i3++ ) {
-          $config.append('<select id="spellsSelect' + i3 + '" class="custom-select mb-2"><option selected></option></select>');
+    if ( isPrepared ) {
+      for ( var i = 0; i < prepared; i++ ) {
+        $configS.append('<select id="spellsSelect' + i + '" class="custom-select form-control-sm mb-2"><option selected></option></select>');
+      };
+    };
+    for ( var i = 0; i < 9; i++ ) {
+      var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
+      var $spellSlots = $('#spellsHeader' + i + ' .spellSlots');
+      $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
+      if ( slots > 0 ) {
+        $spellSlots.html('');
+        for ( var i2 = 0; i2 < slots; i2++ ) {
+          $spellSlots.append('\
+            <label class="custom-control custom-checkbox">\
+              <span class="checkBall"></span>\
+              <input name="" data-subname type="checkbox" class="custom-control-input">\
+              <span class="custom-control-indicator"></span>\
+            </label>\
+          ');
         };
       };
       $.each(SpellsList, function(key, value) {
@@ -252,15 +266,57 @@ setJoSpells = function() { if ( allowCalc ) {
               <td>' + SpellsList[key].range + '</td>\
               <td title="' + SpellsList[key].compMaterial + '">' + SpellsList[key].components + '</td>\
               <td>' + SpellsList[key].duration + '</td>\
-              <td>' + SpellsList[key].source[0] + '</td>\
+              <td title="' + SourceList[SpellsList[key].source[0]].name + '">' + SpellsList[key].source[0] + '</td>\
               <td class="right">' + SpellsList[key].source[1] + '</td>\
             </tr>\
           ');
-          $config.find('select#spellsSelect' + i).append('<option value="spell' + spell + '">' + SpellsList[key].name + '</option>');
+          if ( i === 0 ) {
+            for ( var i2 = 0; i2 < cantrips; i2++ ) {
+              $config0.find('select#spellsSelect' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + '</option>');
+            };
+          } else if ( i <= spellCastLvl ) {
+            if ( isPrepared ) {
+              for ( var i2 = 0; i2 < prepared; i2++ ) {
+                $configS.find('select#spellsSelect' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + ' (lvl ' + i + ')</option>');
+              };
+            };
+          };
         };
       });
     };
   };
+/*
+  var $spellsBlock = $('#hiddenFields')
+  for ( var i = 1; i <= 8; i++ ) {
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
+    $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
+
+    for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
+    };
+  };
+  if ( isCaster ) {
+    GenerateCompleteSpellSheet(classes.primary, true);
+  };*/
 }};
 
 AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
