@@ -40,6 +40,12 @@ tDoc.getField = function(field) {
     //ele.selectedIndex = ele.currentValueIndices;
   };
 
+  if ( ele.value === "short rest" || ele.value === "Short Rest" ) {
+    ele.value = "SR";
+  } else if ( ele.value === "long rest" || ele.value === "Long Rest" ) {
+    ele.value = "LR";
+  };
+
   if ( ele.classList.contains('notes') ) {
     ele.type = "text";
     ele.multiline = true;
@@ -102,7 +108,7 @@ Value = function(field, FldValue, tooltip) {
     ele.selectedIndex = FldValue;
 
   } else {
-    ele.value = FldValue;
+    tDoc.getField(field).value = FldValue;
   };
 
   if ( tooltip !== undefined ) {
@@ -366,7 +372,7 @@ app.thermometer.end = function() {},
 app.execDialog = function() {};
 app.alert = function(alert) {
   console.log(alert.cMsg);
-  var type = "info";
+  /*var type = "info";
   var $alert = $('\
     <div class="alert alert-' + type + ' alert-dismissible fade show boxShadow" role="alert">\
       <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>\
@@ -375,7 +381,7 @@ app.alert = function(alert) {
   ').appendTo('#alerts');
   setTimeout(function() {
     $($alert).alert('close');
-  }, (5 * 1000));
+  }, (5 * 1000));*/
 };
 
 $(function() { // -----------------------------------------------------------------------

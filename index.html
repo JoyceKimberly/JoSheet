@@ -49,9 +49,11 @@
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsRacesUA.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsClasses.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsClassesUAArtificer.js"></script>
+  <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsClassesUAMystic.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsBackgrounds.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsFeats.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsSpells.js"></script>
+  <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsPsionics.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsGear.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsCreatures.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_variables/ListsClassesUA.js"></script>
@@ -2147,7 +2149,6 @@
       <div id="raceTraits" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines"><div class="line"></div></div>
           <textarea name="Racial Traits" data-subname class="display notes"></textarea>
         </div>
         <div class="lbl1 lower">Racial Traits</div>
@@ -2253,8 +2254,6 @@
       <div id="bgFeatBlock" class="block3 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="bgFeatDesc" name="Background Feature Description" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
@@ -2263,6 +2262,9 @@
               <input id="bgFeat" name="Background Feature" data-subname class="data-list-input display noTransform form-control" type="text">
             </div>
           </div>
+          <div class="row" style="height: 100%;">
+            <textarea id="bgFeatDesc" name="Background Feature Description" data-subname class="display notes"></textarea>
+          </div>
         </div>
         <div class="lbl1 lower">Background Feature</div>
         <div class="hover"></div>
@@ -2270,8 +2272,6 @@
       <div id="feat1Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat1Desc" name="Feat Description 1" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
@@ -2280,14 +2280,15 @@
               <input id="feat1" name="Feat Name 1" data-subname class="data-list-input feat display noTransform form-control" type="text">
             </div>
           </div>
+          <div class="row" style="height: 100%;">
+            <textarea id="feat1Desc" name="Feat Description 1" data-subname class="display notes"></textarea>
+          </div>
         </div>
         <div class="hover"></div>
       </div>
       <div id="feat9Block" class="block5 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
-          <textarea id="feat9Desc" name="Feat Description 9" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
@@ -2296,13 +2297,15 @@
               <input id="feat9" name="Feat Name 9" data-subname class="data-list-input feat display noTransform form-control" type="text">
             </div>
           </div>
+          <div class="row" style="height: 100%;">
+            <textarea id="feat9Desc" name="Feat Description 9" data-subname class="display notes"></textarea>
+          </div>
         </div>
         <div class="hover"></div>
       </div>
       <div id="featsBlock" class="block8 block z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines"><div class="line"></div></div>
           <textarea name="Class Features" data-subname class="notes hidden"></textarea>
           <div class="display notes"></div>
         </div>
@@ -2663,7 +2666,6 @@
       <div id="feat2Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat2Desc" name="Feat Description 2" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2679,7 +2681,6 @@
       <div id="feat3Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat3Desc" name="Feat Description 3" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2695,7 +2696,6 @@
       <div id="feat4Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat4Desc" name="Feat Description 4" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2711,7 +2711,6 @@
       <div id="feat5Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat5Desc" name="Feat Description 5" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2727,7 +2726,6 @@
       <div id="feat6Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat6Desc" name="Feat Description 6" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2743,7 +2741,6 @@
       <div id="feat7Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat7Desc" name="Feat Description 7" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2759,7 +2756,6 @@
       <div id="feat8Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines" style="top: -4px;"><div class="line"></div></div>
           <textarea id="feat8Desc" name="Feat Description 8" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px; background-color: white;">
             <div class="col col-3 lbl4">Feature Name:</div>
@@ -2783,7 +2779,6 @@
       <div id="senseBlock" class="block1 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <div class="underlines"><div class="line"></div></div>
           <textarea name="Vision" data-subname class="display notes"></textarea>
         </div>
         <div class="lbl1 lower">Senses</div>

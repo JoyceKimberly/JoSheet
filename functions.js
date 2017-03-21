@@ -303,20 +303,9 @@ $(function() { // --------------------------------------------------------------
           dit.css("visibility", "hidden");
         };
       });
-
-      var underlines = dit.find('.underlines');
-      var lineHeight = dit.find('.line').outerHeight(true);
-      var nrLines = (visibleHeight / lineHeight)-1;
-      underlines.find('.line').remove();
-      for ( var i = 0; i < nrLines; i++ ) {
-        //underlines.append('<div class="line"></div>');
-      };
     });
   };
 
-  /*$('select.data-list-input').focus(function() {
-    $(this).siblings('input.data-list-input').focus();
-  });*/
   $('select.data-list-input').change(function() {
     $(this).siblings('input.data-list-input').val($(this).val());
   });
@@ -379,9 +368,6 @@ $(function() { // --------------------------------------------------------------
       } else if ( $ele.is('input[type=checkbox]') ) {
         $ele.prop('checked', file.character[key]);
 
-      } else if ( $ele.val() === "Short Rest" ) {
-        $ele.val("SR");
-
       } else {
         $ele.val(decodeURIComponent(file.character[key]));
       };
@@ -389,7 +375,7 @@ $(function() { // --------------------------------------------------------------
     $('.name').text(decodeURIComponent(file.character["Name"]));
     //console.log(tDoc); // debug
   };
-
+/*
   $('div.notes').on('touchstart mousedown', function() {
     var $dit = $(this);
     $dit.siblings('textarea.notes').show().focus();
@@ -401,7 +387,7 @@ $(function() { // --------------------------------------------------------------
     $dit.hide();
     tDoc.getField($dit.attr('[name]'));
   });
-
+*/
   // ------------------------------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
