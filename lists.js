@@ -40,6 +40,13 @@ tDoc.getField = function(field) {
     //ele.selectedIndex = ele.currentValueIndices;
   };
 
+  if ( ele.classList.contains('notes') ) {
+    ele.type = "text";
+    ele.multiline = true;
+    var content = "<p>" + ele.value.replace(/\n/g, '<br>').replace(/◆/g, '</p><p><i class="fa fa-circle fa-fw"></i>') + '</p>';
+    $ele.siblings('div.notes').html(content);
+  };
+
   ele.isBoxChecked = function() {
     return Number($ele.prop('checked'));
   };

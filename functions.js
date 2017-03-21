@@ -314,9 +314,9 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
-  $('select.data-list-input').focus(function() {
+  /*$('select.data-list-input').focus(function() {
     $(this).siblings('input.data-list-input').focus();
-  });
+  });*/
   $('select.data-list-input').change(function() {
     $(this).siblings('input.data-list-input').val($(this).val());
   });
@@ -389,6 +389,18 @@ $(function() { // --------------------------------------------------------------
     $('.name').text(decodeURIComponent(file.character["Name"]));
     //console.log(tDoc); // debug
   };
+
+  $('div.notes').on('touchstart mousedown', function() {
+    var $dit = $(this);
+    $dit.siblings('textarea.notes').show().focus();
+    $dit.hide();
+  });
+  $('textarea.notes').on('focusout', function() {
+    var $dit = $(this);
+    $dit.siblings('div.notes').show();
+    $dit.hide();
+    tDoc.getField($dit.attr('[name]'));
+  });
 
   // ------------------------------------------------------------------------------------
   // -- Calculation --
