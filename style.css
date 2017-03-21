@@ -59,6 +59,11 @@ h6 {
   font-weight: bold;
 }
 
+.line,
+.underline {
+  border-bottom: 1px solid #d5d7db;
+}
+
 .outerPage div,
 .outerPage input {
   color: black !important;
@@ -90,6 +95,9 @@ h6 {
 }
 .block7 .content {
   padding: 9px 8px 16px;
+}
+.block8 .content {
+  padding: 9px 12px 16px;
 }
 #skillsBlock .content {
   padding-right: 0;
@@ -352,12 +360,12 @@ select.display {
   line-height: 14px;
   text-transform: none;
   white-space: pre-line;
-  overflow: hidden;
+  /*overflow: hidden;*/
   resize: none;
   position: relative;
 }
 .content .notes p {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .content .notes .fa {
   font-size: 6px;

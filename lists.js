@@ -19,6 +19,11 @@ tDoc.getField = function(field) {
     return false;
   };
 
+  if ( field === "Spell DC 1 Mod" || field === "Spell DC 2 Mod" ) {
+    ele.value = (AbilityScores.abbreviations[(Number(ele.value) - 1)] ? (AbilityScores.abbreviations[(Number(ele.value) - 1)] + " Mod") : ele.value );
+    ele.value = ( (ele.value === "0") ? "" : ele.value );
+  };
+
   if ( ele.userName === undefined ) {
     ele.userName = ele.title;
   } else {
@@ -50,7 +55,7 @@ tDoc.getField = function(field) {
     ele.type = "text";
     ele.multiline = true;
     var content = "<p>" + ele.value.replace(/\n/g, '<br>').replace(/◆/g, '</p><p><i class="fa fa-circle fa-fw"></i>') + '</p>';
-    $ele.siblings('div.notes').html(content);
+    $ele.siblings('div.notes').html(content.replace("<p></p>", ""));
   };
 
   ele.isBoxChecked = function() {
@@ -234,6 +239,7 @@ setJoSpells = function() { if ( allowCalc ) {
     var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi] + " Mod"));
     var isPrepared = CurrentSpells[classes.primary].known.prepared;
     var cantrips = CurrentSpells[classes.primary].known.cantrips[spellCastLvl];
+    var spells = CurrentSpells[classes.primary].known.spells[spellCastLvl];
     var prepared = spellCastLvl + spellCastAbiMod;
     var spell = 0;
     var $configC = $('#spellsConfigLvl0');
@@ -242,7 +248,7 @@ setJoSpells = function() { if ( allowCalc ) {
     $configS.html('');
     $('[name="Spellcasting Class"]').val(classes.primary);
     $('[name="Spellcasting Ability"]').val(AbilityScores.names[spellCastAbi]);
-    $('[name="Spell Attack Bonus"]').val($('[name="Wis ST Mod"]').val());
+    $('[name="Spell Attack Bonus"]').val($('[name="' + AbilityScores.abbreviations[spellCastAbi] + ' ST Mod"]').val());
     if ( cantrips > 0 ) {
       for ( var i = 0; i < cantrips; i++ ) {
         $configC.append('<select id="spellsSelectC' + i + '" class="custom-select form-control-sm mb-2"><option></option></select>');
@@ -250,6 +256,10 @@ setJoSpells = function() { if ( allowCalc ) {
     };
     if ( isPrepared ) {
       for ( var i = 0; i < prepared; i++ ) {
+        $configS.append('<select id="spellsSelectS' + i + '" class="custom-select form-control-sm mb-2"><option></option></select>');
+      };
+    } else {
+      for ( var i = 0; i < spells; i++ ) {
         $configS.append('<select id="spellsSelectS' + i + '" class="custom-select form-control-sm mb-2"><option></option></select>');
       };
     };
@@ -288,10 +298,10 @@ setJoSpells = function() { if ( allowCalc ) {
               <td title="' + SpellsList[key].name + '">' + (SpellsList[key].nameShort ? SpellsList[key].nameShort : SpellsList[key].name) + '</td>\
               <td title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].description + '</td>\
               <td>' + (SpellsList[key].save ? SpellsList[key].save : '&mdash;') + '</td>\
-              <td>' + SpellsList[key].school + '</td>\
+              <td>' + (SpellsList[key].school ? SpellsList[key].school : "") + '</td>\
               <td>' + SpellsList[key].time + '</td>\
               <td>' + SpellsList[key].range + '</td>\
-              <td title="' + SpellsList[key].compMaterial + '">' + SpellsList[key].components + '</td>\
+              <td title="' + SpellsList[key].compMaterial + '">' + (SpellsList[key].components ? SpellsList[key].components : "") + '</td>\
               <td>' + SpellsList[key].duration + '</td>\
               <td title="' + SourceList[SpellsList[key].source[0]].name + '">' + SpellsList[key].source[0] + '</td>\
               <td class="right">' + SpellsList[key].source[1] + '</td>\
@@ -391,10 +401,12 @@ $(function() { // --------------------------------------------------------------
   };
 
   if ( allowCalc ) {
+    $('.abiDrop').html('<option></option>');
     $.each(AbilityScores.abbreviations, function(key, value) {
       $('.abiDrop').append('<option value="' + value + ' Mod">' + value + '</option>');
     });
 
+    $('.dmgDrop').html('<option></option>');
     $.each(DamageTypes, function(key, value) {
       $('.dmgDrop').append('<option value="' + key + '">' + key + '</option>');
     });

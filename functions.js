@@ -577,6 +577,16 @@ $(function() { // --------------------------------------------------------------
     ApplyBackgroundFeature($dit.val());
   }};
 
+  $('[name="Spell Save DC 1"]').on('focusout', setJoSpellSave);
+  function setJoSpellSave() { if ( allowCalc ) {
+    var $dit = $('[name="Spell Save DC 1"]');
+    event = Object.create(event, {
+      target: { value: $dit.get(0) }
+    });
+    CalcAbilityDC();
+    $dit.val(event.value).trigger('change');
+  }};
+
   calculateAll = function() { if ( allowCalc ) {
     setJoLevel();
     setJoRace();
@@ -594,6 +604,7 @@ $(function() { // --------------------------------------------------------------
     setJoAc();
     ApplyProficiencies(true);
     setJoSpells();
+    setJoSpellSave();
   }};
 
   $('#calcModal').on('change focusout', 'select', function() {
