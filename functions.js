@@ -402,19 +402,9 @@ $(function() { // --------------------------------------------------------------
     } else if ( $ele.is('.attack') ) {
       setJoAttack($ele);
     } else if ( $ele.is('.hitDie') ) {
-      if ( allowCalc ) {
-        event = Object.create(event, {
-          target: { value: $ele.get(0) },
-          value: { value: $ele.val().split("+")[0].replace("d", "") }
-        });
-        FormatHD();
-        $ele.val(event.value);
-      };
+      setJoHitDie($ele);
     } else if ( $ele.is('.feat') ) {
-      if ( allowCalc ) {
-        event = Object.create(event);
-        ApplyFeat($ele.val(), key.slice(-1));
-      };
+      setJoFeat($ele);
     };
 
     if ( key === "Name" ) {
@@ -440,9 +430,9 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     //setCharacter();
 
-    if ( $ele.is('.mod') ) {
+   /* if ( $ele.is('.mod') ) {
       $ele.val((file.character[key]>0?'+':'') + file.character[key]);
-    } /*else if ( $ele.is('.hitDie') ) {
+    } else if ( $ele.is('.hitDie') ) {
       if ( allowCalc ) {
         event.value = $ele.val().split("+")[0].replace("d", "");
         FormatHD();
@@ -607,23 +597,19 @@ $(function() { // --------------------------------------------------------------
     CalcAttackDmgHit();
   }};
 
-/*
-} else if ( $ele.is('.hitDie') ) {
-  if ( allowCalc ) {
+  function setJoHitDie($ele) { if ( allowCalc ) {
     event = Object.create(event, {
       target: { value: $ele.get(0) },
       value: { value: $ele.val().split("+")[0].replace("d", "") }
     });
     FormatHD();
     $ele.val(event.value);
-  };
-} else if ( $ele.is('.feat') ) {
-  if ( allowCalc ) {
+  }};
+
+  function setJoFeat($ele) { if ( allowCalc ) {
     event = Object.create(event);
-    ApplyFeat($ele.val(), key.slice(-1));
-  };
-};
-*/
+    ApplyFeat($ele.val(), $ele.attr('name').slice(-1));
+  }};
 
   calculateAll = function() { if ( allowCalc ) {
     setJoLevel();
@@ -639,8 +625,6 @@ $(function() { // --------------------------------------------------------------
     ApplyShield($('#shield').val());
     setJoAcDex();
     setJoHp();
-    //$('.hitDie, .feat').trigger('change');
-    //setJoAttack
     $('.save').each(function(i, value) {
       setJoSave($(value));
     });
@@ -649,6 +633,12 @@ $(function() { // --------------------------------------------------------------
     });
     $('.attack').each(function(i, value) {
       setJoAttack($(value));
+    });
+    $('.hitDie').each(function(i, value) {
+      setJoHitDie($(value));
+    });
+    $('.feat').each(function(i, value) {
+      setJoFeat($(value));
     });
     setJoBgF();
     setJoAc();
