@@ -89,14 +89,6 @@ tDoc.getField = function(field) {
   return ele;
 };
 
-What = function(field) {
-  if ( field === "HD1 Die" ) {
-    return (tDoc.getField(field) ? tDoc.getField(field).value : "").split("+")[0].replace("d", "");
-  } else {
-    return tDoc.getField(field) ? tDoc.getField(field).value : "";
-  };
-}
-
 Value = function(field, FldValue, tooltip) {
   var ele = document.getElementsByName(field)[0];
 

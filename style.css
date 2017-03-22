@@ -404,7 +404,7 @@ select.display {
 .smallBlock .content {
   padding: 6px 7px 12px 6px;
 }
-.content input.noTransform {
+.outerPage .noTransform {
   text-transform: initial;
 }
 .smallBlock .content .col {

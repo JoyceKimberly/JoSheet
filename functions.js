@@ -441,7 +441,7 @@ $(function() { // --------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
   function setJoClass() { if ( allowCalc ) {
-    ApplyClasses($('[name="Class and Levels"]').val());
+    ApplyClasses($('input[name="Class and Levels"]').val());
     $.each(AbilityScores.abbreviations, function(key, value) {
       file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
     });
@@ -466,12 +466,12 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoRace() { if ( allowCalc ) {
-    ApplyRace($('[name="Race Display"]').val());
+    ApplyRace($('input[name="Race Display"]').val());
     MakeRaceMenu();
   }};
 
   function setJoBackground() { if ( allowCalc ) {
-    ApplyBackground($('[name="Background"]').val());
+    ApplyBackground($('input[name="Background"]').val());
     MakeBackgroundMenu();
     if ( Menus.background[3] ) {
       $('#backgroundConfig').show();
@@ -515,45 +515,52 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoProfBonus() { if ( allowCalc ) {
-    var $ele = $('[name="Proficiency Bonus"]');
+    var $ele = $('input[name="Proficiency Bonus"]');
     event = Object.create(event, {
       target: { value: $ele.get(0) }
     });
     ProfBonus();
-    $ele.val(Number(event.value));
+    if ( event.value ) {
+      $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    };
   }};
 
   function setJoAc() { if ( allowCalc ) {
-    var $ele = $('[name="AC"]');
+    var $ele = $('input[name="AC"]');
     event = Object.create(event);
     CalcAC();
-    console.log(event);
-    $ele.val(Number(event.value));
+    if ( event.value ) {
+      $ele.val(Number(event.value));
+    };
   }};
 
   function setJoAcDex() { if ( allowCalc ) {
-    var $ele = $('[name="AC Dexterity Modifier"]');
+    var $ele = $('input[name="AC Dexterity Modifier"]');
     $ele.val(parseInt(calcMaxDexToAC()));
   }};
 
   function setJoHp() { if ( allowCalc ) {
-    var $ele = $('[name="HP Max"]');
+    var $ele = $('input[name="HP Max"]');
     SetHPTooltip();
   }};
 
   function setJoBgF() { if ( allowCalc ) {
-    var $ele = $('[name="Background Feature"]');
+    var $ele = $('input[name="Background Feature"]');
     event = Object.create(event);
-    ApplyBackgroundFeature($ele.val());
+    if ( $ele.val() ) {
+      ApplyBackgroundFeature($ele.val());
+    };
   }};
 
   function setJoSpellSave() { if ( allowCalc ) {
-    var $ele = $('[name="Spell Save DC 1"]');
+    var $ele = $('input[name="Spell Save DC 1"]');
     event = Object.create(event, {
       target: { value: $ele.get(0) }
     });
     CalcAbilityDC();
-    $ele.val(event.value);
+    if ( event.value ) {
+      $ele.val(event.value);
+    };
   }};
 
   function setJoAttrMod($ele) { if ( allowCalc ) {
@@ -561,7 +568,9 @@ $(function() { // --------------------------------------------------------------
       target: { value: $ele.get(0) }
     });
     CalcMod();
-    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    if ( event.value ) {
+      $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    };
   }};
 
   function setJoSave($ele) { if ( allowCalc ) {
@@ -569,7 +578,9 @@ $(function() { // --------------------------------------------------------------
       target: { value: $ele.get(0) }
     });
     CalcSave();
-    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    if ( event.value ) {
+      $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    };
   }};
 
   function setJoSkill($ele) { if ( allowCalc ) {
@@ -577,7 +588,9 @@ $(function() { // --------------------------------------------------------------
       target: { value: $ele.get(0) }
     });
     CalcSkill();
-    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    if ( event.value ) {
+      $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    };
   }};
 
   function setJoAttack($ele) { if ( allowCalc ) {
@@ -589,17 +602,19 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoHitDie($ele) { if ( allowCalc ) {
-    event = Object.create(event, {
-      target: { value: $ele.get(0) },
-      value: { value: $ele.val().split("+")[0].replace("d", "") }
-    });
-    FormatHD();
-    $ele.val(event.value);
+    var $display = $ele.siblings('div.display');
+    var theCon = Number($('[name="Con Mod"]').val());
+    var theResult = Number($ele.val().split("+")[0].replace("d", ""));
+    if ( theResult > 0 ) {
+      $display.html("d" + theResult + (theCon < 0 ? theCon : "+" + theCon));
+    };
   }};
 
   function setJoFeat($ele) { if ( allowCalc ) {
     event = Object.create(event);
-    ApplyFeat($ele.val(), $ele.attr('name').slice(-1));
+    if ( $ele.val() ) {
+      ApplyFeat($ele.val(), Number($ele.attr('name').slice(-1)));
+    };
   }};
 
   calculateAll = function() { if ( allowCalc ) {
