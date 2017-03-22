@@ -398,13 +398,7 @@ $(function() { // --------------------------------------------------------------
     } else if ( $ele.is('.save') ) {
       setJoSave($ele);
     } else if ( $ele.is('.skill') ) {
-      if ( allowCalc ) {
-        event = Object.create(event, {
-          target: { value: $ele.get(0) }
-        });
-        CalcSkill();
-        $ele.val(Number(event.value));
-      };
+      setJoSkill($ele);
     } else if ( $ele.is('.attack') ) {
       if ( allowCalc ) {
         event = Object.create(event, {
@@ -603,15 +597,15 @@ $(function() { // --------------------------------------------------------------
     $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
   }};
 
-/*
-} else if ( $ele.is('.skill') ) {
-  if ( allowCalc ) {
+  function setJoSkill($ele) { if ( allowCalc ) {
     event = Object.create(event, {
       target: { value: $ele.get(0) }
     });
     CalcSkill();
-    $ele.val(Number(event.value));
-  };
+    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+  }};
+
+/*
 } else if ( $ele.is('.attack') ) {
   if ( allowCalc ) {
     event = Object.create(event, {
@@ -652,9 +646,12 @@ $(function() { // --------------------------------------------------------------
     setJoAcDex();
     setJoHp();
     //$('.save, .skill, .hitDie, .attack, .feat').trigger('change');
-    //setJoSave
+    //setJoSkill
     $('.save').each(function(i, value) {
       setJoSave($(value));
+    });
+    $('.skill').each(function(i, value) {
+      setJoSkill($(value));
     });
     setJoBgF();
     setJoAc();
