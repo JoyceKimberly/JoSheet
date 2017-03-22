@@ -598,7 +598,8 @@ $(function() { // --------------------------------------------------------------
       target: { value: $ele.get(0) }
     });
     CalcMod();
-    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    //$ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+    $ele.val(+(event.value));
   }};
 
 /*
