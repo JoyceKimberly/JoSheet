@@ -430,14 +430,6 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     //setCharacter();
 
-    /*if ( $ele.is('.hitDie') ) {
-      if ( allowCalc ) {
-        event.value = $ele.val().split("+")[0].replace("d", "");
-        FormatHD();
-        $ele.val(event.value);
-      };
-    }*/;
-
     if ( $ele.is('.skillProfCheck') ) {
       if ( allowCalc ) {
         $ele.parents('.savesSkill').find('.skill').trigger('change');
@@ -535,6 +527,7 @@ $(function() { // --------------------------------------------------------------
     var $ele = $('[name="AC"]');
     event = Object.create(event);
     CalcAC();
+    console.log(event);
     $ele.val(Number(event.value));
   }};
 
@@ -598,16 +591,10 @@ $(function() { // --------------------------------------------------------------
   function setJoHitDie($ele) { if ( allowCalc ) {
     event = Object.create(event, {
       target: { value: $ele.get(0) },
-      value: { value: $ele.val() }
+      value: { value: $ele.val().split("+")[0].replace("d", "") }
     });
     FormatHD();
-    var theCon = Number($('[name="Con Mod"]').val());
-    var value = (isNaN(event.value)) ? event.value : "d" + event.value + (theCon < 0 ? theCon : "+" + theCon);
-    if ( event.value === "0" || event.value === "" ) {
-      $ele.val('');
-    } else {
-      $ele.val(value);
-    };
+    $ele.val(event.value);
   }};
 
   function setJoFeat($ele) { if ( allowCalc ) {
