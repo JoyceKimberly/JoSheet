@@ -303,6 +303,14 @@ $(function() { // --------------------------------------------------------------
           dit.css("visibility", "hidden");
         };
       });
+      dit.find('.longContent').find('tr').css("visibility", "visible");
+      dit.find('.longContent').find('tr').each(function() {
+        var dit = $(this);
+        totalHeight = totalHeight + dit.outerHeight(true) + 3;
+        if ( totalHeight > visibleHeight ) {
+          dit.css("visibility", "hidden");
+        };
+      });
     });
   };
 
@@ -589,7 +597,11 @@ $(function() { // --------------------------------------------------------------
     });
     CalcSkill();
     if ( event.value ) {
-      $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+      if ( $ele.is('[name="Passive Perception"]') ) {
+        $ele.val(Number(event.value));
+      } else {
+        $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+      };
     };
   }};
 
