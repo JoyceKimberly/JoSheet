@@ -393,6 +393,46 @@ $(function() { // --------------------------------------------------------------
       setJoBgF();
     } else if ( key === "Spell Save DC 1" ) {
       setJoSpellSave();
+    } else if ( $ele.is('.attr') ) {
+      setJoAttrMod($ele);
+    } else if ( $ele.is('.save') ) {
+      if ( allowCalc ) {
+        event = Object.create(event, {
+          target: { value: $ele.get(0) }
+        });
+        CalcSave();
+        $ele.val(Number(event.value));
+      };
+    } else if ( $ele.is('.skill') ) {
+      if ( allowCalc ) {
+        event = Object.create(event, {
+          target: { value: $ele.get(0) }
+        });
+        CalcSkill();
+        $ele.val(Number(event.value));
+      };
+    } else if ( $ele.is('.attack') ) {
+      if ( allowCalc ) {
+        event = Object.create(event, {
+          target: { value: $ele.get(0) }
+        });
+        ApplyWeapon($ele.val(), key);
+        CalcAttackDmgHit();
+      };
+    } else if ( $ele.is('.hitDie') ) {
+      if ( allowCalc ) {
+        event = Object.create(event, {
+          target: { value: $ele.get(0) },
+          value: { value: $ele.val().split("+")[0].replace("d", "") }
+        });
+        FormatHD();
+        $ele.val(event.value);
+      };
+    } else if ( $ele.is('.feat') ) {
+      if ( allowCalc ) {
+        event = Object.create(event);
+        ApplyFeat($ele.val(), key.slice(-1));
+      };
     };
 
     if ( key === "Name" ) {
@@ -417,6 +457,22 @@ $(function() { // --------------------------------------------------------------
     $.extend(true, file.character, character);
     saveCookies();
     //setCharacter();
+
+    if ( $ele.is('.mod') ) {
+      $ele.val((file.character[key]>0?'+':'') + file.character[key]);
+    } /*else if ( $ele.is('.hitDie') ) {
+      if ( allowCalc ) {
+        event.value = $ele.val().split("+")[0].replace("d", "");
+        FormatHD();
+        $ele.val(event.value);
+      };
+    }*/;
+
+    if ( $ele.is('.skillProfCheck') ) {
+      if ( allowCalc ) {
+        $ele.parents('.savesSkill').find('.skill').trigger('change');
+      };
+    };
   });
 
   // ------------------------------------------------------------------------------------
@@ -497,102 +553,95 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoProfBonus() { if ( allowCalc ) {
-    var $dit = $('[name="Proficiency Bonus"]');
+    var $ele = $('[name="Proficiency Bonus"]');
     event = Object.create(event, {
-      target: { value: $dit.get(0) }
+      target: { value: $ele.get(0) }
     });
     ProfBonus();
-    $dit.val(Number(event.value));
+    $ele.val(Number(event.value));
   }};
 
   function setJoAc() { if ( allowCalc ) {
-    var $dit = $('[name="AC"]');
+    var $ele = $('[name="AC"]');
     event = Object.create(event);
     CalcAC();
-    $dit.val(Number(event.value));
+    $ele.val(Number(event.value));
   }};
 
   function setJoAcDex() { if ( allowCalc ) {
-    var $dit = $('[name="AC Dexterity Modifier"]');
-    $dit.val(parseInt(calcMaxDexToAC()));
+    var $ele = $('[name="AC Dexterity Modifier"]');
+    $ele.val(parseInt(calcMaxDexToAC()));
   }};
 
   function setJoHp() { if ( allowCalc ) {
-    var $dit = $('[name="HP Max"]');
+    var $ele = $('[name="HP Max"]');
     SetHPTooltip();
   }};
 
-  $('.attr').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event = Object.create(event, {
-      target: { value: $dit.get(0) }
-    });
-    CalcMod();
-    $dit.val(Number(event.value));
-  }});
-
-  $('.save').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event = Object.create(event, {
-      target: { value: $dit.get(0) }
-    });
-    CalcSave();
-    $dit.val(Number(event.value));
-  }});
-
-  $('.skill').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event = Object.create(event, {
-      target: { value: $dit.get(0) }
-    });
-    CalcSkill();
-    $dit.val(Number(event.value));
-  }});
-
-  $('.skillProfCheck').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    file.character[$dit.attr('id')] = $dit.prop('checked');
-    saveCookies();
-    setCharacter();
-    $dit.parents('.savesSkill').find('.skill').trigger('focusout');
-  }});
-
-  $('.attack').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event = Object.create(event, {
-      target: { value: $dit.get(0) }
-    });
-    ApplyWeapon($dit.val(), $dit.attr("name"));
-    CalcAttackDmgHit();
-  }});
-
-  $('.hitDie').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event.value = $dit.val().split("+")[0].replace("d", "");
-    FormatHD();
-    $dit.val(event.value);
-  }});
-
-  $('.feat').on('focusout', function() { if ( allowCalc ) {
-    var $dit = $(this);
-    event = Object.create(event);
-    ApplyFeat($dit.val(), $dit.attr('name').slice(-1));
-  }});
-
   function setJoBgF() { if ( allowCalc ) {
-    var $dit = $('[name="Background Feature"]');
+    var $ele = $('[name="Background Feature"]');
     event = Object.create(event);
-    ApplyBackgroundFeature($dit.val());
+    ApplyBackgroundFeature($ele.val());
   }};
 
   function setJoSpellSave() { if ( allowCalc ) {
-    var $dit = $('[name="Spell Save DC 1"]');
+    var $ele = $('[name="Spell Save DC 1"]');
     event = Object.create(event, {
-      target: { value: $dit.get(0) }
+      target: { value: $ele.get(0) }
     });
     CalcAbilityDC();
-    $dit.val(event.value);
+    $ele.val(event.value);
   }};
+
+  function setJoAttrMod($ele) { if ( allowCalc ) {
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    CalcMod();
+    $ele.val((Number(event.value)>0?'+':'') + Number(event.value));
+  }};
+
+/*
+if ( $ele.is('.save') ) {
+  if ( allowCalc ) {
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    CalcSave();
+    $ele.val(Number(event.value));
+  };
+} else if ( $ele.is('.skill') ) {
+  if ( allowCalc ) {
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    CalcSkill();
+    $ele.val(Number(event.value));
+  };
+} else if ( $ele.is('.attack') ) {
+  if ( allowCalc ) {
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    ApplyWeapon($ele.val(), key);
+    CalcAttackDmgHit();
+  };
+} else if ( $ele.is('.hitDie') ) {
+  if ( allowCalc ) {
+    event = Object.create(event, {
+      target: { value: $ele.get(0) },
+      value: { value: $ele.val().split("+")[0].replace("d", "") }
+    });
+    FormatHD();
+    $ele.val(event.value);
+  };
+} else if ( $ele.is('.feat') ) {
+  if ( allowCalc ) {
+    event = Object.create(event);
+    ApplyFeat($ele.val(), key.slice(-1));
+  };
+};
+*/
 
   calculateAll = function() { if ( allowCalc ) {
     setJoLevel();
@@ -601,12 +650,14 @@ $(function() { // --------------------------------------------------------------
     setJoBackground();
     setJoAbilityScores();
     setJoProfBonus();
-    $('.attr').trigger('focusout');
+    $('.attr').each(function(i, value) {
+      setJoAttrMod($(value));
+    });
     ApplyArmor($('#armor').val());
     ApplyShield($('#shield').val());
     setJoAcDex();
     setJoHp();
-    $('.save, .skill, .hitDie, .attack, .feat').trigger('focusout');
+    //$('.save, .skill, .hitDie, .attack, .feat').trigger('change');
     setJoBgF();
     setJoAc();
     ApplyProficiencies(true);
