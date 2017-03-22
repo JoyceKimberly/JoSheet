@@ -316,6 +316,20 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------
+  /*
+    $('div.notes').on('touchstart mousedown', function() {
+      var $dit = $(this);
+      $dit.siblings('textarea.notes').show().focus();
+      $dit.hide();
+    });
+    $('textarea.notes').on('focusout', function() {
+      var $dit = $(this);
+      $dit.siblings('div.notes').show();
+      $dit.hide();
+      tDoc.getField($dit.attr('[name]'));
+    });
+  */
+
   function resetCharacter() {
     file.character = {
       "Name" : "JoSheet",
@@ -324,35 +338,6 @@ $(function() { // --------------------------------------------------------------
     $('[name]').val('');
     $('input[type=checkbox]').prop('checked', false);
   };
-
-  $('body').on('change', '[name]', function() {
-    var $ele = $(this);
-    var character = {};
-    var key = $ele.attr('name');
-
-    if ( $ele.is('[name="Name"]') ) {
-      if ( $ele.val() !== "" ) {
-        character["Name"] = encodeURIComponent($ele.val());
-      } else {
-        character["Name"] = "JoSheet";
-      };
-
-    } else if ( $ele.is('.number') ) {
-      character[key] = Number($ele.val());
-
-    } else if ( $ele.is('input[type=checkbox]') ) {
-      character[key] = $ele.prop('checked');
-
-    } else if ( $ele.val() === "" ) {
-      delete file.character[key];
-
-    } else {
-      character[key] = encodeURIComponent($ele.val());
-    };
-    $.extend(true, file.character, character);
-    saveCookies();
-    setCharacter();
-  });
 
   function setCharacter() {
     for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
@@ -375,23 +360,68 @@ $(function() { // --------------------------------------------------------------
     $('.name').text(decodeURIComponent(file.character["Name"]));
     //console.log(tDoc); // debug
   };
-/*
-  $('div.notes').on('touchstart mousedown', function() {
-    var $dit = $(this);
-    $dit.siblings('textarea.notes').show().focus();
-    $dit.hide();
+
+  $('body').on('change focusout', '[name]', function() {
+    var $ele = $(this);
+    var character = {};
+    var key = $ele.attr('name');
+
+    if ( key === "Class and Levels" ) {
+      setJoClass();
+    } else if ( key === "Race" ) {
+      setJoRace();
+    } else if ( key === "Background" ) {
+      setJoBackground();
+    } else if ( key === "Level" ) {
+      calculateAll();
+      setJoLevel();
+    } else if ( key === "Proficiency Bonus" ) {
+      setJoProfBonus();
+    } else if ( key === "AC" ) {
+      setJoAc();
+    } else if ( key === "AC Dexterity Modifier" ) {
+      setJoAcDex();
+    } else if ( key === "HP Max" ) {
+      setJoHp();
+    } else if ( key === "AC Armor Description" ) {
+      if ( allowCalc ) { ApplyArmor($ele.val()); };
+      setJoAc();
+    } else if ( key === "AC Shield Bonus Description" ) {
+      if ( allowCalc ) { ApplyShield($ele.val()); };
+      setJoAc();
+    } else if ( key === "Background Feature" ) {
+      setJoBgF();
+    } else if ( key === "Spell Save DC 1" ) {
+      setJoSpellSave();
+    };
+
+    if ( key === "Name" ) {
+      if ( $ele.val() !== "" ) {
+        character[key] = encodeURIComponent($ele.val());
+      } else {
+        character[key] = "JoSheet";
+      };
+
+    } else if ( $ele.is('.number') ) {
+      character[key] = Number($ele.val());
+
+    } else if ( $ele.is('input[type=checkbox]') ) {
+      character[key] = $ele.prop('checked');
+
+    } else if ( $ele.val() === "" ) {
+      delete file.character[key];
+
+    } else {
+      character[key] = encodeURIComponent($ele.val());
+    };
+    $.extend(true, file.character, character);
+    saveCookies();
+    //setCharacter();
   });
-  $('textarea.notes').on('focusout', function() {
-    var $dit = $(this);
-    $dit.siblings('div.notes').show();
-    $dit.hide();
-    tDoc.getField($dit.attr('[name]'));
-  });
-*/
+
   // ------------------------------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
-  $('[name="Class and Levels"]').on('focusout', setJoClass);
   function setJoClass() { if ( allowCalc ) {
     ApplyClasses($('[name="Class and Levels"]').val());
     $.each(AbilityScores.abbreviations, function(key, value) {
@@ -417,14 +447,11 @@ $(function() { // --------------------------------------------------------------
     };
   }};
 
-  $('[name="Race"]').on('focusout', setJoRace);
-  $('[name="Race Display"]').on('focusout', setJoRace);
   function setJoRace() { if ( allowCalc ) {
     ApplyRace($('[name="Race Display"]').val());
     MakeRaceMenu();
   }};
 
-  $('[name="Background"]').on('focusout', setJoBackground);
   function setJoBackground() { if ( allowCalc ) {
     ApplyBackground($('[name="Background"]').val());
     MakeBackgroundMenu();
@@ -465,53 +492,35 @@ $(function() { // --------------------------------------------------------------
     };
   }};
 
-  $('[name="Level"]').on('focusout', function() {
-    calculateAll();
-  });
   function setJoLevel() { if ( allowCalc ) {
     $('[name="Character Level"]').val(parseInt($('[name="Level"]').val())).trigger('change');
   }};
 
-  $('[name="Proficiency Bonus"]').on('focusout', setJoProfBonus);
   function setJoProfBonus() { if ( allowCalc ) {
     var $dit = $('[name="Proficiency Bonus"]');
     event = Object.create(event, {
       target: { value: $dit.get(0) }
     });
     ProfBonus();
-    $dit.val(Number(event.value)).trigger('change');
+    $dit.val(Number(event.value));
   }};
 
-  $('[name="AC"]').on('focusout', setJoAc);
   function setJoAc() { if ( allowCalc ) {
     var $dit = $('[name="AC"]');
     event = Object.create(event);
     CalcAC();
-    $dit.val(Number(event.value)).trigger('change');
+    $dit.val(Number(event.value));
   }};
 
-  $('[name="AC Dexterity Modifier"]').on('focusout', setJoAcDex);
   function setJoAcDex() { if ( allowCalc ) {
     var $dit = $('[name="AC Dexterity Modifier"]');
-    $dit.val(parseInt(calcMaxDexToAC())).trigger('change');
+    $dit.val(parseInt(calcMaxDexToAC()));
   }};
 
-  $('[name="HP Max"]').on('focusout', setJoHp);
   function setJoHp() { if ( allowCalc ) {
     var $dit = $('[name="HP Max"]');
     SetHPTooltip();
-    $dit.trigger('change');
   }};
-
-  $('[name="AC Armor Description"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyArmor($(this).val());
-    setJoAc();
-  }});
-
-  $('[name="AC Shield Bonus Description"]').on('focusout', function() { if ( allowCalc ) {
-    ApplyShield($(this).val());
-    setJoAc();
-  }});
 
   $('.attr').on('focusout', function() { if ( allowCalc ) {
     var $dit = $(this);
@@ -519,7 +528,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcMod();
-    $dit.val(Number(event.value)).trigger('change');
+    $dit.val(Number(event.value));
   }});
 
   $('.save').on('focusout', function() { if ( allowCalc ) {
@@ -528,7 +537,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcSave();
-    $dit.val(Number(event.value)).trigger('change');
+    $dit.val(Number(event.value));
   }});
 
   $('.skill').on('focusout', function() { if ( allowCalc ) {
@@ -537,7 +546,7 @@ $(function() { // --------------------------------------------------------------
       target: { value: $dit.get(0) }
     });
     CalcSkill();
-    $dit.val(Number(event.value)).trigger('change');
+    $dit.val(Number(event.value));
   }});
 
   $('.skillProfCheck').on('focusout', function() { if ( allowCalc ) {
@@ -561,7 +570,7 @@ $(function() { // --------------------------------------------------------------
     var $dit = $(this);
     event.value = $dit.val().split("+")[0].replace("d", "");
     FormatHD();
-    $dit.val(event.value).trigger('change');
+    $dit.val(event.value);
   }});
 
   $('.feat').on('focusout', function() { if ( allowCalc ) {
@@ -570,21 +579,19 @@ $(function() { // --------------------------------------------------------------
     ApplyFeat($dit.val(), $dit.attr('name').slice(-1));
   }});
 
-  $('[name="Background Feature"]').on('focusout', setJoBgF);
   function setJoBgF() { if ( allowCalc ) {
     var $dit = $('[name="Background Feature"]');
     event = Object.create(event);
     ApplyBackgroundFeature($dit.val());
   }};
 
-  $('[name="Spell Save DC 1"]').on('focusout', setJoSpellSave);
   function setJoSpellSave() { if ( allowCalc ) {
     var $dit = $('[name="Spell Save DC 1"]');
     event = Object.create(event, {
       target: { value: $dit.get(0) }
     });
     CalcAbilityDC();
-    $dit.val(event.value).trigger('change');
+    $dit.val(event.value);
   }};
 
   calculateAll = function() { if ( allowCalc ) {
