@@ -599,7 +599,7 @@ $(function() { // --------------------------------------------------------------
     });
     CalcMod();
     //$ele.val((Number(event.value)>0?'+':'') + Number(event.value));
-    $ele.val(+(event.value));
+    $ele.val(+Number(event.value));
   }};
 
 /*
