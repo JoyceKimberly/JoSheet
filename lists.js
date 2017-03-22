@@ -91,8 +91,7 @@ tDoc.getField = function(field) {
 
 What = function(field) {
   if ( field === "HD1 Die" ) {
-    var value = tDoc.getField(field) ? tDoc.getField(field).value : "";
-    return value.split("+")[0].replace("d", "");
+    return (tDoc.getField(field) ? tDoc.getField(field).value : "").split("+")[0].replace("d", "");
   } else {
     return tDoc.getField(field) ? tDoc.getField(field).value : "";
   };

@@ -430,9 +430,7 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
     //setCharacter();
 
-   /* if ( $ele.is('.mod') ) {
-      $ele.val((file.character[key]>0?'+':'') + file.character[key]);
-    } else if ( $ele.is('.hitDie') ) {
+    /*if ( $ele.is('.hitDie') ) {
       if ( allowCalc ) {
         event.value = $ele.val().split("+")[0].replace("d", "");
         FormatHD();
@@ -600,10 +598,16 @@ $(function() { // --------------------------------------------------------------
   function setJoHitDie($ele) { if ( allowCalc ) {
     event = Object.create(event, {
       target: { value: $ele.get(0) },
-      value: { value: $ele.val().split("+")[0].replace("d", "") }
+      value: { value: $ele.val() }
     });
     FormatHD();
-    $ele.val(event.value);
+    var theCon = Number($('[name="Con Mod"]').val());
+    var value = (isNaN(event.value)) ? event.value : "d" + event.value + (theCon < 0 ? theCon : "+" + theCon);
+    if ( event.value === "0" || event.value === "" ) {
+      $ele.val('');
+    } else {
+      $ele.val(value);
+    };
   }};
 
   function setJoFeat($ele) { if ( allowCalc ) {
