@@ -67,6 +67,7 @@ $(function() { // --------------------------------------------------------------
     $('#edit').removeClass('show').hide();
     $('#moveResetBtn').hide();
     $('#inputResetBtn, #calcBtn').show();
+    calculateAll();
   });
   $('#moveBtn').click(function() {
     moveEnabled = true;
@@ -83,6 +84,7 @@ $(function() { // --------------------------------------------------------------
   });
   $('#showBtn').click(function() {
     setCharacter();
+    UpdateLevelFeatures("all");
     calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
@@ -343,28 +345,43 @@ $(function() { // --------------------------------------------------------------
       "Name" : "JoSheet",
     };
     file.notes = {};
-    $('[name]').val('');
+    $('[name]').each(function(index, value) {
+      var $ele = $(value);
+      if ( $ele.data('default') ) {
+        $ele.val($ele.data('default'));
+      } else {
+        $ele.val('');
+      };
+    });
     $('input[type=checkbox]').prop('checked', false);
   };
 
   function setCharacter() {
-    for ( var i = 0; i < Object.keys(file.character).length; i++ ) {
-      var key = Object.keys(file.character)[i];
-      var $ele = $('[name="' + key + '"]');
+    $('[name]').each(function(index, value) {
+      var $ele = $(value);
+      var key = $ele.attr('name');
 
-      if ( $ele.is('.display.number.mod') ) {
-        $ele.val((file.character[key]>0?'+':'') + file.character[key]);
+      if ( file.character[key] !== undefined ) {
+        if ( $ele.is('.display.number.mod') ) {
+          $ele.val((file.character[key]>0?'+':'') + file.character[key]);
 
-      } else if ( $ele.is('.number') ) {
-        $ele.val(file.character[key]);
+        } else if ( $ele.is('.number') ) {
+          $ele.val(file.character[key]);
 
-      } else if ( $ele.is('input[type=checkbox]') ) {
-        $ele.prop('checked', file.character[key]);
+        } else if ( $ele.is('input[type=checkbox]') ) {
+          $ele.prop('checked', file.character[key]);
+
+        } else {
+          $ele.val(decodeURIComponent(file.character[key]));
+        };
+
+      } else if ( $ele.data('default') ) {
+        $ele.val($ele.data('default'));
 
       } else {
-        $ele.val(decodeURIComponent(file.character[key]));
+        $ele.val('');
       };
-    };
+    });
     $('.name').text(decodeURIComponent(file.character["Name"]));
     //console.log(tDoc); // debug
   };
@@ -453,10 +470,12 @@ $(function() { // --------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
   function setJoClass() { if ( allowCalc ) {
-    ApplyClasses($('input[name="Class and Levels"]').val());
+    ApplyClasses($('input[name="Class and Levels"]').val(), $('[name="Character Level"]').val());
+    //FindClasses($('input[name="Class and Levels"]').val());
     $.each(AbilityScores.abbreviations, function(key, value) {
       file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
     });
+    AddAttacksPerAction();
     MakeClassMenu();
     if ( Menus.classfeatures[0].oSubMenu ) {
       $('#classConfig').show();
@@ -633,11 +652,23 @@ $(function() { // --------------------------------------------------------------
     };
   }};
 
+  calculateNow = function(event, value) { if ( allowCalc ) {
+    if ( event === "AC Armor Bonus" ) {
+      setJoAc();
+    } else {
+      //console.log("Calculate: " + event + " -> " + value);
+    };
+  }};
+
   calculateAll = function() { if ( allowCalc ) {
-    setJoLevel();
+    SetStringifieds();
+    setListsUnitSystem("imperial");
+    UAstartupCode();
     setJoRace();
-    setJoClass();
     setJoBackground();
+    setJoClass();
+    setJoLevel();
+    LoadLevelsonStartup();
     setJoAbilityScores();
     setJoProfBonus();
     $('.attr').each(function(i, value) {
@@ -664,9 +695,12 @@ $(function() { // --------------------------------------------------------------
     });
     setJoBgF();
     setJoAc();
-    ApplyProficiencies(true);
     setJoSpells();
     setJoSpellSave();
+    ApplyProficiencies(true);
+    UpdateTooltips();
+    //SetRichTextFields();
+    //console.log(classes);
   }};
 
   $('#calcModal').on('change focusout', 'select', function() {
@@ -675,7 +709,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
-    initializeLists();
+    calculateAll();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -702,7 +736,7 @@ $(function() { // --------------------------------------------------------------
       $('[name="' + value + ' Remember"]').trigger('change');
     });
     $calcModal.find('select').each(function(i, ele) {
-      if ( Menus.classfeatures[0].oSubMenu ) {
+      if ( Menus.classfeatures[0] ) {
         if ( $(ele).attr("data-class-feat") !== undefined ) {
           $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
             if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
@@ -751,9 +785,9 @@ $(function() { // --------------------------------------------------------------
         };
       };
     });
-    setCharacter();
-    saveCookies();
+    //setCharacter();
     calculateAll();
+    saveCookies();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
 
@@ -834,7 +868,7 @@ $(function() { // --------------------------------------------------------------
           setObjects();
           setCharacter();
           saveCookies();
-          initializeLists();
+          calculateAll();
           setAlert('success', 'Character loaded.');
         }
         reader.readAsText(blob);

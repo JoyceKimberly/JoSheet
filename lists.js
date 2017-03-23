@@ -67,6 +67,9 @@ tDoc.getField = function(field) {
   ele.buttonGetCaption = function() {};
   ele.buttonSetCaption = function() {};
   ele.setItems = function(value) {
+    if ( !$ele.is('select') ) {
+      console.log(field);
+    };
     $ele.html('');
     $.each(value, function(i, val) {
       $ele.append('<option value="' + val + '">' + val + '</option>');
@@ -111,36 +114,6 @@ Value = function(field, FldValue, tooltip) {
     ele.setAttribute('title', tooltip);
   };
 };
-
-initializeLists = function() { if ( allowCalc ) {
-  SetStringifieds();
-  setListsUnitSystem("imperial");
-  UAstartupCode();
-  FindClasses();
-  FindRace();
-  //FindCompRace();
-  FindWeapons();
-  //FindCompWeapons();
-  FindArmor();
-  FindBackground();
-  FindFeats();
-  LoadLevelsonStartup();
-  UpdateLevelFeatures("all");
-  //FindManualOtherWeapons(true);
-  ApplyProficiencies(true);
-  UpdateTooltips();
-  //SetRichTextFields();
-  setJoAbilityScores();
-  //console.log(classes);
-}};
-
-calculateNow = function(event, value) { if ( allowCalc ) {
-  if ( event === "AC Armor Bonus" ) {
-    $('[name="AC"]').trigger('focusout');
-  } else {
-    //console.log("Calculate: " + event + " -> " + value);
-  };
-}};
 
 setJoAbilityScores = function() { if ( allowCalc ) {
   for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
@@ -230,7 +203,7 @@ setJoSpells = function() { if ( allowCalc ) {
     var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi] + " Mod"));
     var isPrepared = CurrentSpells[classes.primary].known.prepared;
     var isPsionic = CurrentSpells[classes.primary].list.psionic;
-    var school = CurrentSpells[classes.primary].bonus.subclassfeature1.school[0];
+    var school = (CurrentSpells[classes.primary].bonus.subclassfeature1 ? CurrentSpells[classes.primary].bonus.subclassfeature1.school[0] : "");
     var cantrips = CurrentSpells[classes.primary].known.cantrips[spellCastLvl];
     var spells = CurrentSpells[classes.primary].known.spells[spellCastLvl];
     var prepared = spellCastLvl + spellCastAbiMod;

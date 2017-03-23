@@ -2,7 +2,7 @@
 <html lang="en">
 <script type="text/javascript">
   tDoc = window;
-  window.onerror = function(msg, url, lineNo, columnNo, error) {
+  /*window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -18,7 +18,7 @@
       console.error(message);
     };
     return true;
-  };
+  };*/
 </script>
 <head>
   <meta charset="utf-8">
@@ -309,15 +309,15 @@
     <div class="page">
       <div id="pageHeader1" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader1.svg"></div>
-        <input name="Name" style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center" type="text">
+        <input name="Name" style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display cap center" type="text">
         <div style="top: 98px; left: 70px;" class="lbl2">Character Name</div>
         <div style="top: 64px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div style="top: 98px; left: 327px; width: 382px; height: 1px;" class="line"></div>
         <div class="content">
           <div style="top: 47px; left: 327px; width: 382px; height: 28px;" class="row">
             <div class="col">
-              <select name="Level" style="left: -2px; width: 20px; height: 18px;" class="display right number custom-select form-control"></select>
-              <input name="Class and Levels" style="left: 20px;" data-subname class="display noTransform form-control" type="text">
+              <select name="Level" data-default="1" style="left: -2px; width: 20px; height: 18px;" class="display right number custom-select form-control"></select>
+              <input name="Class and Levels" style="left: 20px;" data-subname class="display form-control" type="text">
               <div style="top: 15px;" class="lbl2">Level &amp; Class</div>
             </div>
             <div class="col col-3">
@@ -333,7 +333,7 @@
             </div>
             <div class="data-list-input col col-4">
               <select name="Race" data-subname class="data-list-input custom-select"></select>
-              <input name="Race Display" data-subname class="display data-list-input form-control" type="text">
+              <input name="Race Display" data-subname class="display cap data-list-input form-control" type="text">
               <div style="top: 15px;" class="lbl2">Race</div>
             </div>
             <div class="col col-3">
@@ -492,31 +492,31 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <select id="resist1" name="Resistance Damage Type 1" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+              <select id="resist1" name="Resistance Damage Type 1" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <select id="resist4" name="Resistance Damage Type 4" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="inputBg"></div>
-              <select id="resist2" name="Resistance Damage Type 2" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
-            </div>
-            <div class="col">
-              <div class="inputBg"></div>
-              <select id="resist5" name="Resistance Damage Type 5" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+              <select id="resist4" name="Resistance Damage Type 4" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
             </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <select id="resist3" name="Resistance Damage Type 3" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+              <select id="resist2" name="Resistance Damage Type 2" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <select id="resist6" name="Resistance Damage Type 6" data-subname class="display dmgDrop custom-select"><option value="" selected></option></select>
+              <select id="resist5" name="Resistance Damage Type 5" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="inputBg"></div>
+              <select id="resist3" name="Resistance Damage Type 3" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
+            </div>
+            <div class="col">
+              <div class="inputBg"></div>
+              <select id="resist6" name="Resistance Damage Type 6" data-subname class="display cap dmgDrop custom-select"><option value="" selected></option></select>
             </div>
           </div>
           <div style="height: 100%;" class="row">
@@ -928,12 +928,12 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="Speed encumbered" data-subname class="display noTransform center form-control" type="text">
+              <input name="Speed encumbered" data-subname class="display center form-control" type="text">
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <input style="font-size: 18px; line-height: 18px; height: 20px; margin-top: -2px;" name="Speed" class="display noTransform center form-control" type="text">
+              <input style="font-size: 18px; line-height: 18px; height: 20px; margin-top: -2px;" name="Speed" class="display center form-control" type="text">
             </div>
           </div>
         </div>
@@ -970,46 +970,46 @@
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD1 Level" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD1 Level" data-subname class="display center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD1 Die" data-subname class="hidden hitDie form-control" type="text">
-              <div class="display noTransform center"></div>
+              <div class="display center"></div>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD1 Used" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD1 Used" data-subname class="display center form-control" type="text">
             </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD2 Level" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD2 Level" data-subname class="display center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD2 Die" data-subname class="hidden hitDie form-control" type="text">
-              <div class="display noTransform center"></div>
+              <div class="display center"></div>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD2 Used" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD2 Used" data-subname class="display center form-control" type="text">
             </div>
           </div>
           <div class="row hidden">
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD3 Level" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD3 Level" data-subname class="display center form-control" type="text">
             </div>
             <div class="col col-5">
               <div class="inputBg"></div>
               <input name="HD3 Die" data-subname class="hidden hitDie form-control" type="text">
-              <div class="display noTransform center"></div>
+              <div class="display center"></div>
             </div>
             <div class="col">
               <div class="inputBg"></div>
-              <input name="HD3 Used" data-subname class="display noTransform center form-control" type="text">
+              <input name="HD3 Used" data-subname class="display center form-control" type="text">
             </div>
           </div>
         </div>
@@ -1124,81 +1124,81 @@
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language1" name="Language 1" data-subname class="display noTransform form-control" type="text">
+                <input id="language1" name="Language 1" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool1" name="Tool 1" data-subname class="display noTransform form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language2" name="Language 2" data-subname class="display noTransform form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool2" name="Tool 2" data-subname class="display noTransform form-control" type="text">
+                <input id="tool1" name="Tool 1" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language3" name="Language 3" data-subname class="display noTransform form-control" type="text">
+                <input id="language2" name="Language 2" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool3" name="Tool 3" data-subname class="display noTransform form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language4" name="Language 4" data-subname class="display noTransform form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool4" name="Tool 4" data-subname class="display noTransform form-control" type="text">
+                <input id="tool2" name="Tool 2" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language5" name="Language 5" data-subname class="display noTransform form-control" type="text">
+                <input id="language3" name="Language 3" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool5" name="Tool 5" data-subname class="display noTransform form-control" type="text">
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="language6" name="Language 6" data-subname class="display noTransform form-control" type="text">
-              </div>
-              <div class="col">
-                <div class="inputBg"></div>
-                <input id="tool6" name="Tool 6" data-subname class="display noTransform form-control" type="text">
+                <input id="tool3" name="Tool 3" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language7" name="Language 7" data-subname class="display noTransform form-control" type="text">
+                <input id="language4" name="Language 4" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool7" name="Tool 7" data-subname class="display noTransform form-control" type="text">
+                <input id="tool4" name="Tool 4" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="language8" name="Language 8" data-subname class="display noTransform form-control" type="text">
+                <input id="language5" name="Language 5" data-subname class="display form-control" type="text">
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="tool8" name="Tool 8" data-subname class="display noTransform form-control" type="text">
+                <input id="tool5" name="Tool 5" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language6" name="Language 6" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool6" name="Tool 6" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language7" name="Language 7" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool7" name="Tool 7" data-subname class="display form-control" type="text">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="language8" name="Language 8" data-subname class="display form-control" type="text">
+              </div>
+              <div class="col">
+                <div class="inputBg"></div>
+                <input id="tool8" name="Tool 8" data-subname class="display form-control" type="text">
               </div>
             </div>
           </div>
@@ -1223,7 +1223,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 1" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 1" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1231,7 +1231,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 1" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 1" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1241,7 +1241,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 2" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 2" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1249,7 +1249,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 2" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 2" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1259,7 +1259,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 3" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 3" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1267,7 +1267,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 3" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 3" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1277,7 +1277,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 4" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 4" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1285,7 +1285,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 4" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 4" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1295,7 +1295,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 5" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 5" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1303,7 +1303,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 5" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 5" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1313,7 +1313,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 6" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 6" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1321,7 +1321,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 6" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 6" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1331,7 +1331,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 7" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 7" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1339,7 +1339,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 7" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 7" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1349,7 +1349,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 8" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 8" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1357,7 +1357,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 8" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 8" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1367,7 +1367,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 9" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 9" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1375,7 +1375,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 9" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 9" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1385,7 +1385,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 10" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 10" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1393,7 +1393,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 10" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 10" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1403,7 +1403,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 11" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 11" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1411,7 +1411,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 11" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 11" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1421,7 +1421,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 12" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 12" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1429,7 +1429,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 12" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 12" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1439,7 +1439,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 13" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 13" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1447,7 +1447,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 13" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 13" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1457,7 +1457,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 14" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 14" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1465,7 +1465,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 14" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 14" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1475,7 +1475,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 15" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 15" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1483,7 +1483,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 15" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 15" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1493,7 +1493,7 @@
                 <tr>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature 16" data-subname class="display noTransform form-control" type="text">
+                    <input name="Limited Feature 16" data-subname class="display form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1501,7 +1501,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 16" data-subname class="display center form-control" type="text">
+                    <input name="Limited Feature Recovery 16" data-subname class="display cap center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1757,25 +1757,25 @@
               </div>
               <div class="col col-2">
                 <div class="inputBg"></div>
-                <input id="attack1Range" name="Attack.1.Range" data-subname class="display center noTransform form-control" type="text">
+                <input id="attack1Range" name="Attack.1.Range" data-subname class="display center form-control" type="text">
               </div>
               <div style="flex: 0 0 6%;" class="col col-1">
                 <div class="inputBg"></div>
-                <input id="attack1ToHit" name="Attack.1.To Hit" data-subname class="display center noTransform form-control" type="text">
+                <input id="attack1ToHit" name="Attack.1.To Hit" data-subname class="display center form-control" type="text">
               </div>
               <div class="col col-1">
                 <div class="inputBg"></div>
-                <input id="attack1Dmg" name="Attack.1.Damage" data-subname class="display center noTransform form-control" type="text">
+                <input id="attack1Dmg" name="Attack.1.Damage" data-subname class="display center form-control" type="text">
               </div>
               <div style="flex: 0 0 14%;" class="col col-2">
                 <div class="inputBg"></div>
-                <select id="attack1Type" name="Attack.1.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                <select id="attack1Type" name="Attack.1.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
               </div>
             </div>
             <div class="row">
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="attack1Desc" name="Attack.1.Description" data-subname class="display noTransform form-control" type="text">
+                <input id="attack1Desc" name="Attack.1.Description" data-subname class="display form-control" type="text">
               </div>
             </div>
             <div class="row lblRow">
@@ -1810,25 +1810,25 @@
                 </div>
                 <div class="col col-2">
                   <div class="inputBg"></div>
-                  <input id="attack2Range" name="Attack.2.Range" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack2Range" name="Attack.2.Range" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 6%;" class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack2ToHit" name="Attack.2.To Hit" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack2ToHit" name="Attack.2.To Hit" data-subname class="display center form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack2Dmg" name="Attack.2.Damage" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack2Dmg" name="Attack.2.Damage" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 14%;" class="col col-2">
                   <div class="inputBg"></div>
-                  <select id="attack2Type" name="Attack.2.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                  <select id="attack2Type" name="Attack.2.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack2Desc" name="Attack.2.Description" data-subname class="display noTransform form-control" type="text">
+                  <input id="attack2Desc" name="Attack.2.Description" data-subname class="display form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1859,25 +1859,25 @@
                 </div>
                 <div class="col col-2">
                   <div class="inputBg"></div>
-                  <input id="attack3Range" name="Attack.3.Range" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack3Range" name="Attack.3.Range" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 6%;" class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack3ToHit" name="Attack.3.To Hit" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack3ToHit" name="Attack.3.To Hit" data-subname class="display center form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack3Dmg" name="Attack.3.Damage" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack3Dmg" name="Attack.3.Damage" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 14%;" class="col col-2">
                   <div class="inputBg"></div>
-                  <select id="attack3Type" name="Attack.3.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                  <select id="attack3Type" name="Attack.3.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack3Desc" name="Attack.3.Description" data-subname class="display noTransform form-control" type="text">
+                  <input id="attack3Desc" name="Attack.3.Description" data-subname class="display form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1908,25 +1908,25 @@
                 </div>
                 <div class="col col-2">
                   <div class="inputBg"></div>
-                  <input id="attack4Range" name="Attack.4.Range" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack4Range" name="Attack.4.Range" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 6%;" class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack4ToHit" name="Attack.4.To Hit" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack4ToHit" name="Attack.4.To Hit" data-subname class="display center form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack4Dmg" name="Attack.4.Damage" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack4Dmg" name="Attack.4.Damage" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 14%;" class="col col-2">
                   <div class="inputBg"></div>
-                  <select id="attack4Type" name="Attack.4.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                  <select id="attack4Type" name="Attack.4.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack4Desc" name="Attack.4.Description" data-subname class="display noTransform form-control" type="text">
+                  <input id="attack4Desc" name="Attack.4.Description" data-subname class="display form-control" type="text">
                 </div>
               </div>
             </div>
@@ -1957,25 +1957,25 @@
                 </div>
                 <div class="col col-2">
                   <div class="inputBg"></div>
-                  <input id="attack5Range" name="Attack.5.Range" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack5Range" name="Attack.5.Range" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 6%;" class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack5ToHit" name="Attack.5.To Hit" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack5ToHit" name="Attack.5.To Hit" data-subname class="display center form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack5Dmg" name="Attack.5.Damage" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack5Dmg" name="Attack.5.Damage" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 14%;" class="col col-2">
                   <div class="inputBg"></div>
-                  <select id="attack5Type" name="Attack.5.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                  <select id="attack5Type" name="Attack.5.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack5Desc" name="Attack.5.Description" data-subname class="display noTransform form-control" type="text">
+                  <input id="attack5Desc" name="Attack.5.Description" data-subname class="display form-control" type="text">
                 </div>
               </div>
             </div>
@@ -2006,25 +2006,25 @@
                 </div>
                 <div class="col col-2">
                   <div class="inputBg"></div>
-                  <input id="attack6Range" name="Attack.6.Range" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack6Range" name="Attack.6.Range" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 6%;" class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack6ToHit" name="Attack.6.To Hit" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack6ToHit" name="Attack.6.To Hit" data-subname class="display center form-control" type="text">
                 </div>
                 <div class="col col-1">
                   <div class="inputBg"></div>
-                  <input id="attack6Dmg" name="Attack.6.Damage" data-subname class="display center noTransform form-control" type="text">
+                  <input id="attack6Dmg" name="Attack.6.Damage" data-subname class="display center form-control" type="text">
                 </div>
                 <div style="flex: 0 0 14%;" class="col col-2">
                   <div class="inputBg"></div>
-                  <select id="attack6Type" name="Attack.6.Damage Type" data-subname class="display dmgDrop custom-select"></select>
+                  <select id="attack6Type" name="Attack.6.Damage Type" data-subname class="display cap dmgDrop custom-select"></select>
                 </div>
               </div>
               <div class="row">
                 <div class="col">
                   <div class="inputBg"></div>
-                  <input id="attack6Desc" name="Attack.6.Description" data-subname class="display noTransform form-control" type="text">
+                  <input id="attack6Desc" name="Attack.6.Description" data-subname class="display form-control" type="text">
                 </div>
               </div>
             </div>
@@ -2058,7 +2058,7 @@
               <div class="data-list-input col">
                 <div class="inputBg"></div>
                 <select name="AC Armor Description" data-subname class="data-list-input custom-select"></select>
-                <input id="armor" name="AC Armor Description" data-subname class="data-list-input display form-control" type="text">
+                <input id="armor" name="AC Armor Description" data-subname class="data-list-input display cap form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -2071,7 +2071,7 @@
               </div>
               <div class="col">
                 <div class="inputBg"></div>
-                <input id="shield" name="AC Shield Bonus Description" data-subname class="display form-control" type="text">
+                <input id="shield" name="AC Shield Bonus Description" data-subname class="display cap form-control" type="text">
               </div>
             </div>
             <div class="row">
@@ -2260,7 +2260,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Background Feature" data-subname class="data-list-input custom-select"></select>
-              <input id="bgFeat" name="Background Feature" data-subname class="data-list-input display noTransform form-control" type="text">
+              <input id="bgFeat" name="Background Feature" data-subname class="data-list-input display form-control" type="text">
             </div>
           </div>
           <div class="row" style="height: 100%;">
@@ -2278,7 +2278,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 1" data-subname class="data-list-input custom-select"></select>
-              <input id="feat1" name="Feat Name 1" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat1" name="Feat Name 1" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
           <div class="row" style="height: 100%;">
@@ -2295,7 +2295,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 9" data-subname class="data-list-input custom-select"></select>
-              <input id="feat9" name="Feat Name 9" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat9" name="Feat Name 9" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
           <div class="row" style="height: 100%;">
@@ -2373,9 +2373,9 @@
             </th>
           </tr>
           <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
+            <th style="width: 13px;">&nbsp;</th>
+            <th style="min-width: 80px;">Spell</th>
+            <th style="min-width: 350px;">Description</th>
             <th>Save</th>
             <th>School</th>
             <th>Time</th>
@@ -2673,7 +2673,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 2" data-subname class="data-list-input custom-select"></select>
-              <input id="feat2" name="Feat Name 2" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat2" name="Feat Name 2" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2688,7 +2688,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 3" data-subname class="data-list-input custom-select"></select>
-              <input id="feat3" name="Feat Name 3" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat3" name="Feat Name 3" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2703,7 +2703,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 4" data-subname class="data-list-input custom-select"></select>
-              <input id="feat4" name="Feat Name 4" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat4" name="Feat Name 4" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2718,7 +2718,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 5" data-subname class="data-list-input custom-select"></select>
-              <input id="feat5" name="Feat Name 5" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat5" name="Feat Name 5" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2733,7 +2733,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 6" data-subname class="data-list-input custom-select"></select>
-              <input id="feat6" name="Feat Name 6" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat6" name="Feat Name 6" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2748,7 +2748,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 7" data-subname class="data-list-input custom-select"></select>
-              <input id="feat7" name="Feat Name 7" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat7" name="Feat Name 7" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2763,7 +2763,7 @@
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 8" data-subname class="data-list-input custom-select"></select>
-              <input id="feat8" name="Feat Name 8" data-subname class="data-list-input feat display noTransform form-control" type="text">
+              <input id="feat8" name="Feat Name 8" data-subname class="data-list-input feat display form-control" type="text">
             </div>
           </div>
         </div>
@@ -2802,13 +2802,13 @@
   </div>
   <div id="hiddenFields" class="noPrint">
     <input name="Highlighting" data-subname type="text">
-    <input name="Unit System" value="imperial" data-subname type="text">
-    <input name="Str Remember" value="10,0,0,0,0,0" data-subname type="text">
-    <input name="Dex Remember" value="10,0,0,0,0,0" data-subname type="text">
-    <input name="Con Remember" value="10,0,0,0,0,0" data-subname type="text">
-    <input name="Int Remember" value="10,0,0,0,0,0" data-subname type="text">
-    <input name="Wis Remember" value="10,0,0,0,0,0" data-subname type="text">
-    <input name="Cha Remember" value="10,0,0,0,0,0" data-subname type="text">
+    <input name="Unit System" data-default="imperial" data-default="imperial" data-subname type="text">
+    <input name="Str Remember" data-default="10,0,0,0,0,0" data-subname type="text">
+    <input name="Dex Remember" data-default="10,0,0,0,0,0" data-subname type="text">
+    <input name="Con Remember" data-default="10,0,0,0,0,0" data-subname type="text">
+    <input name="Int Remember" data-default="10,0,0,0,0,0" data-subname type="text">
+    <input name="Wis Remember" data-default="10,0,0,0,0,0" data-subname type="text">
+    <input name="Cha Remember" data-default="10,0,0,0,0,0" data-subname type="text">
     <input name="HoS" data-subname type="text">
     <input name="HoS Remember" data-subname type="text">
     <input name="HoSRememberState" data-subname type="text">
@@ -2911,12 +2911,12 @@
     <select name="Comp.Use.Attack.3.Weapon Selection" data-subname></select>
 
     <input name="Text.SkillsNames" title="alphabeta" data-subname type="text">
-    <input name="Decimal Separator" value="comma" data-subname type="text">
-    <input name="Manual Attack Remember" value="No" data-subname type="text">
-    <input name="Manual Background Remember" value="No" data-subname type="text">
-    <input name="Manual Class Remember" value="No" data-subname type="text">
-    <input name="Manual Feat Remember" value="No" data-subname type="text">
-    <input name="Manual Race Remember" value="No" data-subname type="text">
+    <input name="Decimal Separator" data-default="comma" data-subname type="text">
+    <input name="Manual Attack Remember" data-default="No" data-subname type="text">
+    <input name="Manual Background Remember" data-default="No" data-subname type="text">
+    <input name="Manual Class Remember" data-default="No" data-subname type="text">
+    <input name="Manual Feat Remember" data-default="No" data-subname type="text">
+    <input name="Manual Race Remember" data-default="No" data-subname type="text">
 
     <input name="Attack.1.Description Tooltip" data-subname type="text">
     <input name="BlueText.Attack.1.To Hit Bonus" data-subname type="text">

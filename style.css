@@ -23,6 +23,9 @@ select.right {
 option {
     direction: ltr;
 }
+.cap {
+  text-transform: capitalize;
+}
 
 .hidden,
 .display,
@@ -181,7 +184,6 @@ select.display {
   color: black;
   font-size: 14px;
   line-height: 16px;
-  text-transform: capitalize;
   white-space: nowrap;
   letter-spacing: -0.3px;
   vertical-align: top;
@@ -422,9 +424,6 @@ select.display {
 
 .smallBlock .content {
   padding: 6px 7px 12px 6px;
-}
-.outerPage .noTransform {
-  text-transform: initial;
 }
 .smallBlock .content .col {
   height: 16px;
@@ -681,16 +680,6 @@ button .fa-stack .fa-stack-2x {
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells .lblRow th:nth-of-type(1) { width: 13px; }
-.spells .lblRow th:nth-of-type(2) { width: 114px; } /* Spell */
-.spells .lblRow th:nth-of-type(4) { width: 17px; } /* Save */
-.spells .lblRow th:nth-of-type(5) { width: 27px; } /* School */
-.spells .lblRow th:nth-of-type(6) { width: 24px; } /* Time */
-.spells .lblRow th:nth-of-type(7) { width: 41px; } /* Range */
-.spells .lblRow th:nth-of-type(8) { width: 24px; } /* Comp */
-.spells .lblRow th:nth-of-type(9) { width: 53px; } /* Duration */
-.spells .lblRow th:nth-of-type(10) { width: 7px; } /* B */
-.spells .lblRow th:nth-of-type(11) { width: 18px; } /* Page */
 .spells td {
   font-size: 9px;
   white-space: nowrap;
