@@ -442,6 +442,10 @@ $(function() { // --------------------------------------------------------------
       if ( allowCalc ) {
         $ele.parents('.savesSkill').find('.skill').trigger('change');
       };
+    } else if ( $ele.is('.saveProfCheck') ) {
+      if ( allowCalc ) {
+        $ele.parents('.saveAttr').find('.save').trigger('change');
+      };
     };
   });
 
