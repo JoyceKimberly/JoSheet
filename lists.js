@@ -37,12 +37,9 @@ tDoc.getField = function(field) {
   };
 
   if ( ele.currentValueIndices === undefined ) {
-    ele.currentValueIndices = ele.selectedIndex;
-  } else if ( ele.currentValueIndices < 1 ) {
-    //console.log(field + " -> " + ele.currentValueIndices);
-  } else {
-    console.log(field + " -> " + ele.currentValueIndices);
-    //ele.selectedIndex = ele.currentValueIndices;
+    ele.currentValueIndices = Number(ele.selectedIndex);
+  } else if ( Number(ele.currentValueIndices) > 1 ) {
+    ele.selectedIndex = Number(ele.currentValueIndices);
   };
 
   if ( ele.value === "short rest" || ele.value === "Short Rest" ) {
@@ -58,14 +55,6 @@ tDoc.getField = function(field) {
     $ele.siblings('div.notes').html(content.replace("<p></p>", ""));
   };
 
-  ele.isBoxChecked = function() {
-    return Number($ele.prop('checked'));
-  };
-  ele.checkThisBox = function(box, value) {
-    $ele.prop('checked', value);
-  };
-  ele.buttonGetCaption = function() {};
-  ele.buttonSetCaption = function() {};
   ele.setItems = function(value) {
     if ( !$ele.is('select') ) {
       console.log(field);
@@ -82,12 +71,17 @@ tDoc.getField = function(field) {
       console.log("setAction " + type + ": " + field + " -> " + value);
     };
   };
+  ele.checkThisBox = function(box, value) {
+    $ele.prop('checked', value);
+  };
+  ele.isBoxChecked = function() {
+    return Number($ele.prop('checked'));
+  };
+  ele.buttonGetCaption = function() {};
+  ele.buttonSetCaption = function() {};
   ele.setFocus = function() {};
   ele.clearItems = function() {};
-  ele.rect = "";
-  ele.page = 0;
 
-  //console.log(field);
   //console.log(ele);
   return ele;
 };
