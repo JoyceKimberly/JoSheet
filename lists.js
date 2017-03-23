@@ -229,6 +229,8 @@ setJoSpells = function() { if ( allowCalc ) {
     var spellCastAbi = CurrentSpells[classes.primary].ability - 1;
     var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi] + " Mod"));
     var isPrepared = CurrentSpells[classes.primary].known.prepared;
+    var isPsionic = CurrentSpells[classes.primary].list.psionic;
+    var school = CurrentSpells[classes.primary].bonus.subclassfeature1.school[0];
     var cantrips = CurrentSpells[classes.primary].known.cantrips[spellCastLvl];
     var spells = CurrentSpells[classes.primary].known.spells[spellCastLvl];
     var prepared = spellCastLvl + spellCastAbiMod;
@@ -270,50 +272,101 @@ setJoSpells = function() { if ( allowCalc ) {
           ');
         };
       };
-      $.each(SpellsList, function(key, value) {
-        if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
-          spell++;
-          var spellId = "spell" + spell;
-          var spellShow = "";
-          if ( isPrepared ) {
-            spellShow = "hidden";
+      if ( isPsionic ) {
+        $.each(PsionicsList, function(key, value) {
+          if ( ($.inArray(classes.primary, PsionicsList[key].classes) > -1 || PsionicsList[key].school === school) && PsionicsList[key].level === i ) {
+            spell++;
+            var spellId = "spell" + spell;
+            var spellShow = "hidden";
             $.each(file.character, function(key, value) {
               if ( spellId === value ) {
-                spellShow = "";
+                spellShow = "visible";
               };
             });
-          };
-          $('#spellsBlock' + i + ' .lastRow').before('\
-            <tr id="' + spellId + '" class="' + spellShow + '">\
-              <td>&nbsp;</td>\
-              <td title="' + SpellsList[key].name + '">' + (SpellsList[key].nameShort ? SpellsList[key].nameShort : SpellsList[key].name) + '</td>\
-              <td title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].description + '</td>\
-              <td>' + (SpellsList[key].save ? SpellsList[key].save : '&mdash;') + '</td>\
-              <td>' + (SpellsList[key].school ? SpellsList[key].school : "") + '</td>\
-              <td>' + SpellsList[key].time + '</td>\
-              <td>' + SpellsList[key].range + '</td>\
-              <td title="' + SpellsList[key].compMaterial + '">' + (SpellsList[key].components ? SpellsList[key].components : "") + '</td>\
-              <td>' + SpellsList[key].duration + '</td>\
-              <td title="' + SourceList[SpellsList[key].source[0]].name + '">' + SpellsList[key].source[0] + '</td>\
-              <td class="right">' + SpellsList[key].source[1] + '</td>\
-            </tr>\
-          ');
-          if ( i === 0 ) {
-            for ( var i2 = 0; i2 < cantrips; i2++ ) {
-              $configC.find('select#spellsSelectC' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + '</option>');
-            };
-          } else if ( slots > 0 ) {
-            $('#spellsHeader' + i + ', #spellsBlock' + i).show();
-            if ( isPrepared ) {
-              for ( var i2 = 0; i2 < prepared; i2++ ) {
-                $configS.find('select#spellsSelectS' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + ' (lvl ' + i + ')</option>');
+            $('#spellsBlock' + i + ' .lastRow').before('\
+              <tr id="' + spellId + '" data-parent="' + key + '" class="spellRow ' + spellShow + '">\
+                <td>&nbsp;</td>\
+                <td title="' + PsionicsList[key].name + '">' + (PsionicsList[key].nameShort ? PsionicsList[key].nameShort : PsionicsList[key].name) + '</td>\
+                <td title="' + PsionicsList[key].descriptionFull + '">' + PsionicsList[key].description + '</td>\
+                <td>' + (PsionicsList[key].save ? PsionicsList[key].save : '&mdash;') + '</td>\
+                <td>' + (PsionicsList[key].school ? PsionicsList[key].school : "") + '</td>\
+                <td>' + PsionicsList[key].time + '</td>\
+                <td>' + PsionicsList[key].range + '</td>\
+                <td title="' + PsionicsList[key].compMaterial + '">' + (PsionicsList[key].components ? PsionicsList[key].components : "") + '</td>\
+                <td>' + PsionicsList[key].duration + '</td>\
+                <td title="' + SourceList[PsionicsList[key].source[0]].name + '">' + PsionicsList[key].source[0] + '</td>\
+                <td class="right">' + PsionicsList[key].source[1] + '</td>\
+              </tr>\
+            ');
+            if ( i === 0 ) {
+              for ( var i2 = 0; i2 < cantrips; i2++ ) {
+                $configC.find('select#spellsSelectC' + i2).append('<option value="spell' + spell + '" title="' + PsionicsList[key].descriptionFull + '">' + PsionicsList[key].name + '</option>');
               };
+            } else if ( spells > 0 ) {
+              $('#spellsHeader' + i + ', #spellsBlock' + i).show();
+              for ( var i2 = 0; i2 < spells; i2++ ) {
+                if ( PsionicsList[key].school === school && $.inArray(classes.primary, PsionicsList[key].classes) > -1 ) {
+                  $configS.find('select#spellsSelectS' + i2).append('<option value="spell' + spell + '" title="' + PsionicsList[key].descriptionFull + '">' + PsionicsList[key].name + ' (lvl ' + i + ')</option>');
+                };
+              };
+            } else {
+              $('#spellsHeader' + i + ', #spellsBlock' + i).hide();
             };
-          } else {
-            $('#spellsHeader' + i + ', #spellsBlock' + i).hide();
           };
-        };
-      });
+        });
+        $('.spellRow.visible').each(function(index, value) {
+          var key = $(value).data('parent');
+          var dependencies = PsionicsList[key].dependencies;
+          $.each(dependencies, function(index, value) {
+            $('tr[data-parent="' + value + '"]').removeClass('hidden');
+          });
+        });
+      } else {
+        $.each(SpellsList, function(key, value) {
+          if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
+            spell++;
+            var spellId = "spell" + spell;
+            var spellShow = "";
+            if ( isPrepared ) {
+              spellShow = "hidden";
+              $.each(file.character, function(key, value) {
+                if ( spellId === value ) {
+                  spellShow = "";
+                };
+              });
+            };
+            $('#spellsBlock' + i + ' .lastRow').before('\
+              <tr id="' + spellId + '" class="' + spellShow + '">\
+                <td>&nbsp;</td>\
+                <td title="' + SpellsList[key].name + '">' + (SpellsList[key].nameShort ? SpellsList[key].nameShort : SpellsList[key].name) + '</td>\
+                <td title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].description + '</td>\
+                <td>' + (SpellsList[key].save ? SpellsList[key].save : '&mdash;') + '</td>\
+                <td>' + (SpellsList[key].school ? SpellsList[key].school : "") + '</td>\
+                <td>' + SpellsList[key].time + '</td>\
+                <td>' + SpellsList[key].range + '</td>\
+                <td title="' + SpellsList[key].compMaterial + '">' + (SpellsList[key].components ? SpellsList[key].components : "") + '</td>\
+                <td>' + SpellsList[key].duration + '</td>\
+                <td title="' + SourceList[SpellsList[key].source[0]].name + '">' + SpellsList[key].source[0] + '</td>\
+                <td class="right">' + SpellsList[key].source[1] + '</td>\
+              </tr>\
+            ');
+            if ( i === 0 ) {
+              for ( var i2 = 0; i2 < cantrips; i2++ ) {
+                $configC.find('select#spellsSelectC' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + '</option>');
+              };
+            } else if ( slots > 0 ) {
+              $('#spellsHeader' + i + ', #spellsBlock' + i).show();
+              if ( isPrepared ) {
+                for ( var i2 = 0; i2 < prepared; i2++ ) {
+                  $configS.find('select#spellsSelectS' + i2).append('<option value="spell' + spell + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + ' (lvl ' + i + ')</option>');
+                };
+              };
+            } else {
+              $('#spellsHeader' + i + ', #spellsBlock' + i).hide();
+            };
+          };
+        });
+      };
     };
   };
 }};
