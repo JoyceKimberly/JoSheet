@@ -495,6 +495,8 @@ $(function() { // --------------------------------------------------------------
         if ( saved !== undefined ) {
           console.log(saved);
           $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(key, value) {
+            console.log(key);
+            console.log(value);
             if ( $.inArray(key.toString(), $("#classFeat" + i).val()) !== -1 ) {
               var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
               var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
