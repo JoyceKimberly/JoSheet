@@ -492,9 +492,20 @@ $(function() { // --------------------------------------------------------------
           $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
         });
         var saved = file.character["classFeat" + i];
-        console.log(saved);
         if ( saved !== undefined ) {
           console.log(saved);
+          $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(key, value) {
+            if ( $.inArray(key.toString(), $("#classFeat" + i).val()) !== -1 ) {
+              var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
+              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+              console.log(newReturn);
+              ClassFeatureOptions(newReturn, "add");
+            } else {
+              var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
+              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
+              //ClassFeatureOptions(newReturn, "remove");
+            };
+          });
         };
       });
     };
