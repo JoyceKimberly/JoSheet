@@ -471,7 +471,6 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   function setJoClass() { if ( allowCalc ) {
     ApplyClasses($('input[name="Class and Levels"]').val(), $('[name="Character Level"]').val());
-    //FindClasses($('input[name="Class and Levels"]').val());
     $.each(AbilityScores.abbreviations, function(key, value) {
       file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
     });
@@ -492,6 +491,10 @@ $(function() { // --------------------------------------------------------------
         $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(i2, value2) {
           $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
         });
+        var saved = file.character["classFeat' + i + '"];
+        if ( saved !== undefined ) {
+          console.log(saved);
+        };
       });
     };
   }};
