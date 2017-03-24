@@ -492,6 +492,7 @@ $(function() { // --------------------------------------------------------------
           $subMenu.append('<option value="' + i2 + '">' + value2.cName + '</option>');
         });
         var saved = file.character["classFeat' + i + '"];
+        console.log(saved);
         if ( saved !== undefined ) {
           console.log(saved);
         };
