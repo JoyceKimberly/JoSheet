@@ -493,14 +493,10 @@ $(function() { // --------------------------------------------------------------
         });
         var saved = file.character["classFeat" + i];
         if ( saved !== undefined ) {
-          console.log(saved);
           $.each(Menus.classfeatures[0].oSubMenu[i].oSubMenu, function(key, value) {
-            console.log(key);
             if ( $.inArray(key.toString(), saved) !== -1 ) {
-              console.log(value);
               var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
               var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
-              console.log(newReturn);
               ClassFeatureOptions(newReturn, "add");
             };
           });
