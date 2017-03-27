@@ -83,7 +83,7 @@ $(function() { // --------------------------------------------------------------
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function() {
-    setCharacter();
+    //setCharacter();
     UpdateLevelFeatures("all");
     calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
@@ -264,7 +264,7 @@ $(function() { // --------------------------------------------------------------
         };
       };
       menu.append('<div style="position: initial;" class="dropdown-divider"></div>\
-        <a class="pageBtn dropdown-item" data-source="' + dit.attr('id') + '" data-toPage="4">Remove</a>');
+        <a class="pageBtn dropdown-item" data-source="' + dit.attr('id') + '" data-toPage="9">Remove</a>');
     };
   });
 
@@ -475,6 +475,7 @@ $(function() { // --------------------------------------------------------------
       file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
     });
     AddAttacksPerAction();
+    $('[name="Extra.Notes"]').val('');
     MakeClassMenu();
     if ( Menus.classfeatures[0].oSubMenu ) {
       $('#classConfig').show();
@@ -498,11 +499,25 @@ $(function() { // --------------------------------------------------------------
               var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
               var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
               ClassFeatureOptions(newReturn, "add");
+            } else {
+              var cReturn = Menus.classfeatures[0].oSubMenu[i].oSubMenu[key].cReturn.split("#");
+              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), "extra"];
+              ClassFeatureOptions(newReturn, "remove");
             };
           });
         };
       });
     };
+    $('.ltdRecovery').each(function(i, ele) {
+      var $ele = $(ele);
+      if ( $ele.attr('name').indexOf("Limited Feature Recovery ") !== -1 ) {
+        if ( $ele.val() == "short rest" || $ele.val() == "Short Rest" ) {
+          $ele.val("SR");
+        } else if ( $ele.val() == "long rest" || $ele.val() == "Long Rest" ) {
+          $ele.val("LR");
+        };
+      };
+    });
   }};
 
   function setJoRace() { if ( allowCalc ) {
@@ -659,6 +674,16 @@ $(function() { // --------------------------------------------------------------
     if ( $ele.val() ) {
       ApplyFeat($ele.val(), Number($ele.attr('name').slice(-1)));
     };
+    $('.ltdRecovery').each(function(i, ele) {
+      var $ele = $(ele);
+      if ( $ele.attr('name').indexOf("Limited Feature Recovery ") !== -1 ) {
+        if ( $ele.val() == "short rest" || $ele.val() == "Short Rest" ) {
+          $ele.val("SR");
+        } else if ( $ele.val() == "long rest" || $ele.val() == "Long Rest" ) {
+          $ele.val("LR");
+        };
+      };
+    });
   }};
 
   calculateNow = function(event, value) { if ( allowCalc ) {
@@ -744,57 +769,6 @@ $(function() { // --------------------------------------------------------------
       Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
       $('[name="' + value + ' Remember"]').trigger('change');
     });
-    $calcModal.find('select').each(function(i, ele) {
-      if ( Menus.classfeatures[0] ) {
-        if ( $(ele).attr("data-class-feat") !== undefined ) {
-          $.each(Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
-              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
-              ClassFeatureOptions(newReturn, "add");
-            } else {
-              var cReturn = Menus.classfeatures[0].oSubMenu[$(ele).attr("data-class-feat")].oSubMenu[key].cReturn.split("#");
-              var newReturn = [cReturn[0], cReturn[1], cReturn[2].toLowerCase(), cReturn[3]];
-              //ClassFeatureOptions(newReturn, "remove");
-            };
-          });
-        };
-      };
-      if ( Menus.background[3] ) {
-        if ( $(ele).is('#persTraitsConfig') ) {
-          $.each(Menus.background[0].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Menus.background[0].oSubMenu[key].bMarked = true;
-              AddString("Personality Trait", CurrentBackground.trait[key], " ");
-            } else {
-              Menus.background[0].oSubMenu[key].bMarked = false;
-            };
-          });
-        };
-        if ( $(ele).is('#idealsConfig') ) {
-          $.each(Menus.background[1].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Ideal", CurrentBackground.ideal[key][1]);
-            };
-          });
-        };
-        if ( $(ele).is('#bondsConfig') ) {
-          $.each(Menus.background[2].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Bond", CurrentBackground.bond[key]);
-            };
-          });
-        };
-        if ( $(ele).is('#flawsConfig') ) {
-          $.each(Menus.background[3].oSubMenu, function(key, value) {
-            if ( $.inArray(key.toString(), $(ele).val()) !== -1 ) {
-              Value("Flaw", CurrentBackground.flaw[key]);
-            };
-          });
-        };
-      };
-    });
-    //setCharacter();
     calculateAll();
     saveCookies();
     $progressBar.hide();

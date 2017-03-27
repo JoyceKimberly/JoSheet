@@ -2,7 +2,7 @@
 <html lang="en">
 <script type="text/javascript">
   tDoc = window;
-  /*window.onerror = function(msg, url, lineNo, columnNo, error) {
+  window.onerror = function(msg, url, lineNo, columnNo, error) {
     var string = msg.toLowerCase();
     var substring = "script error";
     if (string.indexOf(substring) > -1){
@@ -18,7 +18,7 @@
       console.error(message);
     };
     return true;
-  };*/
+  };
 </script>
 <head>
   <meta charset="utf-8">
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://unpkg.com/interact.js"></script>
   <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
-  <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
+  <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions.js"></script>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions2.js"></script>
@@ -306,6 +306,329 @@
     </div>
   </div>
   <div id="page1" class="outerPage" data-page="1">
+    <div class="page"></div>
+  </div>
+  <div id="page2" class="outerPage" data-page="2">
+    <div class="page"></div>
+  </div>
+  <div id="spellsPage3" class="outerPage">
+    <div class="page">
+      <div id="pageHeader3" class="pageHeader z2 draggable">
+        <div class="bg"><img src="img/PageHeader3.svg"></div>
+        <input name="Spellcasting Class" style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display cap center" type="text">
+        <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
+        <input name="Spellcasting Ability" style="top: 48px; left: 341px; width: 89px; height: 38px;" class="display cap center" type="text">
+        <div style="top: 91px; left: 356px;" class="lbl2 center">Spellcasting<br>Ability</div>
+        <input name="Spell Save DC 1" style="font-size: 18px; top: 48px; left: 470px; width: 89px; height: 38px;" class="display center" type="text">
+        <div style="top: 91px; left: 484px;" class="lbl2 center">Spell Save DC</div>
+        <input name="Spell Attack Bonus" style="font-size: 18px; top: 48px; left: 603px; width: 89px; height: 38px;" class="display center" type="text">
+        <div style="top: 91px; left: 619px;" class="lbl2 center">Spell Attack<br>Bonus</div>
+        <div class="hover"></div>
+      </div>
+      <table class="spells block">
+        <thead id="spellsHeader0">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock4 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">0</div>
+                  <div class="col lbl lbl1">Cantrips</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th style="width: 13px;">&nbsp;</th>
+            <th style="min-width: 80px;">Spell</th>
+            <th style="min-width: 350px;">Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock0">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader1" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 1</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock1" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader2" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 2</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock2" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader3" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 3</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock3" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader4" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 4</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock4" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader5" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 5</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock5" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader6" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 6</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock6" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader7" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 7</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock7" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader8" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 8</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock8" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+        <thead id="spellsHeader9" class="hidden">
+          <tr>
+            <th class="spellsHeader" colspan="11">
+              <div class="labelBlock5 content">
+                <div class="bg"></div>
+                <div class="row">
+                  <div class="col col-1">1</div>
+                  <div class="spellSlots col col-2 center"></div>
+                  <div class="col lbl lbl1">Level 9</div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          <tr class="lblRow">
+            <th>&nbsp;</th>
+            <th>Spell</th>
+            <th>Description</th>
+            <th>Save</th>
+            <th>School</th>
+            <th>Time</th>
+            <th>Range</th>
+            <th>Comp</th>
+            <th>Duration</th>
+            <th>B</th>
+            <th class="right">PG.</th>
+          </tr>
+        </thead>
+        <tbody id="spellsBlock9" class="hidden">
+          <tr class="lastRow"></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="page9" class="sparePage outerPage" data-page="9">
     <div class="page">
       <div id="pageHeader1" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader1.svg"></div>
@@ -1231,7 +1554,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 1" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 1" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1249,7 +1572,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 2" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 2" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1267,7 +1590,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 3" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 3" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1285,7 +1608,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 4" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 4" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1303,7 +1626,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 5" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 5" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1321,7 +1644,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 6" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 6" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1339,7 +1662,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 7" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 7" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1357,7 +1680,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 8" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 8" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1375,7 +1698,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 9" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 9" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1393,7 +1716,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 10" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 10" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1411,7 +1734,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 11" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 11" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1429,7 +1752,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 12" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 12" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1447,7 +1770,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 13" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 13" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1465,7 +1788,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 14" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 14" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1483,7 +1806,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 15" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 15" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -1501,7 +1824,7 @@
                   </td>
                   <td>
                     <div class="inputBg"></div>
-                    <input name="Limited Feature Recovery 16" data-subname class="display cap center form-control" type="text">
+                    <input name="Limited Feature Recovery 16" data-subname class="display cap ltdRecovery center form-control" type="text">
                   </td>
                   <td>
                     <div class="inputBg"></div>
@@ -2155,10 +2478,6 @@
         <div class="lbl1 lower">Racial Traits</div>
         <div class="hover"></div>
       </div>
-    </div>
-  </div>
-  <div id="page2" class="outerPage" data-page="2">
-    <div class="page">
       <div id="pageHeader2" class="pageHeader z2 draggable">
         <div class="bg"><img src="img/PageHeader2.svg"></div>
         <div style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="name display center"></div>
@@ -2270,40 +2589,6 @@
         <div class="lbl1 lower">Background Feature</div>
         <div class="hover"></div>
       </div>
-      <div id="feat1Block" class="block4 z2 resizable">
-        <div class="bg"></div>
-        <div class="content">
-          <div class="row" style="height: 26px;">
-            <div class="col col-3 lbl4">Feature Name:</div>
-            <div class="data-list-input col">
-              <div class="inputBg"></div>
-              <select name="Feat Name 1" data-subname class="data-list-input custom-select"></select>
-              <input id="feat1" name="Feat Name 1" data-subname class="data-list-input feat display form-control" type="text">
-            </div>
-          </div>
-          <div class="row" style="height: 100%;">
-            <textarea id="feat1Desc" name="Feat Description 1" data-subname class="display notes"></textarea>
-          </div>
-        </div>
-        <div class="hover"></div>
-      </div>
-      <div id="feat9Block" class="block5 z2 resizable">
-        <div class="bg"></div>
-        <div class="content">
-          <div class="row" style="height: 26px;">
-            <div class="col col-3 lbl4">Feature Name:</div>
-            <div class="data-list-input col">
-              <div class="inputBg"></div>
-              <select name="Feat Name 9" data-subname class="data-list-input custom-select"></select>
-              <input id="feat9" name="Feat Name 9" data-subname class="data-list-input feat display form-control" type="text">
-            </div>
-          </div>
-          <div class="row" style="height: 100%;">
-            <textarea id="feat9Desc" name="Feat Description 9" data-subname class="display notes"></textarea>
-          </div>
-        </div>
-        <div class="hover"></div>
-      </div>
       <div id="featsBlock" class="block8 block z2 resizable">
         <div class="bg"></div>
         <div class="content">
@@ -2343,338 +2628,36 @@
         <div class="block14 coinBlock"><div class="bg"></div></div>
         <div class="hover"></div>
       </div>
-    </div>
-  </div>
-  <div id="page3" class="outerPage" data-page="3">
-    <div class="page">
-      <div id="pageHeader3" class="pageHeader z2 draggable">
-        <div class="bg"><img src="img/PageHeader3.svg"></div>
-        <input name="Spellcasting Class" style="top: 57px; left: 40px; width: 267px; height: 38px; font-size: 18px; line-height: 38px;" class="display center" type="text">
-        <div style="top: 100px; left: 70px;" class="lbl2">Spellcasting<br>Class</div>
-        <input name="Spellcasting Ability" style="top: 48px; left: 341px; width: 89px; height: 38px;" class="display center" type="text">
-        <div style="top: 91px; left: 356px;" class="lbl2 center">Spellcasting<br>Ability</div>
-        <input name="Spell Save DC 1" style="font-size: 18px; top: 48px; left: 470px; width: 89px; height: 38px;" class="display center" type="text">
-        <div style="top: 91px; left: 484px;" class="lbl2 center">Spell Save DC</div>
-        <input name="Spell Attack Bonus" style="font-size: 18px; top: 48px; left: 603px; width: 89px; height: 38px;" class="display center" type="text">
-        <div style="top: 91px; left: 619px;" class="lbl2 center">Spell Attack<br>Bonus</div>
+      <div id="feat1Block" class="block4 z2 resizable">
+        <div class="bg"></div>
+        <div class="content">
+          <div class="row" style="height: 26px;">
+            <div class="col col-3 lbl4">Feature Name:</div>
+            <div class="data-list-input col">
+              <div class="inputBg"></div>
+              <select name="Feat Name 1" data-subname class="data-list-input custom-select"></select>
+              <input name="Feat Name 1" data-subname class="data-list-input feat display form-control" type="text">
+            </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 1" data-subname class="display notes"></textarea>
+          </div>
+        </div>
         <div class="hover"></div>
       </div>
-      <table class="spells block">
-        <thead id="spellsHeader0">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock4 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">0</div>
-                  <div class="col lbl lbl1">Cantrips</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th style="width: 13px;">&nbsp;</th>
-            <th style="min-width: 80px;">Spell</th>
-            <th style="min-width: 350px;">Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock0">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader1" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 1</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock1" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader2" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 2</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock2" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader3" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 3</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock3" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader4" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 4</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock4" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader5" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 5</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock5" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader6" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 6</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock6" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader7" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 7</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock7" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader8" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 8</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock8" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-        <thead id="spellsHeader9" class="hidden">
-          <tr>
-            <th class="spellsHeader" colspan="11">
-              <div class="labelBlock5 content">
-                <div class="bg"></div>
-                <div class="row">
-                  <div class="col col-1">1</div>
-                  <div class="spellSlots col col-2 center"></div>
-                  <div class="col lbl lbl1">Level 9</div>
-                </div>
-              </div>
-            </th>
-          </tr>
-          <tr class="lblRow">
-            <th>&nbsp;</th>
-            <th>Spell</th>
-            <th>Description</th>
-            <th>Save</th>
-            <th>School</th>
-            <th>Time</th>
-            <th>Range</th>
-            <th>Comp</th>
-            <th>Duration</th>
-            <th>B</th>
-            <th class="right">PG.</th>
-          </tr>
-        </thead>
-        <tbody id="spellsBlock9" class="hidden">
-          <tr class="lastRow"></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div id="page4" class="sparePage outerPage" data-page="4">
-    <div class="page">
       <div id="feat2Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat2Desc" name="Feat Description 2" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 2" data-subname class="data-list-input custom-select"></select>
-              <input id="feat2" name="Feat Name 2" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 2" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 2" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2682,14 +2665,16 @@
       <div id="feat3Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat3Desc" name="Feat Description 3" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 3" data-subname class="data-list-input custom-select"></select>
-              <input id="feat3" name="Feat Name 3" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 3" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 3" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2697,14 +2682,16 @@
       <div id="feat4Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat4Desc" name="Feat Description 4" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 4" data-subname class="data-list-input custom-select"></select>
-              <input id="feat4" name="Feat Name 4" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 4" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 4" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2712,14 +2699,16 @@
       <div id="feat5Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat5Desc" name="Feat Description 5" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 5" data-subname class="data-list-input custom-select"></select>
-              <input id="feat5" name="Feat Name 5" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 5" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 5" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2727,14 +2716,16 @@
       <div id="feat6Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat6Desc" name="Feat Description 6" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 6" data-subname class="data-list-input custom-select"></select>
-              <input id="feat6" name="Feat Name 6" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 6" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 6" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2742,14 +2733,16 @@
       <div id="feat7Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat7Desc" name="Feat Description 7" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 7" data-subname class="data-list-input custom-select"></select>
-              <input id="feat7" name="Feat Name 7" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 7" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 7" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2757,14 +2750,33 @@
       <div id="feat8Block" class="block4 z2 resizable">
         <div class="bg"></div>
         <div class="content">
-          <textarea id="feat8Desc" name="Feat Description 8" data-subname style="top: 24px;" class="display notes"></textarea>
           <div class="row" style="height: 26px;">
             <div class="col col-3 lbl4">Feature Name:</div>
             <div class="data-list-input col">
               <div class="inputBg"></div>
               <select name="Feat Name 8" data-subname class="data-list-input custom-select"></select>
-              <input id="feat8" name="Feat Name 8" data-subname class="data-list-input feat display form-control" type="text">
+              <input name="Feat Name 8" data-subname class="data-list-input feat display form-control" type="text">
             </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 8" data-subname class="display notes"></textarea>
+          </div>
+        </div>
+        <div class="hover"></div>
+      </div>
+      <div id="feat9Block" class="block5 z2 resizable">
+        <div class="bg"></div>
+        <div class="content">
+          <div class="row" style="height: 26px;">
+            <div class="col col-3 lbl4">Feature Name:</div>
+            <div class="data-list-input col">
+              <div class="inputBg"></div>
+              <select name="Feat Name 9" data-subname class="data-list-input custom-select"></select>
+              <input name="Feat Name 9" data-subname class="data-list-input feat display form-control" type="text">
+            </div>
+          </div>
+          <div class="row" style="height: 100%;">
+            <textarea name="Feat Description 9" data-subname class="display notes"></textarea>
           </div>
         </div>
         <div class="hover"></div>
@@ -2800,7 +2812,7 @@
     <button class="btn btn-info dropdown-toggle" data-toggle="dropdown" type="button"><i class="fa fa-cog"></i></button>
     <div class="dropdown-menu"></div>
   </div>
-  <div id="hiddenFields" class="noPrint">
+  <div id="hiddenFields" class="noPrint hidden">
     <input name="Highlighting" data-subname type="text">
     <input name="Unit System" data-default="imperial" data-default="imperial" data-subname type="text">
     <input name="Str Remember" data-default="10,0,0,0,0,0" data-subname type="text">
@@ -2909,6 +2921,9 @@
     <select name="Comp.Use.Attack.1.Weapon Selection" data-subname></select>
     <select name="Comp.Use.Attack.2.Weapon Selection" data-subname></select>
     <select name="Comp.Use.Attack.3.Weapon Selection" data-subname></select>
+    <input name="Comp.Use.Attack.1.Proficiency" data-subname type="text">
+    <input name="Comp.Use.Attack.2.Proficiency" data-subname type="text">
+    <input name="Comp.Use.Attack.3.Proficiency" data-subname type="text">
 
     <input name="Text.SkillsNames" title="alphabeta" data-subname type="text">
     <input name="Decimal Separator" data-default="comma" data-subname type="text">
