@@ -400,7 +400,7 @@ app.alert = function(alert) {
 };
 
 $(function() { // -----------------------------------------------------------------------
-  if ( AbilityScores !== undefined ) {
+  if ( AbilityScores != null ) {
     allowCalc = true;
   };
 

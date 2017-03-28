@@ -67,7 +67,7 @@ $(function() { // --------------------------------------------------------------
   });
   $('#showBtn').click(function(event) {
     //setCharacter();
-    UpdateLevelFeatures("all");
+    if ( allowCalc ) { UpdateLevelFeatures("all"); };
     calculateAll(event);
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
@@ -85,7 +85,6 @@ $(function() { // --------------------------------------------------------------
   $('#inputResetBtn').click(function(event) {
     resetCharacter();
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-    document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     setCharacter();
   });
 
@@ -791,6 +790,7 @@ $(function() { // --------------------------------------------------------------
       saveCookies();
       calculateAll();
       setAlert('success', 'Character loaded.');
+      $openModal.modal('hide');
     }
     reader.readAsText(selectedFile);
   });
