@@ -416,8 +416,8 @@ select.display {
 .pageHeader .content .col {
   height: 100%;
 }
-.pageHeader .content .col input,
-.pageHeader .content .col select {
+.pageHeader .content input,
+.pageHeader .content select {
   font-size: 14px;
   height: 18px;
 }

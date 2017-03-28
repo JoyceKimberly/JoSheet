@@ -65,7 +65,7 @@
       <div id="fileMenu" class="btn-group mr-2 btn-group-sm" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-floppy-o fa-fw"></i>File</button>
         <div class="dropdown-menu">
-          <a id="loadLink" class="dropdown-item" data-toggle="modal" data-target="#openModal">Open...</a>
+          <a id="loadLink" class="dropdown-item">Open...</a>
           <a href="" id="saveLink" class="dropdown-item" download>Save</a>
         </div>
       </div>
@@ -3046,6 +3046,11 @@
     .page {
       top: 0;
       left: 0;
+    }
+    .outerPage .content input,
+    .outerPage .content select {
+      font-size: 14px !important;
+      height: 18px !important;
     }
   }
   @page {
