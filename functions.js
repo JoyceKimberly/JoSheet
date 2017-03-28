@@ -821,13 +821,13 @@ $(function() { // --------------------------------------------------------------
     console.log(file);
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
-
-    if ( !isWebAppiOS && !isWebAppChrome ) {
-      window.open(url, '_blank');
-    };
-
     var filename = file.character["Name"] + ".txt";
-    dbx.filesSaveUrl({ path: '/Apps/JoSheet/' + filename, url: url })
+
+  /*  if ( !isWebAppiOS && !isWebAppChrome ) {
+      window.open(url, '_blank');
+    };*/
+
+    dbx.filesSaveUrl({ path: '/' + filename, url: url })
       .then(function(response) {
         setAlert('success', 'Character saved to your Dropbox.');
         listCharacters();
@@ -877,8 +877,8 @@ $(function() { // --------------------------------------------------------------
 
   function setAuthLink() {
     var dbx = new Dropbox({ clientId: CLIENT_ID });
-    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
+    var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    //var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
     $('#saveLink').hide();
     $('#authLink').show();
