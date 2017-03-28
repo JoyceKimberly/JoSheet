@@ -34,7 +34,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/871d5214c9.css">
   <script src="https://unpkg.com/interact.js"></script>
-  <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
   <!--<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>-->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://raw.githubusercontent.com/JoyceKimberly/MPMBs-Character-Record-Sheet/master/_functions/Functions.js"></script>
@@ -66,8 +65,8 @@
       <div id="fileMenu" class="btn-group mr-2 btn-group-sm" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-floppy-o fa-fw"></i>File</button>
         <div class="dropdown-menu">
-          <a id="saveLink" class="dropdown-item"><i class="fa fa-file-text-o fa-fw"></i>Save New</a>
-          <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw"></i>Connect</a>
+          <a id="loadLink" class="dropdown-item" data-toggle="modal" data-target="#openModal">Open...</a>
+          <a href="" id="saveLink" class="dropdown-item" download>Save</a>
         </div>
       </div>
       <button id="printBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Print"><i class="fa fa-print fa-fw"></i></button>
@@ -95,6 +94,30 @@
     </div>
   </nav>
   <div id="alerts" class="container fixed-bottom"></div>
+  <div class="modal" id="openModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="openModalLabel">Open file</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <input type="file" class="form-control-file" id="openFileInput" accept="text/plain">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div style="width: 100%; display: none;" class="progress">
+            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%"></div>
+          </div>
+          <button id="openModalSave" type="button" class="btnSave btn btn-primary">OK</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal" id="calcModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -1344,11 +1367,11 @@
         <div class="content">
           <div class="row">
             <div class="col col-5"><div style="line-height: 22px; color: black !important;" class="hlbl center">Successes</div></div>
-            <div class="col"><img src="img/DeathSaves.svg"></div>
+            <div class="col"><img style="width: 53px; height: 14px;" src="img/DeathSaves.svg"></div>
           </div>
           <div class="row">
             <div class="col col-5"><div style="line-height: 22px; color: black !important;" class="hlbl center">Failures</div></div>
-            <div class="col"><img src="img/DeathSaves.svg"></div>
+            <div class="col"><img style="width: 53px; height: 14px;" src="img/DeathSaves.svg"></div>
           </div>
         </div>
         <div class="lbl1 lower">Death Saves</div>

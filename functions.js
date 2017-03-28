@@ -17,27 +17,10 @@ $(function() { // --------------------------------------------------------------
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
   var zoomScale = ((vw-30)/cWidth);
 
-  window.addEventListener("resize", function() {
+  window.addEventListener("resize", function(event) {
     $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
   }, false);
   $('#blockMenuContainer, #page1').css("margin-top", ($('#navbar').outerHeight()));
-
-  if ( !!getAccessToken() ) {
-    if ( typeof Dropbox === "undefined" ) {
-      $('#fileMenu').hide();
-      setAlert('warning', 'Dropbox features are currently unavailable.');
-      return;
-    };
-    $('#authLink').hide();
-    listCharacters();
-    //setAlert('success', 'Success! You have connected to Dropbox.');
-  } else {
-    setAuthLink();
-    $('#authLink').click(function(event) {
-      event.preventDefault();
-      window.location = $(this).attr("href");
-    });
-  };
 
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
@@ -58,7 +41,7 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Menu --
   // ------------------------------------------------------------------------------------
-  $('#inputBtn').click(function() {
+  $('#inputBtn').click(function(event) {
     moveEnabled = false;
     setBodyTag();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
@@ -67,9 +50,9 @@ $(function() { // --------------------------------------------------------------
     $('#edit').removeClass('show').hide();
     $('#moveResetBtn').hide();
     $('#inputResetBtn, #calcBtn').show();
-    calculateAll();
+    calculateAll(event);
   });
-  $('#moveBtn').click(function() {
+  $('#moveBtn').click(function(event) {
     moveEnabled = true;
     setBodyTag();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
@@ -78,49 +61,52 @@ $(function() { // --------------------------------------------------------------
     $('#moveResetBtn').show();
   });
 
-  $('#hideBtn').click(function() {
+  $('#hideBtn').click(function(event) {
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').hide();
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
-  $('#showBtn').click(function() {
+  $('#showBtn').click(function(event) {
     //setCharacter();
     UpdateLevelFeatures("all");
-    calculateAll();
+    calculateAll(event);
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
 
-  $('#calcBtn').click(function() {
+  $('#calcBtn').click(function(event) {
     $('#calcModal').modal('show');
   });
 
-  $('#moveResetBtn').click(function() {
+  $('#moveResetBtn').click(function(event) {
     resetObjects();
     document.cookie = "objects=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     setObjects();
   });
-  $('#inputResetBtn').click(function() {
+  $('#inputResetBtn').click(function(event) {
     resetCharacter();
     document.cookie = "character=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     document.cookie = "notes=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     setCharacter();
   });
 
-  $('#printBtn').click(function() {
+  $('#printBtn').click(function(event) {
     window.print();
   });
-  $('#saveLink').click(function() {
+  $('#saveLink').click(function(event) {
     saveFile();
+  });
+  $('#loadLink').click(function(event) {
+    loadFile();
   });
 
   // ------------------------------------------------------------------------------------
   // -- Objects --
   // ------------------------------------------------------------------------------------
-  $('.outerPage').on('touchstart mousedown', function() {
+  $('.outerPage').on('touchstart mousedown', function(event) {
     if ( moveEnabled === true ) {
       $(this).addClass("grid");
     };
-  }).on('touchend mouseup', function() {
+  }).on('touchend mouseup', function(event) {
     $(this).removeClass("grid");
   });
 
@@ -247,7 +233,7 @@ $(function() { // --------------------------------------------------------------
     overflowHider($('.resizable'));
   };
 
-  $('.draggable, .resizable').on('touchstart mouseenter', function() {
+  $('.draggable, .resizable').on('touchstart mouseenter', function(event) {
     if ( moveEnabled ) {
       var dit = $(this);
       var pos = dit.offset();
@@ -268,11 +254,11 @@ $(function() { // --------------------------------------------------------------
     };
   });
 
-  $('#edit').on('mouseleave', function() {
+  $('#edit').on('mouseleave', function(event) {
     var edit = $('#edit');
     edit.removeClass('show');
     edit.hide();
-  }).on('click', '.pageBtn', function() {
+  }).on('click', '.pageBtn', function(event) {
     var dit = $(this);
     var source = dit.attr('data-source');
     var parent = $('#' + source);
@@ -316,10 +302,10 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
-  $('select.data-list-input').change(function() {
+  $('select.data-list-input').change(function(event) {
     $(this).siblings('input.data-list-input').val($(this).val());
   });
-  $('input.data-list-input').change(function() {
+  $('input.data-list-input').change(function(event) {
     $(this).siblings('select.data-list-input').val('');
   });
 
@@ -327,12 +313,12 @@ $(function() { // --------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------
   /*
-    $('div.notes').on('touchstart mousedown', function() {
+    $('div.notes').on('touchstart mousedown', function(event) {
       var $dit = $(this);
       $dit.siblings('textarea.notes').show().focus();
       $dit.hide();
     });
-    $('textarea.notes').on('focusout', function() {
+    $('textarea.notes').on('focusout', function(event) {
       var $dit = $(this);
       $dit.siblings('div.notes').show();
       $dit.hide();
@@ -386,7 +372,7 @@ $(function() { // --------------------------------------------------------------
     //console.log(tDoc); // debug
   };
 
-  $('body').on('change focusout', '[name]', function() {
+  $('body').on('change focusout', '[name]', function(event) {
     var $ele = $(this);
     var character = {};
     var key = $ele.attr('name');
@@ -737,13 +723,13 @@ $(function() { // --------------------------------------------------------------
     //console.log(classes);
   }};
 
-  $('#calcModal').on('change focusout', 'select', function() {
+  $('#calcModal').on('change focusout', 'select', function(event) {
     var $dit = $(this);
     file.character[$dit.attr("id")] = $dit.val();
   });
 
-  $('#calcModal').on('show.bs.modal', function() { if ( allowCalc ) {
-    calculateAll();
+  $('#calcModal').on('show.bs.modal', function(event) { if ( allowCalc ) {
+    calculateAll(event);
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -756,12 +742,12 @@ $(function() { // --------------------------------------------------------------
       $(ele).val(file.character[$(ele).attr("id")]);
     });
 
-  }}).on('touchstart mousedown', '#calcModalSave', function() {
+  }}).on('touchstart mousedown', '#calcModalSave', function(event) {
     var $dit = $(this);
     var $progressBar = $dit.siblings('.progress');
     $progressBar.show();
 
-  }).on('click', '#calcModalSave', function() { if ( allowCalc ) {
+  }).on('click', '#calcModalSave', function(event) { if ( allowCalc ) {
     var $dit = $(this);
     var $calcModal = $('#calcModal');
     var $progressBar = $dit.siblings('.progress');
@@ -774,115 +760,37 @@ $(function() { // --------------------------------------------------------------
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
 
-  }}).on('hidden.bs.modal', function() {
+  }}).on('hidden.bs.modal', function(event) {
     $(this).find('.btnSave').removeClass('btn-success').addClass('btn-primary');
   });
 
   // ------------------------------------------------------------------------------------
-  // -- Dropbox --
+  // -- File management --
   // ------------------------------------------------------------------------------------
-  function listCharacters() {
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
-    dbx.filesListFolder({ path: '' })
-      .then(function(response) {
-        characterFiles = response.entries;
-        $('#saveLink').show();
-        $('.loadCharacter').remove();
-
-        for ( var i = 0; i < characterFiles.length; i++ ) {
-          $('#authLink').before('\
-          <div class="loadCharacter dropdown-item">\
-            <a id="load' + i + '">\
-              <i class="fa fa-user fa-fw"></i>\
-              ' + characterFiles[i].name.slice(0, -4) + '\
-            </a>\
-            <button type="button" id="delete' + i + '" class="deleteCharacter close">\
-              <i class="fa fa-trash"></i>\
-            </button>\
-          </div>\
-          ');
-        };
-
-        $('.loadCharacter a').click(function() {
-          loadFile(Number($(this).attr('id').substring(4)));
-        });
-        $('.deleteCharacter').click(function() {
-          deleteFile(Number($(this).attr('id').substring(6)));
-        });
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error);
-        setAuthLink();
-      });
-  };
-
   function saveFile() {
-    console.log(file);
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    $dit = $('#saveLink');
     var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
     var filename = file.character["Name"] + ".txt";
-
-  /*  if ( !isWebAppiOS && !isWebAppChrome ) {
-      window.open(url, '_blank');
-    };*/
-
-    dbx.filesSaveUrl({ path: '/' + filename, url: url })
-      .then(function(response) {
-        setAlert('success', 'Character saved to your Dropbox.');
-        listCharacters();
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error.error);
-      });
+    $dit.attr("href", url);
+    $dit.attr("download", filename);
   };
 
-  function loadFile(i) {
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
-    dbx.filesDownload({ path: characterFiles[i].path_lower })
-      .then(function(response) {
-        var blob = response.fileBlob;
-        var reader = new FileReader();
-        reader.onload = function() {
-          resetObjects();
-          resetCharacter();
-          $.extend(true, file, JSON.parse(reader.result));
-          setObjects();
-          setCharacter();
-          saveCookies();
-          calculateAll();
-          setAlert('success', 'Character loaded.');
-        }
-        reader.readAsText(blob);
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error);
-      });
-  };
-
-  function deleteFile(i) {
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
-    dbx.filesDelete({ path: characterFiles[i].path_lower })
-      .then(function(response) {
-        setAlert('success', 'Character deleted from your Dropbox.');
-        listCharacters();
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error);
-      });
-  };
-
-  function setAuthLink() {
-    var dbx = new Dropbox({ clientId: CLIENT_ID });
-    var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-    //var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
-    document.getElementById('authLink').href = authUrl;
-    $('#saveLink').hide();
-    $('#authLink').show();
-  };
+  $('#openModal').on('click', '#openModalSave', function(event) {
+    var $openModal = $('#openModal');
+    var selectedFile = document.getElementById('openFileInput').files[0];
+    var reader = new FileReader();
+    reader.onload = function() {
+      resetObjects();
+      resetCharacter();
+      $.extend(true, file, JSON.parse(reader.result));
+      setObjects();
+      setCharacter();
+      saveCookies();
+      calculateAll();
+      setAlert('success', 'Character loaded.');
+    }
+    reader.readAsText(selectedFile);
+  });
 
   // ------------------------------------------------------------------------------------
   // -- Helpers --
@@ -942,33 +850,6 @@ $(function() { // --------------------------------------------------------------
   };
 
 }); // ----------------------------------------------------------------------------------
-var CLIENT_ID = 'ztucdd8z8fjuh08';
-
-// Parses the url and gets the access token if it is in the urls hash
-function getAccessTokenFromUrl() {
-  return utils.parseQueryString(window.location.hash).access_token;
-};
-
-function getAccessToken() {
-  if ( !!getAccessTokenFromUrl() ) {
-    var d = new Date();
-    d.setTime(d.getTime() + (7*24*60*60*1000));
-    document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
-    return getAccessTokenFromUrl();
-
-  } else if ( !!getCookie("token") ) {
-    return getCookie("token");
-  } else {
-    return "";
-  };
-};
-
-// If the user was just redirected from authenticating, the urls hash will
-// contain the access token.
-function isAuthenticated() {
-  return !!getAccessTokenFromUrl();
-};
-
 function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
