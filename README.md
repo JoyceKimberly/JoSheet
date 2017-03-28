@@ -2,4 +2,4 @@
 
 Personal project
 
-(Currently only works in Firefox and Safari)
+(Currently works best in Safari and somewhat in Firefox)

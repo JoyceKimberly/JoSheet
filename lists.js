@@ -402,7 +402,6 @@ app.alert = function(alert) {
 $(function() { // -----------------------------------------------------------------------
   if ( AbilityScores !== undefined ) {
     allowCalc = true;
-    console.log(tDoc);
   };
 
   if ( allowCalc ) {

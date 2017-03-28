@@ -3,10 +3,10 @@ var moveEnabled = true;
 window.file = {
   objects   : {},
   character : {},
-  notes     : {},
 };
-var pages = 3;
+var pages = 2;
 var characterFiles = [];
+event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
   loadCookies();
@@ -94,9 +94,6 @@ $(function() { // --------------------------------------------------------------
   });
   $('#saveLink').click(function(event) {
     saveFile();
-  });
-  $('#loadLink').click(function(event) {
-    loadFile();
   });
 
   // ------------------------------------------------------------------------------------
@@ -330,7 +327,6 @@ $(function() { // --------------------------------------------------------------
     file.character = {
       "Name" : "JoSheet",
     };
-    file.notes = {};
     $('[name]').each(function(index, value) {
       var $ele = $(value);
       if ( $ele.data('default') ) {
@@ -369,7 +365,6 @@ $(function() { // --------------------------------------------------------------
       };
     });
     $('.name').text(decodeURIComponent(file.character["Name"]));
-    //console.log(tDoc); // debug
   };
 
   $('body').on('change focusout', '[name]', function(event) {
@@ -439,7 +434,6 @@ $(function() { // --------------------------------------------------------------
     };
     $.extend(true, file.character, character);
     saveCookies();
-    //setCharacter();
 
     if ( $ele.is('.skillProfCheck') ) {
       if ( allowCalc ) {
@@ -504,10 +498,19 @@ $(function() { // --------------------------------------------------------------
         };
       };
     });
+    if ( Object.keys(CurrentSpells).length > 0 ) {
+      $('#spellsPage1').show();
+    } else {
+      $('#spellsPage1').hide();
+    };
   }};
 
   function setJoRace() { if ( allowCalc ) {
-    ApplyRace($('input[name="Race Display"]').val());
+    $ele = $('input[name="Race Display"]');
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    ApplyRace($ele.val());
     MakeRaceMenu();
   }};
 
@@ -824,17 +827,6 @@ $(function() { // --------------------------------------------------------------
     } else {
       resetCharacter();
     };
-
-    if ( !!getCookie("notes") ) {
-      var notes = {};
-      try {
-        notes = JSON.parse(getCookie("notes"));
-      } catch(error) {
-        console.error(error);
-        deleteCookie("notes");
-      };
-      $.extend(true, file.notes, notes);
-    };
   };
 
   function setAlert(type, msg) {
@@ -853,10 +845,8 @@ $(function() { // --------------------------------------------------------------
 function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
-
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
-  document.cookie = "notes=" + JSON.stringify(file.notes) + "; expires=" + d.toUTCString() + "; path=/";
 };
 
 function getCookie(cname) {
@@ -877,44 +867,3 @@ function getCookie(cname) {
 function deleteCookie(name) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
 };
-
-(function(window) {
-  window.utils = {
-    parseQueryString: function(str) {
-      var ret = Object.create(null);
-
-      if (typeof str !== 'string') {
-        return ret;
-      }
-
-      str = str.trim().replace(/^(\?|#|&)/, '');
-
-      if (!str) {
-        return ret;
-      }
-
-      str.split('&').forEach(function (param) {
-        var parts = param.replace(/\+/g, ' ').split('=');
-        // Firefox (pre 40) decodes `%3D` to `=`
-        // https://github.com/sindresorhus/query-string/pull/37
-        var key = parts.shift();
-        var val = parts.length > 0 ? parts.join('=') : undefined;
-
-        key = decodeURIComponent(key);
-
-        // missing `=` should be `null`:
-        // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-        val = val === undefined ? null : decodeURIComponent(val);
-
-        if (ret[key] === undefined) {
-          ret[key] = val;
-        } else if (Array.isArray(ret[key])) {
-          ret[key].push(val);
-        } else {
-          ret[key] = [ret[key], val];
-        }
-      });
-      return ret;
-    }
-  };
-})(window);
