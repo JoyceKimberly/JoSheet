@@ -315,7 +315,7 @@ $(function() { // --------------------------------------------------------------
     $('div.notes').on('touchstart mousedown', function(event) {
       var $dit = $(this);
       $dit.siblings('textarea.notes').show().focus();
-      $dit.hide();
+      //$dit.hide();
     });
     $('textarea.notes').on('focusout', function(event) {
       var $dit = $(this);
