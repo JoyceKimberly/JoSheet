@@ -862,15 +862,21 @@ $(function() { // --------------------------------------------------------------
     $dit.attr("href", url);
     $dit.attr("download", filename);
 
-    /*dbx.filesSaveUrl({ path: '/' + filename, url: url })
-      .then(function(response) {
-        setAlert('success', 'Character saved to your Dropbox.');
-        listCharacters();
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error.error);
-      });*/
+    /*var blob = btoa(JSON.stringify(file));
+    var reader = new FileReader();
+    reader.onload = function() {
+      console.log(reader);
+      dbx.filesUpload({ path: '/' + filename, contents: reader.result })
+        .then(function(response) {
+          setAlert('success', 'Character saved to your Dropbox.');
+          listCharacters();
+        })
+        .catch(function(error) {
+          console.error(error);
+          setAlert('danger', error.error);
+        });
+    }
+    reader.readAsText(blob);*/
   };
 
   function loadFile(i) {
