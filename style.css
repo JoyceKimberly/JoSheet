@@ -241,7 +241,7 @@ select.display {
   width: 10px;
   height: 10px;
   border: none;
-  background: url('img/CheckBox1.svg');
+  background: none;
   content: url('img/CheckBox1.svg');
   display: block;
   position: absolute;
@@ -253,7 +253,7 @@ select.display {
 }
 .outerPage .custom-checkbox .custom-control-input:checked~.custom-control-indicator {
   border: none;
-  background: url('img/CheckBox2.svg');
+  background: none;
   content: url('img/CheckBox2.svg');
 }
 .outerPage .form-control:disabled, .form-control[readonly],
