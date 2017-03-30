@@ -50,13 +50,16 @@ tDoc.getField = function(field) {
   };
 
   ele.setItems = function(value) {
-    if ( !$ele.is('select') ) {
-      console.log(field);
+    if ( $ele.is('select') ) {
+      $ele.html('');
+      $.each(value, function(i, val) {
+        $ele.append('<option value="' + val + '">' + val + '</option>');
+      });
+    } else {
+      $ele.autocomplete({
+        source: value
+      });
     };
-    $ele.html('');
-    $.each(value, function(i, val) {
-      $ele.append('<option value="' + val + '">' + val + '</option>');
-    });
   };
   ele.setAction = function(type, value) {
     if ( type === "Calculate" ) {
