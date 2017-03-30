@@ -114,6 +114,9 @@ $(function() { // --------------------------------------------------------------
   $('#loadLink').click(function(event) {
     $('#openModal').modal('show');
   });
+  $('#portraitImg').click(function(event) {
+    $('#portraitModal').modal('show');
+  });
 
   // ------------------------------------------------------------------------------------
   // -- Objects --
@@ -318,13 +321,6 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
-  $('select.data-list-input').change(function(event) {
-    $(this).siblings('input.data-list-input').val($(this).val());
-  });
-  $('input.data-list-input').change(function(event) {
-    $(this).siblings('select.data-list-input').val('');
-  });
-
   // ------------------------------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------
@@ -362,7 +358,7 @@ $(function() { // --------------------------------------------------------------
       var $ele = $(value);
       var key = $ele.attr('name');
 
-      if ( file.character[key] !== undefined ) {
+      if ( file.character[key] != null ) {
         if ( $ele.is('.display.number.mod') ) {
           $ele.val((file.character[key]>0?'+':'') + file.character[key]);
 
@@ -384,6 +380,9 @@ $(function() { // --------------------------------------------------------------
       };
     });
     $('.name').text(decodeURIComponent(file.character["Name"]));
+    if ( file.character["Portrait"] != null ) {
+      loadPortrait(file.character["Portrait"]);
+    };
   };
 
   $('body').on('change focusout', '[name]', function(event) {
@@ -801,31 +800,38 @@ $(function() { // --------------------------------------------------------------
         characterFiles = response.entries;
         //$('#saveLink').show();
         $('.loadCharacter').remove();
+        $('#portraitModal .modal-body').html('');
 
         for ( var i = 0; i < characterFiles.length; i++ ) {
-          $('#authLink').before('\
-          <div class="loadCharacter dropdown-item">\
-            <a id="load' + i + '">\
-              <i class="fa fa-user fa-fw"></i>\
-              ' + characterFiles[i].name.slice(0, -4) + '\
-            </a>\
-            <button type="button" id="delete' + i + '" class="deleteCharacter close">\
-              <i class="fa fa-trash"></i>\
-            </button>\
-          </div>\
-          ');
+          if ( characterFiles[i].name.endsWith(".txt") ) {
+            $('#authLink').before('\
+            <div class="loadCharacter dropdown-item">\
+              <a id="load' + i + '">\
+                <i class="fa fa-user fa-fw"></i>\
+                ' + characterFiles[i].name.slice(0, -4) + '\
+              </a>\
+              <button type="button" id="delete' + i + '" class="deleteCharacter close">\
+                <i class="fa fa-trash"></i>\
+              </button>\
+            </div>\
+            ');
+          } else {
+            $('#portraitModal .modal-body').append('\
+            <div class="thumb" data-img="' + i + '">' + characterFiles[i].name + '</div>\
+            ');
+          };
         };
 
-        $('.loadCharacter a').click(function() {
+        $('.loadCharacter a').click(function(event) {
           loadFile(Number($(this).attr('id').substring(4)));
         });
-        $('.deleteCharacter').click(function() {
+        $('.deleteCharacter').click(function(event) {
           deleteFile(Number($(this).attr('id').substring(6)));
         });
       })
       .catch(function(error) {
         console.error(error);
-        setAlert('danger', error);
+        setAlert('danger', error.error);
         setAuthLink();
       });
   };
@@ -850,10 +856,21 @@ $(function() { // --------------------------------------------------------------
 
   function saveFile() {
     $dit = $('#saveLink');
-    var url = "data:text/plain," + encodeURIComponent(JSON.stringify(file));
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
     var filename = file.character["Name"] + ".txt";
     $dit.attr("href", url);
     $dit.attr("download", filename);
+
+    /*dbx.filesSaveUrl({ path: '/' + filename, url: url })
+      .then(function(response) {
+        setAlert('success', 'Character saved to your Dropbox.');
+        listCharacters();
+      })
+      .catch(function(error) {
+        console.error(error);
+        setAlert('danger', error.error);
+      });*/
   };
 
   function loadFile(i) {
@@ -876,7 +893,7 @@ $(function() { // --------------------------------------------------------------
       })
       .catch(function(error) {
         console.error(error);
-        setAlert('danger', error);
+        setAlert('danger', error.error);
       });
   };
 
@@ -889,7 +906,7 @@ $(function() { // --------------------------------------------------------------
       })
       .catch(function(error) {
         console.error(error);
-        setAlert('danger', error);
+        setAlert('danger', error.error);
       });
   };
 
@@ -902,38 +919,41 @@ $(function() { // --------------------------------------------------------------
     $('#authLink').show();
   };
 
+  $('#portraitModal').on('click', '#portraitModalSave', function(event) {
+    var $portraitModal = $('#portraitModal');
+    $portraitModal.modal('hide');
+  })
+  .on('click', '.thumb', function(event) {
+    var $dit = $(this);
+    var i = $dit.data('img');
+    file.character["Portrait"] = characterFiles[i].path_lower;
+    loadPortrait(file.character["Portrait"]);
+    saveCookies();
+  });
+  function loadPortrait(path) {
+    var dbx = new Dropbox({ accessToken: getAccessToken() });
+    dbx.filesDownload({ path: path })
+      .then(function(response) {
+        var blob = response.fileBlob;
+        var reader = new FileReader();
+        reader.onload = function() {
+          var img = new Image();
+          img.src = reader.result;
+          $('#portraitImg').html(img);
+        };
+        reader.readAsDataURL(blob);
+      })
+      .catch(function(error) {
+        console.error(error);
+        setAlert('danger', error.error);
+      });
+  };
+
   // ------------------------------------------------------------------------------------
   // -- Helpers --
   // ------------------------------------------------------------------------------------
   isWebAppiOS = (window.navigator.standalone == true);
   isWebAppChrome = (window.matchMedia('(display-mode: standalone)').matches);
-
-  var CLIENT_ID = 'ztucdd8z8fjuh08';
-
-  // Parses the url and gets the access token if it is in the urls hash
-  function getAccessTokenFromUrl() {
-    return utils.parseQueryString(window.location.hash).access_token;
-  };
-
-  function getAccessToken() {
-    if ( !!getAccessTokenFromUrl() ) {
-      var d = new Date();
-      d.setTime(d.getTime() + (7*24*60*60*1000));
-      document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
-      return getAccessTokenFromUrl();
-
-    } else if ( !!getCookie("token") ) {
-      return getCookie("token");
-    } else {
-      return "";
-    };
-  };
-
-  // If the user was just redirected from authenticating, the urls hash will
-  // contain the access token.
-  function isAuthenticated() {
-    return !!getAccessTokenFromUrl();
-  };
 
   function loadCookies() {
     if ( !!getCookie("objects") ) {
@@ -976,6 +996,33 @@ $(function() { // --------------------------------------------------------------
   };
 
 }); // ----------------------------------------------------------------------------------
+var CLIENT_ID = 'ztucdd8z8fjuh08';
+
+// Parses the url and gets the access token if it is in the urls hash
+function getAccessTokenFromUrl() {
+  return utils.parseQueryString(window.location.hash).access_token;
+};
+
+function getAccessToken() {
+  if ( !!getAccessTokenFromUrl() ) {
+    var d = new Date();
+    d.setTime(d.getTime() + (7*24*60*60*1000));
+    document.cookie = "token=" + getAccessTokenFromUrl() + "; expires=" + d.toUTCString() + "; path=/";
+    return getAccessTokenFromUrl();
+
+  } else if ( !!getCookie("token") ) {
+    return getCookie("token");
+  } else {
+    return "";
+  };
+};
+
+// If the user was just redirected from authenticating, the urls hash will
+// contain the access token.
+function isAuthenticated() {
+  return !!getAccessTokenFromUrl();
+};
+
 function saveCookies() {
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));

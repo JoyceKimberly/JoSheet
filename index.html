@@ -67,9 +67,9 @@
       <div id="fileMenu" class="btn-group mr-2 btn-group-sm" role="group">
         <button id="btnGroupDrop1" type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"><i class="fa fa-floppy-o fa-fw"></i>File</button>
         <div class="dropdown-menu">
-          <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw"></i>Connect</a>
           <a id="loadLink" class="dropdown-item">Open...</a>
-          <a href="" id="saveLink" class="dropdown-item" download>Save</a>
+          <a id="saveLink" class="dropdown-item" download>Save</a>
+          <a href="" id="authLink" class="dropdown-item"><i class="fa fa-dropbox fa-fw"></i>Connect</a>
         </div>
       </div>
       <button id="printBtn" type="button" class="btn mr-2 btn-secondary btn-sm" title="Print"><i class="fa fa-print fa-fw"></i></button>
@@ -116,6 +116,28 @@
             <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%"></div>
           </div>
           <button id="openModalSave" type="button" class="btnSave btn btn-primary">OK</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="portraitModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="portraitModalLabel">Choose image</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <div style="width: 100%; display: none;" class="progress">
+            <div class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" style="width: 100%"></div>
+          </div>
+          <button id="portraitModalSave" type="button" class="btnSave btn btn-primary">OK</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         </div>
       </div>
@@ -2794,7 +2816,7 @@
       <div id="portrait" class="block15 block z2 resizable">
         <div class="bg"></div>
         <div style="padding: 22px 12px 30px;" class="content">
-          <div style="position: relative; height: 100%;" id="portraitImg"></div>
+          <div style="position: relative; height: 100%;" id="portraitImg" class="display"></div>
         </div>
         <div style="bottom: 16px;" class="lbl1 lower">Character Portrait</div>
         <div class="hover"></div>
