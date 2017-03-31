@@ -850,33 +850,36 @@ $(function() { // --------------------------------------------------------------
       calculateAll();
       setAlert('success', 'Character loaded.');
       $openModal.modal('hide');
-    }
+    };
     reader.readAsText(selectedFile);
   });
 
+  /*$('#fileMenu').on('click', function(event) {
+    var $saveLink = $('#saveLink');
+    var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
+    var filename = file.character["Name"] + ".txt";
+    $saveLink.attr("href", url);
+    $saveLink.attr("download", filename);
+  });*/
   function saveFile() {
-    $dit = $('#saveLink');
+    var $dit = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
     var filename = file.character["Name"] + ".txt";
-    $dit.attr("href", url);
-    $dit.attr("download", filename);
 
-    /*var blob = btoa(JSON.stringify(file));
-    var reader = new FileReader();
-    reader.onload = function() {
-      console.log(reader);
-      dbx.filesUpload({ path: '/' + filename, contents: reader.result })
-        .then(function(response) {
-          setAlert('success', 'Character saved to your Dropbox.');
-          listCharacters();
-        })
-        .catch(function(error) {
-          console.error(error);
-          setAlert('danger', error.error);
-        });
-    }
-    reader.readAsText(blob);*/
+    if ( !isWebAppiOS && !isWebAppChrome ) {
+      window.open(url, '_blank');
+    };
+
+    dbx.filesSaveUrl({ path: '/' + filename, url: url })
+      .then(function(response) {
+        setAlert('success', 'Character saved to your Dropbox.');
+        listCharacters();
+      })
+      .catch(function(error) {
+        console.error(error);
+        setAlert('danger', error.error);
+      });
   };
 
   function loadFile(i) {
@@ -894,7 +897,7 @@ $(function() { // --------------------------------------------------------------
           saveCookies();
           calculateAll();
           setAlert('success', 'Character loaded.');
-        }
+        };
         reader.readAsText(blob);
       })
       .catch(function(error) {
