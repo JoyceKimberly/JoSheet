@@ -58,6 +58,11 @@ div .bg img {
   height: 100%;
 }
 
+#portraitImg img {
+  object-fit: cover;
+  overflow: hidden;
+}
+
 table {
   border-collapse: separate;
   border-spacing: 3px;
