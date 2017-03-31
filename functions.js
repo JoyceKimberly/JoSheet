@@ -58,6 +58,10 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Menu --
   // ------------------------------------------------------------------------------------
+  $('nav .navbar-brand').click(function(event) {
+    location.reload(true);
+  });
+
   $('#inputBtn').click(function(event) {
     moveEnabled = false;
     setBodyTag();
@@ -107,15 +111,6 @@ $(function() { // --------------------------------------------------------------
 
   $('#printBtn').click(function(event) {
     window.print();
-  });
-  $('#saveLink').click(function(event) {
-    saveFile();
-  });
-  $('#loadLink').click(function(event) {
-    $('#openModal').modal('show');
-  });
-  $('#portraitImg').click(function(event) {
-    $('#portraitModal').modal('show');
   });
 
   // ------------------------------------------------------------------------------------
@@ -324,19 +319,17 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------
-  /*
-    $('div.notes').on('touchstart mousedown', function(event) {
-      var $dit = $(this);
-      $dit.siblings('textarea.notes').show().focus();
-      //$dit.hide();
-    });
-    $('textarea.notes').on('focusout', function(event) {
-      var $dit = $(this);
-      $dit.siblings('div.notes').show();
-      $dit.hide();
-      tDoc.getField($dit.attr('[name]'));
-    });
-  */
+  $('div.notes').on('click', function(event) { if ( !allowCalc ) {
+    var $dit = $(this);
+    $dit.siblings('textarea.notes').show().focus();
+    $dit.hide();
+  }});
+  $('textarea.notes').on('focusout', function(event) { if ( !allowCalc ) {
+    var $dit = $(this);
+    $dit.siblings('div.notes').show();
+    $dit.hide();
+    tDoc.getField($dit.attr('[name]'));
+  }});
 
   function resetCharacter() {
     file.character = {
@@ -793,6 +786,17 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- File management --
   // ------------------------------------------------------------------------------------
+  $('#saveLink').click(function(event) {
+    event.preventDefault();
+    saveFile();
+  });
+  $('#loadLink').click(function(event) {
+    $('#openModal').modal('show');
+  });
+  $('#portraitImg').click(function(event) {
+    $('#portraitModal').modal('show');
+  });
+
   function listCharacters() {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesListFolder({ path: '' })
@@ -854,24 +858,24 @@ $(function() { // --------------------------------------------------------------
     reader.readAsText(selectedFile);
   });
 
-  /*$('#fileMenu').on('click', function(event) {
+  $('#fileMenu').on('click', function(event) {
     var $saveLink = $('#saveLink');
-    var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
+    var blob = new Blob([JSON.stringify(file)], {type : 'text/plain'});
+    var url = URL.createObjectURL(blob);
+    //var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
     var filename = file.character["Name"] + ".txt";
     $saveLink.attr("href", url);
     $saveLink.attr("download", filename);
-  });*/
+  });
   function saveFile() {
     var $dit = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
-    var filename = file.character["Name"] + ".txt";
 
     if ( !isWebAppiOS && !isWebAppChrome ) {
-      window.open(url, '_blank');
+      window.open($dit.attr('href'), '_blank');
     };
 
-    dbx.filesSaveUrl({ path: '/' + filename, url: url })
+    dbx.filesSaveUrl({ path: '/' + $dit.attr('download'), url: $dit.attr('href') })
       .then(function(response) {
         setAlert('success', 'Character saved to your Dropbox.');
         listCharacters();

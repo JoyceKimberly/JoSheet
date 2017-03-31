@@ -86,6 +86,7 @@ h6 {
   border-bottom: 1px solid #d5d7db;
 }
 
+nav .navbar-brand,
 .dropdown-menu a {
   cursor: pointer;
 }
