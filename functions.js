@@ -786,10 +786,6 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- File management --
   // ------------------------------------------------------------------------------------
-  $('#saveLink').click(function(event) {
-    event.preventDefault();
-    saveFile();
-  });
   $('#loadLink').click(function(event) {
     $('#openModal').modal('show');
   });
@@ -858,24 +854,13 @@ $(function() { // --------------------------------------------------------------
     reader.readAsText(selectedFile);
   });
 
-  $('#fileMenu').on('click', function(event) {
+  $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
-    var blob = new Blob([JSON.stringify(file)], {type : 'text/plain'});
-    var url = URL.createObjectURL(blob);
-    //var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
-    var filename = file.character["Name"] + ".txt";
-    $saveLink.attr("href", url);
-    $saveLink.attr("download", filename);
-  });
-  function saveFile() {
-    var $dit = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
+    var data = "data:text/plain;base64," + btoa(JSON.stringify(file));
+    var filename = file.character["Name"] + ".txt";
 
-    if ( !isWebAppiOS && !isWebAppChrome ) {
-      window.open($dit.attr('href'), '_blank');
-    };
-
-    dbx.filesSaveUrl({ path: '/' + $dit.attr('download'), url: $dit.attr('href') })
+    dbx.filesUpload({ path: '/' + filename, contents: data, mode: {'.tag': 'overwrite'} })
       .then(function(response) {
         setAlert('success', 'Character saved to your Dropbox.');
         listCharacters();
@@ -884,7 +869,7 @@ $(function() { // --------------------------------------------------------------
         console.error(error);
         setAlert('danger', error.error);
       });
-  };
+  });
 
   function loadFile(i) {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
