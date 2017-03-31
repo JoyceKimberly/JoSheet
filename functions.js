@@ -6,6 +6,7 @@ window.file = {
 };
 var pages = 2;
 var characterFiles = [];
+var characterThumbs = [];
 event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
@@ -125,6 +126,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   function moveListener(event) {
+    var obj = {};
     var target = event.target,
       x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
       y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -154,14 +156,14 @@ $(function() { // --------------------------------------------------------------
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
 
-    file.objects[target.id] = {
+    obj[target.id] = {
       width: target.style.width,
       height: target.style.height,
       x: x,
       y: y,
     };
-
     overflowHider($(target));
+    $.extend(true, file.objects, obj);
     saveCookies();
   };
 
@@ -283,8 +285,8 @@ $(function() { // --------------------------------------------------------------
       }
     };
     $.extend(true, file.objects, obj);
-    objectToPage(parent, newPage);
     saveCookies();
+    objectToPage(parent, newPage);
   });
 
   function objectToPage(obj, page) {
@@ -786,13 +788,6 @@ $(function() { // --------------------------------------------------------------
   // ------------------------------------------------------------------------------------
   // -- File management --
   // ------------------------------------------------------------------------------------
-  $('#loadLink').click(function(event) {
-    $('#openModal').modal('show');
-  });
-  $('#portraitImg').click(function(event) {
-    $('#portraitModal').modal('show');
-  });
-
   function listCharacters() {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesListFolder({ path: '' })
@@ -801,6 +796,7 @@ $(function() { // --------------------------------------------------------------
         //$('#saveLink').show();
         $('.loadCharacter').remove();
         $('#portraitModal .modal-body').html('');
+        characterThumbs = [];
 
         for ( var i = 0; i < characterFiles.length; i++ ) {
           if ( characterFiles[i].name.endsWith(".txt") ) {
@@ -819,6 +815,22 @@ $(function() { // --------------------------------------------------------------
             $('#portraitModal .modal-body').append('\
             <div class="thumb" data-img="' + i + '">' + characterFiles[i].name + '</div>\
             ');
+            var dbx = new Dropbox({ accessToken: getAccessToken() });
+            dbx.filesGetThumbnail({ path: characterFiles[i].path_lower, size: {'.tag': 'w64h64'} })
+              .then(function(response) {
+                var blob = response.fileBlob;
+                var reader = new FileReader();
+                reader.onload = function() {
+                  var img = new Image();
+                  img.src = reader.result;
+                  characterThumbs.push(img);
+                };
+                reader.readAsDataURL(blob);
+              })
+              .catch(function(error) {
+                console.error(error);
+                setAlert('danger', error.error);
+              });
           };
         };
 
@@ -857,7 +869,8 @@ $(function() { // --------------------------------------------------------------
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    var filename = file.character["Name"] + ".txt";
+    //var filename = file.character["Name"] + ".txt";
+    var filename = $('[name="Name"]').val() + ".txt";
 
     dbx.filesUpload({ path: '/' + filename, contents: JSON.stringify(file), mode: {'.tag': 'overwrite'} })
       .then(function(response) {
@@ -870,6 +883,9 @@ $(function() { // --------------------------------------------------------------
       });
   });
 
+  $('#loadLink').click(function(event) {
+    $('#openModal').modal('show');
+  });
   function loadFile(i) {
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesDownload({ path: characterFiles[i].path_lower })
@@ -916,7 +932,13 @@ $(function() { // --------------------------------------------------------------
     $('#authLink').show();
   };
 
-  $('#portraitModal').on('click', '#portraitModalSave', function(event) {
+  $('#portraitImg').click(function(event) {
+    $.each(characterThumbs, function(i, value) {
+      $('#portraitModal .modal-body').find('[data-img="' + i + '"]').html(value);
+    });
+    $('#portraitModal').modal('show');
+  });
+  $('.inputMode #portraitModal').on('click', '#portraitModalSave', function(event) {
     var $portraitModal = $('#portraitModal');
     $portraitModal.modal('hide');
   })

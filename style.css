@@ -62,6 +62,14 @@ div .bg img {
   object-fit: cover;
   overflow: hidden;
 }
+.thumb {
+  max-width: 64px;
+  max-height: 64px;
+}
+.thumb img {
+  object-fit: cover;
+  overflow: hidden;
+}
 
 table {
   border-collapse: separate;
@@ -108,8 +116,7 @@ nav .navbar-brand,
   padding: 5px 6px 16px;
 }
 .alert .content {
-  font-size: 0.9rem;
-  line-height: 1rem;
+  font-size: 1rem;
   width: initial;
   margin: 0;
   padding: 0;
@@ -296,8 +303,9 @@ select.display {
   font-size: 10px;
   left: 36px;
 }
+.content .featNote,
 .content .mod.lbl span {
-  color: #9D9FA2;
+  color: #9D9FA2 !important;
 }
 .content .modrow .col {
   margin-bottom: 0;
