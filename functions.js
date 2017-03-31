@@ -857,10 +857,9 @@ $(function() { // --------------------------------------------------------------
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    var data = "data:text/plain;base64," + btoa(JSON.stringify(file));
     var filename = file.character["Name"] + ".txt";
 
-    dbx.filesUpload({ path: '/' + filename, contents: data, mode: {'.tag': 'overwrite'} })
+    dbx.filesUpload({ path: '/' + filename, contents: JSON.stringify(file), mode: {'.tag': 'overwrite'} })
       .then(function(response) {
         setAlert('success', 'Character saved to your Dropbox.');
         listCharacters();
