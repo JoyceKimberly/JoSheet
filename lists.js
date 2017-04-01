@@ -237,6 +237,7 @@ setJoSpells = function() { if ( allowCalc ) {
         };
       };
       if ( isPsionic ) {
+        $('tr.lblRow td:first-child').html('PP');
         $.each(PsionicsList, function(key, value) {
           if ( ($.inArray(classes.primary, PsionicsList[key].classes) > -1 || PsionicsList[key].school === school) && PsionicsList[key].level === i ) {
             spell++;
