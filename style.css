@@ -654,7 +654,7 @@ button .fa-stack .fa-stack-2x {
   right: 0;
 }
 
-.spells {
+table.spells {
   border-collapse: collapse;
   border-spacing: 0;
   width: calc(100% - 30px);
@@ -662,60 +662,60 @@ button .fa-stack .fa-stack-2x {
   top: 160px;
   left: 15px;
 }
-.spells .spellsHeader {
+table.spells .spellsHeader {
   height: 50px;
 }
-.spells .spellsHeader .bg {
+table.spells .spellsHeader .bg {
   height: 55px;
 }
-.spells .spellsHeader .content {
+table.spells .spellsHeader .content {
   position: relative;
 }
-.spells .spellsHeader .row .col {
+table.spells .spellsHeader .row .col {
   line-height: 22px;
   top: 17px;
 }
-.spells .spellsHeader .row .col-1 {
+table.spells .spellsHeader .row .col-1 {
   font-size: 13px;
   font-weight: bold;
   text-align: center;
   flex: 0 0 3.4%;
 }
-.spells .spellsHeader .spellSlots {
+table.spells .spellsHeader .spellSlots {
   flex: 0 0 7.6%;
 }
-.spells .spellsHeader .spellSlots .custom-checkbox {
+table.spells .spellsHeader .spellSlots .custom-checkbox {
   top: 2px;
   left: 2px;
 }
-.spells .spellsHeader .spellSlots .custom-checkbox,
-.spells .spellsHeader .spellSlots .custom-checkbox * {
+table.spells .spellsHeader .spellSlots .custom-checkbox,
+table.spells .spellsHeader .spellSlots .custom-checkbox * {
   width: 12px;
   height: 12px;
 }
-.spells th {
+table.spells th {
   font-size: 7px;
   font-weight: bold;
   text-transform: uppercase;
 }
-.spells td {
+table.spells td {
   font-size: 9px;
   white-space: nowrap;
 }
-.spells thead *,
-.spells tbody * {
+table.spells thead *,
+table.spells tbody * {
   border: none;
   margin: 0 !important;
 }
-.spells thead * {
+table.spells thead * {
   padding: 0;
 }
-.spells thead .lblRow,
-.spells tbody * {
+table.spells thead .lblRow,
+table.spells tbody * {
   letter-spacing: -0.3px;
   padding: 1px;
 }
-.spells .custom-checkbox {
+table.spells .custom-checkbox {
   min-height: 10px;
   width: 10px;
   height: 10px;
@@ -795,7 +795,7 @@ div.data-list-input:active select.data-list-input {
 #hiddenFields * {
   color: white;
   background-color: transparent;
-  font-size: 12px;
+  font-size: 10px;
   display: block;
   position: static;
   margin: 0 0 0 auto;

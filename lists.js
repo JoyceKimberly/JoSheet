@@ -1,5 +1,7 @@
 window.allowCalc = false;
-tDoc.info = { SheetType : "JoSheet - a4 - printer friendly" };
+tDoc.info = {};
+tDoc.info.SheetType = "JoSheet - a4 - printer friendly";
+tDoc.info.SpellsOnly = false;
 tDoc.bookmarkRoot = {
   children : [{
     children : [],
@@ -78,6 +80,8 @@ tDoc.getField = function(field) {
   ele.buttonSetCaption = function() {};
   ele.setFocus = function() {};
   ele.clearItems = function() {};
+  ele.page = 1;
+  ele.rect = "";
 
   //console.log(ele);
   return ele;
@@ -188,6 +192,35 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 setJoSpells = function() { if ( allowCalc ) {
   var isCaster = CurrentSpells[classes.primary] !== undefined ? true : false;
   if ( isCaster ) {
+    var $spellsBlock = $('#hiddenFields')
+    for ( var i = 1; i <= 8; i++ ) {
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.name.0: </label><input name="P' + i + '.SSfront.spells.name.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.name.0: </label><input name="P' + i + '.SSmore.spells.name.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Text.header.0: </label><input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Text.header.0: </label><input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.prepare.0: </label><input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.Image.Header.Left.0: </label><input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.0: </label><input name="P' + i + '.SSfront.spellshead.class.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.0: </label><input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.1: </label><input name="P' + i + '.SSfront.spellshead.class.1" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.1: </label><input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.2: </label><input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.2: </label><input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.class.3: </label><input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSmore.spellshead.class.3: </label><input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellshead.ability.0: </label><input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Text.0: </label><input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.spellsdiv.Image.0: </label><input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text"></div>');
+      $spellsBlock.append('<div><label>P' + i + '.SSfront.Spells Button: </label><input name="P' + i + '.SSfront.Spells Button" data-subname type="text"></div>');
+      for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
+        $spellsBlock.append('<div><label>P' + i + '.SSfront.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text"></div>');
+        $spellsBlock.append('<div><label>P' + i + '.SSmore.spells.remember.' + i2 + ': </label><input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text"></div>');
+      };
+    };
+    AskUserSpellSheet();
+    GenerateSpellSheet(true);
     $('#spellsConfig').show();
     var spellCastLvl = Number(CurrentSpells[classes.primary].level);
     var spellCastAbi = CurrentSpells[classes.primary].ability - 1;
@@ -249,7 +282,7 @@ setJoSpells = function() { if ( allowCalc ) {
               };
             });
             $('#spellsBlock' + i + ' .lastRow').before('\
-              <tr id="' + spellId + '" data-parent="' + key + '" class="spellRow ' + spellShow + '">\
+              <tr id="' + spellId + '" data-name="' + key + '" data-parent="' + key + '" class="spellRow ' + spellShow + '">\
                 <td>&nbsp;</td>\
                 <td title="' + PsionicsList[key].name + '">' + (PsionicsList[key].nameShort ? PsionicsList[key].nameShort : PsionicsList[key].name) + '</td>\
                 <td title="' + PsionicsList[key].descriptionFull + '">' + PsionicsList[key].description + '</td>\
@@ -301,7 +334,7 @@ setJoSpells = function() { if ( allowCalc ) {
               });
             };
             $('#spellsBlock' + i + ' .lastRow').before('\
-              <tr id="' + spellId + '" class="' + spellShow + '">\
+              <tr id="' + spellId + '" data-name="' + key + '" class="' + spellShow + '">\
                 <td>&nbsp;</td>\
                 <td title="' + SpellsList[key].name + '">' + (SpellsList[key].nameShort ? SpellsList[key].nameShort : SpellsList[key].name) + '</td>\
                 <td title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].description + '</td>\
@@ -386,9 +419,29 @@ deletePages = function(page) {
 
 app = {};
 app.thermometer = {};
-app.thermometer.begin = function() {},
-app.thermometer.end = function() {},
-app.execDialog = function() {};
+app.thermometer.begin = function() {};
+app.thermometer.end = function() {};
+app.execDialog = function(dialog) {
+  if ( dialog.description.name === 'Set Spells' ) {
+    dialog.selectCa = [];
+    dialog.selectSp = [];
+    $.each(file.character, function(key, value) {
+      if ( key.toString().startsWith('spellsSelectC') ) {
+        var spName = $('tr#' + value).data('name');
+        if ( spName ) {
+          dialog.selectCa.push(spName);
+        };
+      } else if ( key.toString().startsWith('spellsSelectS') ) {
+        var spName = $('tr#' + value).data('name');
+        if ( spName ) {
+          dialog.selectSp.push(spName);
+        };
+      };
+    });
+  };
+  //console.log(dialog);
+  return "ok";
+};
 app.alert = function(alert) {
   //console.log(alert.cMsg);
   /*var type = "info";

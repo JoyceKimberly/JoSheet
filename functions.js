@@ -89,7 +89,11 @@ $(function() { // --------------------------------------------------------------
   });
   $('#showBtn').click(function(event) {
     //setCharacter();
-    if ( allowCalc ) { UpdateLevelFeatures("all"); };
+    if ( allowCalc ) {
+      AmendSpellsList();
+      setSpellVariables();
+      UpdateLevelFeatures("all");
+    };
     calculateAll(event);
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
@@ -750,7 +754,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   $('#calcModal').on('show.bs.modal', function(event) { if ( allowCalc ) {
-    calculateAll(event);
+    calculateAll();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -1043,7 +1047,6 @@ function isAuthenticated() {
 };
 
 function saveCookies() {
-  console.log(tDoc);
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
