@@ -925,8 +925,8 @@ $(function() { // --------------------------------------------------------------
 
   function setAuthLink() {
     var dbx = new Dropbox({ clientId: CLIENT_ID });
-    var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
-    //var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
+    //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
+    var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
     $('#saveLink').hide();
     $('#authLink').show();
@@ -1043,6 +1043,7 @@ function isAuthenticated() {
 };
 
 function saveCookies() {
+  console.log(tDoc);
   var d = new Date();
   d.setTime(d.getTime() + (14*24*60*60*1000));
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
