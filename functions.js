@@ -72,7 +72,7 @@ $(function() { // --------------------------------------------------------------
     $('#edit').removeClass('show').hide();
     $('#moveResetBtn').hide();
     $('#inputResetBtn, #calcBtn').show();
-    calculateAll(event);
+    calculateAll();
   });
   $('#moveBtn').click(function(event) {
     moveEnabled = true;
@@ -94,7 +94,7 @@ $(function() { // --------------------------------------------------------------
       setSpellVariables();
       UpdateLevelFeatures("all");
     };
-    calculateAll(event);
+    calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
