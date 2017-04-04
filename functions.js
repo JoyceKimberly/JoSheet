@@ -6,7 +6,6 @@ window.file = {
 };
 var pages = 2;
 var characterFiles = [];
-var characterThumbs = [];
 event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
@@ -817,7 +816,7 @@ $(function() { // --------------------------------------------------------------
             ');
           } else {
             $('#portraitModal .modal-body').append('\
-            <div class="thumb" data-img="' + i + '">' + characterFiles[i].name + '</div>\
+            <div class="thumb" data-img="' + characterFiles[i].path_lower + '">' + characterFiles[i].name + '</div>\
             ');
             var dbx = new Dropbox({ accessToken: getAccessToken() });
             dbx.filesGetThumbnail({ path: characterFiles[i].path_lower, size: {'.tag': 'w64h64'} })
@@ -827,7 +826,7 @@ $(function() { // --------------------------------------------------------------
                 reader.onload = function() {
                   var img = new Image();
                   img.src = reader.result;
-                  characterThumbs.push(img);
+                  $('.thumb[data-img="' + response.path_lower + '"]').html(img);
                 };
                 reader.readAsDataURL(blob);
               })
@@ -873,7 +872,6 @@ $(function() { // --------------------------------------------------------------
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
     var dbx = new Dropbox({ accessToken: getAccessToken() });
-    //var filename = file.character["Name"] + ".txt";
     var filename = $('[name="Name"]').val() + ".txt";
 
     dbx.filesUpload({ path: '/' + filename, contents: JSON.stringify(file), mode: {'.tag': 'overwrite'} })
@@ -937,19 +935,17 @@ $(function() { // --------------------------------------------------------------
   };
 
   $('#portraitImg').click(function(event) {
-    $.each(characterThumbs, function(i, value) {
-      $('#portraitModal .modal-body').find('[data-img="' + i + '"]').html(value);
-    });
-    $('#portraitModal').modal('show');
+    if ( !moveEnabled ) {
+      $('#portraitModal').modal('show');
+    };
   });
-  $('.inputMode #portraitModal').on('click', '#portraitModalSave', function(event) {
+  $('#portraitModal').on('click', '#portraitModalSave', function(event) {
     var $portraitModal = $('#portraitModal');
     $portraitModal.modal('hide');
   })
   .on('click', '.thumb', function(event) {
     var $dit = $(this);
-    var i = $dit.data('img');
-    file.character["Portrait"] = characterFiles[i].path_lower;
+    file.character["Portrait"] = $dit.data('img');
     loadPortrait(file.character["Portrait"]);
     saveCookies();
   });

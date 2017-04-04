@@ -58,17 +58,19 @@ div .bg img {
   height: 100%;
 }
 
+.thumb img,
 #portraitImg img {
   object-fit: cover;
   overflow: hidden;
 }
 .thumb {
-  max-width: 64px;
-  max-height: 64px;
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  margin: 5px;
 }
 .thumb img {
-  object-fit: cover;
-  overflow: hidden;
+  cursor: pointer;
 }
 
 table {
