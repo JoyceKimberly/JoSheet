@@ -887,7 +887,7 @@ $(function() { // --------------------------------------------------------------
           setAlert('danger', error.error);
         });
     } else {
-      console.log('npdropboxsave');
+      console.log(url);
       window.open(url, '_blank');
     };
   });
