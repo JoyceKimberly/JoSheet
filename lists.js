@@ -13,9 +13,9 @@ tDoc.getField = function(field) {
   var ele = document.getElementsByName(field)[0];
   var $ele = $(ele);
 
-  if ( field.indexOf("SSmore") !== -1 ) {
+  /*if ( field.indexOf("SSmore") !== -1 ) {
     console.log(field);
-  };
+  };*/
 
   if ( !ele ) {
     if ( field === "Highlighting" ) {
