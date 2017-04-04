@@ -6,6 +6,7 @@ window.file = {
 };
 var pages = 2;
 var characterFiles = [];
+var canDropbox = false;
 event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
@@ -19,10 +20,12 @@ $(function() { // --------------------------------------------------------------
       setAlert('warning', 'Dropbox features are currently unavailable.');
       return;
     };
+    canDropbox = true;
     $('#authLink').hide();
     listCharacters();
     //setAlert('success', 'Success! You have connected to Dropbox.');
   } else {
+    canDropbox = false;
     setAuthLink();
     $('#authLink').click(function(event) {
       event.preventDefault();
@@ -799,7 +802,6 @@ $(function() { // --------------------------------------------------------------
         //$('#saveLink').show();
         $('.loadCharacter').remove();
         $('#portraitModal .modal-body').html('');
-        characterThumbs = [];
 
         for ( var i = 0; i < characterFiles.length; i++ ) {
           if ( characterFiles[i].name.endsWith(".txt") ) {
@@ -871,18 +873,23 @@ $(function() { // --------------------------------------------------------------
 
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
-    var filename = $('[name="Name"]').val() + ".txt";
+    var filename = $('[name="Name"]').val() + " - lvl " + $('[name="Level"]').val() + " " + $('[name="Class and Levels"]').val() + ".txt";
+    var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
 
-    dbx.filesUpload({ path: '/' + filename, contents: JSON.stringify(file), mode: {'.tag': 'overwrite'} })
-      .then(function(response) {
-        setAlert('success', 'Character saved to your Dropbox.');
-        listCharacters();
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error.error);
-      });
+    if ( canDropbox ) {
+      var dbx = new Dropbox({ accessToken: getAccessToken() });
+      dbx.filesUpload({ path: '/' + filename, contents: JSON.stringify(file), mode: {'.tag': 'overwrite'} })
+        .then(function(response) {
+          setAlert('success', 'Character saved to your Dropbox.');
+          listCharacters();
+        })
+        .catch(function(error) {
+          console.error(error);
+          setAlert('danger', error.error);
+        });
+    } else {
+      window.open(url, '_blank');
+    };
   });
 
   $('#loadLink').click(function(event) {
