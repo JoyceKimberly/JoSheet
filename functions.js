@@ -903,7 +903,7 @@ $(function() { // --------------------------------------------------------------
         var blob = response.fileBlob;
         var reader = new FileReader();
         reader.onload = function() {
-          resetObjects();
+          //resetObjects();
           resetCharacter();
           $.extend(true, file, JSON.parse(reader.result));
           setObjects();

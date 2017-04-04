@@ -704,16 +704,13 @@ table.spells td {
   font-size: 9px;
   white-space: nowrap;
 }
-table.spells thead *,
-table.spells tbody * {
+table.spells * {
   border: none;
   margin: 0 !important;
-}
-table.spells thead * {
   padding: 0;
 }
-table.spells thead .lblRow,
-table.spells tbody * {
+table.spells .lblRow,
+table.spells .spellRow {
   letter-spacing: -0.3px;
   padding: 1px;
 }
