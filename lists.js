@@ -458,6 +458,9 @@ $(function() { // --------------------------------------------------------------
   var $spellsBlock = $('#hiddenFields')
   for ( var i = 1; i <= 8; i++ ) {
     $spellsBlock.append('<input name="P' + i + '.SSfront.spells.name.0" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.Spells Button" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.Text.header.0" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.Image.prepare.0" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.Image.Header.Left.0" data-subname type="text">');
@@ -466,9 +469,9 @@ $(function() { // --------------------------------------------------------------
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.class.2" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.class.3" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSfront.spellshead.ability.0" data-subname type="text">');
-    $spellsBlock.append('<input name="P' + i + '.SSfront.spellsdiv.Text.0" data-subname type="text">');
-    $spellsBlock.append('<input name="P' + i + '.SSfront.spellsdiv.Image.0" data-subname type="text">');
-    $spellsBlock.append('<input name="P' + i + '.SSfront.Spells Button" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.BlueText.spellshead.prepare.0" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.BlueText.spellshead.attack.0" data-subname type="text">');
+    $spellsBlock.append('<input name="P' + i + '.SSfront.BlueText.spellshead.dc.0" data-subname type="text">');
     for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
       $spellsBlock.append('<input name="P' + i + '.SSfront.spells.remember.' + i2 + '" data-subname type="text">');
     };
