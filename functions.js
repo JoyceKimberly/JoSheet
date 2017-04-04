@@ -16,7 +16,7 @@ $(function() { // --------------------------------------------------------------
 
   if ( !!getAccessToken() ) {
     if ( typeof Dropbox === "undefined" ) {
-      //$('#fileMenu').hide();
+      canDropbox = false;
       setAlert('warning', 'Dropbox features are currently unavailable.');
       return;
     };
@@ -799,7 +799,6 @@ $(function() { // --------------------------------------------------------------
     dbx.filesListFolder({ path: '' })
       .then(function(response) {
         characterFiles = response.entries;
-        //$('#saveLink').show();
         $('.loadCharacter').remove();
         $('#portraitModal .modal-body').html('');
 
@@ -937,7 +936,6 @@ $(function() { // --------------------------------------------------------------
     //var authUrl = dbx.getAuthenticationUrl('http://localhost/~Joyce/JoSheet/');
     var authUrl = dbx.getAuthenticationUrl('https://joycekimberly.github.io/JoSheet/');
     document.getElementById('authLink').href = authUrl;
-    $('#saveLink').hide();
     $('#authLink').show();
   };
 
