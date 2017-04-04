@@ -887,8 +887,9 @@ $(function() { // --------------------------------------------------------------
           setAlert('danger', error.error);
         });
     } else {
-      console.log(url);
-      window.open(url, '_blank');
+      $saveLink.attr("href", url);
+      $saveLink.attr("download", filename);
+      window.open($saveLink.attr('href'), '_blank');
     };
   });
 
