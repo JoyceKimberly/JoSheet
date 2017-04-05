@@ -84,7 +84,7 @@ tDoc.getField = function(field) {
   ele.buttonSetCaption = function() {};
   ele.setFocus = function() {};
   ele.clearItems = function() {};
-  ele.page = 1;
+  ele.page = 0;
   ele.rect = "";
 
   //console.log(ele);
@@ -194,7 +194,14 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 }};
 
 setJoSpells = function() { if ( allowCalc ) {
-  $('[name="Template.extras.SSfront"]').val("P1.SSfront.");
+  $('[name="Template.extras.SSfront"]').val("P8.SSfront.");
+  var captions = {
+    "atwill" : '',
+    "oncelr" : '',
+    "oncesr" : '',
+    "markedbox" : '',
+    "checkbox" : '',
+  };
   var isCaster = CurrentSpells[classes.primary] !== undefined ? true : false;
   if ( isCaster ) {
     AskUserSpellSheet();
@@ -212,50 +219,72 @@ setJoSpells = function() { if ( allowCalc ) {
     var spell = 0;
     var $configC = $('#spellsConfigLvl0');
     var $configS = $('#spellsConfigLvl1');
-    var $spellsTable1 = $('#spellsPage1 table.spells');
     $configC.html('');
     $configS.html('');
-    $spellsTable1.html('\
-    <tr>\
-      <th class="spellsHeader" colspan="11">\
-        <div class="labelBlock4 content">\
-          <div class="bg"></div>\
-          <div class="row">\
-            <div class="col col-1">0</div>\
-            <div class="col lbl lbl1">Cantrips</div>\
-          </div>\
-        </div>\
-      </th>\
-    </tr>\
-    ');
-    $('[name="Spellcasting Class"]').val(classes.primary);
+    //$('[name="Spellcasting Class"]').val(classes.primary);
     $('[name="Spellcasting Ability"]').val(AbilityScores.names[spellCastAbi]);
     $('[name="Spell Attack Bonus"]').val($('[name="' + AbilityScores.abbreviations[spellCastAbi] + ' ST Mod"]').val());
-    $('[name^="P"]').each(function(index, ele) {
-      $ele = $(ele);
-      if ( $ele.attr('name').indexOf('remember') !== -1  ) {
+    for ( var p = 1; p <= 8; p++ ) {
+      var $spellsPage = $('#spellsPage' + p);
+      $spellsPage.find('[name="Spellcasting Class"]').val($('[name="P' + p + '.SSfront.spellshead.class.0"]').val());
+      var $spellsTable = $spellsPage.find('table.spells');
+      $spellsTable.html('\
+      <tr>\
+        <th class="spellsHeader" colspan="11">\
+          <div class="labelBlock4 content">\
+            <div class="bg"></div>\
+            <div class="row">\
+              <div class="col col-1">0</div>\
+              <div class="spellSlots col col-2 center"></div>\
+              <div class="col lbl lbl1">Cantrips</div>\
+            </div>\
+          </div>\
+        </th>\
+      </tr>\
+      ');
+      $('[name^="P' + p + '"]').each(function(index, ele) {
+        $ele = $(ele);
         if ( $ele.val() ) {
           var vals = $ele.val().split("##");
           //console.log(vals);
           switch ( vals[0] ) {
 
-            case "setdivider":
-              var lvl = vals[1];
-              var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + lvl + '"]').val());
-              $spellsTable1.append('\
-              <tr id="spellsHeader' + lvl + '">\
+            case "setheader":
+              var name = vals[1];
+              $spellsTable.append('\
+              <tr id="spellsHeader' + name + '">\
                 <th class="spellsHeader" colspan="11">\
-                  <div class="labelBlock5 content">\
+                  <div class="labelBlock4 content">\
                     <div class="bg"></div>\
                     <div class="row">\
-                      <div class="col col-1">' + lvl + '</div>\
+                      <div class="col col-1">&nbsp;</div>\
                       <div class="spellSlots col col-2 center"></div>\
-                      <div class="col lbl lbl1">Level ' + lvl + '</div>\
+                      <div class="col lbl lbl1">' + name + '</div>\
                     </div>\
                   </div>\
                 </th>\
               </tr>\
               ');
+              break;
+
+            case "setdivider":
+              var lvl = vals[1];
+              var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + lvl + '"]').val());
+              $spellsTable.append('\
+              <tr id="spellsHeader' + lvl + '">\
+                <th class="spellsHeader" colspan="11">\
+                  <div class="' + (lvl == 0 ? 'labelBlock4' : 'labelBlock5') + ' content">\
+                    <div class="bg"></div>\
+                    <div class="row">\
+                      <div class="col col-1">' + lvl + '</div>\
+                      <div class="spellSlots col col-2 center"></div>\
+                      <div class="col lbl lbl1">' + (lvl == 0 ? 'Cantrips' : 'Level ' + lvl) + '</div>\
+                    </div>\
+                  </div>\
+                </th>\
+              </tr>\
+              ');
+              $('#spellsHeader' + lvl + ' .spellSlots').html('');
               if ( slots > 0 ) {
                 for ( var i = 0; i < slots; i++ ) {
                   $('#spellsHeader' + lvl + ' .spellSlots').append('\
@@ -272,7 +301,7 @@ setJoSpells = function() { if ( allowCalc ) {
             case "setcaptions":
             case "psionicsetcaptions":
               var caption = vals[1];
-              $spellsTable1.append('\
+              $spellsTable.append('\
               <tr class="lblRow">\
                 <th style="width: 13px;">' + (caption ? caption : '&nbsp;') + '</th>\
                 <th style="min-width: 80px;">Spell</th>\
@@ -291,25 +320,27 @@ setJoSpells = function() { if ( allowCalc ) {
 
             default:
               var caption = vals[1];
-              $spellsTable1.append('\
-              <tr data-name="' + vals[0] + '" class="spellRow">\
-                <td>' + (caption ? caption : '&nbsp;') + '</td>\
-                <td title="' + SpellsList[vals[0]].name + '">' + (SpellsList[vals[0]].nameShort ? SpellsList[vals[0]].nameShort : SpellsList[vals[0]].name) + '</td>\
-                <td title="' + SpellsList[vals[0]].descriptionFull + '">' + SpellsList[vals[0]].description + '</td>\
-                <td>' + (SpellsList[vals[0]].save ? SpellsList[vals[0]].save : '&mdash;') + '</td>\
-                <td>' + (SpellsList[vals[0]].school ? SpellsList[vals[0]].school : "") + '</td>\
-                <td>' + SpellsList[vals[0]].time + '</td>\
-                <td>' + SpellsList[vals[0]].range + '</td>\
-                <td title="' + SpellsList[vals[0]].compMaterial + '">' + (SpellsList[vals[0]].components ? SpellsList[vals[0]].components : "") + '</td>\
-                <td>' + SpellsList[vals[0]].duration + '</td>\
-                <td title="' + SourceList[SpellsList[vals[0]].source[0]].name + '">' + SpellsList[vals[0]].source[0] + '</td>\
-                <td class="right">' + SpellsList[vals[0]].source[1] + '</td>\
-              </tr>\
-              ');
+              if ( SpellsList[vals[0]] ) {
+                $spellsTable.append('\
+                <tr data-name="' + vals[0] + '" class="spellRow">\
+                  <td>' + (caption ? caption : '&nbsp;') + '</td>\
+                  <td title="' + SpellsList[vals[0]].name + '">' + (SpellsList[vals[0]].nameShort ? SpellsList[vals[0]].nameShort : SpellsList[vals[0]].name) + '</td>\
+                  <td title="' + SpellsList[vals[0]].descriptionFull + '">' + SpellsList[vals[0]].description + '</td>\
+                  <td>' + (SpellsList[vals[0]].save ? SpellsList[vals[0]].save : '&mdash;') + '</td>\
+                  <td>' + (SpellsList[vals[0]].school ? SpellsList[vals[0]].school : "") + '</td>\
+                  <td>' + SpellsList[vals[0]].time + '</td>\
+                  <td>' + SpellsList[vals[0]].range + '</td>\
+                  <td title="' + SpellsList[vals[0]].compMaterial + '">' + (SpellsList[vals[0]].components ? SpellsList[vals[0]].components : "") + '</td>\
+                  <td>' + SpellsList[vals[0]].duration + '</td>\
+                  <td title="' + SourceList[SpellsList[vals[0]].source[0]].name + '">' + SpellsList[vals[0]].source[0] + '</td>\
+                  <td class="right">' + SpellsList[vals[0]].source[1] + '</td>\
+                </tr>\
+                ');
+              };
           };
         };
-      };
-    });
+      });
+    };
     if ( cantrips > 0 ) {
       for ( var i = 0; i < cantrips; i++ ) {
         $configC.append('<select id="spellsSelectC' + i + '" class="custom-select form-control-sm mb-2"><option></option></select>');
