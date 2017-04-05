@@ -326,7 +326,6 @@ setJoSpells = function() { if ( allowCalc ) {
     };
     for ( var i = 0; i < 11; i++ ) {
       var slots = Number($('[name="SpellSlots.CheckboxesSet.lvl' + i + '"]').val());
-      $('#spellsBlock' + i).html('<tr class="lastRow"></tr>');
       $.each(SpellsList, function(key, value) {
         if ( $.inArray(classes.primary, SpellsList[key].classes) > -1 && SpellsList[key].level === i ) {
           spell++;
@@ -339,6 +338,14 @@ setJoSpells = function() { if ( allowCalc ) {
               for ( var i2 = 0; i2 < prepared; i2++ ) {
                 $configS.find('select#spellsSelectS' + i2).append('<option value="' + key + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + ' (lvl ' + i + ')</option>');
               };
+            } else {
+              for ( var i2 = 0; i2 < spells; i2++ ) {
+                $configS.find('select#spellsSelectS' + i2).append('<option value="' + key + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + ' (lvl ' + i + ')</option>');
+              };
+            };
+          } else if ( isPsionic ) {
+            for ( var i2 = 0; i2 < spells; i2++ ) {
+              $configS.find('select#spellsSelectS' + i2).append('<option value="' + key + '" title="' + SpellsList[key].descriptionFull + '">' + SpellsList[key].name + '</option>');
             };
           };
         };
@@ -401,6 +408,7 @@ app.thermometer.begin = function() {};
 app.thermometer.end = function() {};
 app.execDialog = function(dialog) {
   if ( dialog.description.name === "Set Spells" ) {
+    //console.log(dialog);
     dialog.selectCa = [];
     dialog.selectSp = [];
     $.each(file.character, function(key, value) {
