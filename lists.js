@@ -470,7 +470,7 @@ app.execDialog = function(dialog) {
       };
     });
   };
-  console.log(dialog);
+  //console.log(dialog);
   return "ok";
 };
 app.alert = function(alert) {

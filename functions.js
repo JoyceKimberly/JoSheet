@@ -469,7 +469,11 @@ $(function() { // --------------------------------------------------------------
   // -- Calculation --
   // ------------------------------------------------------------------------------------
   function setJoClass() { if ( allowCalc ) {
-    ApplyClasses($('input[name="Class and Levels"]').val(), $('[name="Character Level"]').val());
+    var className = $('input[name="Class and Levels"]').val().replace("(", '').replace(")", '');
+    event = Object.create(event, {
+      target: { value: {} }
+    });
+    ApplyClasses(className, $('[name="Character Level"]').val());
     $.each(AbilityScores.abbreviations, function(key, value) {
       file.character[value + ' Remember'] = $('[name="' + value + ' Remember"]').val();
     });
