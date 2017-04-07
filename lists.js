@@ -439,7 +439,6 @@ app.thermometer.begin = function() {};
 app.thermometer.end = function() {};
 app.execDialog = function(dialog) {
   if ( dialog.description.name === "Set Spells" ) {
-    //console.log(dialog);
     dialog.selectCa = [];
     dialog.selectSp = [];
     $.each(file.character, function(key, value) {
@@ -459,7 +458,7 @@ app.execDialog = function(dialog) {
       };
     });
   };
-  //console.log(dialog);
+  console.log(dialog);
   return "ok";
 };
 app.alert = function(alert) {
