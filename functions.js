@@ -957,22 +957,24 @@ $(function() { // --------------------------------------------------------------
     saveCookies();
   });
   function loadPortrait(path) {
-    var dbx = new Dropbox({ accessToken: getAccessToken() });
-    dbx.filesDownload({ path: path })
-      .then(function(response) {
-        var blob = response.fileBlob;
-        var reader = new FileReader();
-        reader.onload = function() {
-          var img = new Image();
-          img.src = reader.result;
-          $('#portraitImg').html(img);
-        };
-        reader.readAsDataURL(blob);
-      })
-      .catch(function(error) {
-        console.error(error);
-        setAlert('danger', error.error);
-      });
+    if ( canDropbox ) {
+      var dbx = new Dropbox({ accessToken: getAccessToken() });
+      dbx.filesDownload({ path: path })
+        .then(function(response) {
+          var blob = response.fileBlob;
+          var reader = new FileReader();
+          reader.onload = function() {
+            var img = new Image();
+            img.src = reader.result;
+            $('#portraitImg').html(img);
+          };
+          reader.readAsDataURL(blob);
+        })
+        .catch(function(error) {
+          console.error(error);
+          setAlert('danger', error.error);
+        });
+    };
   };
 
   // ------------------------------------------------------------------------------------
