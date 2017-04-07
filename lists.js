@@ -207,6 +207,7 @@ setJoSpells = function() { if ( allowCalc ) {
     AskUserSpellSheet();
     GenerateSpellSheet(true);
     $('#spellsConfig').show();
+    var spellsSelect = SpellSheetSelect_Dialog;
     var spellCastLvl = Number(CurrentSpells[classes.primary].level);
     var spellCastAbi = CurrentSpells[classes.primary].ability - 1;
     var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi] + " Mod"));
@@ -217,8 +218,11 @@ setJoSpells = function() { if ( allowCalc ) {
     var spells = CurrentSpells[classes.primary].known.spells[spellCastLvl];
     var prepared = spellCastLvl + spellCastAbiMod;
     var spell = 0;
+    console.log(spellsSelect);
+    var $configB = $('#spellsConfigBo');
     var $configC = $('#spellsConfigLvl0');
     var $configS = $('#spellsConfigLvl1');
+    $configB.html('');
     $configC.html('');
     $configS.html('');
     //$('[name="Spellcasting Class"]').val(classes.primary);
@@ -340,6 +344,14 @@ setJoSpells = function() { if ( allowCalc ) {
           };
         };
       });
+    };
+    if ( spellsSelect.showBo ) {
+      for ( var i = 0; i < spellsSelect.nmbrBo; i++ ) {
+        $configB.append('<select id="spellsSelectB' + i + '" class="custom-select form-control-sm mb-2"></select>');
+        $.each(spellsSelect.listBo[i], function(key, value) {
+          $configB.find('select#spellsSelectB' + i).append('<option value="' + key + '" title="' + key + '">' + key + '</option>');
+        });
+      };
     };
     if ( cantrips > 0 ) {
       for ( var i = 0; i < cantrips; i++ ) {
