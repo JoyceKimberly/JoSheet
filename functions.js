@@ -10,10 +10,6 @@ var canDropbox = false;
 event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
-  loadCookies();
-  setObjects();
-  setCharacter();
-
   if ( !!getAccessToken() ) {
     if ( typeof Dropbox === "undefined" ) {
       canDropbox = false;
@@ -32,6 +28,10 @@ $(function() { // --------------------------------------------------------------
       window.location = $(this).attr("href");
     });
   };
+
+  loadCookies();
+  setObjects();
+  setCharacter();
 
   var vw = window.innerWidth && document.documentElement.clientWidth ? Math.min(window.innerWidth,
     document.documentElement.clientWidth) : window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
