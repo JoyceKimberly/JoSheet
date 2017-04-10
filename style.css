@@ -252,7 +252,9 @@ select.display {
   margin: 0;
 }
 .outerPage .custom-checkbox .checkBall,
-.outerPage .custom-checkbox .custom-control-indicator {
+.outerPage .custom-checkbox .checkBall::after,
+.outerPage .custom-checkbox .custom-control-indicator,
+.outerPage .custom-checkbox .custom-control-indicator::after {
   width: 10px;
   height: 10px;
   border: none;
@@ -263,10 +265,15 @@ select.display {
   top: 2px;
   left: 0;
 }
+.outerPage .custom-checkbox .checkBall::after,
+.outerPage .custom-checkbox .custom-control-indicator::after {
+  top: -6px;
+}
 .outerPage .custom-checkbox .custom-control-indicator {
   display: none;
 }
-.outerPage .custom-checkbox .custom-control-input:checked~.custom-control-indicator {
+.outerPage .custom-checkbox .custom-control-input:checked~.custom-control-indicator,
+.outerPage .custom-checkbox .custom-control-input:checked~.custom-control-indicator::after {
   border: none;
   background: none;
   content: url('img/CheckBox2.svg');
