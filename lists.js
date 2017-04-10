@@ -218,7 +218,7 @@ setJoSpells = function() { if ( allowCalc ) {
     var spells = CurrentSpells[classes.primary].known.spells[spellCastLvl];
     var prepared = spellCastLvl + spellCastAbiMod;
     var spell = 0;
-    console.log(spellsSelect);
+    //console.log(spellsSelect);
     var $configB = $('#spellsConfigBo');
     var $configC = $('#spellsConfigLvl0');
     var $configS = $('#spellsConfigLvl1');
