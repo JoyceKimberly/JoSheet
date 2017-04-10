@@ -196,7 +196,7 @@ setJoAbilityScores = function() { if ( allowCalc ) {
 setJoSpells = function() { if ( allowCalc ) {
   $('[name="Template.extras.SSfront"]').val("P8.SSfront.");
   var captions = {
-    "atwill" : '',
+    "atwill" : '<img src="img/atwill.svg">',
     "oncelr" : '',
     "oncesr" : '',
     "markedbox" : '',
@@ -327,7 +327,7 @@ setJoSpells = function() { if ( allowCalc ) {
               if ( SpellsList[vals[0]] ) {
                 $spellsTable.append('\
                 <tr data-name="' + vals[0] + '" class="spellRow">\
-                  <td>' + (caption ? caption : '&nbsp;') + '</td>\
+                  <td>' + (caption ? captions[caption] : '&nbsp;') + '</td>\
                   <td title="' + SpellsList[vals[0]].name + '">' + (SpellsList[vals[0]].nameShort ? SpellsList[vals[0]].nameShort : SpellsList[vals[0]].name) + '</td>\
                   <td title="' + SpellsList[vals[0]].descriptionFull + '">' + SpellsList[vals[0]].description + '</td>\
                   <td>' + (SpellsList[vals[0]].save ? SpellsList[vals[0]].save : '&mdash;') + '</td>\
