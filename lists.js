@@ -208,6 +208,7 @@ setJoSpells = function() { if ( allowCalc ) {
     GenerateSpellSheet(true);
     $('#spellsConfig').show();
     var spellsSelect = SpellSheetSelect_Dialog;
+    var spellsPrep = SpellsPrepared_Dialog;
     var spellCastLvl = Number(CurrentSpells[classes.primary].level);
     var spellCastAbi = CurrentSpells[classes.primary].ability - 1;
     var spellCastAbiMod = Number(What(AbilityScores.abbreviations[spellCastAbi] + " Mod"));
@@ -353,8 +354,8 @@ setJoSpells = function() { if ( allowCalc ) {
         });
       };
     };
-    if ( cantrips > 0 ) {
-      for ( var i = 0; i < cantrips; i++ ) {
+    if ( spellsSelect.showCa ) {
+      for ( var i = 0; i < spellsSelect.nmbrCa; i++ ) {
         $configC.append('<select id="spellsSelectC' + i + '" class="custom-select form-control-sm mb-2"><option></option></select>');
       };
     };
@@ -395,37 +396,6 @@ setJoSpells = function() { if ( allowCalc ) {
       });
     };
   };
-}};
-
-AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
-  var useful = 0;
-  var tooltipString = Input;
-  if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
-    for (var key in DamageTypes) {
-      if (Input.toLowerCase().indexOf(key) !== -1) {
-        useful = DamageTypes[key].index;
-        tooltipString = key.capitalize();
-        break;
-      }
-    }
-  };
-  var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
-  var doReplace = false;
-  for (var n = 1; n <= 2; n++) {
-    for (var k = 1; k < 7; k++) {
-      var next = tDoc.getField("Resistance Damage Type " + k);
-      if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
-        k = 7;
-        n = 3;
-      } else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
-        doReplace = true;
-      } else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
-        PickDropdown("Resistance Damage Type " + k, useful);
-        if (!doReplace) next.userName = tempString;
-        k = 7;
-      }
-    }
-  }
 }};
 
 Hide = function() {};
@@ -486,6 +456,37 @@ app.alert = function(alert) {
     $($alert).alert('close');
   }, (5 * 1000));*/
 };
+
+AddResistance = function(Input, tooltiptext, replaceThis) { if ( allowCalc ) {
+  var useful = 0;
+  var tooltipString = Input;
+  if (isNaN(Input) && Input.search(/\(.+\)/) === -1) {
+    for (var key in DamageTypes) {
+      if (Input.toLowerCase().indexOf(key) !== -1) {
+        useful = DamageTypes[key].index;
+        tooltipString = key.capitalize();
+        break;
+      }
+    }
+  };
+  var tempString = tooltiptext !== undefined ? "The resistance to \"" + tooltipString + "\" was gained from " + tooltiptext + "." : "";
+  var doReplace = false;
+  for (var n = 1; n <= 2; n++) {
+    for (var k = 1; k < 7; k++) {
+      var next = tDoc.getField("Resistance Damage Type " + k);
+      if (n === 1 && ((useful && next.currentValueIndices === useful) || (!useful && next.value.toLowerCase().indexOf(Input.toLowerCase()) !== -1))) {
+        k = 7;
+        n = 3;
+      } else if (n === 1 && replaceThis && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) {
+        doReplace = true;
+      } else if (n === 2 && ((doReplace && next.value.toLowerCase().indexOf(replaceThis.toLowerCase()) !== -1) || (!doReplace && clean(next.value) === ""))) {
+        PickDropdown("Resistance Damage Type " + k, useful);
+        if (!doReplace) next.userName = tempString;
+        k = 7;
+      }
+    }
+  }
+}};
 
 $(function() { // -----------------------------------------------------------------------
   if ( AbilityScores != null ) {
