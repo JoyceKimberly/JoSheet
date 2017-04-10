@@ -529,11 +529,11 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoRace() { if ( allowCalc ) {
-    $ele = $('input[name="Race"]');
+    var raceName = $('input[name="Race"]').val().replace("(", '').replace(")", '');
     event = Object.create(event, {
       target: { value: {} }
     });
-    ApplyRace($ele.val());
+    ApplyRace(raceName);
     MakeRaceMenu();
   }};
 
