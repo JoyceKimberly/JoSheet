@@ -18,10 +18,10 @@ a {
 .center { text-align: center; }
 .right { text-align: right; }
 select.right {
-    direction: rtl;
+  direction: rtl;
 }
 option {
-    direction: ltr;
+  direction: ltr;
 }
 .cap {
   text-transform: capitalize;
@@ -307,7 +307,7 @@ select.display {
 .content .mod.display {
   display: none;
 }
-.content .mod.underline {}
+.content .mod.underline,
 .content .mod.lbl {
   font-size: 10px;
   left: 36px;
