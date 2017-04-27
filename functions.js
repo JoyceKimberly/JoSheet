@@ -758,7 +758,7 @@ $(function() { // --------------------------------------------------------------
   });
 
   $('#calcModal').on('show.bs.modal', function(event) { if ( allowCalc ) {
-    calculateAll();
+    //calculateAll();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -784,7 +784,8 @@ $(function() { // --------------------------------------------------------------
       Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
       $('[name="' + value + ' Remember"]').trigger('change');
     });
-    calculateAll();
+    //calculateAll();
+    setJoAbilityScores();
     saveCookies();
     $progressBar.hide();
     $dit.removeClass('btn-primary').addClass('btn-success');
