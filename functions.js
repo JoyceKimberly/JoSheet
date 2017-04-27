@@ -74,7 +74,6 @@ $(function() { // --------------------------------------------------------------
     $('#edit').removeClass('show').hide();
     $('#moveResetBtn').hide();
     $('#inputResetBtn, #calcBtn').show();
-    calculateAll();
   });
   $('#moveBtn').click(function(event) {
     moveEnabled = true;
@@ -90,7 +89,6 @@ $(function() { // --------------------------------------------------------------
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function(event) {
-    //setCharacter();
     if ( allowCalc ) {
       AmendSpellsList();
       setSpellVariables();
