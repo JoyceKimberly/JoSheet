@@ -304,10 +304,12 @@ select.display {
   top: 0;
   left: 14px;
 }
+.content .mod.underline {
+  font-size: 10px;
+}
 .content .mod.display {
   display: none;
 }
-.content .mod.underline,
 .content .mod.lbl {
   font-size: 10px;
   left: 36px;
