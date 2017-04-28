@@ -446,6 +446,9 @@ $(function() { // --------------------------------------------------------------
     } else if ( $ele.val() === "" ) {
       delete file.character[key];
 
+    } else if ( key.endsWith(" Remember") ) {
+      character[key] = $ele.val();
+
     } else {
       character[key] = encodeURIComponent($ele.val());
     };
@@ -528,10 +531,26 @@ $(function() { // --------------------------------------------------------------
 
   function setJoRace() { if ( allowCalc ) {
     var raceName = $('input[name="Race"]').val().replace("(", '').replace(")", '');
+    var raceArray = {};
+    var raceVals = false;
+    for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
+      var AbiI = (i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i]);
+      var tempArray = What(AbiI + " Remember").split(",");
+      raceArray[AbiI + " Remember"] = $('[name="' + AbiI + ' Remember"]').val();
+      if (tempArray[1] !== 0) { 
+        raceVals = true;
+      };
+    };
     event = Object.create(event, {
       target: { value: {} }
     });
     ApplyRace(raceName);
+    if ( raceVals ) { 
+      for ( var i = 0; i <= AbilityScores.abbreviations.length; i++ ) {
+        var AbiI = (i === AbilityScores.abbreviations.length ? "HoS" : AbilityScores.abbreviations[i]);
+        $('[name="' + AbiI + ' Remember"]').val(raceArray[AbiI + " Remember"]);
+      };
+    };
     MakeRaceMenu();
   }};
 
