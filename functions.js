@@ -322,6 +322,13 @@ $(function() { // --------------------------------------------------------------
     });
   };
 
+  $('select.data-list-input').change(function(event) {
+    $(this).siblings('input.data-list-input').val($(this).val());
+  });
+  $('input.data-list-input').change(function(event) {
+    $(this).siblings('select.data-list-input').val('');
+  });
+
   // ------------------------------------------------------------------------------------
   // -- Fields --
   // ------------------------------------------------------------------------------------

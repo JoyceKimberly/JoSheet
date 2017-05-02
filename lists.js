@@ -62,9 +62,9 @@ tDoc.getField = function(field) {
         $ele.append('<option value="' + val + '">' + val + '</option>');
       });
     } else {
-      $ele.autocomplete({
+      /*$ele.autocomplete({
         source: value
-      });
+      });*/
     };
   };
   ele.setAction = function(type, value) {
