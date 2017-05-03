@@ -751,12 +751,13 @@ $(function() { // --------------------------------------------------------------
       var $ele = $(value);
       var key = $ele.attr('name');
       var tooltip = $ele.attr('title') ? $ele.attr('title').split(" was gained from ") : "";
+      tooltip = tooltip[1] ? tooltip[1].slice(0, -1) : "";
 
       if (key.startsWith("Language ") && file.character[key] != null) {
-        AddLanguage(file.character[key], tooltip[1].slice(0, -1), $ele.val());
+        AddLanguage(file.character[key], tooltip, $ele.val());
 
       } else if (key.startsWith("Tool ") && file.character[key] != null) {
-        AddTool(file.character[key], tooltip[1].slice(0, -1), $ele.val());
+        AddTool(file.character[key], tooltip, $ele.val());
 
       };
     });
