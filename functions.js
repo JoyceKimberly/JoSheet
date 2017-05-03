@@ -405,6 +405,8 @@ $(function() { // --------------------------------------------------------------
     } else if ( key === "Level" ) {
       calculateAll();
       setJoLevel();
+    } else if ( key === "Total Experience" ) {
+      setJoXPNextLvl()
     } else if ( key === "Proficiency Bonus" ) {
       setJoProfBonus();
     } else if ( key === "AC" ) {
@@ -608,6 +610,17 @@ $(function() { // --------------------------------------------------------------
     $('[name="Character Level"]').val(parseInt($('[name="Level"]').val())).trigger('change');
   }};
 
+  function setJoXPNextLvl() { if ( allowCalc ) {
+    var $ele = $('input[name="Next Level"]');
+    event = Object.create(event, {
+      target: { value: $ele.get(0) }
+    });
+    CalcXPnextlvl();
+    if ( event.value ) {
+      $ele.val(event.value);
+    };
+  }};
+
   function setJoProfBonus() { if ( allowCalc ) {
     var $ele = $('input[name="Proficiency Bonus"]');
     event = Object.create(event, {
@@ -745,6 +758,7 @@ $(function() { // --------------------------------------------------------------
     setJoLevel();
     LoadLevelsonStartup();
     CalcExperienceLevel();
+    setJoXPNextLvl();
     setJoAbilityScores();
     setJoProfBonus();
     $('.attr').each(function(i, value) {
