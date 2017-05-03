@@ -744,13 +744,14 @@ $(function() { // --------------------------------------------------------------
     setJoClass();
     setJoLevel();
     LoadLevelsonStartup();
+    CalcExperienceLevel();
     setJoAbilityScores();
     setJoProfBonus();
     $('.attr').each(function(i, value) {
       setJoAttrMod($(value));
     });
-    ApplyArmor($('[name="AC Armor Description"]').val());
-    ApplyShield($('[name="AC Shield Bonus Description"]').val());
+    ApplyArmor($('input[name="AC Armor Description"]').val());
+    ApplyShield($('input[name="AC Shield Bonus Description"]').val());
     setJoAcDex();
     setJoHp();
     $('.save').each(function(i, value) {

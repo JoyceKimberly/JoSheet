@@ -440,6 +440,9 @@ app.execDialog = function(dialog) {
       };
     });
   };
+  if ( dialog.description.name === "Experience_Dialog" ) {
+    console.log(dialog);
+  };
   //console.log(dialog);
   return "ok";
 };
