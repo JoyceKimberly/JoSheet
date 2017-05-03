@@ -605,13 +605,13 @@ $(function() { // --------------------------------------------------------------
   }};
 
   function setJoXPNextLvl() { if ( allowCalc ) {
-    var $ele = $('input[name="Next Level"]');
+    var $ele = $('[name="Next Level"]');
     event = Object.create(event, {
       target: { value: $ele.get(0) }
     });
     CalcXPnextlvl();
     if ( event.value ) {
-      $ele.val(event.value);
+      $ele.html(event.value);
     };
   }};
 
