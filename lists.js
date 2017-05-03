@@ -62,6 +62,7 @@ tDoc.getField = function(field) {
         $ele.append('<option value="' + val + '">' + val + '</option>');
       });
     } else {
+      console.log(value);
       /*$ele.autocomplete({
         source: value
       });*/

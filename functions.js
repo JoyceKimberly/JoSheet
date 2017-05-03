@@ -45,7 +45,7 @@ $(function() { // --------------------------------------------------------------
 
   //setAlert('info', 'Move all... the... things!');
   //$('.page input').prop('disabled', true);
-  $('#hiddenFields input, #hiddenFields select').wrap("<div></div>").before(function() {
+  $('#hiddenFields input, #hiddenFields select, #hiddenFields textarea').wrap("<div></div>").before(function() {
     return "<label>" + $(this).attr("name") + ": </label>";
   });
 
@@ -352,6 +352,10 @@ $(function() { // --------------------------------------------------------------
         $ele.val('');
       };
     });
+    $('div.display').each(function(index, value) {
+      var $ele = $(value);
+      $ele.html('');
+    });
     $('input[type=checkbox]').prop('checked', false);
   };
 
@@ -370,6 +374,12 @@ $(function() { // --------------------------------------------------------------
         } else if ( $ele.is('input[type=checkbox]') ) {
           $ele.prop('checked', file.character[key]);
 
+        } else if (key.startsWith("Language ")) {
+          //console.log(file.character[key]);
+
+        } else if (key.startsWith("Tool ")) {
+          //console.log(file.character[key]);
+
         } else {
           $ele.val(decodeURIComponent(file.character[key]));
         };
@@ -387,7 +397,7 @@ $(function() { // --------------------------------------------------------------
     };
   };
 
-  $('body').on('change focusout', '[name]', function(event) {
+  $('body').on('change', '[name]', function(event) {
     var $ele = $(this);
     var character = {};
     var key = $ele.attr('name');
@@ -736,6 +746,22 @@ $(function() { // --------------------------------------------------------------
     });
   }};
 
+  function setJoLangTools() { if ( allowCalc ) {
+    $('[name]').each(function(index, value) {
+      var $ele = $(value);
+      var key = $ele.attr('name');
+      var tooltip = $ele.attr('title') ? $ele.attr('title').split(" was gained from ") : "";
+
+      if (key.startsWith("Language ") && file.character[key] != null) {
+        AddLanguage(file.character[key], tooltip[1].slice(0, -1), $ele.val());
+
+      } else if (key.startsWith("Tool ") && file.character[key] != null) {
+        AddTool(file.character[key], tooltip[1].slice(0, -1), $ele.val());
+
+      };
+    });
+  }};
+
   calculateNow = function(event, value) { if ( allowCalc ) {
     if ( event === "AC Armor Bonus" ) {
       setJoAc();
@@ -785,6 +811,7 @@ $(function() { // --------------------------------------------------------------
       setJoAttack($(value));
     });
     UpdateTooltips();
+    setJoLangTools();
     //SetRichTextFields();
     //console.log(classes);
   }};
@@ -795,7 +822,6 @@ $(function() { // --------------------------------------------------------------
   });
 
   $('#calcModal').on('show.bs.modal', function(event) { if ( allowCalc ) {
-    //calculateAll();
     $.each(AbilityScores.abbreviations, function(key, value) {
       var scores = $('[name="' + value + ' Remember"]').val().split(",");
       $("#base" + value).val(scores[0]);
@@ -821,7 +847,6 @@ $(function() { // --------------------------------------------------------------
       Value(value + " Remember", Number($("#base" + value).val()) + "," + Number($("#race" + value).val()) + "," + Number($("#extra" + value).val()) + ",0," + Number($("#magic" + value).val()) + "," + Number($("#feat" + value).val()));
       $('[name="' + value + ' Remember"]').trigger('change');
     });
-    //calculateAll();
     setJoAbilityScores();
     saveCookies();
     $progressBar.hide();
@@ -892,24 +917,6 @@ $(function() { // --------------------------------------------------------------
       });
   };
 
-  $('#openModal').on('click', '#openModalSave', function(event) {
-    var $openModal = $('#openModal');
-    var selectedFile = document.getElementById('openFileInput').files[0];
-    var reader = new FileReader();
-    reader.onload = function() {
-      resetObjects();
-      resetCharacter();
-      $.extend(true, file, JSON.parse(reader.result));
-      setObjects();
-      setCharacter();
-      saveCookies();
-      calculateAll();
-      setAlert('success', 'Character loaded.');
-      $openModal.modal('hide');
-    };
-    reader.readAsText(selectedFile);
-  });
-
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
     var filename = $('[name="Name"]').val() + " - lvl " + $('[name="Level"]').val() + " " + $('input[name="Class and Levels"]').val() + ".txt";
@@ -933,18 +940,34 @@ $(function() { // --------------------------------------------------------------
     };
   });
 
+  $('#openModal').on('click', '#openModalSave', function(event) {
+    resetCharacter();
+    var $openModal = $('#openModal');
+    var selectedFile = document.getElementById('openFileInput').files[0];
+    var reader = new FileReader();
+    reader.onload = function() {
+      $.extend(true, file, JSON.parse(reader.result));
+      setObjects();
+      setCharacter();
+      saveCookies();
+      calculateAll();
+      setAlert('success', 'Character loaded.');
+      $openModal.modal('hide');
+    };
+    reader.readAsText(selectedFile);
+  });
+
   $('#loadLink').click(function(event) {
     $('#openModal').modal('show');
   });
   function loadFile(i) {
+    resetCharacter();
     var dbx = new Dropbox({ accessToken: getAccessToken() });
     dbx.filesDownload({ path: characterFiles[i].path_lower })
       .then(function(response) {
         var blob = response.fileBlob;
         var reader = new FileReader();
         reader.onload = function() {
-          //resetObjects();
-          resetCharacter();
           $.extend(true, file, JSON.parse(reader.result));
           setObjects();
           setCharacter();

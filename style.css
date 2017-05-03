@@ -815,7 +815,8 @@ div.data-list-input:active select.data-list-input {
   display: inline-block;
 }
 #hiddenFields div select,
-#hiddenFields div input {
+#hiddenFields div input,
+#hiddenFields div textarea {
   font-weight: bold;
   width: 100%;
   margin-bottom: 5px;
