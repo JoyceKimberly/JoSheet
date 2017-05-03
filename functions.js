@@ -89,12 +89,6 @@ $(function() { // --------------------------------------------------------------
     $('#showBtn, .custom-checkbox .checkBall').show();
   });
   $('#showBtn').click(function(event) {
-    if ( allowCalc ) {
-      AmendSpellsList();
-      setSpellVariables();
-      UpdateLevelFeatures("all");
-    };
-    calculateAll();
     $('#showBtn, .custom-checkbox .checkBall').hide();
     $('#hideBtn, .display, .custom-checkbox .custom-control-indicator').show();
   });
@@ -774,9 +768,6 @@ $(function() { // --------------------------------------------------------------
     $('.skill').each(function(i, value) {
       setJoSkill($(value));
     });
-    $('.attack').each(function(i, value) {
-      setJoAttack($(value));
-    });
     $('.hitDie').each(function(i, value) {
       setJoHitDie($(value));
     });
@@ -788,6 +779,9 @@ $(function() { // --------------------------------------------------------------
     setJoSpells();
     setJoSpellSave();
     ApplyProficiencies(true);
+    $('.attack').each(function(i, value) {
+      setJoAttack($(value));
+    });
     UpdateTooltips();
     //SetRichTextFields();
     //console.log(classes);
@@ -1066,6 +1060,11 @@ $(function() { // --------------------------------------------------------------
       $($alert).alert('close');
     }, (10 * 1000));
   };
+
+  AmendSpellsList();
+  setSpellVariables();
+  UpdateLevelFeatures("all");
+  calculateAll();
 
 }); // ----------------------------------------------------------------------------------
 var CLIENT_ID = 'ztucdd8z8fjuh08';
