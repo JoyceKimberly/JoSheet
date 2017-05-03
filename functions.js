@@ -1,12 +1,13 @@
-var cWidth = 745;
-var moveEnabled = true;
 window.file = {
   objects   : {},
   character : {},
+  settings : {},
 };
-var pages = 2;
+file.settings.pages = 2;
+file.settings.moveEnabled = true;
 var characterFiles = [];
 var canDropbox = false;
+var cWidth = 745;
 event = new CustomEvent("event");
 
 $(function() { // -----------------------------------------------------------------------
@@ -50,13 +51,12 @@ $(function() { // --------------------------------------------------------------
 
   function setBodyTag() {
     var body = $('body');
-    if ( moveEnabled === true ) {
+    if ( file.settings.moveEnabled === true ) {
       body.removeClass('inputMode').addClass('moveMode');
     } else {
       body.removeClass('moveMode').addClass('inputMode');
     };
   };
-  setBodyTag();
 
   // ------------------------------------------------------------------------------------
   // -- Menu --
@@ -66,7 +66,8 @@ $(function() { // --------------------------------------------------------------
   });
 
   $('#inputBtn').click(function(event) {
-    moveEnabled = false;
+    file.settings.moveEnabled = false;
+    saveCookies();
     setBodyTag();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#moveBtn').removeClass('btn-info active').addClass('btn-secondary');
@@ -76,7 +77,8 @@ $(function() { // --------------------------------------------------------------
     $('#inputResetBtn, #calcBtn').show();
   });
   $('#moveBtn').click(function(event) {
-    moveEnabled = true;
+    file.settings.moveEnabled = true;
+    saveCookies();
     setBodyTag();
     $(this).addClass('btn-info active').removeClass('btn-secondary');
     $('#inputBtn').removeClass('btn-info active').addClass('btn-secondary');
@@ -116,7 +118,7 @@ $(function() { // --------------------------------------------------------------
   // -- Objects --
   // ------------------------------------------------------------------------------------
   $('.outerPage').on('touchstart mousedown', function(event) {
-    if ( moveEnabled === true ) {
+    if ( file.settings.moveEnabled === true ) {
       $(this).addClass("grid");
     };
   }).on('touchend mouseup', function(event) {
@@ -248,7 +250,7 @@ $(function() { // --------------------------------------------------------------
   };
 
   $('.draggable, .resizable').on('touchstart mouseenter', function(event) {
-    if ( moveEnabled ) {
+    if ( file.settings.moveEnabled ) {
       var dit = $(this);
       var pos = dit.offset();
       var oldPage = dit.parents('.outerPage').attr('data-page');
@@ -258,7 +260,7 @@ $(function() { // --------------------------------------------------------------
       edit.show();
       edit.offset({ top: pos.top, left: pos.left });
       menu.html('<h6 class="dropdown-header">Move block to</h6>');
-      for ( var i = 0; i < pages; i++ ) {
+      for ( var i = 0; i < file.settings.pages; i++ ) {
         if ( (i+1) != oldPage ) {
           menu.append('<a class="pageBtn dropdown-item" data-source="' + dit.attr('id') + '" data-toPage="' + (i+1) + '">Page ' + (i+1) + '</a>');
         };
@@ -397,8 +399,8 @@ $(function() { // --------------------------------------------------------------
     } else if ( key === "Background" ) {
       setJoBackground();
     } else if ( key === "Level" ) {
-      calculateAll();
       setJoLevel();
+      location.reload(true);
     } else if ( key === "Total Experience" ) {
       setJoXPNextLvl()
     } else if ( key === "Proficiency Bonus" ) {
@@ -910,7 +912,7 @@ $(function() { // --------------------------------------------------------------
 
   $('#saveLink').click(function(event) {
     var $saveLink = $('#saveLink');
-    var filename = $('[name="Name"]').val() + " - lvl " + $('[name="Level"]').val() + " " + $('[name="Class and Levels"]').val() + ".txt";
+    var filename = $('[name="Name"]').val() + " - lvl " + $('[name="Level"]').val() + " " + $('input[name="Class and Levels"]').val() + ".txt";
     var url = "data:text/plain;base64," + btoa(JSON.stringify(file));
 
     if ( canDropbox ) {
@@ -980,7 +982,7 @@ $(function() { // --------------------------------------------------------------
   };
 
   $('#portraitImg').click(function(event) {
-    if ( !moveEnabled ) {
+    if ( !file.settings.moveEnabled ) {
       $('#portraitModal').modal('show');
     };
   });
@@ -1047,6 +1049,17 @@ $(function() { // --------------------------------------------------------------
     } else {
       resetCharacter();
     };
+
+    if ( !!getCookie("settings") ) {
+      var settings = {};
+      try {
+        settings = JSON.parse(getCookie("settings"));
+      } catch(error) {
+        console.error(error);
+        deleteCookie("settings");
+      };
+      $.extend(true, file.settings, settings);
+    };
   };
 
   function setAlert(type, msg) {
@@ -1065,6 +1078,10 @@ $(function() { // --------------------------------------------------------------
   setSpellVariables();
   UpdateLevelFeatures("all");
   calculateAll();
+
+  if ( file.settings.moveEnabled === false ) {
+    $('#inputBtn').trigger('click');
+  };
 
 }); // ----------------------------------------------------------------------------------
 var CLIENT_ID = 'ztucdd8z8fjuh08';
@@ -1099,6 +1116,7 @@ function saveCookies() {
   d.setTime(d.getTime() + (14*24*60*60*1000));
   document.cookie = "objects=" + JSON.stringify(file.objects) + "; expires=" + d.toUTCString() + "; path=/";
   document.cookie = "character=" + JSON.stringify(file.character) + "; expires=" + d.toUTCString() + "; path=/";
+  document.cookie = "settings=" + JSON.stringify(file.settings) + "; expires=" + d.toUTCString() + "; path=/";
 };
 
 function getCookie(cname) {

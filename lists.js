@@ -476,11 +476,19 @@ $(function() { // --------------------------------------------------------------
       $('.dmgDrop').append('<option value="' + key + '">' + key + '</option>');
     });
 
+    $('select[name="Class and Levels"]').html('<option></option>');
+    $.each(ClassList, function(key, obj) {
+      $('select[name="Class and Levels"]').append('<option value="' + obj.name + '">' + obj.name + '</option>');
+      $.each((obj.subclasses[1] ? obj.subclasses[1] : obj.subclasses), function(index, value) {
+        $('select[name="Class and Levels"]').append('<option value="' + obj.name + " (" + ClassSubList[value].subname + ")" + '">' + obj.name + " (" + ClassSubList[value].subname + ")" + '</option>');
+      });
+    });
+
     for ( var i = 0; i < levels.length; i++ ) {
       if ( i === 0 ) {
-        $('[name="Level"]').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
+        $('select[name="Level"]').append('<option value="' + levels[i] + '" selected>' + levels[i] + '</option>');
       } else {
-        $('[name="Level"]').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
+        $('select[name="Level"]').append('<option value="' + levels[i] + '">' + levels[i] + '</option>');
       };
     };
     UpdateDropdown();
@@ -508,14 +516,7 @@ $(function() { // --------------------------------------------------------------
     };
   };
   for ( var i = 1; i <= 8; i++ ) {
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spells.name.0" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.Text.header.0" data-subname type="text">');
     $spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.Image.prepare.0" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.Image.Header.Left.0" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.class.0" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.class.1" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.class.2" data-subname type="text">');
-    //$spellsBlock.append('<input name="P' + i + '.SSmore.spellshead.class.3" data-subname type="text">');
     for ( var i2 = 0; i2 <= FieldNumbers.spells[1]; i2++ ) {
       $spellsBlock.append('<input name="P' + i + '.SSmore.spells.remember.' + i2 + '" data-subname type="text">');
     };

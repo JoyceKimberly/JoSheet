@@ -390,6 +390,7 @@ select.display {
 .content input {
   font-size: 11px;
   line-height: 16px;
+  overflow: hidden;
 }
 .content .atk {
   margin: 2px 0 9px;
